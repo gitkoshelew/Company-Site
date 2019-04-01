@@ -6,10 +6,41 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const fs = require('fs');
 
 // Files
-const utils = require('./utils');
-const plugins = require('../postcss.config');
+// pug utils
+// const utils = require('./utils');
+
+//const plugins = require('../postcss.config');
+
+function generateHtmlPlugins(templateDir, env) {
+  const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+  console.log("====", templateFiles, "dir", __dirname, templateDir)
+  return templateFiles.map(item => {
+    const parts = item.split('.');
+    const name = parts[0];
+    const extension = parts[1];
+    console.log("++++++++++", name,extension,parts,templateDir)
+
+    const options = {
+      filename: `${name}.html`,
+      template: path.resolve(`${templateDir}/${name}.${extension}`),
+      inject: false
+    };
+    console.log("!!!", options)
+
+    if (env === 'development') {
+      options.minify = {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      };
+    }
+
+    return new HtmlWebpackPlugin(options);
+  });
+}
 
 // Configuration
 module.exports = env => {
@@ -87,13 +118,18 @@ module.exports = env => {
           ]
         },
         {
-          test: /\.pug$/,
-          use: [
-            {
-              loader: 'pug-loader'
-            }
-          ]
+          test: /\.html$/,
+          include: path.resolve(__dirname, '../src/html/includes'),
+          use: ['raw-loader']
         },
+        // {
+        //   test: /\.pug$/,
+        //   use: [
+        //     {
+        //       loader: 'pug-loader'
+        //     }
+        //   ]
+        // },
         {
           test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
           loader: 'url-loader',
@@ -145,22 +181,24 @@ module.exports = env => {
     },
 
     plugins: [
-      new CopyWebpackPlugin([
-        { from: '../manifest.json', to: 'manifest.json' },
-        { from: '../browserconfig.xml', to: 'browserconfig.xml' },
-        {
-          from: 'assets/images/favicons/android-chrome-192x192.png',
-          to: 'assets/images/android-chrome-192x192.png'
-        },
-        {
-          from: 'assets/images/favicons/android-chrome-256x256.png',
-          to: 'assets/images/android-chrome-256x256.png'
-        },
-        {
-          from: 'assets/images/favicons/mstile-150x150.png',
-          to: 'assets/images/mstile-150x150.png'
-        }
-      ]),
+      new CopyWebpackPlugin(
+        [
+          { from: '../manifest.json', to: 'manifest.json' },
+          { from: '../browserconfig.xml', to: 'browserconfig.xml' },
+          {
+            from: 'assets/images/favicons/android-chrome-192x192.png',
+            to: 'assets/images/android-chrome-192x192.png'
+          },
+          {
+            from: 'assets/images/favicons/android-chrome-256x256.png',
+            to: 'assets/images/android-chrome-256x256.png'
+          },
+          {
+            from: 'assets/images/favicons/mstile-150x150.png',
+            to: 'assets/images/mstile-150x150.png'
+          }
+        ].concat(generateHtmlPlugins('../src/html/views', env))
+      ),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[name].[hash:7].bundle.css',
         chunkFilename: '[id].css'
@@ -170,15 +208,16 @@ module.exports = env => {
         Pages
       */
 
-      // // Desktop page
-      new HtmlWebpackPlugin({
-        filename: 'index.html',
-        template: 'views/index.pug',
-        inject: true
-      }),
+      // Pug options
 
-      ...utils.pages(env),
-      ...utils.pages(env, 'blog'),
+      // new HtmlWebpackPlugin({
+      //   filename: 'index.html',
+      //   template: 'views/index.pug',
+      //   inject: true
+      // }),
+
+      // ...utils.pages(env),
+      // ...utils.pages(env, 'blog'),
 
       new webpack.ProvidePlugin({
         $: 'jquery',
