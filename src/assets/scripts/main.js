@@ -9,8 +9,8 @@ jQuery(function() {
     var headerSlider = jQuery('.header__slider');
     console.log('initial');
     headerSlider.slick({
-      arrows: true,
-      dots: false,
+      arrows: false,
+      dots: true,
       slidesToShow: 1,
       slidesToScroll: 1,
       infinite: true,
@@ -30,7 +30,7 @@ jQuery(function() {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplay: true,
+            autoplay: false,
             pauseOnHover: false,
             pauseOnFocus: false,
           },
@@ -38,7 +38,7 @@ jQuery(function() {
       ],
     });
 
-    headerSlider.find('.slick-arrow').html('<div class="round-btn-bg"></div>');
+    // headerSlider.find('.slick-arrow').html('<div class="round-btn-bg"></div>');
   }
 
   if (jQuery('.portfolio__slider-wrapper').length !== 0) {

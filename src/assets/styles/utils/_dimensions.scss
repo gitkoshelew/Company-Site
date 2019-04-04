@@ -1,4 +1,39 @@
 /* src/assets/styles/utils/_dimensions.scss  */
 
-$md: 768px;
-$xl: 1200px;
+$sm: (
+  min-width: 576px,
+);
+$md: (
+  min-width: 768px,
+);
+$lg: (
+  min-width: 992px,
+);
+$xl: (
+  min-width: 1200px,
+);
+
+/*
+  Font sizes
+*/
+
+$h2: 23px;
+$h2Tablet: 48px;
+$h2Desk: 64px;
+
+$h2intro: 16px;
+$h2introTablet: 18px;
+$h2introDesk: 24px;
+
+$h3: 24px;
+$h3Tablet: 28px;
+$h3Desk: 54px;
+
+$h4: 18px;
+$h4Tablet: 24px;
+$h4Desk: 28px;
+
+$font: 16px;
+$fontLess: 14px;
+
+$btnMain: 18px;

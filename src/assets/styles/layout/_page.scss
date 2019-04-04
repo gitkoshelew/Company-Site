@@ -1,7 +1,74 @@
 /* src/assets/styles/layout/_page.scss  */
 
+h1,
+h2 {
+  font-size: $h2;
+  line-height: 1.33em;
+  @media #{$md} {
+    font-size: $h2Tablet;
+    line-height: 1.25em;
+  }
+  @media #{$xl} {
+    font-size: $h2Desk;
+    line-height: 1.125em;
+  }
+
+  & + p {
+    font-size: $h2intro;
+    line-height: 1.5em;
+
+    @media #{$md} {
+      font-size: $h2introTablet;
+      line-height: 1.33em;
+    }
+    @media #{$xl} {
+      font-size: $h2introDesk;
+      line-height: 1.25em;
+    }
+  }
+}
+
+h3 {
+  font-size: $h3;
+  @media #{$md} {
+    font-size: $h3Tablet;
+  }
+  @media #{$xl} {
+    font-size: $h3Desk;
+  }
+
+  & + p {
+    line-height: 1.75em;
+    @media #{$md} {
+      line-height: 1.75em;
+    }
+    @media #{$xl} {
+      line-height: 1.5em;
+    }
+  }
+}
+
+h4 {
+  font-size: $h4;
+  @media #{$md} {
+    font-size: $h4Tablet;
+  }
+  @media #{$xl} {
+    font-size: $h4Desk;
+  }
+}
+
+p {
+  font-size: $fontLess;
+  line-height: 1.75em;
+  @media #{$xl} {
+    font-size: $font;
+    line-height: 1.5em;
+  }
+}
+
 /*
   Responsive
 */
-@media screen and(min-width: $md) {
+@media #{$md} {
 }

@@ -1,34 +1,22 @@
 /* src/assets/styles/base/_fonts.scss  */
 
 /*
-  Quicksand
+  FuturaPT
 */
 
 @font-face {
-  font-family: 'Quicksand';
-  font-weight: 700;
-  src: url('@~fonts/Quicksand-Bold.woff');
-}
-
-@font-face {
-  font-family: 'Quicksand';
-  font-weight: 500;
-  src: url('@~fonts/Quicksand-Medium.woff');
-}
-
-@font-face {
-  font-family: 'Quicksand';
+  font-family: 'FuturaPT';
   font-weight: 400;
-  src: url('@~fonts/Quicksand-Regular.woff');
+  src: url('@~fonts/FuturaPT-Demi.woff');
 }
 
 @font-face {
-  font-family: 'Quicksand';
-  font-weight: 300;
-  src: url('@~fonts/Quicksand-Light.woff');
+  font-family: 'FuturaPT';
+  font-weight: 500;
+  src: url('@~fonts/FuturaPT-Medium.woff');
 }
 
-$quicksand: 'Quicksand', sans-serif;
+$futura: 'FuturaPT', sans-serif;
 
 /*
   Montserrat
@@ -42,27 +30,14 @@ $quicksand: 'Quicksand', sans-serif;
 
 @font-face {
   font-family: 'Montserrat';
+  font-weight: 500;
+  src: url('@~fonts/montserratMedium.woff');
+}
+
+@font-face {
+  font-family: 'Montserrat';
   font-weight: 400;
   src: url('@~fonts/montserrat.woff');
 }
 
 $mont: 'Montserrat', sans-serif;
-
-/*
-  Font sizes
-*/
-
-$h2: 24px;
-$h2Tablet: 48px;
-$h2Desk: 64px;
-
-$h3: 24px;
-$h3Tablet: 28px;
-$h3Desk: 54px;
-
-$h4: 18px;
-$h4Tablet: 24px;
-$h4Desk: 28px;
-
-$font: 16px;
-$fontLess: 14px;

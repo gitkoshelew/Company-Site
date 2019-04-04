@@ -7,5 +7,5 @@
   Responsive
 */
 
-@media screen and(min-width:  $md) {
+@media #{$md} {
 }

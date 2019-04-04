@@ -1,0 +1,25 @@
+/* src/assets/styles/utils/_colors.scss  */
+
+$mainBg: #e5e5e5;
+$mainBgDark: #f5f6fa;
+$secondBg: #1d51fd;
+$disabledBg: #d1d6d8;
+
+$mainText: #343b4c;
+$secondText: #a0a5b4;
+$lightText: #ffffff;
+$disabledText: #b3b3b1;
+
+$mainHeading: $secondBg;
+$lightBorder: #f3f7fc;
+$darkBorder: #a0a5b4;
+
+$btnBg: $secondBg;
+
+$borderRad: 5px;
+
+$transition: all 0.4s ease;
+
+$boxShadow: inset 0px 1px 0 0 rgba(255, 255, 255, 0.25);
+$boxShadowSec: 0px 1px 0 0 rgba(0, 0, 0, 0.14), inset 0px 1px 0 0 rgba(255, 255, 255, 0.04);
+$boxShadowBox: 0px 1px 0 0 rgba(0, 0, 0, 0.14);
