@@ -1,15 +1,435 @@
-<% var data = {
-  title: "Заголовок | Проект",
-  author: "Harrix"
-}; %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="msapplication-TileColor" content="#0E0E0E" />
+    <meta name="theme-color" content="#0E0E0E" />
+    <meta name="description" content="Index page" />
+    <meta name="keywords" content="index, page" />
+    <meta name="author" content="" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:description" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:type" content="website" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16.png" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" />
+    <!-- <link type="font/woff" href="./assets/fonts/Quicksand-Bold.b188c43.woff" rel="preload" as="font" crossorigin />
+    <link type="font/woff" href="./assets/fonts/Quicksand-Medium.1590529.woff" rel="preload" as="font" crossorigin />
+    <link type="font/woff" href="./assets/fonts/Quicksand-Regular.066deef.woff" rel="preload" as="font" crossorigin />
+    <link type="font/woff" href="./assets/fonts/Quicksand-Light.0990dd5.woff" rel="preload" as="font" crossorigin /> -->
+    <link type="font/woff" href="./assets/fonts/montserratbold.2cb4b46.woff" rel="preload" as="font" crossorigin />
+    <link type="font/woff" href="./assets/fonts/montserrat.12b1959.woff" rel="preload" as="font" crossorigin />
+    <title>Arateg</title>
+    <link href="../manifest.json" rel="manifest" />
+    <meta name="msapplication-config" content="../browserconfig.xml" />
 
-<%= _.template(require('./../includes/header.html').default)(data) %>
+    <link rel="stylesheet" href="./assets/css/app.bundle.css">
+  </head>
 
   <body>
-    <section class="page home__page">
-      <h1 class="page__title"># Index page</h1>
-      <p>Thank you for your supporting :)</p>
+    <header class="header" id="header">
+      <div class="header__nav-wrapper">
+          <div class="header__head">
+              <div class="header__logo">
+      
+              </div>
+              <nav class="header__nav">
+                <div class="header__nav-logo">
+                  
+                </div>
+                <ul class="header__nav-list">
+                  <li class="header__nav-item">
+                      <a href="index.html" class="header__nav-anchor">Home</a>
+                    </li>
+                  <li class="header__nav-item">
+                    <a href="services.html" class="header__nav-anchor">Services</a>
+                  </li>
+                  <li class="header__nav-item">
+                    <a href="case.html" class="header__nav-anchor">Case studies</a>
+                  </li>
+
+                </ul>
+              <button class="header__nav-btn">
+                Get in touch
+              </button>
+              </nav>
+              <div class="header__nav-open-button">
+
+              </div>
+            </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="header__heading-wrapper">
+              <h1 class="header__heading">
+                Take care of technology so that you can focus on your core business
+              </h1>
+              <p class="heading__intro">
+                We help you design and develop bespoke software solutions tailored to your unique business needs.
+              </p>
+            </div>
+            <div class="header__slider">
+              <div class="header__slide"></div>
+              <div class="header__slide"></div>
+              <div class="header__slide"></div>
+              <div class="header__slide"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </header>
+    <section class="services" id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h3 class="services__heading">
+              Services
+            </h3>
+            <p class="services__intro">
+                Full-stack development, integration, support and maintenance. 
+                We help you design and develop a top notch digital products.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-xl-4">
+            <div class="article services__article">
+              <div class="services__article-img">
+
+              </div>
+              <h4 class="services__article-heading">
+                Software
+                Engineering
+              </h4>
+              <p class="services__article-text">
+                Reliable, scalable, next-generation solutions tailored to your business needs. 
+              </p>
+              <button class="services__article-more">
+                Learn more
+              </button>
+            </div>
+          </div>
+          <div class="col col-xl-4">
+            <div class="article services__article">
+              <div class="services__article-img">
+
+              </div>
+              <h4 class="services__article-heading">
+                Dedicated
+                Teams
+              </h4>
+              <p class="services__article-text">
+                Productive, secure, user centered wep apps to keep you business ahead of your competitors.
+              </p>
+              <button class="services__article-more">
+                Learn more
+              </button>
+            </div>
+          </div>
+          <div class="col col-xl-4">
+            <div class="article services__article">
+              <div class="services__article-img">
+
+              </div>
+              <h4 class="services__article-heading">
+                Business Analysis
+                & UX
+              </h4>
+              <p class="services__article-text">
+                Powerfull, interactive, both native and cross-platdorm mobile apps that users love.
+              </p>
+              <button class="services__article-more">
+                Learn more
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
+    <section class="stories" id="stories">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="stories__content">
+              <h3 class="stories__heading">
+                  Client Success Stories
+              </h3>
+              <p class="srories__text">
+                  Full-stack development, integration, support and maintenance.  We help you design and develop a top notch digital products.
+              </p>
+              <button class="stories__main-button">
+                  Go to case studies
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stories__slider">
+        <div class="stories__slider-wrapper">
+          <div class="stories__slide">
+            <h4 class="stories__slide-heading">
+                Learning Management System
+            </h4>
+            <p class="stories__slide-intro">
+                Custom solution for learning platform developed from scratch. 
+            </p>
+            <div class="stories__slide-buttons">
+              <div class="stories__slide-button">
+                  Django
+              </div>
+              <div class="stories__slide-button">
+                  React
+              </div>
+              <div class="stories__slide-button">
+                  MongoDB
+              </div>
+            </div>
+            <button class="stories__slide-cta">
+                View case study
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="why" id="why">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h3 class="why__heading">
+                Why work with us
+            </h3>
+            <p class="why__intro">
+                Full-stack development, integration, support and maintenance. 
+                We help you design and develop a top notch digital products.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-md-2 col-xl-4">
+            <div class="why__point">
+              <div class="why__point-img">
+
+              </div>
+              <h4 class="why__point-heading">
+                  Full-cycledevelopment
+              </h4>
+              <p class="why__point-text">
+                  From requirenments and up to post-delivery maintenance and support. We can jump into project at any stage.
+              </p>
+            </div>
+          </div>
+          <div class="col col-md-2 col-xl-4">
+            <div class="why__point">
+              <div class="why__point-img">
+
+              </div>
+              <h4 class="why__point-heading">
+                  Faster time to market
+              </h4>
+              <p class="why__point-text">
+                  From requirenments and up to post-delivery maintenance and support. We can jump into project at any stage.
+              </p>
+            </div>
+          </div>
+          <div class="col col-md-2 col-xl-4">
+            <div class="why__point">
+              <div class="why__point-img">
+
+              </div>
+              <h4 class="why__point-heading">
+                  Deliver onbudget
+              </h4>
+              <p class="why__point-text">
+                  From requirenments and up to post-delivery maintenance and support. We can jump into project at any stage.
+              </p>
+            </div>
+          </div>
+          <div class="col col-md-2 col-xl-4">
+            <div class="why__point">
+              <div class="why__point-img">
+
+              </div>
+              <h4 class="why__point-heading">
+                  Transparency
+              </h4>
+              <p class="why__point-text">
+                  From requirenments and up to post-delivery maintenance and support. We can jump into project at any stage.
+              </p>
+            </div>
+          </div>
+          <div class="col col-md-2 col-xl-4">
+            <div class="why__point">
+              <div class="why__point-img">
+
+              </div>
+              <h4 class="why__point-heading">
+                  Focus on performance
+              </h4>
+              <p class="why__point-text">
+                  From requirenments and up to post-delivery maintenance and support. We can jump into project at any stage.
+              </p>
+            </div>
+          </div>
+          <div class="col col-md-2 col-xl-4">
+            <div class="why__point">
+              <div class="why__point-img">
+
+              </div>
+              <h4 class="why__point-heading">
+                  Minimum risk
+              </h4>
+              <p class="why__point-text">
+                  From requirenments and up to post-delivery maintenance and support. We can jump into project at any stage.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mainform" id="mainform">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h4 class="mainform__heading">
+                We’d love to work with you
+            </h4>
+            <p class="mainform__intro">
+                Full-stack development, integration, support and maintenance. 
+                We help you design and develop a top notch digital products.
+            </p>
+            <form action="" class="mainform__form">
+              <div class="mainform__inputs mainform__inputs--main">
+                <label class="mainform__label">
+                  <input type="text" class="mainform__input">
+                  <div class="mainform__input-support">Name</div>
+                </label>
+                <label class="mainform__label">
+                  <input type="text" class="mainform__input">
+                  <div class="mainform__input-support">Company</div>
+                </label>
+                <label class="mainform__label">
+                  <input type="text" class="mainform__input">
+                  <div class="mainform__input-support">Email</div>
+                </label>
+                <label class="mainform__label">
+                  <input type="text" class="mainform__input">
+                  <div class="mainform__input-support">Phone</div>
+                </label>
+              </div>
+              <div class="mainform__inputs mainform__inputs--drag">
+                <label class="mainform__drag-label">
+                    <input type="file" class="mainform__input-drag">
+                    <div class="mainform__drag-support">
+                      <div class="mainform__drag-img">
+
+                      </div>
+                      <p class="mainform__drag-heading">
+                          Drag & drop files here …
+
+                      </p>
+                      <p class="mainform__drag-text">
+                          File requirements: pdf, doc, docx, rtf, ppt, pptx; max 10mb  
+                      </p>
+                    </div>
+                </label>
+
+              </div>
+              <div class="mainform__inputs mainform__inputs--main">
+                <div class="mainform__checkwrapper">
+                  <input type="checkbox" class="mainform__checkbox">
+                  <div class="mainform__checkbox-text">
+                      Согласен с условиями использования
+                  </div>
+                </div>
+                <p class="mainform__approove">
+                    We’ll add your contact details provided in this form to our CRM for contacting you with regard to your request. For more info please consult our Term of Use and Privacy policy.
+                </p>
+                <button class="mainform__btn">
+                    Get in touch
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+
 </html>
 
-<%= _.template(require('./../includes/footer.html').default)(data) %>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-4 col-xl-6">
+        <div class="rooter__social">
+          <div class="footer__social-logo">
+
+          </div>
+          <div class="footer__social-buttons">
+            <button class="footer__social-bnt footer__social-btn--vk"></button>
+            <button class="footer__social-bnt footer__social-btn--facebook"></button>
+          </div>
+        </div>
+      </div>
+      <div class="col col-md-4 col-xl-3">
+        <div class="footer__services">
+          <h5 class="footer__services-heading">
+            Services
+          </h5>
+          <ul class="footer__services-list">
+            <li class="footer__services-item">
+              <a href="javascript:void(0);" class="footer__services-link">Software Engigeering</a>
+            </li>
+            <li class="footer__services-item">
+              <a href="javascript:void(0);" class="footer__services-link">Dedicated Teams</a>
+            </li>
+            <li class="footer__services-item">
+              <a href="javascript:void(0);" class="footer__services-link">Business Analysis & UX</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col col-md-4 col-xl-3">
+        <div class="footer__company">
+          <h5 class="footer__company-heading">
+            Company
+          </h5>
+          <ul class="footer__company-list">
+            <li class="footer__company-item"><a href="javascript:void(0);" class="footer__company-link">Case studies</a></li>
+            <li class="footer__company-item"><a href="javascript:void(0);" class="footer__company-link">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-6">
+        <div class="footer__copyright">
+            © 2016-2019 Arateg, All rights reserved
+        </div>
+      </div>
+      <div class="col col-md-6">
+        <div class="footer__links">
+          <ul class="footer__links-list">
+            <li class="footer__links-item"><a href="javascript:void(0);" class="footer__links-link">Term of Use</a></li>
+            <li class="footer__links-item"><a href="javascript:void(0);" class="footer__links-link">Privacy Policy</a></li>
+            <li class="footer__links-item"><a href="javascript:void(0);" class="footer__links-link">Site Map</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

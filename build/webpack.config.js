@@ -7,6 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const fs = require('fs');
+const globSync = require("glob").sync;
 
 // Files
 // pug utils
@@ -14,21 +15,18 @@ const fs = require('fs');
 
 //const plugins = require('../postcss.config');
 
-function generateHtmlPlugins(templateDir, env) {
+function generateHtmlPlugins(templateDir, env = "development") {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
-  console.log("====", templateFiles, "dir", __dirname, templateDir)
   return templateFiles.map(item => {
     const parts = item.split('.');
     const name = parts[0];
     const extension = parts[1];
-    console.log("++++++++++", name,extension,parts,templateDir)
 
     const options = {
       filename: `${name}.html`,
       template: path.resolve(`${templateDir}/${name}.${extension}`),
       inject: false
     };
-    console.log("!!!", options)
 
     if (env === 'development') {
       options.minify = {
@@ -52,6 +50,7 @@ module.exports = env => {
     output: {
       path: path.resolve(__dirname, '../dist'),
       publicPath: '/',
+//      filename: 'assets/js/[name].bundle.js'
       filename: 'assets/js/[name].[hash:7].bundle.js'
     },
     devServer: {
@@ -117,11 +116,11 @@ module.exports = env => {
             'sass-loader' // compiles Sass to CSS
           ]
         },
-        {
-          test: /\.html$/,
-          include: path.resolve(__dirname, '../src/html/includes'),
-          use: ['raw-loader']
-        },
+        // {
+        //   test: /\.html$/,
+        //   include: path.resolve(__dirname, '../src/html/includes'),
+        //   use: ['raw-loader']
+        // },
         // {
         //   test: /\.pug$/,
         //   use: [
@@ -129,6 +128,15 @@ module.exports = env => {
         //       loader: 'pug-loader'
         //     }
         //   ]
+        // },
+        // {
+        //   test: /\.(html)$/,
+        //   include: path.resolve(__dirname, '../src/html/views'),
+        //   loader: "html-srcsets-loader",
+        //     options: {
+        //       attrs: [":src", ':srcset']
+        //     }
+          
         // },
         {
           test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
@@ -171,6 +179,7 @@ module.exports = env => {
           // vendor chunk
           vendor: {
             filename: 'assets/js/vendor.[hash:7].bundle.js',
+//            filename: 'assets/js/vendor.bundle.js',
             // sync + async chunks
             chunks: 'all',
             // import file path containing node_modules
@@ -197,10 +206,12 @@ module.exports = env => {
             from: 'assets/images/favicons/mstile-150x150.png',
             to: 'assets/images/mstile-150x150.png'
           }
-        ].concat(generateHtmlPlugins('../src/html/views', env))
+        ]
+        //.concat(generateHtmlPlugins('../src/html/views', env))
       ),
       new MiniCssExtractPlugin({
-        filename: 'assets/css/[name].[hash:7].bundle.css',
+        // filename: 'assets/css/[name].[hash:7].bundle.css',
+        filename: 'assets/css/[name].bundle.css',
         chunkFilename: '[id].css'
       }),
 
@@ -218,6 +229,26 @@ module.exports = env => {
 
       // ...utils.pages(env),
       // ...utils.pages(env, 'blog'),
+
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/index.html',
+        filename: 'index.html',
+        assets: {
+          style : "assets/css/[name].[hash:7].bundle.css",
+          js  : "assets/js/[name].[hash:7].bundle.js",
+        }
+      }),
+
+      // ...globSync("html/**/*.html").map(fileName => {
+      //   return new HtmlWebpackPlugin({
+      //     template: fileName,
+      //     inject: "body",
+      //     hash: true,
+      //     filename: fileName.replace("html/", "")
+      //   });
+      // }),
 
       new webpack.ProvidePlugin({
         $: 'jquery',
