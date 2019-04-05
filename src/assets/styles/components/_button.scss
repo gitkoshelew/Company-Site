@@ -1,12 +1,103 @@
 /* src/assets/styles/components/_button.scss  */
 
-.clean-button {
+%clean-button {
   border: none;
   background: none;
 }
 
+%btn-secondary {
+  @include btn($themeLightColor, $themeColor, $themeColor, $themeLightColor);
+  border-radius: 100px;
+}
+
+%btn-round-secondary {
+  @include btn($themeLightColor, $themeColor, $themeColor, $themeLightColor);
+  border-radius: 100px;
+  max-width: 300px;
+  padding: 17px 30px 19px;
+}
+
+%btn-main {
+  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
+}
+
+%btn-round-main {
+  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
+  border-radius: 100px;
+}
+
+%btn-bar {
+  border-radius: $borderRad;
+  @include btn(transparent, $secondBg, $secondBg, $secondText);
+  position: relative;
+  // box-sizing: padding-box;
+  width: 44px;
+  height: 32px;
+  padding: 0;
+  margin-right: -8px;
+
+  &:hover,
+  &:focus {
+    span {
+      background-color: $mainText;
+      box-shadow: $boxShadow;
+    }
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 24px;
+    background: $secondBg;
+    opacity: 1;
+    left: 10px;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 8px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 15px;
+    }
+
+    &:nth-child(4) {
+      top: 22px;
+    }
+  }
+
+  &.open {
+    span {
+      &:nth-child(1) {
+        top: 8px;
+        width: 0%;
+        left: 50%;
+      }
+
+      &:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(4) {
+        top: 8px;
+        width: 0%;
+        left: 50%;
+      }
+    }
+  }
+}
+
 .button {
-  @extend .clean-button;
+  @extend %clean-button;
   font-family: $mont;
   font-size: 18px;
   font-weight: 700;

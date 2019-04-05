@@ -5,18 +5,55 @@
 */
 
 @font-face {
-  font-family: 'FuturaPT';
-  font-weight: 400;
-  src: url('@~fonts/FuturaPT-Demi.woff');
+  font-family: 'Futura PT Book';
+  src: url('@~fonts/FuturaPT-Book.woff2') format('woff2'), url('@~fonts/FuturaPT-Book.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'FuturaPT';
-  font-weight: 500;
-  src: url('@~fonts/FuturaPT-Medium.woff');
+  font-family: 'Futura PT';
+  src: url('@~fonts/FuturaPT-Light.woff2') format('woff2'), url('@~fonts/FuturaPT-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
 }
 
-$futura: 'FuturaPT', sans-serif;
+@font-face {
+  font-family: 'Futura PT Demi';
+  src: url('@~fonts/FuturaPT-Demi.woff2') format('woff2'), url('@~fonts/FuturaPT-Demi.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura PT Extra';
+  src: url('@~fonts/FuturaPT-ExtraBold.woff2') format('woff2'), url('@~fonts/FuturaPT-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  src: url('@~fonts/FuturaPT-Bold.woff2') format('woff2'), url('@~fonts/FuturaPT-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  src: url('@~fonts/FuturaPT-Medium.woff2') format('woff2'), url('@~fonts/FuturaPT-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Futura PT';
+  src: url('@~fonts/FuturaPT-Heavy.woff2') format('woff2'), url('@~fonts/FuturaPT-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+$futura: 'Futura PT', sans-serif;
 
 /*
   Montserrat
@@ -37,7 +74,7 @@ $futura: 'FuturaPT', sans-serif;
 @font-face {
   font-family: 'Montserrat';
   font-weight: 400;
-  src: url('@~fonts/montserrat.woff');
+  src: url('@~fonts/Montserrat-Regular.woff');
 }
 
 $mont: 'Montserrat', sans-serif;

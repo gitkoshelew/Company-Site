@@ -1,0 +1,9 @@
+.services {
+  padding-bottom: 88px;
+  &__intro:last-child {
+    margin-bottom: 20px;
+  }
+  &__article {
+    @extend %card;
+  }
+}
