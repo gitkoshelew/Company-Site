@@ -1,0 +1,75 @@
+.clientsay {
+  padding-bottom: 0;
+  &__intro {
+    padding-bottom: 37px;
+  }
+  &__slider {
+    margin-bottom: 75px;
+    padding-bottom: 70px;
+
+    & .slick {
+      &-arrow {
+        position: absolute;
+        bottom: -65px;
+        @include round(56px, 14px, 2px, $themeSecondaryLightColor, $secondBg);
+        z-index: 2;
+      }
+
+      &-prev {
+        right: calc(50% + 10px);
+      }
+
+      &-next {
+        left: calc(50% + 10px);
+        .round-btn-bg {
+          transform: rotate(180deg);
+        }
+      }
+      &-slide {
+        padding: 0 5px;
+        & > div {
+          box-shadow: $boxShadowCard;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+  &__slide {
+    background: $themeLightColor;
+
+    &-img {
+      @include bgImg('@~images/bg/Director320.jpg', no-repeat, center, cover);
+      height: 180px;
+      margin-bottom: 20px;
+    }
+    &-content {
+      padding: 20px;
+    }
+
+    &-position {
+      margin-bottom: 24px;
+      letter-spacing: 0.07em;
+    }
+
+    &-learnmore {
+      @extend %clean-button;
+      color: $linkHover;
+      margin-bottom: 20px;
+      padding: 0;
+      font-size: 14px;
+      text-decoration: underline;
+      margin-top: 20px;
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+    }
+
+    &-logo {
+      @include bgImg('@~images/img/GroupGray.svg', no-repeat, left center, contain);
+      height: 28px;
+      margin: 20px 0;
+      display: block;
+    }
+  }
+}

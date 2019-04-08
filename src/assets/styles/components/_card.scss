@@ -1,4 +1,4 @@
-%card {
+%card-article {
   padding: 50px 20px 36px;
   margin: 7px 0;
   border: 1px solid $lightBorder;
@@ -9,7 +9,6 @@
     margin-bottom: 25px;
   }
   h4 {
-    width: 50%;
     margin-bottom: 25px;
   }
   .card-preview {
@@ -22,6 +21,30 @@
     &:hover {
       color: $themeColor;
     }
+  }
+
+  &:hover {
+    h4 {
+      color: $themeColor;
+    }
+  }
+}
+
+%card {
+  padding: 50px 20px 36px;
+  margin: 7px 0;
+  border: 1px solid $lightBorder;
+  .card-img {
+    width: 70px;
+    height: 70px;
+    @include bgImg('@~images/img/cycle.svg', no-repeat, center, contain);
+    margin-bottom: 25px;
+  }
+  h4 {
+    margin-bottom: 25px;
+  }
+  .card-preview {
+    margin-bottom: 25px;
   }
 
   &:hover {

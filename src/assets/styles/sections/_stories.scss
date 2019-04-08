@@ -30,6 +30,65 @@
   &__main-button {
     margin-top: 29px;
     @extend %btn-round-secondary;
+    border: none;
     width: 100%;
+    padding: 17px 30px 19px;
+  }
+  &__slider {
+    margin-top: -185px;
+    margin-bottom: 75px;
+
+    & .slick {
+      &-arrow {
+        position: absolute;
+        bottom: -65px;
+        @include round(56px, 14px, 2px, $themeSecondaryLightColor, $secondBg);
+        z-index: 2;
+      }
+
+      &-prev {
+        right: calc(50% + 10px);
+      }
+
+      &-next {
+        left: calc(50% + 10px);
+        .round-btn-bg {
+          transform: rotate(180deg);
+        }
+      }
+      &-slide {
+        padding: 0 12px;
+      }
+    }
+  }
+  &__slide {
+    padding: 45px 21px;
+    background: $themeLightColor;
+    box-shadow: $boxShadowCard;
+    margin-bottom: 10px;
+    &-heading {
+      line-height: 1.3em;
+      margin-bottom: 25px;
+    }
+    &-intro {
+      margin-bottom: 28px;
+    }
+    &-buttons {
+      @include isFlex(center, space-between);
+      margin-bottom: 40px;
+    }
+    &-button {
+      @extend %btn-primary;
+      font-weight: normal;
+      width: calc(50% - 5px);
+      margin-bottom: 8px;
+    }
+    &-cta {
+      @extend %btn-round-secondary;
+      padding: 18px 30px;
+      width: 100%;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
   }
 }

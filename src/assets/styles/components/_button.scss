@@ -5,16 +5,32 @@
   background: none;
 }
 
+%btn-primary {
+  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor, $btnSecFontSize);
+  border-radius: $borderRad;
+  padding: 7px 15px;
+  margin-bottom: 5px;
+  text-align: center;
+  border: none;
+}
+
+%btn-round-primary {
+  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
+  border-radius: 100px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
 %btn-secondary {
-  @include btn($themeLightColor, $themeColor, $themeColor, $themeLightColor);
+  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
   border-radius: 100px;
 }
 
 %btn-round-secondary {
-  @include btn($themeLightColor, $themeColor, $themeColor, $themeLightColor);
+  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
   border-radius: 100px;
   max-width: 300px;
-  padding: 17px 30px 19px;
+  margin: 0 auto;
 }
 
 %btn-main {

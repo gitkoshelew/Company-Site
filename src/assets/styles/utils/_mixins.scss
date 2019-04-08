@@ -15,39 +15,120 @@
   background-size: $size;
 }
 
-@mixin btn($bg, $bgHover, $color, $colorHover) {
+@mixin btn($bg, $bgHover, $color, $colorHover, $fz: $btnMainFontSize) {
   background-color: $bg;
   color: $color;
   display: block;
-  font-size: $btnMain;
+  font-size: $fz;
   padding: 10px 15px;
-  border: none;
+  border: 2px solid $color;
   transition: $transition;
   border-radius: $borderRad;
   font-weight: 700;
+  letter-spacing: 0.04ex;
+  overflow: hidden;
+  @extend %after;
 
-  &:focus {
-    background-color: $bgHover;
-    color: $colorHover;
-    a {
-      color: $colorHover;
+  &:before {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    background-color: rgba($color, 0.1);
+    transform: translate(-50%, -50%);
+  }
+
+  &:active {
+    &:before {
+      width: 120%;
+      padding-top: 120%;
+      transition: width 0.2s ease-out, padding-top 0.2s ease-out;
     }
   }
+
   @media #{$md} {
-    &:hover {
-      background-color: $bgHover;
-      color: $colorHover;
-      a {
-        color: $colorHover;
-      }
-    }
+    &:hover,
     &:focus {
       outline: none;
-      background-color: $bg;
-      color: $colorHover;
+      color: darken($colorHover, 20%);
+      box-shadow: $boxShadowMaterial;
+      border-color: darken($color, 20%);
       a {
-        color: $colorHover;
+        color: darken($colorHover, 20%);
       }
     }
+
+    &:active {
+      &:before {
+        width: 120%;
+        padding-top: 120%;
+        transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+      }
+    }
+  }
+}
+
+@mixin round($size, $arrow-size, $arrow-width, $txtcolor, $txthover) {
+  display: block;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  text-align: center;
+  background: $txthover;
+  border: none;
+  @extend %after;
+
+  &:before {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    background-color: rgba($txthover, 0.1);
+    transform: translate(-50%, -50%);
+  }
+
+  .round-btn-bg {
+    line-height: $size;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+
+    @extend %after;
+
+    &:after {
+      top: calc(50% + 0px);
+      left: calc(50% + 4px);
+      transform: translate(-50%, -50%) rotate(135deg);
+      background: none;
+      width: $arrow-size;
+      height: $arrow-size;
+      border-bottom: $arrow-width solid $txtcolor;
+      border-right: $arrow-width solid $txtcolor;
+    }
+  }
+  &:hover,
+  &:focus {
+    background: $txtcolor;
+    box-shadow: $boxShadowMaterial;
+    .round-btn-bg:after {
+      background: none;
+      border-bottom: $arrow-width solid $txthover;
+      border-right: $arrow-width solid $txthover;
+    }
+  }
+
+  &:active {
+    box-shadow: none;
+    &:before {
+      width: 120%;
+      padding-top: 120%;
+      transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+      box-shadow: none;
+    }
+  }
+
+  @media #{$md} {
   }
 }

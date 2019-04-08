@@ -1,7 +1,9 @@
 /* src/assets/styles/layout/_page.scss  */
 
 h1,
-h2 {
+h2,
+h1 > p,
+h2 > p {
   font-size: $h2;
   line-height: 1.4em;
   letter-spacing: 0.05ex;
@@ -31,7 +33,8 @@ h2 {
   }
 }
 
-h3 {
+h3,
+h3 > p {
   font-size: $h3;
   letter-spacing: 0.01em;
   margin-bottom: 0.3em;
@@ -52,7 +55,8 @@ h3 {
   }
 }
 
-h4 {
+h4,
+h4 > p {
   font-size: $h4;
   line-height: 1.6em;
   @media #{$md} {
@@ -60,6 +64,19 @@ h4 {
   }
   @media #{$xl} {
     font-size: $h4Desk;
+  }
+}
+
+h5,
+h5 > p {
+  font-size: $h5;
+  line-height: 1.5em;
+  letter-spacing: 0.06em;
+  @media #{$md} {
+    font-size: $h5Tablet;
+  }
+  @media #{$xl} {
+    font-size: $h5Desk;
   }
 }
 

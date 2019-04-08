@@ -2,6 +2,7 @@
 $themeColor: #1d51fd;
 $themeLightColor: #ffffff;
 $themeSecondaryColor: #a0a5b4;
+$themeSecondaryLightColor: #f3f7fc;
 
 $mainBg: #e5e5e5;
 $mainBgDark: #f5f6fa;
@@ -15,7 +16,7 @@ $disabledText: #b3b3b1;
 $linkHover: $themeColor;
 
 $mainHeading: $themeColor;
-$lightBorder: #f3f7fc;
+$lightBorder: $themeSecondaryLightColor;
 $darkBorder: $themeSecondaryColor;
 
 $btnBg: $secondBg;
@@ -26,4 +27,9 @@ $transition: all 0.4s ease;
 
 $boxShadow: inset 0px 1px 0 0 rgba(255, 255, 255, 0.25);
 $boxShadowSec: 0px 1px 0 0 rgba(0, 0, 0, 0.14), inset 0px 1px 0 0 rgba(255, 255, 255, 0.04);
+
 $boxShadowBox: 0px 1px 0 0 rgba(0, 0, 0, 0.14);
+
+$boxShadowMaterial: 0 1px 4px rgba(0, 0, 0, 0.6);
+
+$boxShadowCard: 0px 4px 16px rgba(141, 150, 178, 0.16);
