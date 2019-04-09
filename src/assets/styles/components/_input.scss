@@ -1,0 +1,69 @@
+%label {
+  position: relative;
+  height: 55px;
+  display: block;
+  margin-bottom: 17px;
+  border-bottom: 2px solid $themeSecondaryLightColor;
+
+  div {
+    position: absolute;
+    top: calc(50% - 4px);
+    transform: translate(0, -50%);
+    color: $disabledText;
+    font-size: $fontLess;
+    transition: $transitionFast;
+  }
+
+  .material-input-border {
+    display: block;
+    width: 100%;
+    @extend %after;
+    &:after,
+    &:before {
+      height: 2px;
+      width: 0;
+      bottom: 1px;
+      transition: $transitionFast;
+      background: $themeColor;
+    }
+    &:after {
+      right: 50%;
+    }
+    &:before {
+      left: 50%;
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    outline: none;
+    -webkit-appearance: none !important;
+    appearance: none;
+    display: block;
+    padding: 8px 0 0;
+    font-size: $fontLess;
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  input,
+  select,
+  textarea {
+    &:focus,
+    &:valid {
+      & + div {
+        top: 0;
+        color: $themeColor;
+      }
+
+      & ~ .material-input-border {
+        &:after,
+        &:before {
+          width: 50%;
+        }
+      }
+    }
+  }
+}

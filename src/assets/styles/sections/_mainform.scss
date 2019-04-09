@@ -21,7 +21,38 @@
   }
   &__form {
     background: $themeLightColor;
-    margin-top: 30px;
-    padding: 60px 18px;
+    margin-top: 50px;
+    padding: 31px 18px 50px;
+  }
+  &__label {
+    width: 100%;
+    @extend %label;
+    &_textarea {
+      height: auto;
+      min-height: 70px;
+      padding-top: 20px;
+    }
+  }
+  &__textarea {
+    min-height: 70px;
+    padding-top: 20px;
+  }
+  &__inputs {
+    &_drag {
+      margin-top: 33px;
+      border: 1px dashed $darkBorder;
+      padding: 20px;
+    }
+  }
+  &__drag {
+    &-label {
+      @include isFlex();
+      position: relative;
+    }
+    &-input {
+      position: absolute;
+      top: 0;
+      visibility: hidden;
+    }
   }
 }

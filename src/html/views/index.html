@@ -602,43 +602,56 @@
                 We help you design and develop a top notch digital products.
             </p>
             <form action="" class="mainform__form">
-              <div class="mainform__inputs mainform__inputs--main">
+              <div class="mainform__inputs mainform__inputs_main">
                 <label class="mainform__label">
-                  <input type="text" class="mainform__input">
+                  <input type="text" required class="mainform__input">
                   <div class="mainform__input-support">Name</div>
+                  <span class="material-input-border"></span>
                 </label>
                 <label class="mainform__label">
-                  <input type="text" class="mainform__input">
+                  <input type="text" required class="mainform__input">
                   <div class="mainform__input-support">Company</div>
+                  <span class="material-input-border"></span>
                 </label>
                 <label class="mainform__label">
-                  <input type="text" class="mainform__input">
+                  <input type="text" required class="mainform__input">
                   <div class="mainform__input-support">Email</div>
+                  <span class="material-input-border"></span>
                 </label>
                 <label class="mainform__label">
-                  <input type="text" class="mainform__input">
+                  <input type="text" required class="mainform__input">
                   <div class="mainform__input-support">Phone</div>
+                  <span class="material-input-border"></span>
                 </label>
+
               </div>
-              <div class="mainform__inputs mainform__inputs--drag">
-                <label class="mainform__drag-label">
-                    <input type="file" class="mainform__input-drag">
+              <div class="mainform__inputs mainform__inputs_textarea">
+                  <label class="mainform__label mainform__label_textarea">
+                    <textarea class="mainform__textarea" required></textarea>
+                    <div class="mainform__input-support">Please, drop us a line about your project</div>
+                    <span class="material-input-border"></span>
+                  </label>
+              </div>
+              <div class="mainform__inputs mainform__inputs_drag">
+                <label class="mainform__drag-label" id="mainform__drag-label">
+                    <input type="file" id = "mainform__drag-input" class="mainform__input-drag mainform__drag-input">
                     <div class="mainform__drag-support">
                       <div class="mainform__drag-img">
 
                       </div>
-                      <p class="mainform__drag-heading">
+                      <p class="mainform__drag-heading" id="mainform__drag-heading">
                           Drag & drop files here …
 
                       </p>
-                      <p class="mainform__drag-text">
+                      <p class="mainform__drag-text"
+                      id="mainform__drag-text">
                           File requirements: pdf, doc, docx, rtf, ppt, pptx; max 10mb  
                       </p>
                     </div>
                 </label>
 
               </div>
-              <div class="mainform__inputs mainform__inputs--main">
+              <div class="mainform__inputs mainform__inputs_check">
                 <div class="mainform__checkwrapper">
                   <input type="checkbox" class="mainform__checkbox">
                   <div class="mainform__checkbox-text">
