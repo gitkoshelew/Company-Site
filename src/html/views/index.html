@@ -601,25 +601,25 @@
             <p class="mainform__intro"> 
                 We help you design and develop a top notch digital products.
             </p>
-            <form action="" class="mainform__form">
+            <form action="" method="POST" class="mainform__form" id="mainform__form">
               <div class="mainform__inputs mainform__inputs_main">
                 <label class="mainform__label">
-                  <input type="text" required class="mainform__input">
+                  <input type="text" required novalidate name="name" class="mainform__input">
                   <div class="mainform__input-support">Name</div>
                   <span class="material-input-border"></span>
                 </label>
                 <label class="mainform__label">
-                  <input type="text" required class="mainform__input">
+                  <input type="text" required novalidate name="company" class="mainform__input">
                   <div class="mainform__input-support">Company</div>
                   <span class="material-input-border"></span>
                 </label>
                 <label class="mainform__label">
-                  <input type="text" required class="mainform__input">
+                  <input type="email" required novalidate name="email" class="mainform__input">
                   <div class="mainform__input-support">Email</div>
                   <span class="material-input-border"></span>
                 </label>
                 <label class="mainform__label">
-                  <input type="text" required class="mainform__input">
+                  <input type="tel" required name="phone" class="mainform__input">
                   <div class="mainform__input-support">Phone</div>
                   <span class="material-input-border"></span>
                 </label>
@@ -627,14 +627,14 @@
               </div>
               <div class="mainform__inputs mainform__inputs_textarea">
                   <label class="mainform__label mainform__label_textarea">
-                    <textarea class="mainform__textarea" required></textarea>
+                    <textarea name="about" class="mainform__textarea" required></textarea>
                     <div class="mainform__input-support">Please, drop us a line about your project</div>
                     <span class="material-input-border"></span>
                   </label>
               </div>
-              <div class="mainform__inputs mainform__inputs_drag">
+              <div class="mainform__inputs mainform__inputs_drag" id="mainform__inputs_drag">
                 <label class="mainform__drag-label" id="mainform__drag-label">
-                    <input type="file" id = "mainform__drag-input" class="mainform__input-drag mainform__drag-input">
+                    <input type="file" name="file" id = "mainform__drag-input" class="mainform__input-drag mainform__drag-input">
                     <div class="mainform__drag-support">
                       <div class="mainform__drag-img">
 
@@ -653,7 +653,7 @@
               </div>
               <div class="mainform__inputs mainform__inputs_check">
                 <div class="mainform__checkwrapper">
-                  <input type="checkbox" class="mainform__checkbox">
+                  <input type="checkbox" name="agree" class="mainform__checkbox">
                   <div class="mainform__checkbox-text">
                       Согласен с условиями использования
                   </div>
@@ -661,7 +661,7 @@
                 <p class="mainform__approove">
                     We’ll add your contact details provided in this form to our CRM for contacting you with regard to your request. For more info please consult our Term of Use and Privacy policy.
                 </p>
-                <button class="mainform__btn">
+                <button id = "mainform__submit" class="mainform__btn">
                     Get in touch
                 </button>
               </div>

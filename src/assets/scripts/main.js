@@ -129,15 +129,79 @@ jQuery(function() {
 });
 
 // file load
-
+const API_URL = 'http://localhost:8080/';
 const file_api = window.File && window.FileReader && window.FileList && window.Blob ? true : false;
+let FormFiles = [];
 
 const mainFormDragLabel = document.getElementById('mainform__drag-label');
 const mainFormDragInput = document.getElementById('mainform__drag-input');
 const mainFormDragHeading = document.getElementById('mainform__drag-heading');
+const mainForm = document.getElementById('mainform__form');
 
-let file_name;
-let file_size;
+function handleInputChange(e) {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const value = e.target.value;
+  const name = e.target.name;
+  let valid = false;
+  let message = '';
+
+  switch (this.type) {
+    case 'email':
+      valid = !!value.match(
+        /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%_\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+      );
+      message = 'please, enter valid email';
+      break;
+    case 'textarea':
+      valid = !!value.match(/^[0-9+\(\)#\.\s\/ext-]+$/g);
+      switch (name) {
+        case 'name':
+          message = 'please, enter your name';
+          break;
+        case 'company':
+          message = 'please, enter your company name';
+          break;
+        default:
+          break;
+      }
+      break;
+    case 'text':
+      valid = !!value.match(/([a-zA-Z]*)/g);
+      message = 'please, enter your name';
+      break;
+    case 'tel':
+      valid = !!value.match(/^[0-9+\(\)#\.\s\/ext-]+$/g);
+      message = 'please, enter valid phone number';
+      break;
+    default:
+      break;
+  }
+
+  if (value !== '') {
+    $(this).addClass('full');
+  } else {
+    $(this).removeClass('full');
+  }
+  if (!valid) {
+    $(this).addClass('inValid');
+    const previous = this.previousElementSibling;
+    if (!previous || previous.tagName !== 'MARK') {
+      $('<mark>' + message + '</mark>').insertBefore(this);
+    }
+  } else {
+    $(this).removeClass('inValid');
+    $(this)
+      .closest('label')
+      .find('mark')
+      .remove();
+  }
+}
+
+$('.mainform__input:not(input[type="file"])').keyup(handleInputChange);
+
+$('.mainform__textarea').keyup(handleInputChange);
 
 function dropFileValidation(name, size) {
   const file_extensions = ['pdf', 'doc', 'docx', 'rtf', 'ppt', 'pptx'];
@@ -151,6 +215,7 @@ function dropFileValidation(name, size) {
 
   if (isValidExtension & isValidSize) {
     mainFormDragHeading.innerHTML = name;
+    return true;
   } else {
     mainFormDragHeading.innerHTML = 'Drag & drop files here …';
   }
@@ -164,24 +229,33 @@ function dropFileValidation(name, size) {
   }
 }
 
+function hanlerFilesBeforeSend(files) {
+  let i = 0;
+  while (i < files.length) {
+    const { name, size } = files[i];
+
+    if (!name.length) break;
+
+    if (!dropFileValidation(name, size)) {
+      FormFiles = [];
+      break;
+    } else {
+      FormFiles.push(files[i]);
+    }
+
+    i++;
+  }
+}
+
 $(mainFormDragInput)
   .change(function() {
-    if (file_api && mainFormDragInput.files[0]) {
-      const { name, size } = mainFormDragInput.files[0];
-      file_name = name;
-      file_size = size;
-    } else
-      file_name = $(mainFormDragInput)
-        .val()
-        .replace('C:\\fakepath\\', '');
-
-    if (!file_name.length) return;
-
-    dropFileValidation(file_name, file_size);
+    if (!file_api) {
+      alert('Your browser do not support file sending');
+      return;
+    }
+    hanlerFilesBeforeSend(this.files);
   })
   .change();
-
-// $.event.props.push('dataTransfer');
 
 $(mainFormDragLabel).on({
   dragenter: function(e) {
@@ -193,30 +267,15 @@ $(mainFormDragLabel).on({
   drop: function(e) {
     e.stopPropagation();
     e.preventDefault();
+    $(this).css('background-color', 'lightgreen');
 
-    var dropFile = e.originalEvent.dataTransfer.files[0];
-
-    function hanlerFilesBeforeSend(files) {
-      let Data = new FormData();
-      $(files).each(function(index, file) {
-        if (file.size <= maxFileSize && (file.type == 'image/png' || file.type == 'image/jpeg')) {
-          Data.append('files[]', file);
-        }
-      });
-
-      return Data;
+    if (!file_api) {
+      alert('Your browser do not support file sending');
+      return;
     }
 
-    $.ajax({
-      url: dropZone.attr('action'),
-      type: dropZone.attr('method'),
-      data: hanlerFilesBeforeSend(dropFiles),
-      contentType: false,
-      processData: false,
-      success: function(data) {
-        alert('Файлы были успешно загружены');
-      },
-    });
+    const dropFiles = e.originalEvent.dataTransfer.files;
+    hanlerFilesBeforeSend(dropFiles);
 
     /* img reader preloader */
     // var imgReader = new FileReader();
@@ -237,7 +296,59 @@ $(mainFormDragLabel).on({
     // })(file);
 
     // imgReader.readAsDataURL(file);
+
+    /* END img reader preloader */
   },
+});
+
+$(mainForm).on('submit', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const inputs = $(this).find('input');
+  const selects = $(this).find('select');
+  const textareas = $(this).find('textarea');
+
+  const formData = new FormData();
+
+  inputs.each(function(index, input) {
+    if (input.type !== 'file') {
+      formData.append(input.name, input.value);
+    }
+  });
+
+  if (selects.length !== 0) {
+    selects.each((index, select) => formData.append(select.name, select.value));
+  }
+
+  if (textareas.length !== 0) {
+    selects.each((index, textarea) => formData.append(textarea.name, textarea.value));
+  }
+
+  $(FormFiles).each(function(index, file) {
+    formData.append('files[]', file, file.name);
+  });
+  // console.log(FormFiles);
+  const values = formData.values();
+  console.log(values.next());
+  console.log(values.next());
+  console.log(values.next());
+  console.log(values.next());
+  console.log(values.next());
+  console.log(values.next());
+  console.log(values.next());
+  console.log(values.next());
+
+  //   $.ajax({
+  //   url: form.action,
+  //   type: form.method,
+  //   data: dataToSend,
+  //   contentType: false,
+  //   processData: false,
+  //   success: function(data) {
+  //     alert('Файлы были успешно загружены');
+  //   },
+  // });
 });
 
 //});

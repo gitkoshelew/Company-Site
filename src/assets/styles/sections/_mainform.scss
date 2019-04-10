@@ -40,11 +40,26 @@
   &__inputs {
     &_drag {
       margin-top: 33px;
-      border: 1px dashed $darkBorder;
-      padding: 20px;
+      label {
+        border: 1px dashed $darkBorder;
+        padding: 20px 15px 25px;
+      }
+      div {
+        pointer-events: none;
+      }
+      mark {
+        display: block;
+        background: lightcoral;
+      }
     }
   }
   &__drag {
+    &-img {
+      width: 36px;
+      height: 36px;
+      margin: 7px auto;
+      @include bgImg('@~images/img/download.svg', no-repeat, center, contain);
+    }
     &-label {
       @include isFlex();
       position: relative;
@@ -53,6 +68,14 @@
       position: absolute;
       top: 0;
       visibility: hidden;
+    }
+    &-heading {
+      text-align: center;
+    }
+    &-text {
+      text-align: center;
+      font-size: $fontSmall;
+      color: $themeSecondaryColor;
     }
   }
 }

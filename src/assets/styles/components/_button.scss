@@ -67,21 +67,21 @@
     width: 24px;
     background: $secondBg;
     opacity: 1;
-    left: 10px;
+    left: 8px;
     transform: rotate(0deg);
     transition: 0.25s ease-in-out;
 
     &:nth-child(1) {
-      top: 8px;
+      top: 6px;
     }
 
     &:nth-child(2),
     &:nth-child(3) {
-      top: 15px;
+      top: 13px;
     }
 
     &:nth-child(4) {
-      top: 22px;
+      top: 20px;
     }
   }
 
