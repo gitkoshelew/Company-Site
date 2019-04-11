@@ -11,7 +11,7 @@
       &-arrow {
         position: absolute;
         bottom: -65px;
-        @include round(56px, 14px, 2px, $themeSecondaryLightColor, $secondBg);
+        @extend %round-slide-button;
         z-index: 2;
       }
 

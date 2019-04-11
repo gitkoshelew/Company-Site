@@ -1,5 +1,14 @@
 /* src/assets/styles/layout/_page.scss  */
 
+p {
+  font-size: $fontLess;
+  line-height: 1.75em;
+  @media #{$xl} {
+    font-size: $font;
+    line-height: 1.5em;
+  }
+}
+
 h1,
 h2,
 h1 > p,
@@ -80,13 +89,8 @@ h5 > p {
   }
 }
 
-p {
-  font-size: $fontLess;
-  line-height: 1.75em;
-  @media #{$xl} {
-    font-size: $font;
-    line-height: 1.5em;
-  }
+h6 {
+  font-size: $fontLarger;
 }
 
 /*

@@ -2,16 +2,87 @@
 
 .footer {
   background: $mainBgDark;
-  bottom: 0;
-  right: 0;
-  width: 250px;
-  padding: 10px;
-  border-top-left-radius: 5px;
-  p {
-    font-size: 12px;
+  &__social {
+    padding: 6px 0 20px;
+    &-logo {
+      width: 100%;
+      height: 36px;
+      @include bgImg('@~images/img/GroupGray.svg', no-repeat, center, contain);
+      margin-bottom: 30px;
+    }
+    &-buttons {
+      @include isFlex(center, center, row, wrap);
+    }
+    &-btn {
+      @extend %round-social-button;
+      margin: 15px;
+
+      &_facebook {
+        .round--social-bg {
+          background-image: url('@~images/img/facebook.svg');
+        }
+      }
+    }
   }
-  a {
-    font-size: 15px;
+  &__services,
+  &__company {
+    padding: 5px 0;
+    &-heading {
+      text-align: center;
+    }
+    &-list {
+      text-align: center;
+      padding: 12px 0;
+      margin-bottom: 5px;
+    }
+    &-item {
+      margin: 2px 0;
+    }
+
+    &-link {
+      font-size: $fontLess;
+      color: $mainText;
+      padding: 5px;
+      margin-bottom: 4px;
+      display: inline-block;
+      &:focus,
+      &:hover {
+        color: $linkHover;
+        box-shadow: $boxShadowMaterial;
+        background: $themeLightColor;
+      }
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+  &__bottom {
+    border-top: 1px solid $themeDisabledColor;
+    margin-top: 17px;
+    text-align: center;
+    padding-top: 50px;
+    &-copyright {
+      font-size: $fontLess;
+      margin-bottom: 20px;
+    }
+    &-links {
+    }
+    &-link {
+      font-size: $fontLess;
+      padding: 5px;
+      display: inline-block;
+      margin: 5px 0 15px;
+      color: $mainText;
+      &:focus,
+      &:hover {
+        color: $linkHover;
+        box-shadow: $boxShadowMaterial;
+        background: $themeLightColor;
+      }
+      &:active {
+        box-shadow: none;
+      }
+    }
   }
 }
 

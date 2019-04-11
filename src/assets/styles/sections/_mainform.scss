@@ -63,6 +63,7 @@
     &-label {
       @include isFlex();
       position: relative;
+      margin-bottom: 20px;
     }
     &-input {
       position: absolute;
@@ -77,5 +78,15 @@
       font-size: $fontSmall;
       color: $themeSecondaryColor;
     }
+  }
+
+  &__checkwrapper {
+    @extend %check-label;
+  }
+  &__submit {
+    @extend %btn-round-primary;
+    border: none;
+    width: 100%;
+    padding: 17px 30px 19px;
   }
 }

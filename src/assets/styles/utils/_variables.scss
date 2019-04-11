@@ -1,19 +1,22 @@
 /* src/assets/styles/utils/_colors.scss  */
 $themeColor: #1d51fd;
 $themeLightColor: #ffffff;
-$themeSecondaryColor: #a0a5b4;
+$themeSecondaryColor: #a0a5b4e3;
 $themeSecondaryLightColor: #f3f7fc;
+$themeSupportColor: #8d96b2;
+$themeDisabledColor: #d1d6d8;
 
 $mainBg: #e5e5e5;
 $mainBgDark: #f5f6fa;
 $secondBg: $themeColor;
-$disabledBg: #d1d6d8;
+$disabledBg: $themeDisabledColor;
 
 $mainText: #343b4c;
 $secondText: $themeSecondaryColor;
 $lightText: $themeLightColor;
 $disabledText: #b3b3b1;
 $linkHover: $themeColor;
+$supportText: $themeSupportColor;
 
 $mainHeading: $themeColor;
 $lightBorder: $themeSecondaryLightColor;
@@ -22,6 +25,7 @@ $darkBorder: $themeSecondaryColor;
 $btnBg: $secondBg;
 
 $borderRad: 5px;
+$borderRadLess: 2px;
 
 $transition: all 0.4s ease;
 $transitionFast: all 0.2s ease;

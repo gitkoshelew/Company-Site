@@ -69,9 +69,10 @@
   }
 }
 
-@mixin round($size, $arrow-size, $arrow-width, $txtcolor, $txthover) {
+@mixin round($size, $txtcolor, $txthover) {
   display: block;
   width: $size;
+  min-width: $size;
   height: $size;
   border-radius: 50%;
   text-align: center;
@@ -91,34 +92,10 @@
     transform: translate(-50%, -50%);
   }
 
-  .round-btn-bg {
-    line-height: $size;
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-
-    @extend %after;
-
-    &:after {
-      top: calc(50% + 0px);
-      left: calc(50% + 4px);
-      transform: translate(-50%, -50%) rotate(135deg);
-      background: none;
-      width: $arrow-size;
-      height: $arrow-size;
-      border-bottom: $arrow-width solid $txtcolor;
-      border-right: $arrow-width solid $txtcolor;
-    }
-  }
   &:hover,
   &:focus {
     background: $txtcolor;
     box-shadow: $boxShadowMaterial;
-    .round-btn-bg:after {
-      background: none;
-      border-bottom: $arrow-width solid $txthover;
-      border-right: $arrow-width solid $txthover;
-    }
   }
 
   &:active {

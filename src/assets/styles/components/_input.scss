@@ -56,7 +56,6 @@
   select,
   textarea {
     &:focus,
-    &:valid,
     &.full {
       & + div {
         top: 0;
@@ -70,5 +69,55 @@
         }
       }
     }
+  }
+}
+
+%check-label {
+  $checkSize: 16px;
+
+  @include isFlex(top, left, row, no-wrap);
+  padding: 14px 0;
+  position: relative;
+
+  .form--check-helper {
+    position: absolute;
+    width: $checkSize;
+    height: $checkSize;
+    background: $secondBg;
+    border-radius: $borderRadLess;
+    top: 14px;
+    left: 0;
+    color: transparent;
+    font-size: $checkSize * 0.75;
+    transition: $transitionFast;
+    text-align: center;
+    line-height: $checkSize;
+  }
+  .form--checkbox {
+    min-width: $checkSize;
+    margin-right: $checkSize;
+    &:hover,
+    &:focus {
+      & + .form--check-helper {
+        box-shadow: $boxShadowMaterial;
+      }
+    }
+    &:checked {
+      & + .form--check-helper {
+        color: $lightText;
+      }
+    }
+  }
+
+  .form--checkbox-text {
+    font-size: $fontLess;
+    line-height: 1.3em;
+  }
+
+  & + .form--approve {
+    font-size: $fontSmall;
+    line-height: 1.5em;
+    color: $secondText;
+    margin-bottom: 28px;
   }
 }

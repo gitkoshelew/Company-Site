@@ -15,7 +15,7 @@
 }
 
 %btn-round-primary {
-  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
+  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
   border-radius: 100px;
   max-width: 300px;
   margin: 0 auto;
@@ -109,6 +109,71 @@
         left: 50%;
       }
     }
+  }
+}
+
+%round-slide-button {
+  $button-size: 56px;
+  $arrow-size: 14px;
+  $arrow-width: 2px;
+  $txtcolor: $themeSecondaryLightColor;
+  $txthover: $secondBg;
+
+  @include round($button-size, $txtcolor, $txthover);
+
+  .round-btn-bg {
+    line-height: $button-size;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+
+    @extend %after;
+
+    &:after {
+      top: calc(50% + 0px);
+      left: calc(50% + 4px);
+      transform: translate(-50%, -50%) rotate(135deg);
+      background: none;
+      width: $arrow-size;
+      height: $arrow-size;
+      border-bottom: $arrow-width solid $txtcolor;
+      border-right: $arrow-width solid $txtcolor;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    .round-btn-bg:after {
+      background: none;
+      border-bottom: $arrow-width solid $txthover;
+      border-right: $arrow-width solid $txthover;
+    }
+  }
+}
+
+%round-social-button {
+  $button-size: 56px;
+  $arrow-size: 14px;
+  $arrow-width: 2px;
+  $txtcolor: $themeSupportColor;
+  $txthover: $mainBgDark;
+
+  @include round($button-size, $txtcolor, $txthover);
+
+  border: 2px solid $txtcolor;
+
+  .round--social-bg {
+    @include bgImg('@~images/img/vk.svg', no-repeat, center, contain);
+    line-height: $button-size;
+    margin: 0 auto;
+    width: 22px;
+    height: 16px;
+  }
+
+  &:hover,
+  &:focus {
+    border: 2px solid lighten($txthover, 20%);
+    background: lighten($txthover, 20%);
   }
 }
 

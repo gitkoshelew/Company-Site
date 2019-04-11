@@ -1,5 +1,3 @@
-// $(window).load(function() {
-
 jQuery(function() {
   var isIE = /*@cc_on!@*/ false || !!document.documentMode,
     isEdge = !isIE && !!window.StyleMedia,
@@ -131,7 +129,7 @@ jQuery(function() {
 // file load
 const API_URL = 'http://localhost:8080/';
 const file_api = window.File && window.FileReader && window.FileList && window.Blob ? true : false;
-let FormFiles = [];
+const FormFiles = [];
 
 const mainFormDragLabel = document.getElementById('mainform__drag-label');
 const mainFormDragInput = document.getElementById('mainform__drag-input');
@@ -213,38 +211,40 @@ function dropFileValidation(name, size) {
   const isValidExtension = file_extensions.some(ext => ext === fileExt);
   const isValidSize = size <= file_maxSize;
 
-  if (isValidExtension & isValidSize) {
-    mainFormDragHeading.innerHTML = name;
-    return true;
-  } else {
-    mainFormDragHeading.innerHTML = 'Drag & drop files here …';
-  }
+  const fileElement = document.createElement('div');
+  fileElement.classList.add('mainform__drag-file');
+  fileElement.innerHTML = name;
 
   if (!isValidExtension) {
-    $(mainFormDragHeading).append('<mark>invalid file extension</mark>');
+    $(fileElement).append('<mark>invalid file extension</mark>');
   }
 
   if (!isValidSize) {
-    $(mainFormDragHeading).append('<mark>file bigger than 10mb</mark>');
+    $(fileElement).append('<mark>file bigger than 10mb</mark>');
   }
+
+  if (!(isValidExtension & isValidSize)) {
+    fileElement.classList.add('mainform__drag-file_invalid');
+    $(fileElement).insertAfter(mainFormDragHeading);
+    return false;
+  }
+
+  fileElement.dataset.count = FormFiles.length;
+  $(fileElement).insertAfter(mainFormDragHeading);
+  return true;
 }
 
 function hanlerFilesBeforeSend(files) {
-  let i = 0;
-  while (i < files.length) {
-    const { name, size } = files[i];
-
-    if (!name.length) break;
+  $(files).each((index, file) => {
+    const { name, size } = file;
+    if (!name.length) return;
 
     if (!dropFileValidation(name, size)) {
-      FormFiles = [];
-      break;
-    } else {
-      FormFiles.push(files[i]);
+      return;
     }
 
-    i++;
-  }
+    FormFiles.push(file);
+  });
 }
 
 $(mainFormDragInput)
@@ -328,7 +328,7 @@ $(mainForm).on('submit', function(e) {
   $(FormFiles).each(function(index, file) {
     formData.append('files[]', file, file.name);
   });
-  // console.log(FormFiles);
+
   const values = formData.values();
   console.log(values.next());
   console.log(values.next());
@@ -340,8 +340,8 @@ $(mainForm).on('submit', function(e) {
   console.log(values.next());
 
   //   $.ajax({
-  //   url: form.action,
-  //   type: form.method,
+  //   url: this.action,
+  //   type: this.method,
   //   data: dataToSend,
   //   contentType: false,
   //   processData: false,
@@ -350,5 +350,3 @@ $(mainForm).on('submit', function(e) {
   //   },
   // });
 });
-
-//});
