@@ -1,5 +1,9 @@
 .services {
+  @extend %pattern;
   padding-bottom: 88px;
+  &__pattern {
+    height: 778px;
+  }
   &__intro:last-child {
     margin-bottom: 20px;
   }

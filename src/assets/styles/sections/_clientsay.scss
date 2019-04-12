@@ -1,5 +1,9 @@
 .clientsay {
+  @extend %pattern;
   padding-bottom: 0;
+  &__pattern {
+    height: 695px;
+  }
   &__intro {
     padding-bottom: 37px;
   }

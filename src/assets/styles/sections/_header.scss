@@ -1,9 +1,7 @@
 .header {
   position: relative;
   color: $lightText;
-  &__nav-wrapper {
-    padding: 19px 10px;
-  }
+
   &__head {
     @include isFlex(center, space-between);
   }
@@ -11,6 +9,16 @@
     position: fixed;
     top: 0;
     left: -100%;
+    width: 100%;
+
+    &-wrapper {
+      padding: 19px 10px;
+    }
+
+    &.isOpen {
+      left: 0;
+    }
+
     &-open-button {
       @extend %btn-bar;
       border: 2px solid transparent;

@@ -1,5 +1,9 @@
 .why {
+  @extend %pattern;
   padding-bottom: 70px;
+  &__pattern {
+    height: 872px;
+  }
   &__intro:last-child {
     margin-bottom: 36px;
   }
@@ -7,5 +11,12 @@
     @extend %card;
     padding-top: 45px;
     padding-bottom: 20px;
+  }
+  &:nth-child(even) {
+    background: red;
+    .section--pattern {
+      bottom: auto;
+      top: 50px;
+    }
   }
 }

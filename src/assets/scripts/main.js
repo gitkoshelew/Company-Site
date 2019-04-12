@@ -1,4 +1,21 @@
 jQuery(function() {
+  window.addEventListener(
+    'dragover',
+    function(e) {
+      e = e || event;
+      e.preventDefault();
+    },
+    false
+  );
+  window.addEventListener(
+    'drop',
+    function(e) {
+      e = e || event;
+      e.preventDefault();
+    },
+    false
+  );
+
   var isIE = /*@cc_on!@*/ false || !!document.documentMode,
     isEdge = !isIE && !!window.StyleMedia,
     isMS = !(isIE || isEdge);
@@ -126,237 +143,243 @@ jQuery(function() {
   }
 });
 
-// window.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+if (jQuery('#mainform__form').length !== 0) {
+  formHandler('#mainform__form');
+}
 
-// file load
-const API_URL = 'http://localhost:8080/';
-const file_api = window.File && window.FileReader && window.FileList && window.Blob ? true : false;
-const FormFiles = [];
+$('.header__nav-open-button').click(function() {
+  console.log($(this));
+  $(this).toggleClass('isOpen');
+  $(this)
+    .prev('nav')
+    .toggleClass('isOpen');
+});
 
-const mainFormDragLabel = document.getElementById('mainform__drag-label');
-const mainFormDragInput = document.getElementById('mainform__drag-input');
-const mainFormDragHeading = document.getElementById('mainform__drag-heading');
-const mainForm = document.getElementById('mainform__form');
+// formHandler argument - BEM id string (#block__element_modificator)
 
-function valideteInput(el) {
-  const value = el.value;
-  const name = el.name;
-  const type = el.type;
-  let valid = false;
-  let message = '';
+function formHandler(form) {
+  const API_URL = 'http://localhost:8080/';
+  const file_api = window.File && window.FileReader && window.FileList && window.Blob ? true : false;
+  const FormFiles = [];
 
-  switch (type) {
-    case 'email':
-      valid = !!value.match(
-        /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%_\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
-      );
-      message = 'please, enter valid email';
-      break;
-    case 'textarea':
-      valid = !!value.match(/^[0-9+\(\)#\.\s\/ext-]+$/g);
-      switch (name) {
-        case 'name':
+  const file_extensions = ['pdf', 'doc', 'docx', 'rtf', 'ppt', 'pptx'];
+  const file_maxSize = 10000000;
+
+  const formNameSpace = form.split('__')[0].substring(1, form.length - 1);
+
+  const mainFormDragInput = $(form).find('[type="file"]');
+  const mainFormDragLabel = mainFormDragInput.closest('label');
+
+  function valideteInput(el) {
+    const value = el.value;
+    const name = el.name;
+    const type = el.type;
+    let valid = false;
+    let message = '';
+
+    switch (type) {
+      case 'email':
+        valid = !!value.match(
+          /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%_\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+        );
+        message = 'please, enter valid email';
+        break;
+      case 'text':
+        valid = !!value.match(/^[0-9+\(\)#\.\s\/ext-]+$/g);
+        if (name === 'name') {
           message = 'please, enter your name';
-          break;
-        case 'company':
+        }
+        if (name === 'company') {
           message = 'please, enter your company name';
-          break;
-        default:
-          break;
+        }
+        break;
+      case 'textarea':
+        valid = !!value.match(/([a-zA-Z]*)/g);
+        message = 'please, enter your message';
+        break;
+      case 'tel':
+        valid = !!value.match(/^[0-9+\(\)#\.\s\/ext-]+$/g);
+        message = 'please, enter valid phone number';
+        break;
+      default:
+        break;
+    }
+
+    if (value !== '') {
+      $(el).addClass('full');
+    } else {
+      $(el).removeClass('full');
+    }
+    if (!valid) {
+      $(el).addClass('inValid');
+      const previous = el.previousElementSibling;
+      if (!previous || previous.tagName !== 'MARK') {
+        $('<mark>' + message + '</mark>').insertBefore(el);
       }
-      break;
-    case 'text':
-      valid = !!value.match(/([a-zA-Z]*)/g);
-      message = 'please, enter your name';
-      break;
-    case 'tel':
-      valid = !!value.match(/^[0-9+\(\)#\.\s\/ext-]+$/g);
-      message = 'please, enter valid phone number';
-      break;
-    default:
-      break;
+      return false;
+    } else {
+      $(el).removeClass('inValid');
+      $(el)
+        .closest('label')
+        .find('mark')
+        .remove();
+      return true;
+    }
   }
 
-  if (value !== '') {
-    $(el).addClass('full');
-  } else {
-    $(el).removeClass('full');
+  function handleInputChange(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    valideteInput(this);
   }
-  if (!valid) {
-    $(el).addClass('inValid');
-    const previous = el.previousElementSibling;
-    if (!previous || previous.tagName !== 'MARK') {
-      $('<mark>' + message + '</mark>').insertBefore(el);
+
+  $(form)
+    .find('textarea,input:not(input[type="file"])')
+    .keyup(handleInputChange);
+
+  function dropFileValidation(name, size) {
+    const fileNameArr = name.split('.');
+    const fileExt = fileNameArr[fileNameArr.length - 1];
+
+    const isValidExtension = file_extensions.some(ext => ext === fileExt);
+    const isValidSize = size <= file_maxSize;
+
+    const fileElement = document.createElement('div');
+    fileElement.classList.add(`${formNameSpace}__drag-file drag--file`);
+    fileElement.innerHTML = name;
+
+    if (!isValidExtension) {
+      $(fileElement).append('<mark>invalid file extension</mark>');
     }
-    return false;
-  } else {
-    $(el).removeClass('inValid');
-    $(el)
-      .closest('label')
-      .find('mark')
-      .remove();
+
+    if (!isValidSize) {
+      $(fileElement).append(`<mark>file bigger than ${file_maxSize / 1000000}mb</mark>`);
+    }
+
+    if (!(isValidExtension & isValidSize)) {
+      fileElement.classList.add(`${formNameSpace}__drag-file_invalid drag--file-invalid`);
+      $(mainFormDragLabel).prepend(fileElement);
+      return false;
+    }
+
+    fileElement.dataset.count = FormFiles.length;
+    $(mainFormDragLabel).prepend(fileElement);
     return true;
   }
-}
 
-function handleInputChange(e) {
-  e.preventDefault();
-  e.stopPropagation();
+  function hanlerFilesBeforeSend(files) {
+    $(files).each((index, file) => {
+      const { name, size } = file;
 
-  valideteInput(this);
-}
+      if (!name.length) return;
 
-$('.mainform__input:not(input[type="file"])').keyup(handleInputChange);
+      if (!dropFileValidation(name, size)) {
+        return;
+      }
 
-$('.mainform__textarea').keyup(handleInputChange);
-
-function dropFileValidation(name, size) {
-  const file_extensions = ['pdf', 'doc', 'docx', 'rtf', 'ppt', 'pptx'];
-  const file_maxSize = 10485760;
-
-  const fileNameArr = name.split('.');
-  const fileExt = fileNameArr[fileNameArr.length - 1];
-
-  const isValidExtension = file_extensions.some(ext => ext === fileExt);
-  const isValidSize = size <= file_maxSize;
-
-  const fileElement = document.createElement('div');
-  fileElement.classList.add('mainform__drag-file');
-  fileElement.innerHTML = name;
-
-  if (!isValidExtension) {
-    $(fileElement).append('<mark>invalid file extension</mark>');
+      FormFiles.push(file);
+    });
   }
 
-  if (!isValidSize) {
-    $(fileElement).append('<mark>file bigger than 10mb</mark>');
-  }
+  $(mainFormDragInput)
+    .change(function() {
+      if (!file_api) {
+        alert('Your browser do not support file sending');
+        return;
+      }
+      hanlerFilesBeforeSend(this.files);
+    })
+    .change();
 
-  if (!(isValidExtension & isValidSize)) {
-    fileElement.classList.add('mainform__drag-file_invalid');
-    $(fileElement).insertAfter(mainFormDragHeading);
-    return false;
-  }
+  $(mainFormDragLabel).on({
+    dragenter: function(e) {
+      $(this).addClass('label--dragged');
+    },
+    dragleave: function(e) {
+      $(this).removeClass('label--dragged');
+    },
+    drop: function(e) {
+      e.stopPropagation();
+      e.preventDefault();
 
-  fileElement.dataset.count = FormFiles.length;
-  $(fileElement).insertAfter(mainFormDragHeading);
-  return true;
-}
+      if (!file_api) {
+        alert('Your browser do not support file sending');
+        return;
+      }
 
-function hanlerFilesBeforeSend(files) {
-  $(files).each((index, file) => {
-    const { name, size } = file;
-    console.log(name);
-    if (!name.length) return;
+      const dropFiles = e.originalEvent.dataTransfer.files;
+      const label_self = this;
 
-    if (!dropFileValidation(name, size)) {
-      return;
-    }
+      hanlerFilesBeforeSend(dropFiles);
 
-    FormFiles.push(file);
+      /* img reader preloader Preview*/
+      function imgPreloadHandler(file) {
+        const imgReader = new FileReader();
+
+        imgReader.onload = (function(file) {
+          return function(event) {
+            $(label_self)
+              .next()
+              .html(`<a href="#" class="${formNameSpace}__upload-img-link upload--img-link">Upload file</a>`);
+            $(label_self).html(
+              `<img class="${formNameSpace}__upload-img-link upload--img-link" src="${event.target.result}"> <span>${
+                file.name
+              }</span>`
+            );
+          };
+        })(file);
+
+        imgReader.readAsDataURL(file);
+      }
+    },
   });
-}
 
-$(mainFormDragInput)
-  .change(function() {
-    if (!file_api) {
-      alert('Your browser do not support file sending');
-      return;
-    }
-    hanlerFilesBeforeSend(this.files);
-  })
-  .change();
-
-$(mainFormDragLabel).on({
-  dragenter: function(e) {
-    $(this).css('background-color', 'lightBlue');
-  },
-  dragleave: function(e) {
-    $(this).css('background-color', 'white');
-  },
-  drop: function(e) {
-    e.stopPropagation();
+  $(form).on('submit', function(e) {
     e.preventDefault();
-    $(this).css('background-color', 'lightgreen');
+    e.stopPropagation();
 
-    if (!file_api) {
-      alert('Your browser do not support file sending');
-      return;
+    const validatedInputs = $(this).find(
+      'textarea,select,[type]:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="range"]):not([type="file"]):not([type="image"])'
+    );
+
+    const sendedInputs = $(this).find(
+      'textarea,select,[type]:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([type="image"])'
+    );
+
+    function validateBeforeSubmit(nodeList) {
+      return Array.prototype.every.call(nodeList, el => valideteInput(el));
     }
 
-    const dropFiles = e.originalEvent.dataTransfer.files;
+    if (validateBeforeSubmit(validatedInputs)) {
+      const formData = new FormData();
 
-    console.log(dropFiles);
-    hanlerFilesBeforeSend(dropFiles);
+      sendedInputs.each((idx, { name, value }) => formData.append(name, value));
 
-    /* img reader preloader */
-    // var imgReader = new FileReader();
+      $(FormFiles).each(function(index, file) {
+        formData.append('files[]', file, file.name);
+      });
 
-    // var this_obj = $(this);
+      const values = formData.values();
+      console.log(values.next());
+      console.log(values.next());
+      console.log(values.next());
+      console.log(values.next());
+      console.log(values.next());
+      console.log(values.next());
+      console.log(values.next());
+      console.log(values.next());
 
-    // imgReader.onload = (function(file) {
-    //   return function(event) {
-    //     // Preview
-    //     file_name = file.name;
-    //     console.log(event.target.result);
-    //     //image_data = event.target.result;
-    //     $(this_obj)
-    //       .next()
-    //       .html('<a href="#" class="upload-file">Upload file</a>');
-    //     $(this_obj).html('<img style="max-width: 200px; max-height: 200px;" src="' + event.target.result + '">');
-    //   };
-    // })(file);
-
-    // imgReader.readAsDataURL(file);
-
-    /* END img reader preloader */
-  },
-});
-
-$(mainForm).on('submit', function(e) {
-  e.preventDefault();
-  e.stopPropagation();
-
-  const validatedInputs = $(this).find(
-    'textarea,select,[type]:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="range"]):not([type="file"]):not([type="image"])'
-  );
-
-  function validateBeforeSubmit(nodeList) {
-    return Array.prototype.every.call(nodeList, el => valideteInput(el));
-  }
-
-  console.log(validateBeforeSubmit(validatedInputs));
-
-  const formData = new FormData();
-
-  const sendedInputs = $(this).find(
-    'textarea,select,[type]:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([type="image"])'
-  );
-
-  sendedInputs.each((idx, { name, value }) => formData.append(name, value));
-
-  $(FormFiles).each(function(index, file) {
-    formData.append('files[]', file, file.name);
+      //   $.ajax({
+      //   url: this.action,
+      //   type: this.method,
+      //   data: dataToSend,
+      //   contentType: false,
+      //   processData: false,
+      //   success: function(data) {
+      //     alert('Файлы были успешно загружены');
+      //   },
+      // });
+    }
   });
-
-  const values = formData.values();
-  console.log(values.next());
-  console.log(values.next());
-  console.log(values.next());
-  console.log(values.next());
-  console.log(values.next());
-  console.log(values.next());
-  console.log(values.next());
-  console.log(values.next());
-
-  //   $.ajax({
-  //   url: this.action,
-  //   type: this.method,
-  //   data: dataToSend,
-  //   contentType: false,
-  //   processData: false,
-  //   success: function(data) {
-  //     alert('Файлы были успешно загружены');
-  //   },
-  // });
-});
+}

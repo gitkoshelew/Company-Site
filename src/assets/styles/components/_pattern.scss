@@ -1,0 +1,11 @@
+%pattern {
+  position: relative;
+  .section--pattern {
+    width: 80%;
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    min-height: 400px;
+    @include bgImg('@~images/img/pattern-1.jpg', repeat, center, auto);
+  }
+}
