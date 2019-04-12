@@ -126,6 +126,31 @@ jQuery(function() {
   }
 });
 
+window.addEventListener(
+  'dragover',
+  function(e) {
+    e = e || event;
+    e.preventDefault();
+  },
+  false
+);
+window.addEventListener(
+  'drop',
+  function(e) {
+    e = e || event;
+    e.preventDefault();
+  },
+  false
+);
+
+window.onbeforeunload = function(event) {
+  return confirm('Confirm refresh');
+};
+
+$(window).bind('beforeunload', function() {
+  return 'Are you sure you want to leave?';
+});
+
 // file load
 const API_URL = 'http://localhost:8080/';
 const file_api = window.File && window.FileReader && window.FileList && window.Blob ? true : false;
@@ -259,14 +284,15 @@ $(mainFormDragInput)
 
 $(mainFormDragLabel).on({
   dragenter: function(e) {
+    console.log(e.originalEvent.dataTransfer.files);
     $(this).css('background-color', 'lightBlue');
   },
   dragleave: function(e) {
     $(this).css('background-color', 'white');
+    console.log(e.originalEvent.dataTransfer.files);
   },
   drop: function(e) {
-    e.stopPropagation();
-    e.preventDefault();
+    console.log(e.originalEvent.dataTransfer.files);
     $(this).css('background-color', 'lightgreen');
 
     if (!file_api) {
@@ -276,6 +302,7 @@ $(mainFormDragLabel).on({
 
     const dropFiles = e.originalEvent.dataTransfer.files;
     hanlerFilesBeforeSend(dropFiles);
+    e.preventDefault();
 
     /* img reader preloader */
     // var imgReader = new FileReader();
