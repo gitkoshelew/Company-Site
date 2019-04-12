@@ -126,6 +126,8 @@ jQuery(function() {
   }
 });
 
+// window.addEventListener('touchstart', e => e.preventDefault(), { passive: false });
+
 // file load
 const API_URL = 'http://localhost:8080/';
 const file_api = window.File && window.FileReader && window.FileList && window.Blob ? true : false;
@@ -136,16 +138,14 @@ const mainFormDragInput = document.getElementById('mainform__drag-input');
 const mainFormDragHeading = document.getElementById('mainform__drag-heading');
 const mainForm = document.getElementById('mainform__form');
 
-function handleInputChange(e) {
-  e.preventDefault();
-  e.stopPropagation();
-
-  const value = e.target.value;
-  const name = e.target.name;
+function valideteInput(el) {
+  const value = el.value;
+  const name = el.name;
+  const type = el.type;
   let valid = false;
   let message = '';
 
-  switch (this.type) {
+  switch (type) {
     case 'email':
       valid = !!value.match(
         /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%_\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
@@ -178,23 +178,32 @@ function handleInputChange(e) {
   }
 
   if (value !== '') {
-    $(this).addClass('full');
+    $(el).addClass('full');
   } else {
-    $(this).removeClass('full');
+    $(el).removeClass('full');
   }
   if (!valid) {
-    $(this).addClass('inValid');
-    const previous = this.previousElementSibling;
+    $(el).addClass('inValid');
+    const previous = el.previousElementSibling;
     if (!previous || previous.tagName !== 'MARK') {
-      $('<mark>' + message + '</mark>').insertBefore(this);
+      $('<mark>' + message + '</mark>').insertBefore(el);
     }
+    return false;
   } else {
-    $(this).removeClass('inValid');
-    $(this)
+    $(el).removeClass('inValid');
+    $(el)
       .closest('label')
       .find('mark')
       .remove();
+    return true;
   }
+}
+
+function handleInputChange(e) {
+  e.preventDefault();
+  e.stopPropagation();
+
+  valideteInput(this);
 }
 
 $('.mainform__input:not(input[type="file"])').keyup(handleInputChange);
@@ -237,6 +246,7 @@ function dropFileValidation(name, size) {
 function hanlerFilesBeforeSend(files) {
   $(files).each((index, file) => {
     const { name, size } = file;
+    console.log(name);
     if (!name.length) return;
 
     if (!dropFileValidation(name, size)) {
@@ -275,6 +285,8 @@ $(mainFormDragLabel).on({
     }
 
     const dropFiles = e.originalEvent.dataTransfer.files;
+
+    console.log(dropFiles);
     hanlerFilesBeforeSend(dropFiles);
 
     /* img reader preloader */
@@ -305,25 +317,23 @@ $(mainForm).on('submit', function(e) {
   e.preventDefault();
   e.stopPropagation();
 
-  const inputs = $(this).find('input');
-  const selects = $(this).find('select');
-  const textareas = $(this).find('textarea');
+  const validatedInputs = $(this).find(
+    'textarea,select,[type]:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="range"]):not([type="file"]):not([type="image"])'
+  );
+
+  function validateBeforeSubmit(nodeList) {
+    return Array.prototype.every.call(nodeList, el => valideteInput(el));
+  }
+
+  console.log(validateBeforeSubmit(validatedInputs));
 
   const formData = new FormData();
 
-  inputs.each(function(index, input) {
-    if (input.type !== 'file') {
-      formData.append(input.name, input.value);
-    }
-  });
+  const sendedInputs = $(this).find(
+    'textarea,select,[type]:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([type="image"])'
+  );
 
-  if (selects.length !== 0) {
-    selects.each((index, select) => formData.append(select.name, select.value));
-  }
-
-  if (textareas.length !== 0) {
-    selects.each((index, textarea) => formData.append(textarea.name, textarea.value));
-  }
+  sendedInputs.each((idx, { name, value }) => formData.append(name, value));
 
   $(FormFiles).each(function(index, file) {
     formData.append('files[]', file, file.name);
