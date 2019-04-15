@@ -1,11 +1,52 @@
 %pattern {
-  position: relative;
-  .section--pattern {
-    width: 80%;
-    position: absolute;
-    right: 0;
-    bottom: 50px;
-    min-height: 400px;
-    @include bgImg('@~images/img/pattern-1.jpg', repeat, center, auto);
+  width: 80%;
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+  min-height: 400px;
+  @include bgImg('@~images/img/pattern-1.jpg', repeat, center, auto);
+  z-index: -1;
+  @media #{$md} {
+    bottom: 80px;
   }
+  @media #{$xl} {
+  }
+  &-top {
+    bottom: auto;
+    top: 50px;
+    @media #{$md} {
+      top: 80px;
+    }
+    @media #{$xl} {
+    }
+  }
+}
+
+%pattern-ellips {
+  top: auto;
+  width: 100%;
+  height: 50%;
+  transform: none;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  @include bgImg('@~images/bg/Frame.svg', no-repeat, center, cover);
+  @media #{$md} {
+    height: 50%;
+    width: 40%;
+    bottom: 25%;
+  }
+  @media #{$xl} {
+  }
+}
+
+%filter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: none;
+  background: $secondBg;
+  opacity: 0.8;
 }

@@ -2,19 +2,16 @@
   padding-top: 51px;
   @include bgImg('@~images/bg/form320.jpg', no-repeat, center, cover);
   @extend %after;
-  &:before {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: $secondBg;
-    opacity: 0.8;
-    transform: none;
+  @media #{$md} {
+    padding-top: 90px;
   }
 
   &__heading {
     color: $lightText;
     margin-bottom: 14px;
+    @media #{$md} {
+      margin-bottom: 4px;
+    }
   }
   &__intro {
     color: $lightText;
@@ -23,6 +20,9 @@
     background: $themeLightColor;
     margin-top: 50px;
     padding: 31px 18px 50px;
+    @media #{$md} {
+      padding: 40px 30px 60px;
+    }
   }
   &__label {
     width: 100%;
@@ -38,11 +38,25 @@
     padding-top: 20px;
   }
   &__inputs {
+    &_main {
+      @media #{$md} {
+        @include isFlex(center, space-between);
+      }
+      .mainform__label {
+        @media #{$md} {
+          width: calc(50% - 10px);
+        }
+      }
+    }
+
     &_drag {
       margin-top: 33px;
       label {
         border: 1px dashed $darkBorder;
         padding: 20px 15px 25px;
+        @media #{$md} {
+          padding: 25px 15px;
+        }
       }
       div {
         pointer-events: none;
@@ -59,6 +73,10 @@
       height: 36px;
       margin: 7px auto;
       @include bgImg('@~images/img/download.svg', no-repeat, center, contain);
+      @media #{$md} {
+        width: 54px;
+        height: 54px;
+      }
     }
     &-label {
       @include isFlex();
@@ -82,6 +100,9 @@
 
   &__checkwrapper {
     @extend %check-label;
+    @media #{$md} {
+      margin-bottom: 20px;
+    }
   }
   &__submit {
     @extend %btn-round-primary;

@@ -1,11 +1,26 @@
 .services {
-  @extend %pattern;
   padding-bottom: 88px;
+  @media #{$md} {
+    padding-bottom: 175px;
+  }
+  @media #{$xl} {
+  }
+
   &__pattern {
     height: 778px;
+    @media #{$md} {
+      height: 994px;
+    }
+    @media #{$xl} {
+    }
   }
   &__intro:last-child {
     margin-bottom: 20px;
+    @media #{$md} {
+      margin-bottom: 45px;
+    }
+    @media #{$xl} {
+    }
   }
   &__article {
     @extend %card-article;

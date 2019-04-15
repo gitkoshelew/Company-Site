@@ -3,6 +3,10 @@
 p {
   font-size: $fontLess;
   line-height: 1.75em;
+  @media #{$md} {
+    font-size: $font;
+    line-height: 1.5em;
+  }
   @media #{$xl} {
     font-size: $font;
     line-height: 1.5em;
@@ -19,7 +23,8 @@ h2 > p {
   margin-bottom: 14px;
   @media #{$md} {
     font-size: $h2Tablet;
-    line-height: 1.25em;
+    line-height: 1.2em;
+    letter-spacing: 0;
   }
   @media #{$xl} {
     font-size: $h2Desk;
@@ -33,7 +38,6 @@ h2 > p {
 
     @media #{$md} {
       font-size: $h2introTablet;
-      line-height: 1.33em;
     }
     @media #{$xl} {
       font-size: $h2introDesk;
@@ -49,6 +53,8 @@ h3 > p {
   margin-bottom: 0.3em;
   @media #{$md} {
     font-size: $h3Tablet;
+    margin-bottom: 0.01em;
+    letter-spacing: 0;
   }
   @media #{$xl} {
     font-size: $h3Desk;
@@ -102,6 +108,9 @@ h6 {
 .container {
   padding-right: 12px;
   padding-left: 12px;
+  @media #{$md} {
+    max-width: 750px;
+  }
 }
 
 .row {

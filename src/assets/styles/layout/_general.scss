@@ -14,7 +14,6 @@ body {
   color: $mainText;
   margin: 0;
   padding: 0;
-  max-width: 768px;
   font-weight: normal;
 }
 h1,
@@ -48,4 +47,19 @@ footer {
 section,
 footer {
   padding: 45px 0;
+  position: relative;
+  @media #{$md} {
+    padding: 85px 0;
+  }
+  @media #{$xl} {
+  }
+  .section--pattern {
+    @extend %pattern;
+  }
+  .section--pattern-ellips {
+    @extend %pattern-ellips;
+  }
+  .section--filter {
+    @extend %filter;
+  }
 }

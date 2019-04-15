@@ -1,8 +1,14 @@
 .clientsay {
-  @extend %pattern;
-  padding-bottom: 0;
+  padding: 0;
   &__pattern {
     height: 695px;
+  }
+  &__content-wrapper {
+    background: $mainBgDark;
+    padding: 45px 0 185px;
+    @media #{$md} {
+      padding: 90px 0 185px;
+    }
   }
   &__intro {
     padding-bottom: 37px;
@@ -10,6 +16,13 @@
   &__slider {
     margin-bottom: 75px;
     padding-bottom: 70px;
+    @media #{$md} {
+      bottom: 20px;
+    }
+
+    &-wrapper {
+      margin-top: -185px;
+    }
 
     & .slick {
       &-arrow {
@@ -17,42 +30,81 @@
         bottom: -65px;
         @extend %round-slide-button;
         z-index: 2;
+        @media #{$md} {
+          bottom: 110px;
+        }
       }
 
       &-prev {
         right: calc(50% + 10px);
+        @media #{$md} {
+          left: auto;
+          right: 100px;
+        }
       }
 
       &-next {
         left: calc(50% + 10px);
+        @media #{$md} {
+          left: auto;
+          right: 20px;
+        }
         .round-btn-bg {
           transform: rotate(180deg);
         }
       }
       &-slide {
         padding: 0 5px;
+        font-size: 0;
         & > div {
           box-shadow: $boxShadowCard;
           margin-bottom: 5px;
+          background: $themeLightColor;
         }
       }
     }
   }
   &__slide {
-    background: $themeLightColor;
-
+    background-color: $themeLightColor;
+    &-wrapper {
+      width: 100%;
+      height: 100%;
+      @media #{$md} {
+        @include isFlex(center, space-between, row, nowrap);
+      }
+    }
     &-img {
       @include bgImg('@~images/bg/Director320.jpg', no-repeat, center, cover);
       height: 180px;
       margin-bottom: 20px;
+      width: 100%;
+      @media #{$md} {
+        width: 290px;
+        min-width: 290px;
+        height: auto;
+        align-self: stretch;
+        margin-bottom: 0;
+        @include bgImg('@~images/bg/Director768.jpg', no-repeat, center top, cover);
+      }
     }
     &-content {
       padding: 20px;
+      @media #{$md} {
+        padding: 40px 20px;
+      }
     }
 
     &-position {
       margin-bottom: 24px;
       letter-spacing: 0.07em;
+      @media #{$md} {
+        margin-bottom: 30px;
+      }
+    }
+    &-intro {
+      @media #{$md} {
+        line-height: 1.8em;
+      }
     }
 
     &-learnmore {
@@ -60,9 +112,14 @@
       color: $linkHover;
       margin-bottom: 20px;
       padding: 0;
-      font-size: 14px;
+      font-size: $fontLess;
       text-decoration: underline;
       margin-top: 20px;
+
+      @media #{$md} {
+        margin: 28px 0;
+        font-size: $font;
+      }
       &:hover,
       &:active {
         text-decoration: none;
@@ -74,6 +131,9 @@
       height: 28px;
       margin: 20px 0;
       display: block;
+      @media #{$md} {
+        margin: 32px 0 12px;
+      }
     }
   }
 }

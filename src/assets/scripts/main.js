@@ -22,7 +22,6 @@ jQuery(function() {
 
   if (jQuery('.header__slider').length !== 0) {
     var headerSlider = jQuery('.header__slider');
-    console.log('initial');
     headerSlider.slick({
       arrows: false,
       dots: true,
@@ -147,8 +146,7 @@ if (jQuery('#mainform__form').length !== 0) {
   formHandler('#mainform__form');
 }
 
-$('.header__nav-open-button').click(function() {
-  console.log($(this));
+$('.header__head-open-button').click(function() {
   $(this).toggleClass('isOpen');
   $(this)
     .prev('nav')

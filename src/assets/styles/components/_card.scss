@@ -1,27 +1,37 @@
-%card-article {
+%card-prototype {
   padding: 50px 20px 36px;
   margin: 7px 0;
   border: 1px solid $lightBorder;
   background: $cardBg;
+  @media #{$md} {
+    padding: 50px 28px 36px;
+  }
+  @media #{$xl} {
+  }
   .card-img {
     width: 70px;
     height: 70px;
     @include bgImg('@~images/img/cycle.svg', no-repeat, center, contain);
     margin-bottom: 25px;
+    @media #{$md} {
+      margin-bottom: 17px;
+    }
+    @media #{$xl} {
+    }
   }
   h4 {
     margin-bottom: 25px;
+    & > p {
+      @media #{$md} {
+        display: inline;
+      }
+      @media #{$xl} {
+      }
+    }
   }
+
   .card-preview {
     margin-bottom: 25px;
-  }
-  button {
-    @extend %clean-button;
-    padding: 7px 0;
-    font-size: $fontLess;
-    &:hover {
-      color: $themeColor;
-    }
   }
 
   &:hover {
@@ -32,25 +42,43 @@
 }
 
 %card {
-  padding: 50px 20px 36px;
-  margin: 7px 0;
-  border: 1px solid $lightBorder;
-  background: $cardBg;
-  .card-img {
-    width: 70px;
-    height: 70px;
-    @include bgImg('@~images/img/cycle.svg', no-repeat, center, contain);
-    margin-bottom: 25px;
+  @extend %card-prototype;
+  @media #{$md} {
+    padding: 45px 24px 12px;
   }
-  h4 {
-    margin-bottom: 25px;
-  }
-  .card-preview {
-    margin-bottom: 25px;
+  @media #{$xl} {
   }
 
-  &:hover {
-    h4 {
+  .card-img {
+    @media #{$md} {
+      margin-bottom: 33px;
+    }
+  }
+  .card-preview {
+    @media #{$md} {
+      font-size: $fontLess;
+      line-height: 1.75em;
+    }
+  }
+
+  h4,
+  h4 > p {
+    @media #{$md} {
+      font-size: $fontLarge;
+    }
+    @media #{$xl} {
+    }
+  }
+}
+
+%card-article {
+  @extend %card-prototype;
+
+  button {
+    @extend %clean-button;
+    padding: 7px 0;
+    font-size: $fontLess;
+    &:hover {
       color: $themeColor;
     }
   }

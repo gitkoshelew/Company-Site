@@ -50,7 +50,7 @@
   width: 44px;
   height: 32px;
   padding: 0;
-  margin-right: -8px;
+  margin-right: 0;
 
   &:hover,
   &:focus {
@@ -87,6 +87,7 @@
 
   &.isOpen {
     span {
+      background: $lightText;
       &:nth-child(1) {
         top: 8px;
         width: 0%;

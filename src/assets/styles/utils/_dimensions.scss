@@ -13,12 +13,16 @@ $xl: (
   min-width: 1200px,
 );
 
+$landscape: (
+  orientation: landscape,
+);
+
 /*
   Font sizes
 */
 
 $h2: 23px;
-$h2Tablet: 48px;
+$h2Tablet: 36px;
 $h2Desk: 64px;
 
 $h2intro: 16px;

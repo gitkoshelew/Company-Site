@@ -1,33 +1,108 @@
 .header {
   position: relative;
   color: $lightText;
+  padding-top: 70px;
 
   &__head {
     @include isFlex(center, space-between);
-  }
-  &__nav {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-
     &-wrapper {
       padding: 19px 10px;
-    }
-
-    &.isOpen {
+      position: fixed;
+      top: 0;
       left: 0;
+      width: 100%;
+      z-index: 1;
+      background: $themeLightColor;
+      box-shadow: $boxShadowCard;
+      @media #{$md} {
+        padding: 19px 20px;
+      }
+      @media #{$xl} {
+      }
+    }
+    &-logo {
+      @include bgImg('@~images/img/Group.svg', no-repeat, center, contain);
+      width: 128px;
+      height: 26px;
     }
 
     &-open-button {
       @extend %btn-bar;
       border: 2px solid transparent;
+      z-index: 1;
     }
   }
-  &__logo {
-    @include bgImg('@~images/img/Group.svg', no-repeat, center, contain);
-    width: 128px;
-    height: 26px;
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: calc(100% - 70px);
+    height: 100%;
+    @include isFlex(center, space-between, column, nowrap);
+    z-index: 1;
+    background: $themeLightColor;
+    padding: 50px 30px;
+    transition: $transition;
+    &:before {
+      content: '';
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 100%;
+      background: $navOpacityBgInitial;
+      position: absolute;
+      transition: $transition;
+    }
+
+    @media #{$landscape} {
+      padding: 5% 30px;
+    }
+
+    &.isOpen {
+      left: 0;
+      &:before {
+        content: '';
+        right: -100vw;
+        width: 100vw;
+        background: $navOpacityBg;
+      }
+    }
+
+    &-logo {
+      @include bgImg('@~images/img/Group.svg', no-repeat, center, contain);
+      width: 164px;
+      height: 32px;
+    }
+    &-list {
+      text-align: center;
+      @include isFlex(center, space-between, column, nowrap);
+      height: 33%;
+      min-height: 120px;
+    }
+
+    &-anchor {
+      color: $linkHover;
+      font-size: $fontLarge;
+      padding: 10px 15px;
+      display: inline-block;
+      font-weight: 700;
+      &:focus,
+      &:hover {
+        color: $linkHover;
+        box-shadow: $boxShadowMaterial;
+        background: $themeLightColor;
+      }
+      &:active {
+        box-shadow: none;
+      }
+    }
+
+    &-btn {
+      @extend %btn-round-primary;
+      border: none;
+      width: 100%;
+      padding: 14px 30px 16px;
+    }
   }
 
   &__slider {
@@ -86,13 +161,7 @@
       height: 100%;
     }
     &:before {
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: $secondBg;
-      opacity: 0.8;
-      transform: none;
+      @extend %filter;
     }
     &-content {
       display: block;
@@ -102,8 +171,18 @@
       left: 50%;
       width: 100%;
       padding: 0 12px;
+      @media #{$md} {
+        padding: 0 100px;
+      }
+      @media #{$xl} {
+      }
       &-heading {
         margin-top: -2em;
+        @media #{$md} {
+          margin-top: -0.6em;
+        }
+        @media #{$xl} {
+        }
       }
     }
   }
