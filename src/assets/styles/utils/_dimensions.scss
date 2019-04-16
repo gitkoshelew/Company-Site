@@ -1,21 +1,9 @@
-/* src/assets/styles/utils/_dimensions.scss  */
+/*
+  border-radus
+*/
 
-$sm: (
-  min-width: 576px,
-);
-$md: (
-  min-width: 768px,
-);
-$lg: (
-  min-width: 992px,
-);
-$xl: (
-  min-width: 1200px,
-);
-
-$landscape: (
-  orientation: landscape,
-);
+$borderRad: 5px;
+$borderRadLess: 2px;
 
 /*
   Font sizes
@@ -23,6 +11,7 @@ $landscape: (
 
 $h2: 23px;
 $h2Tablet: 36px;
+$h2TabletLarge: 48px;
 $h2Desk: 64px;
 
 $h2intro: 16px;
@@ -49,3 +38,30 @@ $fontSmall: 12px;
 
 $btnMainFontSize: 18px;
 $btnSecFontSize: 16px;
+
+$title: 24px;
+$titleBig: 54px;
+
+$subtitle: 18px;
+$subtitleBig: 36px;
+
+/*
+  Grid sizes
+*/
+
+$sm: (
+  min-width: 576px,
+);
+$md: (
+  min-width: 768px,
+);
+$lg: (
+  min-width: 992px,
+);
+$xl: (
+  min-width: 1200px,
+);
+
+$landscape: (
+  orientation: landscape,
+);

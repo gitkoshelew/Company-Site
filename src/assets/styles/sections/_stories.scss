@@ -1,7 +1,16 @@
 .stories {
   padding: 0;
+  &__heading {
+    & > p {
+      @media #{$xl} {
+        display: block;
+        margin-bottom: 0;
+      }
+    }
+  }
+
   &__content {
-    color: $lightText;
+    color: $ligthText;
     &-wrapper {
       padding: 41px 0 227px;
       @include bgImg('@~images/bg/Client320.jpg', no-repeat, center, cover);
@@ -32,8 +41,18 @@
     @media #{$md} {
       margin-bottom: 0;
     }
+    @media #{$xl} {
+      width: 1000px;
+      margin: -185px auto 0;
+      padding-left: 200px;
+    }
 
     & .slick {
+      &-list {
+        @media #{$xl} {
+          overflow: visible;
+        }
+      }
       &-arrow {
         position: absolute;
         bottom: -65px;
@@ -53,6 +72,7 @@
           right: 130px;
         }
         @media #{$xl} {
+          right: 160px;
         }
       }
 
@@ -63,6 +83,7 @@
           left: auto;
         }
         @media #{$xl} {
+          right: 80px;
         }
         .round-btn-bg {
           transform: rotate(180deg);
@@ -89,9 +110,15 @@
     &-heading {
       line-height: 1.3em;
       margin-bottom: 25px;
+      @media #{$xl} {
+        width: 320px;
+      }
     }
     &-intro {
       margin-bottom: 28px;
+      @media #{$xl} {
+        width: 320px;
+      }
     }
     &-buttons {
       @include isFlex(center, space-between);
@@ -108,12 +135,9 @@
       @media #{$sm} {
         width: auto;
       }
-      @media #{$xl} {
-      }
     }
     &-cta {
       @extend %btn-round-secondary;
-      padding: 18px 30px;
       width: 100%;
       font-size: 14px;
       margin-bottom: 20px;
@@ -122,6 +146,8 @@
         width: 260px;
       }
       @media #{$xl} {
+        margin: 75px 0 0;
+        width: auto;
       }
     }
   }

@@ -10,6 +10,8 @@
     bottom: 80px;
   }
   @media #{$xl} {
+    height: 50%;
+    width: 70%;
   }
   &-top {
     bottom: auto;
@@ -49,4 +51,14 @@
   transform: none;
   background: $secondBg;
   opacity: 0.8;
+}
+
+.section--pattern {
+  @extend %pattern;
+}
+.section--pattern-ellips {
+  @extend %pattern-ellips;
+}
+.section--filter {
+  @extend %filter;
 }

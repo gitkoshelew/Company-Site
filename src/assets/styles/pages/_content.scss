@@ -1,11 +1,19 @@
 /* src/assets/styles/pages/_services.scss  */
 
-.services__page {
+#content__page {
+  .header__content {
+    @include bgImg('@~images/bg/content320.jpg', no-repeat, center, cover);
+    @media #{$md} {
+      padding: 125px 0;
+      background-image: url('@~images/bg/content768.jpg');
+    }
+    @media #{$xl} {
+      padding: 115px 0;
+      background-image: url('@~images/bg/content1200.jpg');
+    }
+  }
 }
 
 /*
   Responsive
 */
-
-@media screen and(max-width:  $md) {
-}

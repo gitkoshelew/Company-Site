@@ -1,6 +1,15 @@
 /* src/assets/styles/pages/_services.scss  */
 
-.services__page {
+#services__page {
+  .header__content {
+    @include bgImg('@~images/bg/software320.jpg', no-repeat, center, cover);
+    @media #{$md} {
+      background-image: url('@~images/bg/contacts768.jpg');
+    }
+    @media #{$xl} {
+      background-image: url('@~images/bg/development1200.jpg');
+    }
+  }
 }
 
 /*

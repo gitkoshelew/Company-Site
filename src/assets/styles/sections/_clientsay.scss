@@ -19,9 +19,16 @@
     @media #{$md} {
       bottom: 20px;
     }
+    @media #{$xl} {
+      padding: 0 65px 50px;
+      margin-bottom: 55px;
+    }
 
     &-wrapper {
       margin-top: -185px;
+      @media #{$xl} {
+        margin-top: -150px;
+      }
     }
 
     & .slick {
@@ -33,6 +40,9 @@
         @media #{$md} {
           bottom: 110px;
         }
+        @media #{$xl} {
+          bottom: 90px;
+        }
       }
 
       &-prev {
@@ -40,6 +50,9 @@
         @media #{$md} {
           left: auto;
           right: 100px;
+        }
+        @media #{$xl} {
+          right: 210px;
         }
       }
 
@@ -49,6 +62,9 @@
           left: auto;
           right: 20px;
         }
+        @media #{$xl} {
+          right: 130px;
+        }
         .round-btn-bg {
           transform: rotate(180deg);
         }
@@ -56,6 +72,9 @@
       &-slide {
         padding: 0 5px;
         font-size: 0;
+        @media #{$xl} {
+          padding: 0 20px;
+        }
         & > div {
           box-shadow: $boxShadowCard;
           margin-bottom: 5px;
@@ -86,11 +105,17 @@
         margin-bottom: 0;
         @include bgImg('@~images/bg/Director768.jpg', no-repeat, center top, cover);
       }
+      @media #{$xl} {
+        min-width: 320px;
+      }
     }
     &-content {
       padding: 20px;
       @media #{$md} {
         padding: 40px 20px;
+      }
+      @media #{$xl} {
+        padding: 50px 30px;
       }
     }
 

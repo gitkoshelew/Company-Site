@@ -1,4 +1,24 @@
-/* src/assets/styles/components/_button.scss  */
+.button--primary {
+  @extend %btn-primary;
+}
+.button--primary--round {
+  @extend %btn-primary;
+}
+.button--secondary {
+  @extend %btn-secondary;
+}
+.button--secondary--round {
+  @extend %btn-round-secondary;
+}
+.button--social--round {
+  @extend %round-social-button;
+}
+.button--bar {
+  @extend %btn-bar;
+}
+.button--slide--round {
+  @extend %round-slide-button;
+}
 
 %clean-button {
   border: none;
@@ -19,6 +39,10 @@
   border-radius: 100px;
   max-width: 300px;
   margin: 0 auto;
+  padding: 14px 30px 16px;
+  @media #{$xl} {
+    padding: 17px 50px;
+  }
 }
 
 %btn-secondary {
@@ -31,22 +55,16 @@
   border-radius: 100px;
   max-width: 300px;
   margin: 0 auto;
-}
-
-%btn-main {
-  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
-}
-
-%btn-round-main {
-  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
-  border-radius: 100px;
+  padding: 14px 30px 16px;
+  @media #{$xl} {
+    padding: 17px 50px;
+  }
 }
 
 %btn-bar {
   border-radius: $borderRad;
   @include btn(transparent, $secondBg, $secondBg, $secondText);
   position: relative;
-  // box-sizing: padding-box;
   width: 44px;
   height: 32px;
   padding: 0;
@@ -87,7 +105,7 @@
 
   &.isOpen {
     span {
-      background: $lightText;
+      background: $ligthText;
       &:nth-child(1) {
         top: 8px;
         width: 0%;

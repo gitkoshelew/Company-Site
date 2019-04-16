@@ -7,14 +7,14 @@
   }
 
   &__heading {
-    color: $lightText;
+    color: $ligthText;
     margin-bottom: 14px;
     @media #{$md} {
       margin-bottom: 4px;
     }
   }
   &__intro {
-    color: $lightText;
+    color: $ligthText;
   }
   &__form {
     background: $themeLightColor;
@@ -66,6 +66,20 @@
         background: lightcoral;
       }
     }
+    &_check {
+      @media #{$xl} {
+        display: inline-block;
+        font-size: 0;
+        width: 70%;
+      }
+    }
+    &_submit {
+      @media #{$xl} {
+        font-size: 0;
+        display: inline-block;
+        width: 29%;
+      }
+    }
   }
   &__drag {
     &-img {
@@ -90,11 +104,17 @@
     }
     &-heading {
       text-align: center;
+      @media #{$xl} {
+        font-size: $font;
+      }
     }
     &-text {
       text-align: center;
       font-size: $fontSmall;
       color: $themeSecondaryColor;
+      @media #{$xl} {
+        font-size: $fontLess;
+      }
     }
   }
 
@@ -106,8 +126,12 @@
   }
   &__submit {
     @extend %btn-round-primary;
-    border: none;
     width: 100%;
-    padding: 17px 30px 19px;
+    border: none;
+
+    @media #{$md} {
+      margin-right: 0;
+      width: auto;
+    }
   }
 }

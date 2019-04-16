@@ -239,7 +239,22 @@ module.exports = env => {
           style : "assets/css/[name].[hash:7].bundle.css",
           js  : "assets/js/[name].[hash:7].bundle.js",
         }
-      }),
+      }
+      ),
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/services.html',
+        filename: 'services.html',
+      }
+      ),
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/content.html',
+        filename: 'content.html',
+      }
+      ),
 
       // ...globSync("html/**/*.html").map(fileName => {
       //   return new HtmlWebpackPlugin({

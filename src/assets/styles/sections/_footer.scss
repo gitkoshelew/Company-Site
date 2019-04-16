@@ -2,6 +2,9 @@
 
 .footer {
   background: $mainBgDark;
+  @media #{$md} {
+    padding: 80px calc(50vw - 475px) 0;
+  }
   &__social {
     padding: 6px 0 20px;
     &-logo {

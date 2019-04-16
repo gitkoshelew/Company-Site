@@ -16,7 +16,7 @@ $navOpacityBg: rgba(61, 61, 61, 0.6);
 
 $mainText: #343b4c;
 $secondText: $themeSecondaryColor;
-$lightText: $themeLightColor;
+$ligthText: $themeLightColor;
 $disabledText: #b3b3b1;
 $linkHover: $themeColor;
 $supportText: $themeSupportColor;
@@ -26,9 +26,6 @@ $lightBorder: $themeSecondaryLightColor;
 $darkBorder: $themeSecondaryColor;
 
 $btnBg: $secondBg;
-
-$borderRad: 5px;
-$borderRadLess: 2px;
 
 $transition: all 0.4s ease;
 $transitionFast: all 0.2s ease;
@@ -41,3 +38,4 @@ $boxShadowBox: 0px 1px 0 0 rgba(0, 0, 0, 0.14);
 $boxShadowMaterial: 0 1px 4px rgba(0, 0, 0, 0.6);
 
 $boxShadowCard: 0px 4px 16px rgba(141, 150, 178, 0.16);
+$boxShadowCardMaterial: 0px 4px 16px rgba(141, 150, 178, 0.16);

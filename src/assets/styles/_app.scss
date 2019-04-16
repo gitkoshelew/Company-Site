@@ -18,13 +18,12 @@
   Layout
 */
 @import './layout/general';
-@import './layout/page';
-@import './layout/helpers';
+@import './layout/pagegrid';
 
 /*
   Components
 */
-
+@import './components/helpers';
 @import './components/button';
 @import './components/input';
 @import './components/card';
@@ -38,6 +37,7 @@
 @import './sections/services';
 @import './sections/stories';
 @import './sections/why';
+@import './sections/termuse';
 @import './sections/clientsay';
 @import './sections/mainform';
 @import './sections/footer';

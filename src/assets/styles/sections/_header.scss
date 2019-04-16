@@ -1,7 +1,10 @@
 .header {
   position: relative;
-  color: $lightText;
+  color: $ligthText;
   padding-top: 70px;
+  @media #{$xl} {
+    padding-top: 0;
+  }
 
   &__head {
     @include isFlex(center, space-between);
@@ -18,18 +21,33 @@
         padding: 19px 20px;
       }
       @media #{$xl} {
+        background: transparent;
+        box-shadow: none;
+        position: relative;
+        padding: 0;
       }
     }
     &-logo {
       @include bgImg('@~images/img/Group.svg', no-repeat, center, contain);
       width: 128px;
       height: 26px;
+      @media #{$xl} {
+        display: none;
+      }
     }
 
     &-open-button {
       @extend %btn-bar;
       border: 2px solid transparent;
       z-index: 1;
+
+      @media #{$xl} {
+        display: none;
+      }
+      &:hover,
+      &:focus {
+        border: 2px solid transparent;
+      }
     }
   }
   &__nav {
@@ -43,6 +61,25 @@
     background: $themeLightColor;
     padding: 50px 30px;
     transition: $transition;
+    @media #{$md} {
+      justify-content: flex-start;
+    }
+    @media #{$xl} {
+      left: 0;
+      width: 100%;
+      margin: 0 auto;
+      height: auto;
+      flex-direction: row;
+      padding: 18px calc(50vw - 475px);
+      background: transparent;
+      position: absolute;
+      justify-content: space-between;
+    }
+
+    @media #{$landscape} and (max-width: 991px) {
+      padding: 5% 30px;
+    }
+
     &:before {
       content: '';
       top: 0;
@@ -52,10 +89,6 @@
       background: $navOpacityBgInitial;
       position: absolute;
       transition: $transition;
-    }
-
-    @media #{$landscape} {
-      padding: 5% 30px;
     }
 
     &.isOpen {
@@ -72,12 +105,25 @@
       @include bgImg('@~images/img/Group.svg', no-repeat, center, contain);
       width: 164px;
       height: 32px;
+      @media #{$xl} {
+        width: 212px;
+        height: 54px;
+        background-image: url('@~images/img/GroupWhite.svg');
+      }
     }
     &-list {
       text-align: center;
       @include isFlex(center, space-between, column, nowrap);
       height: 33%;
       min-height: 120px;
+      max-height: 200px;
+      @media #{$md} {
+        margin: 30px 0;
+      }
+      @media #{$xl} {
+        flex-direction: row;
+        margin: 0;
+      }
     }
 
     &-anchor {
@@ -95,13 +141,39 @@
       &:active {
         box-shadow: none;
       }
+      @media #{$xl} {
+        color: $ligthText;
+        &:focus,
+        &:hover {
+          background: $linkHover;
+          color: $ligthText;
+        }
+      }
     }
 
     &-btn {
       @extend %btn-round-primary;
       border: none;
       width: 100%;
-      padding: 14px 30px 16px;
+
+      @media #{$xl} {
+        width: auto;
+        margin: 0;
+      }
+    }
+    &.secondary {
+      @media #{$xl} {
+        background: $themeLightColor;
+        padding: 4px calc(50vw - 475px);
+        .header__nav {
+          &-logo {
+            background-image: url('@~images/img/Group.svg');
+          }
+          &-anchor {
+            color: $mainText;
+          }
+        }
+      }
     }
   }
 
@@ -113,6 +185,10 @@
       font-family: $futura;
       font-size: 14px;
       font-weight: 600;
+      @media #{$xl} {
+        right: calc(50vw - 475px);
+        font-size: 28px;
+      }
     }
     .slick {
       &-dots {
@@ -120,6 +196,9 @@
         bottom: 10%;
         left: 7px;
         display: flex;
+        @media #{$xl} {
+          left: calc(50vw - 475px);
+        }
 
         button {
           @extend %after;
@@ -129,6 +208,10 @@
           height: 21px;
           background: transparent;
           border: none;
+          @media #{$xl} {
+            width: 32px;
+            height: 32px;
+          }
           &:after {
             width: 5px;
             height: 5px;
@@ -137,6 +220,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            @media #{$xl} {
+              width: 8px;
+              height: 8px;
+            }
           }
         }
 
@@ -145,6 +232,10 @@
             &:after {
               width: 10px;
               height: 10px;
+              @media #{$xl} {
+                width: 16px;
+                height: 16px;
+              }
             }
           }
         }
@@ -182,7 +273,39 @@
           margin-top: -0.6em;
         }
         @media #{$xl} {
+          margin-top: 0;
         }
+      }
+    }
+  }
+  &__content {
+    padding: 75px 0 50px;
+    @media #{$md} {
+      padding: 95px 0;
+    }
+    @media #{$xl} {
+      margin-top: 130px;
+      padding: 80px 0;
+    }
+    &-heading {
+      @media #{$md} {
+        font-size: $h2TabletLarge;
+        em {
+          display: block;
+        }
+      }
+      @media #{$xl} {
+        font-size: $h2Desk;
+      }
+    }
+    &-intro {
+      em {
+        @media #{$md} {
+          display: block;
+        }
+      }
+
+      @media #{$xl} {
       }
     }
   }
