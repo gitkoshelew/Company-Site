@@ -14,7 +14,7 @@
     &-wrapper {
       padding: 41px 0 227px;
       @include bgImg('@~images/bg/Client320.jpg', no-repeat, center, cover);
-      @extend %after;
+      position: relative;
 
       @media #{$md} {
         padding: 85px 0 227px;
@@ -25,7 +25,6 @@
   }
   &__main-button {
     margin-top: 29px;
-    @extend %btn-round-secondary;
     border: none;
     width: 100%;
     padding: 17px 30px 19px;
@@ -53,18 +52,27 @@
           overflow: visible;
         }
       }
-      &-arrow {
-        position: absolute;
-        bottom: -65px;
-        @extend %round-slide-button;
-        z-index: 2;
+
+      &-slide {
+        padding: 0 12px;
         @media #{$md} {
-          bottom: 55px;
+          padding: 0 28px;
         }
         @media #{$xl} {
         }
       }
+    }
+  }
+  &__arrow {
+    bottom: -65px;
+    z-index: 2;
+    @media #{$md} {
+      bottom: 55px;
+    }
+    @media #{$xl} {
+    }
 
+    &.slick {
       &-prev {
         right: 40px;
         @media #{$md} {
@@ -87,14 +95,6 @@
         }
         .round-btn-bg {
           transform: rotate(180deg);
-        }
-      }
-      &-slide {
-        padding: 0 12px;
-        @media #{$md} {
-          padding: 0 28px;
-        }
-        @media #{$xl} {
         }
       }
     }
@@ -128,7 +128,6 @@
       }
     }
     &-button {
-      @extend %btn-primary;
       font-weight: normal;
       width: calc(50% - 5px);
       margin-bottom: 8px;
@@ -137,7 +136,6 @@
       }
     }
     &-cta {
-      @extend %btn-round-secondary;
       width: 100%;
       font-size: 14px;
       margin-bottom: 20px;

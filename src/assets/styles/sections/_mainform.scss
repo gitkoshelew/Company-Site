@@ -1,7 +1,6 @@
 .mainform {
   padding-top: 51px;
   @include bgImg('@~images/bg/form320.jpg', no-repeat, center, cover);
-  @extend %after;
   @media #{$md} {
     padding-top: 90px;
   }
@@ -26,7 +25,6 @@
   }
   &__label {
     width: 100%;
-    @extend %label;
     &_textarea {
       height: auto;
       min-height: 70px;
@@ -119,13 +117,11 @@
   }
 
   &__checkwrapper {
-    @extend %check-label;
     @media #{$md} {
       margin-bottom: 20px;
     }
   }
   &__submit {
-    @extend %btn-round-primary;
     width: 100%;
     border: none;
 

@@ -1,3 +1,13 @@
+.section--pattern {
+  @extend %pattern;
+}
+.section--pattern-ellips {
+  @extend %pattern-ellips;
+}
+.section--filter {
+  @extend %filter;
+}
+
 %pattern {
   width: 80%;
   position: absolute;
@@ -51,14 +61,4 @@
   transform: none;
   background: $secondBg;
   opacity: 0.8;
-}
-
-.section--pattern {
-  @extend %pattern;
-}
-.section--pattern-ellips {
-  @extend %pattern-ellips;
-}
-.section--filter {
-  @extend %filter;
 }

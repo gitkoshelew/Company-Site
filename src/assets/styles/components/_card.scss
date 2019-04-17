@@ -1,3 +1,11 @@
+.card--article {
+  @extend %card-article;
+}
+
+.card--product {
+  @extend %card-product;
+}
+
 %card-prototype {
   padding: 50px 20px 36px;
   margin: 7px 0;
@@ -44,8 +52,10 @@
   }
 }
 
-%card {
+%card-product {
   @extend %card-prototype;
+  padding-top: 45px;
+  padding-bottom: 20px;
   @media #{$md} {
     padding: 45px 24px 12px;
   }

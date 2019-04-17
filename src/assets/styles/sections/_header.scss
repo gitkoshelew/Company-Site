@@ -37,7 +37,6 @@
     }
 
     &-open-button {
-      @extend %btn-bar;
       border: 2px solid transparent;
       z-index: 1;
 
@@ -152,7 +151,6 @@
     }
 
     &-btn {
-      @extend %btn-round-primary;
       border: none;
       width: 100%;
 
@@ -190,69 +188,15 @@
         font-size: 28px;
       }
     }
-    .slick {
-      &-dots {
-        position: absolute;
-        bottom: 10%;
-        left: 7px;
-        display: flex;
-        @media #{$xl} {
-          left: calc(50vw - 475px);
-        }
-
-        button {
-          @extend %after;
-          font-size: 0;
-          padding: 0;
-          width: 21px;
-          height: 21px;
-          background: transparent;
-          border: none;
-          @media #{$xl} {
-            width: 32px;
-            height: 32px;
-          }
-          &:after {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: $mainBg;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            @media #{$xl} {
-              width: 8px;
-              height: 8px;
-            }
-          }
-        }
-
-        .slick-active {
-          button {
-            &:after {
-              width: 10px;
-              height: 10px;
-              @media #{$xl} {
-                width: 16px;
-                height: 16px;
-              }
-            }
-          }
-        }
-      }
-    }
   }
   &__slide {
     @include bgImg('@~images/bg/content320.jpg', no-repeat, center, cover);
     height: calc(100vh - 50px);
-    @extend %after;
+    position: relative;
     .container,
     .row,
     .col {
       height: 100%;
-    }
-    &:before {
-      @extend %filter;
     }
     &-content {
       display: block;

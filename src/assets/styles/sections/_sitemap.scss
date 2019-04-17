@@ -1,0 +1,151 @@
+.sitemap {
+  $lineColor: #e5e7f1;
+
+  @media #{$md} {
+    padding: 53px 0;
+  }
+  @media #{$lg} {
+    padding: 53px 0 78px;
+  }
+  a {
+    display: inline-block;
+    font-size: $font;
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  &__anchor,
+  &__heading,
+  &__item {
+    @extend %after;
+  }
+
+  &__anchor,
+  &__heading {
+    &:after {
+      width: 24px;
+      height: 24px;
+      left: 0;
+    }
+    &:before {
+      height: 2px;
+      width: 24px;
+      left: -32px;
+      background: $lineColor;
+      @media #{$md} {
+        width: 60px;
+        left: -76px;
+      }
+      @media #{$lg} {
+      }
+    }
+    &_main {
+      &:before {
+        content: none;
+      }
+    }
+  }
+
+  &__heading {
+    padding-left: 32px;
+    font-size: $fontLarge;
+    font-weight: 700;
+    &:after {
+      @include bgImg('@~images/img/folder.svg', no-repeat, center, contain);
+    }
+    &_main {
+      &:after {
+        @include bgImg('@~images/img/home.svg', no-repeat, center, contain);
+      }
+    }
+    &_second {
+      padding-left: 36px;
+      @media #{$md} {
+      }
+      @media #{$lg} {
+      }
+    }
+  }
+
+  &__anchor {
+    padding-left: 40px;
+    &:after {
+      @include bgImg('@~images/img/link.svg', no-repeat, center, contain);
+    }
+    &.sitemap__heading {
+      padding-top: 11px;
+      padding-bottom: 11px;
+      padding-left: 40px;
+    }
+  }
+
+  &__item {
+    margin-top: 18px;
+
+    &:after {
+      left: 0;
+      top: auto;
+      transform: none;
+      bottom: 18px;
+      height: calc(100% - 52px);
+      width: 2px;
+      background: $lineColor;
+      @media #{$md} {
+        left: 12px;
+      }
+      @media #{$lg} {
+      }
+    }
+
+    &:not(.sitemap__item_nochildrens) {
+      & + .sitemap__item_nochildrens {
+        margin-top: 11px;
+      }
+    }
+    &_nochildrens {
+      .sitemap__wrapper {
+        &:after {
+          content: none;
+        }
+      }
+    }
+    &_second {
+      margin-top: 18px;
+    }
+
+    &_main {
+      padding: 13px 0 3px;
+      @media #{$md} {
+        padding-left: 8px;
+      }
+      @media #{$lg} {
+        margin-left: 90px;
+      }
+
+      &:after {
+        @media #{$md} {
+          left: 20px;
+          height: calc(100% - 60px);
+        }
+        @media #{$lg} {
+        }
+      }
+    }
+  }
+
+  &__list {
+    padding-left: 32px;
+    padding-top: 13px;
+    @media #{$md} {
+      padding-left: 90px;
+    }
+    @media #{$lg} {
+    }
+    &_second {
+      padding-top: 8px;
+      padding-bottom: 10px;
+    }
+  }
+}

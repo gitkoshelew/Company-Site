@@ -1,11 +1,28 @@
 /* src/assets/styles/pages/_sitemap.scss  */
 
-.sitemap__page {
-}
-
-/*
-  Responsive
-*/
-
-@media screen and(max-width:  $md) {
+#sitemap__page {
+  .header__content {
+    background: $mainBgDark;
+    padding: 67px 0 70px;
+    @media #{$md} {
+      padding: 125px 0 117px;
+    }
+    @media #{$lg} {
+      padding: 114px 0;
+    }
+    &-heading {
+      color: $mainText;
+      margin-bottom: 6px;
+      @media #{$md} {
+        margin-bottom: 12px;
+      }
+      @media #{$lg} {
+      }
+    }
+    &-intro {
+      color: $mainText;
+      font-size: $fontLarge;
+      line-height: 1.8em;
+    }
+  }
 }

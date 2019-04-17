@@ -24,7 +24,6 @@
       }
     }
     &-btn {
-      @extend %round-social-button;
       margin: 15px;
       &:first-child {
         @media #{$md} {

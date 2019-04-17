@@ -6,9 +6,4 @@
   &__intro:last-child {
     margin-bottom: 36px;
   }
-  &__point {
-    @extend %card;
-    padding-top: 45px;
-    padding-bottom: 20px;
-  }
 }

@@ -1,3 +1,11 @@
+.form--label {
+  @extend %label;
+}
+
+.form--checkwrapper {
+  @extend %check-label;
+}
+
 %label {
   position: relative;
   display: block;
@@ -62,7 +70,8 @@
   select,
   textarea {
     &:focus,
-    &.full {
+    &.full,
+    &.inValid {
       & + div {
         top: 0;
         color: $themeColor;

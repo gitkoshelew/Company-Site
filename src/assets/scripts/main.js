@@ -52,6 +52,8 @@ jQuery(function() {
       ],
     });
 
+    headerSlider.find('.slick-dots').addClass('button--dots');
+
     const numbers = headerSlider
       .find('.slick-dots .slick-active button')
       .attr('aria-label')
@@ -102,7 +104,10 @@ jQuery(function() {
       ],
     });
 
-    storiesSlider.find('.slick-arrow').html('<div class="round-btn-bg"></div>');
+    storiesSlider
+      .find('.slick-arrow')
+      .addClass('stories__arrow button--slide--round')
+      .html('<div class="round-btn-bg"></div>');
   }
 
   if (jQuery('.clientsay__slider').length !== 0) {
@@ -138,7 +143,10 @@ jQuery(function() {
       ],
     });
 
-    clientsaySlider.find('.slick-arrow').html('<div class="round-btn-bg"></div>');
+    clientsaySlider
+      .find('.slick-arrow')
+      .addClass('clientsay__arrow button--slide--round')
+      .html('<div class="round-btn-bg"></div>');
   }
 });
 
