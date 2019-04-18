@@ -1,11 +1,12 @@
-/* src/assets/styles/pages/_cases.scss  */
-
-.cases__page {
-}
-
-/*
-  Responsive
-*/
-
-@media screen and(max-width:  $md) {
+#cases__page {
+  .header__content {
+    @include bgImg('@~images/bg/casesbg320.jpg', no-repeat, center, cover);
+    padding: 67px 0 88px;
+    @media #{$md} {
+      background-image: url('@~images/bg/casesbg768.jpg');
+    }
+    @media #{$xl} {
+      background-image: url('@~images/bg/casesbg1200.jpg');
+    }
+  }
 }

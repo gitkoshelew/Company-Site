@@ -3,7 +3,7 @@
 .footer {
   background: $mainBgDark;
   @media #{$md} {
-    padding: 80px calc(50vw - 475px) 0;
+    padding: 80px calc(50vw - 475px) 12px;
   }
   &__social {
     padding: 6px 0 20px;

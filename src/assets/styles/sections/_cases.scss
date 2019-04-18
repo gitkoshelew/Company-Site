@@ -1,0 +1,18 @@
+.cases {
+  .section--filter {
+    z-index: -1;
+  }
+  &__wrapper {
+    position: relative;
+    color: $ligthText;
+    &_zorka {
+      @include bgImg('@~images/bg/case1-320.jpeg', no-repeat, center, cover);
+    }
+    &_learning {
+      @include bgImg('@~images/bg/case2-320.jpeg', no-repeat, center, cover);
+    }
+    &_pintel {
+      @include bgImg('@~images/bg/case3-320.jpeg', no-repeat, center, cover);
+    }
+  }
+}

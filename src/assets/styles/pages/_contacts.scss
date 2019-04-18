@@ -12,6 +12,11 @@
   .mainform {
     background: $themeLightColor;
     padding-bottom: 100px;
+    @media #{$md} {
+      padding-bottom: 200px;
+    }
+    @media #{$xl} {
+    }
     .section--pattern {
       z-index: 0;
     }

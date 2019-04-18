@@ -14,6 +14,7 @@
   right: 0;
   bottom: 50px;
   min-height: 400px;
+  pointer-events: none;
   @include bgImg('@~images/img/pattern-1.jpg', repeat, center, auto);
   z-index: -1;
   @media #{$md} {
@@ -42,7 +43,8 @@
   bottom: 0;
   left: 0;
   position: absolute;
-  @include bgImg('@~images/bg/Frame.svg', no-repeat, center, cover);
+  pointer-events: none;
+  @include bgImg('@~images/bg/pattern-ellips-big.svg', no-repeat, center, cover);
   @media #{$md} {
     height: 50%;
     width: 40%;
@@ -54,6 +56,7 @@
 
 %filter {
   position: absolute;
+  pointer-events: none;
   width: 100%;
   height: 100%;
   top: 0;

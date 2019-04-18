@@ -29,13 +29,22 @@
   background: none;
 }
 
-%btn-primary {
-  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor, $btnSecFontSize);
+%rectangle-button {
   border-radius: $borderRad;
   padding: 7px 15px;
   margin-bottom: 5px;
   text-align: center;
   border: none;
+}
+
+%btn-primary {
+  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor, $btnSecFontSize);
+  @extend %rectangle-button;
+}
+
+%btn-secondary {
+  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
+  @extend %rectangle-button;
 }
 
 %btn-round-primary {
@@ -47,11 +56,6 @@
   @media #{$xl} {
     padding: 17px 50px;
   }
-}
-
-%btn-secondary {
-  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
-  border-radius: 100px;
 }
 
 %btn-round-secondary {

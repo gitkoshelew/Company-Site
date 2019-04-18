@@ -18,7 +18,7 @@
 @mixin btn($bg, $bgHover, $color, $colorHover, $fz: $btnMainFontSize) {
   background-color: $bg;
   color: $color;
-  display: block;
+  display: inline-block;
   font-size: $fz;
   padding: 10px 15px;
   border: 2px solid $color;
