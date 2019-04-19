@@ -1,14 +1,32 @@
 .button--primary {
   @extend %btn-primary;
 }
-.button--primary--round {
-  @extend %btn-round-primary;
+
+.button--primary--small {
+  @extend %btn-primary-small;
 }
+
+.button--primary--round {
+  @extend %btn-primary-round;
+}
+
+.button--primary--round--small {
+  @extend %btn-primary-round-small;
+}
+
 .button--secondary {
   @extend %btn-secondary;
 }
+
+.button--secondary--small {
+  @extend %btn-secondary-small;
+}
+
 .button--secondary--round {
-  @extend %btn-round-secondary;
+  @extend %btn-secondary-round;
+}
+.button--secondary--round--small {
+  @extend %btn-secondary-round;
 }
 .button--social--round {
   @extend %round-social-button;
@@ -30,16 +48,33 @@
 }
 
 %rectangle-button {
-  border-radius: $borderRad;
-  padding: 7px 15px;
   margin-bottom: 5px;
   text-align: center;
   border: none;
+  border-radius: $borderRadLess;
+  font-weight: 700;
+  padding: 10px 15px;
+}
+
+%rectangle-button-small {
+  padding: 7px 17px;
+  margin-bottom: 7px;
+  margin-right: 6px;
+  font-size: $font;
+  border-radius: $borderRadLess;
+  text-align: center;
+  border: none;
+  font-size: $btnFontSizeSmall;
 }
 
 %btn-primary {
-  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor, $btnSecFontSize);
+  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
   @extend %rectangle-button;
+}
+
+%btn-primary-small {
+  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
+  @extend %rectangle-button-small;
 }
 
 %btn-secondary {
@@ -47,26 +82,49 @@
   @extend %rectangle-button;
 }
 
-%btn-round-primary {
-  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
+%btn-secondary-small {
+  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
+  @extend %rectangle-button-small;
+}
+
+%btn-round {
   border-radius: 100px;
   max-width: 300px;
   margin: 0 auto;
   padding: 14px 30px 16px;
+  font-weight: 700;
   @media #{$xl} {
     padding: 17px 50px;
   }
 }
 
-%btn-round-secondary {
-  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
+%btn-round-small {
   border-radius: 100px;
   max-width: 300px;
   margin: 0 auto;
-  padding: 14px 30px 16px;
-  @media #{$xl} {
-    padding: 17px 50px;
-  }
+  padding: 20px 30px;
+  font-size: $fontLess;
+  font-weight: 700;
+}
+
+%btn-primary-round {
+  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
+  @extend %btn-round;
+}
+
+%btn-primary-round-small {
+  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
+  @extend %btn-round-small;
+}
+
+%btn-secondary-round {
+  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
+  @extend %btn-round;
+}
+
+%btn-secondary-round-small {
+  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
+  @extend %btn-round-small;
 }
 
 %btn-bar {

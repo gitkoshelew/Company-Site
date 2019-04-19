@@ -15,16 +15,12 @@
   background-size: $size;
 }
 
-@mixin btn($bg, $bgHover, $color, $colorHover, $fz: $btnMainFontSize) {
+@mixin btn($bg, $bgHover, $color, $colorHover) {
   background-color: $bg;
   color: $color;
   display: inline-block;
-  font-size: $fz;
-  padding: 10px 15px;
   border: 2px solid $color;
   transition: $transition;
-  border-radius: $borderRad;
-  font-weight: 700;
   letter-spacing: 0.04ex;
   overflow: hidden;
   @extend %after;
