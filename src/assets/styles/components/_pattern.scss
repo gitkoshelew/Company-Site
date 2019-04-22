@@ -1,6 +1,31 @@
 .section--pattern {
-  @extend %pattern;
+  &--bottom {
+    @extend %pattern-main;
+    bottom: 50px;
+    @media #{$md} {
+      bottom: 80px;
+    }
+    &-right {
+      @extend %pattern-main;
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &--top {
+    @extend %pattern-main;
+    top: 50px;
+    @media #{$md} {
+      top: 80px;
+    }
+    &-right {
+      @extend %pattern-main;
+      left: auto;
+      right: 0;
+    }
+  }
 }
+
 .section--pattern-ellips {
   @extend %pattern-ellips;
 }
@@ -11,30 +36,17 @@
   @extend %gradient;
 }
 
-%pattern {
+%pattern-main {
   width: 80%;
   position: absolute;
-  right: 0;
-  bottom: 50px;
+  left: 0;
   min-height: 400px;
   pointer-events: none;
   @include bgImg('@~images/img/pattern-1.jpg', repeat, center, auto);
   z-index: -1;
-  @media #{$md} {
-    bottom: 80px;
-  }
   @media #{$xl} {
     height: 50%;
     width: 70%;
-  }
-  &-top {
-    bottom: auto;
-    top: 50px;
-    @media #{$md} {
-      top: 80px;
-    }
-    @media #{$xl} {
-    }
   }
 }
 

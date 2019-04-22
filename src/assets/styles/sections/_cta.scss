@@ -1,0 +1,22 @@
+.cta {
+  color: $ligthText;
+  @include bgImg('@~images/bg/pros320.jpg', no-repeat, center, cover);
+  @media #{$md} {
+    background-image: url('@~images/bg/pros768.jpg');
+  }
+  @media #{$xl} {
+    background-image: url('@~images/bg/pros1200.jpg');
+  }
+  &__heading {
+    margin: 0.4em 0;
+  }
+  &__text {
+    font-size: $font;
+  }
+
+  &__button {
+    border: none;
+    width: 100%;
+    margin: 37px auto 5px;
+  }
+}

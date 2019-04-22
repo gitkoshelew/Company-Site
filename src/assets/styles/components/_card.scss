@@ -6,6 +6,10 @@
   @extend %card-product;
 }
 
+.card--list--item {
+  @extend %card-list-item;
+}
+
 %card-prototype {
   padding: 50px 20px 36px;
   margin: 7px 0;
@@ -95,5 +99,21 @@
     &:hover {
       color: $themeColor;
     }
+  }
+}
+
+%card-list-item {
+  @extend %card-prototype;
+  padding: 35px 20px 0;
+  text-align: center;
+  .card-img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .h4 {
+    margin-bottom: 5px;
+  }
+  .card-preview {
+    line-height: 2em;
   }
 }

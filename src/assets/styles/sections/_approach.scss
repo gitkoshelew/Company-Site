@@ -1,0 +1,60 @@
+.approach {
+  background: $mainBgDark;
+  &__heading {
+    letter-spacing: 0;
+    margin-top: 0.2em;
+  }
+  &__intro {
+    font-size: $font;
+    margin-bottom: 2em;
+  }
+  &__list {
+    padding: 20px 0 0;
+    counter-reset: list-counter;
+  }
+  &__item {
+    @extend %after;
+    padding: 25px 0 42px 85px;
+    counter-increment: list-counter;
+
+    &:after {
+      width: 70px;
+      height: 70px;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      background-color: $themeColor;
+      content: '0' counter(list-counter);
+      color: $ligthText;
+      text-align: center;
+      line-height: 70px;
+    }
+    &:nth-child(n + 10) {
+      &:after {
+        content: counter(list-counter);
+      }
+    }
+    &:last-child {
+      padding-bottom: 0;
+    }
+    &-wrapper {
+    }
+    &-heading {
+      font-size: $h5 + 1px;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.1em;
+    }
+    &-text {
+      line-height: 2em;
+      margin-bottom: 0.5em;
+    }
+    &-link {
+      font-size: $fontLess;
+      display: block;
+      line-height: 2em;
+      color: $secondText;
+      padding-left: 10px;
+      @extend %after;
+    }
+  }
+}
