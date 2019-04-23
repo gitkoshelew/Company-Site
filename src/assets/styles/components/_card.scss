@@ -106,14 +106,36 @@
   @extend %card-prototype;
   padding: 35px 20px 0;
   text-align: center;
+  @media #{$md} {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-start;
+  }
+  @media #{$xl} {
+    padding: 35px 20px;
+  }
   .card-img {
     width: 100%;
     margin-bottom: 20px;
+    @media #{$md} {
+      width: 220px;
+      margin-right: 20px;
+      margin-top: 25px;
+    }
+    @media #{$xl} {
+    }
   }
-  .h4 {
+  h4 {
     margin-bottom: 5px;
+    @media #{$md} {
+      margin-bottom: 15px;
+    }
   }
   .card-preview {
     line-height: 2em;
+    @media #{$md} {
+      line-height: 1.75em;
+    }
   }
 }

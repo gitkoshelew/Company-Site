@@ -1,5 +1,11 @@
 .roles {
   padding: 5px 0 12px;
+  @media #{$md} {
+    padding: 40px 0 60px;
+  }
+  @media #{$xl} {
+    padding: 60px 0 120px;
+  }
   &__intro {
     font-size: $font;
     line-height: 1.5em;
@@ -17,6 +23,15 @@
       background: $mainBgDark;
       margin: 0 auto 27px;
       @include bgImg('@~images/img/PM.svg', no-repeat, center, cover);
+      &_ba {
+        background-image: url('@~images/img/BA.svg');
+      }
+      &_designer {
+        background-image: url('@~images/img/Designer.svg');
+      }
+      &_qa {
+        background-image: url('@~images/img/QA.svg');
+      }
     }
     &-heading {
       margin-bottom: 0.4em;

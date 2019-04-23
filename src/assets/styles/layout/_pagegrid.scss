@@ -11,6 +11,8 @@
     max-width: 960px;
   }
   @media #{$xl} {
+  }
+  @media #{$xxl} {
     max-width: 1140px;
   }
 }

@@ -9,14 +9,26 @@
   }
   &__heading {
     margin: 0.4em 0;
+    @media #{$md} {
+      margin: 0.2em 0;
+    }
+    @media #{$xl} {
+      margin: 0.2em 0;
+    }
   }
   &__text {
     font-size: $font;
+    @media #{$xl} {
+      padding-right: 15px;
+    }
   }
 
   &__button {
     border: none;
     width: 100%;
     margin: 37px auto 5px;
+    @media #{$md} {
+      width: auto;
+    }
   }
 }

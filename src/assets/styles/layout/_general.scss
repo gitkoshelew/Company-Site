@@ -122,9 +122,11 @@ h3 {
   margin-bottom: 0.3em;
   @media #{$md} {
     margin-bottom: 0.01em;
+    padding-right: 25%;
   }
   @media #{$xl} {
     margin-bottom: 0.6em;
+    padding-right: 15%;
   }
 }
 
@@ -144,10 +146,11 @@ h3 > p {
   & + p {
     @media #{$md} {
       line-height: 1.75em;
+      padding-right: 25%;
     }
     @media #{$xl} {
       line-height: 1.5em;
-      padding-right: 500px;
+      padding-right: 25%;
     }
   }
 }

@@ -1,9 +1,25 @@
 .helpyou {
+  @media #{$md} {
+    padding-top: 110px;
+    padding-bottom: 0;
+    div[class^='col'] {
+      margin-bottom: 10px;
+    }
+  }
+  @media #{$xl} {
+    padding-bottom: 63px;
+  }
   .section--pattern--bottom-right {
     bottom: 25%;
     height: 50%;
   }
   &__heading {
     margin-bottom: 1.1em;
+    @media #{$md} {
+      margin-bottom: 1.5em;
+    }
+    @media #{$xl} {
+      margin-bottom: 1em;
+    }
   }
 }

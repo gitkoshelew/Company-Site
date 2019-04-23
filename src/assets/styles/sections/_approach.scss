@@ -1,5 +1,8 @@
 .approach {
   background: $mainBgDark;
+  @media #{$xl} {
+    padding-bottom: 10px;
+  }
   &__heading {
     letter-spacing: 0;
     margin-top: 0.2em;
@@ -11,23 +14,58 @@
   &__list {
     padding: 20px 0 0;
     counter-reset: list-counter;
+    @media #{$md} {
+      padding: 20px 40px 0 60px;
+    }
+    @media #{$xl} {
+      padding: 40px 40px 0 50px;
+    }
   }
   &__item {
     @extend %after;
-    padding: 25px 0 42px 85px;
     counter-increment: list-counter;
+
+    &:before {
+      width: 5px;
+      height: calc(100%-70px);
+      left: 33px;
+      top: 70px;
+      transform: none;
+      @include bgImg('@~images/img/dottstheme.svg', repeat, top center, auto 16px);
+      background-repeat: repeat-y;
+      transform: none;
+      border: 2px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-image: url('@~images/img/treangle.svg') 30 30 stretch;
+      @media #{$xl} {
+        height: calc(100% - 96px);
+        left: 2px;
+        top: 96px;
+      }
+    }
 
     &:after {
       width: 70px;
       height: 70px;
-      top: 0;
+      line-height: 70px;
+      top: 35px;
       left: 0;
       border-radius: 50%;
       background-color: $themeColor;
       content: '0' counter(list-counter);
       color: $ligthText;
       text-align: center;
-      line-height: 70px;
+      font-size: 24px;
+      font-family: $futura;
+      font-weight: 700;
+      @media #{$xl} {
+        width: 95px;
+        height: 95px;
+        line-height: 90px;
+        top: 45px;
+        left: -45px;
+        font-size: 36px;
+      }
     }
     &:nth-child(n + 10) {
       &:after {
@@ -36,17 +74,49 @@
     }
     &:last-child {
       padding-bottom: 0;
+      &:before {
+        content: none;
+      }
     }
     &-wrapper {
+      @extend %after;
+      padding: 25px 0 42px 85px;
+
+      @media #{$md} {
+        @include isFlex(flex-start, flex-start, row, nowrap);
+      }
+
+      @media #{$xl} {
+        padding: 25px 0 10px 85px;
+        min-height: 200px;
+      }
     }
     &-heading {
       font-size: $h5 + 1px;
       letter-spacing: 0.03em;
       margin-bottom: 0.1em;
+      @media #{$xl} {
+        width: 45%;
+        font-size: 27px;
+      }
+    }
+    &-content {
+      @media #{$xl} {
+        width: 55%;
+        padding-left: 1%;
+        padding-top: 12px;
+      }
     }
     &-text {
       line-height: 2em;
       margin-bottom: 0.5em;
+      @media #{$md} {
+        font-size: $fontLess;
+      }
+      @media #{$lg} {
+        font-size: $fontLarge;
+        line-height: 1.75em;
+      }
     }
     &-link {
       font-size: $fontLess;
@@ -55,6 +125,16 @@
       color: $secondText;
       padding-left: 10px;
       @extend %after;
+      &:after {
+        width: 10px;
+        height: 10px;
+        border: 7px solid transparent;
+        border-left-color: $themeColor;
+        left: -2px;
+        top: 7px;
+        display: block;
+        transform: scale(1, 0.75);
+      }
     }
   }
 }

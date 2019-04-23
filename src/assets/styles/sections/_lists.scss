@@ -5,6 +5,12 @@
   }
   &__intro {
     margin-bottom: 42px;
+    @media #{$md} {
+      margin-bottom: 3em;
+    }
+    @media #{$md} {
+      margin-bottom: 4em;
+    }
   }
   &__col {
     padding-right: 15px;
@@ -12,18 +18,42 @@
     width: 100%;
     margin-bottom: 25px;
     @include isFlex(flex-start, left);
+    @media #{$sm} {
+      width: 50%;
+      flex-direction: column;
+    }
+    @media #{$md} {
+      width: 33.333%;
+    }
+    @media #{$xl} {
+      width: 20%;
+    }
     &-heading {
       font-size: $h4 * 1.33;
       margin-top: 2px;
+      @media #{$xl} {
+        font-size: $h4Desk;
+        margin-bottom: 16px;
+        margin-top: 7px;
+      }
     }
   }
   &__content {
     padding-left: 12px;
+    @media #{$sm} {
+      padding-left: 0;
+    }
+    @media #{$xl} {
+      padding-top: 36px;
+    }
   }
   &__img {
     @include bgImg('@~images/img/Frontend.svg', no-repeat, center, contain);
     width: 72px;
     height: 64px;
+    @media #{$sm} {
+      background-position: bottom center;
+    }
     &_backend {
       background-image: url('@~images/img/Backend.svg');
     }
@@ -43,5 +73,9 @@
   &__item {
     margin: 8px 0 16px;
     color: $secondText;
+    @media #{$xl} {
+      font-size: $fontLarge;
+      margin-bottom: 14px;
+    }
   }
 }

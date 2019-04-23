@@ -9,6 +9,15 @@
   .section--gradient {
     top: 100%;
   }
+  &__head {
+    &-heading {
+      margin-bottom: 0.5em;
+    }
+    &-intro {
+      line-height: 2em;
+      margin-bottom: 1em;
+    }
+  }
   &__wrapper {
     position: relative;
     overflow: hidden;
