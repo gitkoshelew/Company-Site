@@ -1,0 +1,29 @@
+#uiux__page {
+  .header__content {
+    padding: 145px 0 220px;
+    @include bgImg('@~images/bg/uiux320.jpg', no-repeat, center, cover);
+    @media #{$md} {
+      padding: 177px 0 205px;
+      background-image: url('@~images/bg/uiux768.jpg');
+    }
+    @media #{$xl} {
+      padding: 300px 0 335px;
+      background-image: url('@~images/bg/uiux1200.jpg');
+    }
+    @media #{$xl} {
+      background-image: url('@~images/bg/uiux1920.jpg');
+    }
+  }
+  .cta {
+    @include bgImg('@~images/bg/uiuxcta320.jpg', no-repeat, center, cover);
+    @media #{$md} {
+      background-image: url('@~images/bg/uiuxcta768.jpg');
+    }
+    @media #{$xl} {
+      background-image: url('@~images/bg/uiuxcta1200.jpg');
+    }
+    @media #{$xl} {
+      background-image: url('@~images/bg/uiuxcta1920.jpg');
+    }
+  }
+}

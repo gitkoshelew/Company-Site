@@ -57,10 +57,9 @@
         color: $ligthText;
         background-color: $themeColor;
       }
-      @media #{$md} {
-        .cases__view-btn {
-          opacity: 1;
-        }
+
+      .cases__view-btn {
+        opacity: 1;
       }
     }
   }
@@ -120,7 +119,7 @@
     opacity: 0;
     transition: $transitionFast;
     position: absolute;
-    bottom: 50px;
+    bottom: 110px;
     left: -5px;
     border: none;
     @media #{$xl} {

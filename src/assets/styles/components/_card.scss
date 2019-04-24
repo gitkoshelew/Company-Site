@@ -26,6 +26,36 @@
     height: 70px;
     @include bgImg('@~images/img/cycle.svg', no-repeat, center, contain);
     margin-bottom: 25px;
+
+    &.img {
+      &--devcenter {
+        background-image: url('@~images/img/devcenter.svg');
+      }
+      &--team {
+        background-image: url('@~images/img/team.svg');
+      }
+      &--discovery {
+        background-image: url('@~images/img/Discovery.svg');
+      }
+      &--extension {
+        background-image: url('@~images/img/Extension.svg');
+      }
+      &--design {
+        background-image: url('@~images/img/design.svg');
+      }
+      &--ui {
+        background-image: url('@~images/img/Ui.svg');
+      }
+      &--solutions {
+        background-image: url('@~images/img/solutions.svg');
+      }
+      &--businessautomation {
+        background-image: url('@~images/img/businessautomation.svg');
+      }
+      &--reengineering {
+        background-image: url('@~images/img/reengineering.svg');
+      }
+    }
     @media #{$md} {
       margin-bottom: 17px;
     }

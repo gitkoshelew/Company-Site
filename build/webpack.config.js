@@ -283,6 +283,20 @@ module.exports = env => {
         filename: 'teams.html',
       }),
 
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/uiux.html',
+        filename: 'uiux.html',
+      }),
+
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/software.html',
+        filename: 'software.html',
+      }),
+
       // ...globSync("html/**/*.html").map(fileName => {
       //   return new HtmlWebpackPlugin({
       //     template: fileName,

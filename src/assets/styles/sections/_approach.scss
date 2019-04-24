@@ -12,7 +12,7 @@
     margin-bottom: 2em;
   }
   &__list {
-    padding: 20px 0 0;
+    padding: 20px 0 0 15px;
     counter-reset: list-counter;
     @media #{$md} {
       padding: 20px 40px 0 60px;
@@ -24,22 +24,29 @@
   &__item {
     @extend %after;
     counter-increment: list-counter;
+    padding: 25px 0 42px 85px;
+
+    @media #{$xl} {
+      @include isFlex(flex-start, flex-start, row, nowrap);
+    }
+
+    @media #{$xl} {
+      padding: 25px 0 10px 85px;
+      min-height: 200px;
+    }
 
     &:before {
-      width: 5px;
-      height: calc(100%-70px);
-      left: 33px;
+      width: 11px;
+      height: calc(100%-76px);
+      left: 29px;
       top: 70px;
       transform: none;
-      @include bgImg('@~images/img/dottstheme.svg', repeat, top center, auto 16px);
-      background-repeat: repeat-y;
+      background: url('@~images/img/dottstheme.svg') center bottom repeat-y,
+        url('@~images/img/treangle.svg') center bottom no-repeat;
       transform: none;
-      border: 2px solid transparent;
-      border-bottom: 15px solid transparent;
-      border-image: url('@~images/img/treangle.svg') 30 30 stretch;
       @media #{$xl} {
-        height: calc(100% - 96px);
-        left: 2px;
+        height: calc(100% - 105px);
+        left: -7px;
         top: 96px;
       }
     }
@@ -78,19 +85,53 @@
         content: none;
       }
     }
-    &-wrapper {
-      @extend %after;
-      padding: 25px 0 42px 85px;
-
-      @media #{$md} {
-        @include isFlex(flex-start, flex-start, row, nowrap);
+    &_reverse {
+      &--1 {
+        &:before {
+          left: 16px;
+          @media #{$xl} {
+            left: -16px;
+          }
+        }
+        .approach__item-arrow {
+          position: absolute;
+          width: 11px;
+          height: calc(100%-76px);
+          left: 41px;
+          top: 70px;
+          transform: none;
+          background: url('@~images/img/dottsdark.svg') center top repeat-y,
+            url('@~images/img/treangledark.svg') center top no-repeat;
+          transform: none;
+          @media #{$xl} {
+            height: calc(100% - 95px);
+            left: 16px;
+            top: 96px;
+          }
+        }
       }
-
-      @media #{$xl} {
-        padding: 25px 0 10px 85px;
-        min-height: 200px;
+      &--2 {
+        .approach__item-arrow {
+          position: absolute;
+          width: 22px;
+          height: calc(200%+8px);
+          left: -20px;
+          top: 35px;
+          transform: none;
+          background: url('@~images/img/dottstheme.svg') 0 bottom repeat-y,
+            url('@~images/img/treangle-right.svg') 100% 0 no-repeat,
+            url('@~images/img/dottstheme.svg') calc(100% - 5px) bottom no-repeat;
+          transform: none;
+          border: none;
+          @media #{$xl} {
+            height: calc(100% - 104px);
+            left: -75px;
+            top: 44px;
+          }
+        }
       }
     }
+
     &-heading {
       font-size: $h5 + 1px;
       letter-spacing: 0.03em;
