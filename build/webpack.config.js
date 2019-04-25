@@ -296,6 +296,12 @@ module.exports = env => {
         template: 'html/views/software.html',
         filename: 'software.html',
       }),
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/case.html',
+        filename: 'case.html',
+      }),
 
       // ...globSync("html/**/*.html").map(fileName => {
       //   return new HtmlWebpackPlugin({

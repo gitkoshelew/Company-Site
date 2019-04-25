@@ -10,7 +10,7 @@
       padding: 300px 0 335px;
       background-image: url('@~images/bg/softEng1200.jpg');
     }
-    @media #{$xl} {
+    @media #{$xxl} {
       background-image: url('@~images/bg/softEng1920.jpg');
     }
   }
@@ -22,8 +22,24 @@
     @media #{$xl} {
       background-image: url('@~images/bg/softEngCta1200.jpg');
     }
-    @media #{$xl} {
+    @media #{$xxl} {
       background-image: url('@~images/bg/softEngCta1920.jpg');
+    }
+  }
+  .tabs {
+    @media #{$md} {
+      padding-bottom: 30px;
+    }
+    @media #{$xl} {
+      padding-bottom: 40px;
+    }
+  }
+  .cases {
+    @media #{$md} {
+      padding-top: 30px;
+    }
+    @media #{$xl} {
+      padding-top: 40px;
     }
   }
 }

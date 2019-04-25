@@ -160,22 +160,6 @@
       }
     }
     &-link {
-      font-size: $fontLess;
-      display: block;
-      line-height: 2em;
-      color: $secondText;
-      padding-left: 10px;
-      @extend %after;
-      &:after {
-        width: 10px;
-        height: 10px;
-        border: 7px solid transparent;
-        border-left-color: $themeColor;
-        left: -2px;
-        top: 7px;
-        display: block;
-        transform: scale(1, 0.75);
-      }
     }
   }
 }
