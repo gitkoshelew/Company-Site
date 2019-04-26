@@ -68,6 +68,11 @@ address {
   font-style: normal;
 }
 
+mark {
+  background: none;
+  color: $themeErrorColor;
+}
+
 p {
   font-size: $fontLess;
   line-height: 1.75em;
@@ -150,7 +155,7 @@ h3 > p {
     }
     @media #{$xl} {
       line-height: 1.5em;
-      padding-right: 25%;
+      padding-right: 33%;
     }
   }
 }

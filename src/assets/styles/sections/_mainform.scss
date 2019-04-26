@@ -57,11 +57,10 @@
         }
       }
       div {
-        pointer-events: none;
+        // pointer-events: none;
       }
       mark {
         display: block;
-        background: lightcoral;
       }
     }
     &_check {
@@ -91,7 +90,7 @@
       }
     }
     &-label {
-      @include isFlex();
+      @include isFlex(center, flex-start, column);
       position: relative;
       margin-bottom: 20px;
     }
@@ -112,6 +111,36 @@
       color: $themeSecondaryColor;
       @media #{$xl} {
         font-size: $fontLess;
+      }
+    }
+    &-file {
+      align-self: flex-start;
+      pointer-events: auto;
+      @include bgImg('@~images/img/downloadedfile.svg', no-repeat, 0 0, auto);
+      min-height: 44px;
+      padding-left: 44px;
+      padding-top: 10px;
+
+      &-delete {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-left: 5px;
+        @extend %after;
+        &:after,
+        &:before {
+          width: 12px;
+          height: 2px;
+          left: 0;
+          top: 50%;
+          background: $themeErrorColor;
+        }
+        &:after {
+          transform: rotate(45deg);
+        }
+        &:before {
+          transform: rotate(-45deg);
+        }
       }
     }
   }

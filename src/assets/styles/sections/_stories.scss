@@ -121,19 +121,12 @@
       }
     }
     &-buttons {
-      @include isFlex(center, space-between);
+      @include isFlex(center, flex-start);
       margin-bottom: 40px;
-      @media #{$sm} {
-        width: 300px;
-      }
     }
     &-button {
       font-weight: normal;
-      width: calc(50% - 5px);
       margin-bottom: 8px;
-      @media #{$sm} {
-        width: auto;
-      }
     }
     &-cta {
       width: 100%;

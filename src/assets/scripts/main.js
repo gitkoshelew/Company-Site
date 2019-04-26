@@ -265,7 +265,7 @@ function formHandler(form) {
         break;
     }
 
-    if (value !== '') {
+    if (value.trim() !== '') {
       $(el).addClass('full');
     } else {
       $(el).removeClass('full');
@@ -306,8 +306,22 @@ function formHandler(form) {
     const isValidSize = size <= file_maxSize;
 
     const fileElement = document.createElement('div');
-    fileElement.classList.add(`${formNameSpace}__drag-file drag--file`);
+    fileElement.className = `${formNameSpace}__drag-file drag--file`;
     fileElement.innerHTML = name;
+    const fileDeleteElement = document.createElement('span');
+    fileDeleteElement.className = `${formNameSpace}__drag-file-delete drag--file--delete`;
+    fileDeleteElement.addEventListener(
+      'click',
+      function(event) {
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        const arrayNumber = this.parentElement.dataset.count;
+        console.log(arrayNumber);
+        return false;
+      },
+      true
+    );
+    fileElement.appendChild(fileDeleteElement);
 
     if (!isValidExtension) {
       $(fileElement).append('<mark>invalid file extension</mark>');
@@ -318,7 +332,7 @@ function formHandler(form) {
     }
 
     if (!(isValidExtension & isValidSize)) {
-      fileElement.classList.add(`${formNameSpace}__drag-file_invalid drag--file-invalid`);
+      fileElement.className = `${formNameSpace}__drag-file_invalid ${formNameSpace}__drag-file drag--file-invalid`;
       $(mainFormDragLabel).prepend(fileElement);
       return false;
     }
@@ -343,12 +357,13 @@ function formHandler(form) {
   }
 
   $(mainFormDragInput)
-    .change(function() {
+    .change(function(event) {
       if (!file_api) {
         alert('Your browser do not support file sending');
         return;
       }
       hanlerFilesBeforeSend(this.files);
+      console.log(event.target);
     })
     .change();
 

@@ -105,6 +105,18 @@
       @media #{$xl} {
         min-width: 320px;
       }
+      &_solution {
+        background-image: url('@~images/bg/solution1_320.jpg');
+        @media #{$md} {
+          background-image: url('@~images/bg/solution1_768.jpg');
+        }
+        @media #{$xl} {
+          background-image: url('@~images/bg/solution1_1200.jpg');
+        }
+        @media #{$xxl} {
+          background-image: url('@~images/bg/solution1_1920.jpg');
+        }
+      }
     }
     &-content {
       padding: 20px;
@@ -154,6 +166,27 @@
       display: block;
       @media #{$md} {
         margin: 32px 0 12px;
+      }
+    }
+  }
+  &_fullimg {
+    .clientsay {
+      &__intro {
+        font-size: $font;
+        line-height: 1.5em;
+        padding-top: 0.25em;
+        padding-bottom: 1.75em;
+      }
+      &__slide {
+        &-img {
+          width: 100%;
+          height: 515px;
+        }
+      }
+      &__arrow {
+        @media #{$md} {
+          bottom: 0;
+        }
       }
     }
   }

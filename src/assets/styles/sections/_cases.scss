@@ -119,11 +119,48 @@
     opacity: 0;
     transition: $transitionFast;
     position: absolute;
-    bottom: 110px;
-    left: -5px;
+
     border: none;
+    display: none;
+    @media #{$md} {
+      display: block;
+      bottom: 110px;
+      left: -5px;
+    }
     @media #{$xl} {
       bottom: -133px;
+    }
+  }
+  &--small {
+    @media #{$xxl} {
+      padding-bottom: 200px;
+      .cases {
+        &__wrapper {
+          height: 100%;
+          padding: 63px 0% 150px 35px;
+          min-height: 485px;
+          margin-bottom: 0px;
+        }
+        &__intro {
+          display: none;
+        }
+        &__heading {
+          font-size: $h4Tablet + 4px;
+          & > p {
+            font-size: $h4Tablet + 4px;
+          }
+          & > sup {
+            font-size: ($h4Tablet / 3) * 2;
+          }
+        }
+        &__buttons {
+          padding-right: 0;
+        }
+        &__view-btn {
+          bottom: -75px;
+          left: 10px;
+        }
+      }
     }
   }
 }

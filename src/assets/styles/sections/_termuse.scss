@@ -38,4 +38,19 @@
   &__text {
     line-height: 1.75em;
   }
+  &__img {
+    height: 515px;
+    margin-top: 10px;
+    @include bgImg('@~images/bg/result_320.jpg', no-repeat, center, cover);
+    @media #{$md} {
+      background-image: url('@~images/bg/result_768.jpg');
+    }
+
+    @media #{$xl} {
+      background-image: url('@~images/bg/result_1200.jpg');
+    }
+    @media #{$xxl} {
+      background-image: url('@~images/bg/result_1920.jpg');
+    }
+  }
 }

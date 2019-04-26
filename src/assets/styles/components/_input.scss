@@ -9,9 +9,13 @@
 %label {
   position: relative;
   display: block;
-  margin-bottom: 17px;
+  margin-bottom: 36px;
   border-bottom: 2px solid $themeSecondaryLightColor;
 
+  mark {
+    position: absolute;
+    bottom: -22px;
+  }
   div {
     position: absolute;
     top: calc(50% - 4px);
@@ -19,7 +23,6 @@
     color: $disabledText;
     font-size: $fontLess;
     transition: $transitionFast;
-    pointer-events: none;
     @media #{$xl} {
       font-size: $font;
     }
@@ -82,6 +85,12 @@
         &:before {
           width: 50%;
         }
+      }
+    }
+    &.inValid ~ .material-input-border {
+      &:after,
+      &:before {
+        background: $themeErrorColor;
       }
     }
   }
