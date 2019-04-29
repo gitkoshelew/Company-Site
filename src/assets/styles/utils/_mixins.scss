@@ -20,6 +20,7 @@
   color: $color;
   display: inline-block;
   border: 2px solid $color;
+  box-shadow: $boxShadowMaterialInit;
   transition: $transition;
   letter-spacing: 0.04ex;
   overflow: hidden;
@@ -47,15 +48,17 @@
     &:hover,
     &:focus {
       outline: none;
-      color: darken($colorHover, 20%);
+      color: darken($colorHover, 10%);
       box-shadow: $boxShadowMaterial;
-      border-color: darken($color, 20%);
+      background: lighten($bgHover, 1%);
+      border-color: darken($color, 10%);
       a {
-        color: darken($colorHover, 20%);
+        color: darken($colorHover, 10%);
       }
     }
 
     &:active {
+      box-shadow: none;
       &:before {
         width: 120%;
         padding-top: 120%;
@@ -71,6 +74,7 @@
   min-width: $size;
   height: $size;
   border-radius: 50%;
+  box-shadow: $boxShadowMaterialInit;
   text-align: center;
   background: $txthover;
   border: none;

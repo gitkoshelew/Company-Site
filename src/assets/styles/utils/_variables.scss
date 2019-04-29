@@ -37,7 +37,9 @@ $boxShadowSec: 0px 1px 0 0 rgba(0, 0, 0, 0.14), inset 0px 1px 0 0 rgba(255, 255,
 
 $boxShadowBox: 0px 1px 0 0 rgba(0, 0, 0, 0.14);
 
-$boxShadowMaterial: 0 1px 4px rgba(0, 0, 0, 0.6);
+$boxShadowMaterialInit: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+$bosShadowMaterialMain: 0 1px 4px rgba(0, 0, 0, 0.6);
+$boxShadowMaterial: 0 4px 10px 0px rgba(0, 0, 0, 0.225);
 
 $boxShadowCard: 0px 4px 16px rgba(141, 150, 178, 0.16);
 $boxShadowCardMaterial: 0px 4px 16px rgba(141, 150, 178, 0.16);

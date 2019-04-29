@@ -70,9 +70,12 @@
       height: auto;
       flex-direction: row;
       padding: 18px calc(50vw - 475px);
-      background: transparent;
+      background: $themeLightColor;
       position: absolute;
       justify-content: space-between;
+    }
+    @media #{$xxl} {
+      padding: 18px calc(50vw - 600px);
     }
 
     @media #{$landscape} and (max-width: 991px) {
@@ -107,7 +110,7 @@
       @media #{$xl} {
         width: 212px;
         height: 54px;
-        background-image: url('@~images/img/GroupWhite.svg');
+        background-image: url('@~images/img/Group.svg');
       }
     }
     &-list {
@@ -120,6 +123,7 @@
         margin: 30px 0;
       }
       @media #{$xl} {
+        height: 120px;
         flex-direction: row;
         margin: 0;
       }
@@ -131,46 +135,54 @@
       padding: 10px 15px;
       display: inline-block;
       font-weight: 700;
-      &:focus,
-      &:hover {
-        color: $linkHover;
-        box-shadow: $boxShadowMaterial;
-        background: $themeLightColor;
-      }
-      &:active {
-        box-shadow: none;
-      }
+
       @media #{$xl} {
-        color: $ligthText;
-        &:focus,
-        &:hover {
-          background: $linkHover;
-          color: $ligthText;
-        }
+        color: $mainText;
       }
     }
 
     &-btn {
       border: none;
       width: 100%;
-
+      padding: 20px 30px;
+      @media #{$xl}{
+        padding: 20px 50px;
+      }
       @media #{$xl} {
         width: auto;
         margin: 0;
       }
     }
-    &.secondary {
+    &.fixed{
+      position: fixed;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      box-shadow: $boxShadowCard;
+
+      .header{
+        &__nav-list{
+          height: 60px;
+          min-height: 60px;
+        }
+      }
+    }
+    &_main {
       @media #{$xl} {
-        background: $themeLightColor;
-        padding: 4px calc(50vw - 475px);
+        background: transparent;
         .header__nav {
           &-logo {
-            background-image: url('@~images/img/Group.svg');
+            background-image: url('@~images/img/GroupWhite.svg');
           }
           &-anchor {
-            color: $mainText;
+            color: $ligthText;
+            &.active,&:hover,&:focus{
+              border-bottom: 2px solid $themeLightColor;
+            }
           }
         }
+      }
+      &.fixed{
+        background: $themeSupportColor;
       }
     }
   }

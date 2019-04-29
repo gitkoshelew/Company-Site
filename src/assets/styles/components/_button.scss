@@ -50,7 +50,6 @@
 %rectangle-button {
   margin-bottom: 5px;
   text-align: center;
-  border: none;
   border-radius: $borderRad;
   font-weight: 700;
   padding: 10px 15px;
@@ -61,20 +60,21 @@
   margin-bottom: 7px;
   margin-right: 6px;
   font-size: $font;
-  border-radius: $borderRad;
+  border-radius: $borderRadLess;
   text-align: center;
-  border: none;
   font-size: $btnFontSizeSmall;
 }
 
 %btn-primary {
   @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
   @extend %rectangle-button;
+  border: none;
 }
 
 %btn-primary-small {
   @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
   @extend %rectangle-button-small;
+  border: none;
 }
 
 %btn-secondary {
@@ -130,12 +130,13 @@
 
 %btn-bar {
   border-radius: $borderRad;
-  @include btn(transparent, $secondBg, $secondBg, $secondText);
+  @include btn(transparent, transparent, $secondBg, $secondText);
   position: relative;
   width: 44px;
-  height: 32px;
+  height: 36px;
   padding: 0;
   margin-right: 0;
+  box-shadow: none;
 
   &:hover,
   &:focus {
@@ -157,16 +158,16 @@
     transition: 0.25s ease-in-out;
 
     &:nth-child(1) {
-      top: 6px;
+      top: 7px;
     }
 
     &:nth-child(2),
     &:nth-child(3) {
-      top: 13px;
+      top: 15px;
     }
 
     &:nth-child(4) {
-      top: 20px;
+      top: 23px;
     }
   }
 
@@ -286,6 +287,7 @@
       height: 32px;
     }
     &:after {
+      box-shadow: $boxShadowMaterialInit;
       width: 5px;
       height: 5px;
       border-radius: 50%;

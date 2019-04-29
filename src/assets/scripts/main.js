@@ -1,118 +1,131 @@
-jQuery(function() {
-  window.addEventListener(
-    'dragover',
-    function(e) {
-      e = e || event;
-      e.preventDefault();
-    },
-    false
-  );
-  window.addEventListener(
-    'drop',
-    function(e) {
-      e = e || event;
-      e.preventDefault();
-    },
-    false
-  );
+window.addEventListener(
+  'dragover',
+  function(e) {
+    e = e || event;
+    e.preventDefault();
+  },
+  false
+);
+window.addEventListener(
+  'drop',
+  function(e) {
+    e = e || event;
+    e.preventDefault();
+  },
+  false
+);
 
-  var isIE = /*@cc_on!@*/ false || !!document.documentMode,
-    isEdge = !isIE && !!window.StyleMedia,
-    isMS = !(isIE || isEdge);
+if (!NodeList.prototype.forEach){
+  NodeList.prototype.forEach=Array.prototype.forEach;
+}
+
+const isIE = /*@cc_on!@*/ false || !!document.documentMode,
+isEdge = !isIE && !!window.StyleMedia,
+isMS = !(isIE || isEdge);
+
+
+function headerSctoll(){
+  if (window.innerWidth>=1200){
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 200) {
+            $('.header__nav')
+            //.fadeIn()
+            .addClass("fixed");
+        } else {
+            $('.header__nav')
+            //.fadeOut(10)
+            .removeClass("fixed");
+        }
+    });
+  }
+}
+
+headerSctoll();
+
+jQuery(function() {
 
   if (jQuery('.header__slider').length !== 0) {
-    var headerSlider = jQuery('.header__slider');
-    headerSlider.slick({
-      arrows: false,
-      dots: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite: true,
-      speed: 700,
-      autoplay: false,
-      autoplaySpeed: 7000,
-      cssEase: 'linear',
-      useTransform: isMS,
-      useCSS: isMS,
-      pauseOnHover: false,
-      focusOnSelect: true,
-      pauseOnDotsHover: false,
-      pauseOnFocus: false,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: false,
-            pauseOnHover: false,
-            pauseOnFocus: false,
-          },
-        },
-      ],
-    });
 
-    headerSlider.find('.slick-dots').addClass('button--dots');
+      const headerSlider = jQuery('.header__slider');
+      headerSlider.slick({
+        arrows: false,
+        dots: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        speed: 700,
+        autoplay: true,
+        autoplaySpeed: 7000,
+        cssEase: 'linear',
+        useTransform: isMS,
+        useCSS: isMS,
+        pauseOnHover: false,
+        focusOnSelect: true,
+        pauseOnDotsHover: false,
+        pauseOnFocus: false,
+      });
 
-    const numbers = headerSlider
-      .find('.slick-dots .slick-active button')
-      .attr('aria-label')
-      .split(' ');
-    headerSlider.append('<div class="header__slider-number">1/' + numbers[2] + '</div>');
-
-    headerSlider.on('afterChange', function(event, slick, currentSlide, nextSlide) {
-      const button = $(this).find('.slick-dots .slick-active button');
-      const numbers = $(button)
+    function headerSliderInit() {
+      console.log("init")
+      headerSlider.find('.slick-dots').addClass('button--dots');
+  
+      const numbers = headerSlider
+        .find('.slick-dots .slick-active button')
         .attr('aria-label')
         .split(' ');
-      $(this)
-        .find('.header__slider-number')
-        .html(numbers[0] + '/' + numbers[2]);
-    });
+      headerSlider.append('<div class="header__slider-number">1/' + numbers[2] + '</div>');
+  
+      headerSlider.on('afterChange', function(event, slick, currentSlide, nextSlide) {
+        const button = $(this).find('.slick-dots .slick-active button');
+        const numbers = $(button)
+          .attr('aria-label')
+          .split(' ');
+        $(this)
+          .find('.header__slider-number')
+          .html(numbers[0] + '/' + numbers[2]);
+      });
+    }
+
+    headerSliderInit();
   }
 
   if (jQuery('.stories__slider-wrapper').length !== 0) {
-    var storiesSlider = jQuery('.stories__slider-wrapper');
 
-    storiesSlider.slick({
-      arrows: true,
-      dots: false,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite: true,
-      speed: 700,
-      autoplay: false,
-      autoplaySpeed: 7000,
-      cssEase: 'linear',
-      useTransform: isMS,
-      useCSS: isMS,
-      pauseOnHover: false,
-      focusOnSelect: true,
-      pauseOnDotsHover: false,
-      pauseOnFocus: false,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: false,
-            pauseOnHover: false,
-            pauseOnFocus: false,
-          },
-        },
-      ],
-    });
 
-    storiesSlider
-      .find('.slick-arrow')
-      .addClass('stories__arrow button--slide--round')
-      .html('<div class="round-btn-bg"></div>');
+      const storiesSlider = jQuery('.stories__slider-wrapper');
+  
+      storiesSlider.slick({
+        arrows: true,
+        dots: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        speed: 700,
+        autoplay: true,
+        autoplaySpeed: 7000,
+        cssEase: 'linear',
+        useTransform: isMS,
+        useCSS: isMS,
+        pauseOnHover: false,
+        focusOnSelect: true,
+        pauseOnDotsHover: false,
+        pauseOnFocus: false,
+      });
+
+    function storiesSliderInit(){
+  
+      storiesSlider
+        .find('.slick-arrow')
+        .addClass('stories__arrow button--slide--round')
+        .html('<div class="round-btn-bg"></div>');
+    }
+
+    storiesSliderInit();
   }
 
-  if (jQuery('.clientsay__slider').length !== 0) {
-    var clientsaySlider = jQuery('.clientsay__slider');
+if (jQuery('.clientsay__slider').length !== 0) {
 
+    const clientsaySlider = jQuery('.clientsay__slider');
     clientsaySlider.slick({
       arrows: true,
       dots: false,
@@ -120,7 +133,7 @@ jQuery(function() {
       slidesToScroll: 1,
       infinite: true,
       speed: 700,
-      autoplay: false,
+      autoplay: true,
       autoplaySpeed: 7000,
       cssEase: 'linear',
       useTransform: isMS,
@@ -129,33 +142,29 @@ jQuery(function() {
       focusOnSelect: true,
       pauseOnDotsHover: false,
       pauseOnFocus: false,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: false,
-            pauseOnHover: false,
-            pauseOnFocus: false,
-          },
-        },
-      ],
     });
+
+  
+  function clientsaySliderInit(){
 
     clientsaySlider
       .find('.slick-arrow')
       .addClass('clientsay__arrow button--slide--round')
       .html('<div class="round-btn-bg"></div>');
   }
+  clientsaySliderInit();
+
+}
+
 });
 
 /* APPROACH section scripts */
 
-function arrowValidHeight() {
-  if (document.querySelectorAll('.approach__item_reverse--2').lenght !== 0) {
+if (document.querySelectorAll('.approach__item_reverse--2').lenght !== 0) {
+  function arrowValidHeight() {
     const items = document.querySelectorAll('.approach__item_reverse--2');
     items.forEach(el => {
+      console.logh("hi")
       const itemHeight = el.offsetHeight;
       const prevItemHeight = el.previousElementSibling.offsetHeight;
       const itemsHeight = itemHeight + prevItemHeight;
@@ -163,10 +172,12 @@ function arrowValidHeight() {
       el.querySelector('.approach__item-arrow').style.height = `${itemValidHeight}px`;
     });
   }
+
+  arrowValidHeight();
+  window.addEventListener('resize', arrowValidHeight);
 }
 
-arrowValidHeight();
-window.addEventListener('resize', arrowValidHeight);
+
 
 /* END APPROACH section scripts */
 
@@ -245,7 +256,7 @@ function formHandler(form) {
         message = 'please, enter valid email';
         break;
       case 'text':
-        valid = !!value.match(/^[0-9+\(\)#\.\s\/ext-]+$/g);
+        valid = !!value.match(/^[A-Za-zА-Яа-яЁёІіЇїЄє]+(\s+[A-Za-zА-Яа-яЁёяЁёІіЇїЄє]+)?/g);
         if (name === 'name') {
           message = 'please, enter your name';
         }
@@ -254,7 +265,7 @@ function formHandler(form) {
         }
         break;
       case 'textarea':
-        valid = !!value.match(/([a-zA-Z]*)/g);
+        valid = !!value.match(/([A-Za-zА-Яа-яЁёІіЇїЄє]*)/g);
         message = 'please, enter your message';
         break;
       case 'tel':
@@ -307,19 +318,22 @@ function formHandler(form) {
 
     const fileElement = document.createElement('div');
     fileElement.className = `${formNameSpace}__drag-file drag--file`;
-    fileElement.innerHTML = name;
+    fileElement.innerHTML = `<span class='${formNameSpace}__drag-file-name drag--file--name'>${name}</span>`;
+
     const fileDeleteElement = document.createElement('span');
     fileDeleteElement.className = `${formNameSpace}__drag-file-delete drag--file--delete`;
     fileDeleteElement.addEventListener(
       'click',
       function(event) {
+
+        if (this.parentElement.dataset.count){
+          const arrayNumber = Number(this.parentElement.dataset.count);
+          FormFiles[arrayNumber] = null;
+        }
+
+        this.parentElement.remove();
         event.stopPropagation();
-        event.stopImmediatePropagation();
-        const arrayNumber = this.parentElement.dataset.count;
-        console.log(arrayNumber);
-        return false;
-      },
-      true
+      }
     );
     fileElement.appendChild(fileDeleteElement);
 
@@ -333,12 +347,12 @@ function formHandler(form) {
 
     if (!(isValidExtension & isValidSize)) {
       fileElement.className = `${formNameSpace}__drag-file_invalid ${formNameSpace}__drag-file drag--file-invalid`;
-      $(mainFormDragLabel).prepend(fileElement);
+    $( fileElement ).insertBefore(mainFormDragLabel)
       return false;
     }
 
     fileElement.dataset.count = FormFiles.length;
-    $(mainFormDragLabel).prepend(fileElement);
+    $( fileElement ).insertBefore(mainFormDragLabel)
     return true;
   }
 
@@ -362,12 +376,15 @@ function formHandler(form) {
         alert('Your browser do not support file sending');
         return;
       }
+
       hanlerFilesBeforeSend(this.files);
-      console.log(event.target);
     })
-    .change();
+    //.change();
 
   $(mainFormDragLabel).on({
+    click: function(e){
+      console.log(e.target)
+    },
     dragenter: function(e) {
       $(this).addClass('label--dragged');
     },
@@ -432,7 +449,9 @@ function formHandler(form) {
       sendedInputs.each((idx, { name, value }) => formData.append(name, value));
 
       $(FormFiles).each(function(index, file) {
-        formData.append('files[]', file, file.name);
+        if (file !== null){
+          formData.append('files[]', file, file.name);
+        }
       });
 
       const values = formData.values();

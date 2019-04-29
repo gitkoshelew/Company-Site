@@ -97,7 +97,7 @@
 }
 
 %check-label {
-  $checkSize: 16px;
+  $checkSize: 20px;
 
   @include isFlex(top, left, row, no-wrap);
   padding: 14px 0;
@@ -118,8 +118,8 @@
     line-height: $checkSize;
   }
   .form--checkbox {
-    min-width: $checkSize;
-    margin-right: $checkSize;
+    min-width: $checkSize - 2px;
+    margin-right: $checkSize - 2px;
     &:hover,
     &:focus {
       & + .form--check-helper {

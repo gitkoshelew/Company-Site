@@ -1,9 +1,48 @@
 /* src/assets/styles/components/_link.scss  */
 
-.link {
-  font-family: $mont;
-  font-size: 18px;
-  font-weight: 700;
+.main--link {
+  @extend %main-link;
+}
+
+.second--link{
+  @extend %main-link;
+}
+
+.footer--link{
+  @extend %main-link;
+}
+
+.footer--static--link{
+  @extend %main-link;
+}
+
+%main-link{
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition: $transition;
+  overflow: hidden;
+  @extend %after;
+
+  &:before {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    background-color: rgba($themeColor, 0.1);
+    transform: translate(-50%, -50%);
+  }
+
+  &.active, &:hover, &:focus{
+    border-bottom: 2px solid $linkHover;
+  }
+  &:active {
+    &:before {
+      width: 120%;
+      padding-top: 120%;
+      transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+    }
+  }
 }
 
 .ul--item {
