@@ -15,66 +15,68 @@ window.addEventListener(
   false
 );
 
-if (!NodeList.prototype.forEach){
-  NodeList.prototype.forEach=Array.prototype.forEach;
+if (!NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
 }
 
 const isIE = /*@cc_on!@*/ false || !!document.documentMode,
-isEdge = !isIE && !!window.StyleMedia,
-isMS = !(isIE || isEdge);
+  isEdge = !isIE && !!window.StyleMedia,
+  isMS = !(isIE || isEdge);
 
-
-function headerSctoll(){
-  if (window.innerWidth>=1200){
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 200) {
-            $('.header__nav')
-            //.fadeIn()
-            .addClass("fixed");
-        } else {
-            $('.header__nav')
-            //.fadeOut(10)
-            .removeClass("fixed");
-        }
+function headerScroll() {
+  if (window.innerWidth >= 1200) {
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 200) {
+        $('.header__nav')
+          //.fadeIn()
+          .addClass('fixed');
+      } else {
+        $('.header__nav')
+          //.fadeOut(10)
+          .removeClass('fixed');
+      }
     });
   }
 }
 
-headerSctoll();
+headerScroll();
 
 jQuery(function() {
-
   if (jQuery('.header__slider').length !== 0) {
-
-      const headerSlider = jQuery('.header__slider');
-      headerSlider.slick({
-        arrows: false,
-        dots: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        speed: 700,
-        autoplay: true,
-        autoplaySpeed: 7000,
-        cssEase: 'linear',
-        useTransform: isMS,
-        useCSS: isMS,
-        pauseOnHover: false,
-        focusOnSelect: true,
-        pauseOnDotsHover: false,
-        pauseOnFocus: false,
-      });
+    const headerSlider = jQuery('.header__slider');
+    headerSlider.slick({
+      arrows: false,
+      dots: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+      speed: 700,
+      autoplay: false,
+      autoplaySpeed: 7000,
+      cssEase: 'linear',
+      useTransform: isMS,
+      useCSS: isMS,
+      pauseOnHover: false,
+      focusOnSelect: true,
+      pauseOnDotsHover: false,
+      pauseOnFocus: false,
+    });
 
     function headerSliderInit() {
-      console.log("init")
+      console.log('init');
       headerSlider.find('.slick-dots').addClass('button--dots');
-  
+
+      headerSlider
+        .find('.slick-list')
+        .addClass('header__slider-list')
+        .append('<div class="section--filter"></div>');
+
       const numbers = headerSlider
         .find('.slick-dots .slick-active button')
         .attr('aria-label')
         .split(' ');
       headerSlider.append('<div class="header__slider-number">1/' + numbers[2] + '</div>');
-  
+
       headerSlider.on('afterChange', function(event, slick, currentSlide, nextSlide) {
         const button = $(this).find('.slick-dots .slick-active button');
         const numbers = $(button)
@@ -90,50 +92,16 @@ jQuery(function() {
   }
 
   if (jQuery('.stories__slider-wrapper').length !== 0) {
+    const storiesSlider = jQuery('.stories__slider-wrapper');
 
-
-      const storiesSlider = jQuery('.stories__slider-wrapper');
-  
-      storiesSlider.slick({
-        arrows: true,
-        dots: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: true,
-        speed: 700,
-        autoplay: true,
-        autoplaySpeed: 7000,
-        cssEase: 'linear',
-        useTransform: isMS,
-        useCSS: isMS,
-        pauseOnHover: false,
-        focusOnSelect: true,
-        pauseOnDotsHover: false,
-        pauseOnFocus: false,
-      });
-
-    function storiesSliderInit(){
-  
-      storiesSlider
-        .find('.slick-arrow')
-        .addClass('stories__arrow button--slide--round')
-        .html('<div class="round-btn-bg"></div>');
-    }
-
-    storiesSliderInit();
-  }
-
-if (jQuery('.clientsay__slider').length !== 0) {
-
-    const clientsaySlider = jQuery('.clientsay__slider');
-    clientsaySlider.slick({
+    storiesSlider.slick({
       arrows: true,
       dots: false,
       slidesToShow: 1,
       slidesToScroll: 1,
       infinite: true,
       speed: 700,
-      autoplay: true,
+      autoplay: false,
       autoplaySpeed: 7000,
       cssEase: 'linear',
       useTransform: isMS,
@@ -144,18 +112,44 @@ if (jQuery('.clientsay__slider').length !== 0) {
       pauseOnFocus: false,
     });
 
-  
-  function clientsaySliderInit(){
+    function storiesSliderInit() {
+      storiesSlider
+        .find('.slick-arrow')
+        .addClass('stories__arrow button--slide--round')
+        .html('<div class="round-btn-bg"></div>');
+    }
 
-    clientsaySlider
-      .find('.slick-arrow')
-      .addClass('clientsay__arrow button--slide--round')
-      .html('<div class="round-btn-bg"></div>');
+    storiesSliderInit();
   }
-  clientsaySliderInit();
 
-}
+  if (jQuery('.clientsay__slider').length !== 0) {
+    const clientsaySlider = jQuery('.clientsay__slider');
+    clientsaySlider.slick({
+      arrows: true,
+      dots: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+      speed: 700,
+      autoplay: false,
+      autoplaySpeed: 7000,
+      cssEase: 'linear',
+      useTransform: isMS,
+      useCSS: isMS,
+      pauseOnHover: false,
+      focusOnSelect: true,
+      pauseOnDotsHover: false,
+      pauseOnFocus: false,
+    });
 
+    function clientsaySliderInit() {
+      clientsaySlider
+        .find('.slick-arrow')
+        .addClass('clientsay__arrow button--slide--round')
+        .html('<div class="round-btn-bg"></div>');
+    }
+    clientsaySliderInit();
+  }
 });
 
 /* APPROACH section scripts */
@@ -164,7 +158,7 @@ if (document.querySelectorAll('.approach__item_reverse--2').lenght !== 0) {
   function arrowValidHeight() {
     const items = document.querySelectorAll('.approach__item_reverse--2');
     items.forEach(el => {
-      console.logh("hi")
+      console.logh('hi');
       const itemHeight = el.offsetHeight;
       const prevItemHeight = el.previousElementSibling.offsetHeight;
       const itemsHeight = itemHeight + prevItemHeight;
@@ -176,8 +170,6 @@ if (document.querySelectorAll('.approach__item_reverse--2').lenght !== 0) {
   arrowValidHeight();
   window.addEventListener('resize', arrowValidHeight);
 }
-
-
 
 /* END APPROACH section scripts */
 
@@ -322,19 +314,15 @@ function formHandler(form) {
 
     const fileDeleteElement = document.createElement('span');
     fileDeleteElement.className = `${formNameSpace}__drag-file-delete drag--file--delete`;
-    fileDeleteElement.addEventListener(
-      'click',
-      function(event) {
-
-        if (this.parentElement.dataset.count){
-          const arrayNumber = Number(this.parentElement.dataset.count);
-          FormFiles[arrayNumber] = null;
-        }
-
-        this.parentElement.remove();
-        event.stopPropagation();
+    fileDeleteElement.addEventListener('click', function(event) {
+      if (this.parentElement.dataset.count) {
+        const arrayNumber = Number(this.parentElement.dataset.count);
+        FormFiles[arrayNumber] = null;
       }
-    );
+
+      this.parentElement.remove();
+      event.stopPropagation();
+    });
     fileElement.appendChild(fileDeleteElement);
 
     if (!isValidExtension) {
@@ -347,12 +335,12 @@ function formHandler(form) {
 
     if (!(isValidExtension & isValidSize)) {
       fileElement.className = `${formNameSpace}__drag-file_invalid ${formNameSpace}__drag-file drag--file-invalid`;
-    $( fileElement ).insertBefore(mainFormDragLabel)
+      $(fileElement).insertBefore(mainFormDragLabel);
       return false;
     }
 
     fileElement.dataset.count = FormFiles.length;
-    $( fileElement ).insertBefore(mainFormDragLabel)
+    $(fileElement).insertBefore(mainFormDragLabel);
     return true;
   }
 
@@ -370,20 +358,19 @@ function formHandler(form) {
     });
   }
 
-  $(mainFormDragInput)
-    .change(function(event) {
-      if (!file_api) {
-        alert('Your browser do not support file sending');
-        return;
-      }
+  $(mainFormDragInput).change(function(event) {
+    if (!file_api) {
+      alert('Your browser do not support file sending');
+      return;
+    }
 
-      hanlerFilesBeforeSend(this.files);
-    })
-    //.change();
+    hanlerFilesBeforeSend(this.files);
+  });
+  //.change();
 
   $(mainFormDragLabel).on({
-    click: function(e){
-      console.log(e.target)
+    click: function(e) {
+      console.log(e.target);
     },
     dragenter: function(e) {
       $(this).addClass('label--dragged');
@@ -449,7 +436,7 @@ function formHandler(form) {
       sendedInputs.each((idx, { name, value }) => formData.append(name, value));
 
       $(FormFiles).each(function(index, file) {
-        if (file !== null){
+        if (file !== null) {
           formData.append('files[]', file, file.name);
         }
       });

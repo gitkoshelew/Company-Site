@@ -273,6 +273,10 @@
   @media #{$xl} {
     left: calc(50vw - 475px);
   }
+  @media #{$xxl} {
+    left: 80px;
+    bottom: 11%;
+  }
 
   button {
     @extend %after;

@@ -9,7 +9,7 @@
     color: $ligthText;
     margin-bottom: 14px;
     @media #{$md} {
-      margin-bottom: 4px;
+      margin-bottom: 28px;
     }
   }
   &__intro {
@@ -20,7 +20,13 @@
     margin-top: 50px;
     padding: 31px 18px 50px;
     @media #{$md} {
-      padding: 40px 30px 60px;
+      padding: 40px 34px 60px;
+    }
+    @media #{$xl} {
+      padding: 70px 34px 52px;
+    }
+    @media #{$xxl} {
+      padding: 70px 100px 52px;
     }
   }
   &__label {
@@ -28,12 +34,8 @@
     &_textarea {
       height: auto;
       min-height: 70px;
-      padding-top: 20px;
+      margin-top: 10px;
     }
-  }
-  &__textarea {
-    min-height: 70px;
-    padding-top: 20px;
   }
   &__inputs {
     &_main {
@@ -44,18 +46,15 @@
         @media #{$md} {
           width: calc(50% - 10px);
         }
+        @media #{$xl} {
+          width: calc(50% - 20px);
+        }
       }
     }
 
     &_drag {
       margin-top: 33px;
-      label {
-        border: 1px dashed $darkBorder;
-        padding: 20px 15px 25px;
-        @media #{$md} {
-          padding: 25px 15px;
-        }
-      }
+
       mark {
         display: block;
       }
@@ -71,6 +70,7 @@
       @media #{$xl} {
         font-size: 0;
         display: inline-block;
+        text-align: right;
         width: 29%;
       }
     }
@@ -82,14 +82,30 @@
       margin: 7px auto;
       @include bgImg('@~images/img/download.svg', no-repeat, center, contain);
       @media #{$md} {
-        width: 54px;
-        height: 54px;
+        width: 45px;
+        height: 45px;
+      }
+      @media #{$xl} {
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        width: 36px;
+        height: 36px;
       }
     }
     &-label {
       @include isFlex(center, flex-start, column);
       position: relative;
       margin-bottom: 20px;
+      border: 1px dashed $darkBorder;
+      padding: 20px 15px 25px;
+      @media #{$md} {
+        padding: 25px 15px;
+      }
+      @media #{$xl} {
+        flex-direction: row;
+        padding: 15px 15px 15px 75px;
+      }
     }
     &-input {
       position: absolute;
@@ -98,8 +114,14 @@
     }
     &-heading {
       text-align: center;
+      @media #{$md} {
+        font-size: $fontLess;
+        padding-top: 2px;
+        padding-bottom: 8px;
+      }
       @media #{$xl} {
         font-size: $font;
+        text-align: left;
       }
     }
     &-text {
@@ -108,6 +130,7 @@
       color: $themeSecondaryColor;
       @media #{$xl} {
         font-size: $fontLess;
+        text-align: left;
       }
     }
     &-file {
@@ -118,8 +141,8 @@
       padding-left: 44px;
       padding-top: 10px;
 
-      &_invalid{
-        span{
+      &_invalid {
+        span {
           text-decoration: line-through;
         }
       }
@@ -153,14 +176,24 @@
     @media #{$md} {
       margin-bottom: 20px;
     }
+    @media #{$xl} {
+      margin-bottom: 0px;
+      padding: 9px 0 15px;
+    }
   }
   &__submit {
     width: 100%;
     border: none;
-
+    display: block;
     @media #{$md} {
-      margin-right: 0;
+      padding-top: 17px;
+      padding-bottom: 17px;
+      width: 270px;
+    }
+    @media #{$xl} {
+      margin-right: -3px;
       width: auto;
+      transform: translate(0, -7px);
     }
   }
 }

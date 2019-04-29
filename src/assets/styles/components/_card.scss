@@ -59,16 +59,14 @@
     @media #{$md} {
       margin-bottom: 17px;
     }
-    @media #{$xl} {
-    }
   }
   h4 {
     margin-bottom: 25px;
     & > p {
       @media #{$md} {
-        display: inline;
+        display: block;
       }
-      @media #{$xl} {
+      @media #{$xxl} {
       }
     }
   }
@@ -121,13 +119,31 @@
 
 %card-article {
   @extend %card-prototype;
+  padding-bottom: 60px;
 
   button {
     @extend %clean-button;
-    padding: 7px 0;
+    position: absolute;
+    bottom: 57px;
+    left: 34px;
+    letter-spacing: 0.08em;
     font-size: $fontLess;
     &:hover {
       color: $themeColor;
+    }
+  }
+  .card-img {
+    @media #{$xl} {
+      margin-bottom: 60px;
+    }
+    @media #{$xxl} {
+      margin-bottom: 47px;
+    }
+  }
+  h4 {
+    @media #{$xl} {
+      line-height: 1em;
+      margin-bottom: 17px;
     }
   }
 }
@@ -152,8 +168,6 @@
       width: 220px;
       margin-right: 20px;
       margin-top: 25px;
-    }
-    @media #{$xl} {
     }
   }
   h4 {
