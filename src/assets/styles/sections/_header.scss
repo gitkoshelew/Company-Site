@@ -223,6 +223,7 @@
       }
     }
   }
+
   &__slide {
     @include bgImg('@~images/bg/content320.jpg', no-repeat, center, cover);
     height: calc(100vh - 50px);
@@ -299,6 +300,23 @@
       }
 
       @media #{$xl} {
+      }
+    }
+  }
+  &__slider_support{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    height: calc(100vh - 50px);
+    width: 100%;
+    &-wrapper{
+      width: 100%;
+      position: relative;
+    }
+    .header{
+      &__slide{
+        background: none;
       }
     }
   }

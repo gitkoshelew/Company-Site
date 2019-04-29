@@ -45,7 +45,7 @@ jQuery(function() {
   if (jQuery('.header__slider').length !== 0) {
     const headerSlider = jQuery('.header__slider');
     headerSlider.slick({
-      arrows: false,
+      arrows: true,
       dots: true,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -89,7 +89,38 @@ jQuery(function() {
     }
 
     headerSliderInit();
+
+    const prev =jQuery('.header__slider .slick-prev');
+    const headerSliderSupport = jQuery('.header__slider_support');
+    headerSliderSupport.slick({
+      arrows: false,
+      dots: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+      speed: 700,
+      autoplay: false,
+      autoplaySpeed: 7000,
+      cssEase: 'linear',
+      useTransform: isMS,
+      useCSS: isMS,
+      pauseOnHover: false,
+      focusOnSelect: true,
+      pauseOnDotsHover: false,
+      pauseOnFocus: false,
+    });
+
+    headerSliderSupport.on('beforeChange', function(event,slick,currentSlide, nextSlide){
+      console.log(headerSlider.slideDown())
+      console.log(prev)
+      prev.click();
+    })
   }
+
+
+
+
+
 
   if (jQuery('.stories__slider-wrapper').length !== 0) {
     const storiesSlider = jQuery('.stories__slider-wrapper');
@@ -158,7 +189,6 @@ if (document.querySelectorAll('.approach__item_reverse--2').lenght !== 0) {
   function arrowValidHeight() {
     const items = document.querySelectorAll('.approach__item_reverse--2');
     items.forEach(el => {
-      console.logh('hi');
       const itemHeight = el.offsetHeight;
       const prevItemHeight = el.previousElementSibling.offsetHeight;
       const itemsHeight = itemHeight + prevItemHeight;
