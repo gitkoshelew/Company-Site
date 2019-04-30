@@ -28,11 +28,11 @@ function headerScroll() {
     $(window).scroll(function() {
       if ($(this).scrollTop() > 200) {
         $('.header__nav')
-          //.fadeIn()
+          .fadeIn()
           .addClass('fixed');
       } else {
         $('.header__nav')
-          //.fadeOut(10)
+          .fadeIn(10)
           .removeClass('fixed');
       }
     });
@@ -45,54 +45,6 @@ jQuery(function() {
   if (jQuery('.header__slider').length !== 0) {
     const headerSlider = jQuery('.header__slider');
     headerSlider.slick({
-      arrows: true,
-      dots: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite: true,
-      speed: 700,
-      autoplay: false,
-      autoplaySpeed: 7000,
-      cssEase: 'linear',
-      useTransform: isMS,
-      useCSS: isMS,
-      pauseOnHover: false,
-      focusOnSelect: true,
-      pauseOnDotsHover: false,
-      pauseOnFocus: false,
-    });
-
-    function headerSliderInit() {
-      console.log('init');
-      headerSlider.find('.slick-dots').addClass('button--dots');
-
-      headerSlider
-        .find('.slick-list')
-        .addClass('header__slider-list')
-        .append('<div class="section--filter"></div>');
-
-      const numbers = headerSlider
-        .find('.slick-dots .slick-active button')
-        .attr('aria-label')
-        .split(' ');
-      headerSlider.append('<div class="header__slider-number">1/' + numbers[2] + '</div>');
-
-      headerSlider.on('afterChange', function(event, slick, currentSlide, nextSlide) {
-        const button = $(this).find('.slick-dots .slick-active button');
-        const numbers = $(button)
-          .attr('aria-label')
-          .split(' ');
-        $(this)
-          .find('.header__slider-number')
-          .html(numbers[0] + '/' + numbers[2]);
-      });
-    }
-
-    headerSliderInit();
-
-    const prev =jQuery('.header__slider .slick-prev');
-    const headerSliderSupport = jQuery('.header__slider_support');
-    headerSliderSupport.slick({
       arrows: false,
       dots: false,
       slidesToShow: 1,
@@ -107,20 +59,66 @@ jQuery(function() {
       pauseOnHover: false,
       focusOnSelect: true,
       pauseOnDotsHover: false,
-      pauseOnFocus: false,
+      pauseOnFocus: true,
     });
 
-    headerSliderSupport.on('beforeChange', function(event,slick,currentSlide, nextSlide){
-      console.log(headerSlider.slideDown())
-      console.log(prev)
-      prev.click();
-    })
+    headerSlider
+      .find('.slick-list')
+      .addClass('header__slider-list')
+      .append('<div class="section--filter"></div>');
+    headerSlider.slick('slickPrev');
+
+    const headerSliderSupport = jQuery('.header__slider_support');
+    headerSliderSupport.slick({
+      arrows: false,
+      dots: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+      speed: 700,
+      autoplay: false,
+      autoplaySpeed: 7000,
+      cssEase: 'linear',
+      useTransform: isMS,
+      useCSS: isMS,
+      pauseOnHover: false,
+      focusOnSelect: true,
+      pauseOnDotsHover: false,
+      pauseOnFocus: true,
+    });
+
+    const headerSliderSupportDots = headerSliderSupport.find('.slick-dots');
+    headerSliderSupportDots.addClass('button--dots');
+    const headerSliderSupportDotsArray = headerSliderSupportDots.find('button');
+    const sliderLenght = headerSliderSupportDotsArray.length;
+
+    headerSliderSupport.append('<div class="header__slider-number">1/' + sliderLenght + '</div>');
+
+    headerSliderSupport.on('afterChange', function(event, slick, currentSlide) {
+      $(this)
+        .find('.header__slider-number')
+        .html(currentSlide + 1 + '/' + sliderLenght);
+    });
+
+    headerSliderSupport.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+      event.stopPropagation();
+
+      switch (nextSlide - currentSlide) {
+        case 0:
+          break;
+        case 1:
+        case 1 - sliderLenght:
+          headerSlider.slick('slickPrev');
+          break;
+        case -1:
+        case sliderLenght - 1:
+          headerSlider.slick('slickNext');
+          break;
+        default:
+          headerSlider.slick('slickGoTo', sliderLenght - nextSlide - 1);
+      }
+    });
   }
-
-
-
-
-
 
   if (jQuery('.stories__slider-wrapper').length !== 0) {
     const storiesSlider = jQuery('.stories__slider-wrapper');
@@ -143,14 +141,10 @@ jQuery(function() {
       pauseOnFocus: false,
     });
 
-    function storiesSliderInit() {
-      storiesSlider
-        .find('.slick-arrow')
-        .addClass('stories__arrow button--slide--round')
-        .html('<div class="round-btn-bg"></div>');
-    }
-
-    storiesSliderInit();
+    storiesSlider
+      .find('.slick-arrow')
+      .addClass('stories__arrow button--slide--round')
+      .html('<div class="round-btn-bg"></div>');
   }
 
   if (jQuery('.clientsay__slider').length !== 0) {
@@ -173,13 +167,10 @@ jQuery(function() {
       pauseOnFocus: false,
     });
 
-    function clientsaySliderInit() {
-      clientsaySlider
-        .find('.slick-arrow')
-        .addClass('clientsay__arrow button--slide--round')
-        .html('<div class="round-btn-bg"></div>');
-    }
-    clientsaySliderInit();
+    clientsaySlider
+      .find('.slick-arrow')
+      .addClass('clientsay__arrow button--slide--round')
+      .html('<div class="round-btn-bg"></div>');
   }
 });
 
