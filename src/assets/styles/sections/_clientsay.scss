@@ -2,12 +2,13 @@
   padding: 0;
   &__pattern {
     height: 695px;
+    bottom: 96px;
   }
   &__content-wrapper {
     background: $mainBgDark;
-    padding: 45px 0 185px;
+    padding: 45px 0 210px;
     @media #{$md} {
-      padding: 90px 0 185px;
+      padding: 90px 0 210px;
     }
   }
   &__intro {
@@ -25,21 +26,30 @@
     }
 
     &-wrapper {
-      margin-top: -185px;
+      margin-top: -210px;
       @media #{$xl} {
-        margin-top: -150px;
+        margin-top: -175px;
       }
     }
-    .sick-slide {
+    .slick-list {
+      margin-right: -5px;
+      margin-left: -5px;
+    }
+    .slick-track {
+      display: flex;
+      align-items: stretch;
+    }
+    .slick-slide {
       padding: 0 5px;
       font-size: 0;
+      height: auto;
       @media #{$xl} {
         padding: 0 20px;
       }
       & > div {
         box-shadow: $boxShadowCard;
         margin-bottom: 5px;
-        background: $themeLightColor;
+        height: calc(100%-5px);
       }
     }
   }
@@ -82,13 +92,14 @@
 
   &__slide {
     background-color: $themeLightColor;
-    &-wrapper {
-      width: 100%;
-      height: 100%;
-      @media #{$md} {
-        @include isFlex(center, space-between, row, nowrap);
-      }
+    position: relative;
+    padding-bottom: 130px;
+    height: 100%;
+    @media #{$md} {
+      padding-left: 290px;
+      padding-bottom: 120px;
     }
+
     &-img {
       @include bgImg('@~images/bg/Director320.jpg', no-repeat, center, cover);
       height: 180px;
@@ -97,10 +108,13 @@
       @media #{$md} {
         width: 290px;
         min-width: 290px;
-        height: auto;
+        height: 100%;
         align-self: stretch;
         margin-bottom: 0;
         @include bgImg('@~images/bg/Director768.jpg', no-repeat, center top, cover);
+        position: absolute;
+        top: 0;
+        left: 0;
       }
       @media #{$xl} {
         min-width: 320px;
@@ -121,14 +135,25 @@
     &-content {
       padding: 20px;
       @media #{$md} {
-        padding: 40px 20px;
+        padding: 40px 25px;
       }
       @media #{$xl} {
         padding: 50px 30px;
       }
     }
+    &-links {
+      position: absolute;
+      width: calc(100% - 40px);
+      left: 20px;
+      bottom: 44px;
+      @media #{$md} {
+        left: 320px;
+        bottom: 40px;
+      }
+    }
 
     &-position {
+      color: $supportText;
       margin-bottom: 24px;
       letter-spacing: 0.07em;
       @media #{$md} {
@@ -162,10 +187,10 @@
     &-logo {
       @include bgImg('@~images/img/GroupGray.svg', no-repeat, left center, contain);
       height: 28px;
-      margin: 20px 0;
+      margin-top: 40px;
       display: block;
       @media #{$md} {
-        margin: 32px 0 12px;
+        margin: 60px 0 12px;
       }
     }
   }

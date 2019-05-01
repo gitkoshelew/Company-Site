@@ -95,8 +95,9 @@
   }
 
   .card-img {
+    margin-bottom: 21px;
     @media #{$md} {
-      margin-bottom: 33px;
+      margin-bottom: 41px;
     }
   }
   .card-preview {
@@ -144,6 +145,15 @@
     @media #{$xl} {
       line-height: 1em;
       margin-bottom: 17px;
+    }
+
+    & > p {
+      @media #{$md} {
+        display: inline;
+      }
+      @media #{$md} {
+        display: block;
+      }
     }
   }
 }
