@@ -225,6 +225,9 @@
         @media #{$xl} {
           width: 27%;
         }
+        @media #{$xxl} {
+          width: 35%;
+        }
       }
     }
   }
@@ -236,7 +239,7 @@
     position: relative;
 
     @media #{$xxl} {
-      height: calc(100vh - 60px);
+      height: 880px;
     }
 
     .container,

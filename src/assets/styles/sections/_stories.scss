@@ -1,5 +1,25 @@
 .stories {
   padding: 0;
+
+  .section--filter {
+    @media #{$xl} {
+      width: 27%;
+    }
+    @media #{$xxl} {
+      width: 35%;
+    }
+  }
+  .section--pattern-ellips {
+    @media #{$xl} {
+      width: 27%;
+      bottom: 0;
+      height: 70%;
+    }
+    @media #{$xxl} {
+      width: 35%;
+    }
+  }
+
   &__heading {
     & > p {
       @media #{$xl} {
@@ -20,6 +40,10 @@
         padding: 85px 0 227px;
       }
       @media #{$xl} {
+        padding: 85px 0 350px;
+      }
+      @media #{$xl} {
+        padding: 85px 0 310px;
       }
     }
   }
@@ -32,6 +56,7 @@
       margin-left: 0;
     }
     @media #{$xl} {
+      margin-top: 69px;
     }
   }
   &__slider {
@@ -42,8 +67,12 @@
     }
     @media #{$xl} {
       width: 1000px;
-      margin: -185px auto 0;
+      margin: -310px auto 0;
       padding-left: 200px;
+    }
+    @media #{$xxl} {
+      width: 500px;
+      padding-left: 400px;
     }
 
     & .slick {
@@ -66,12 +95,9 @@
           opacity: 0;
         }
         &.slick-active {
-          .stories__slide {
-            box-shadow: $boxShadowCard;
-          }
-
           & + .slick-slide {
             .stories__slide {
+              box-shadow: $boxShadowMaterialInit;
               &-heading,
               &-intro,
               &-cta {
@@ -126,9 +152,8 @@
   &__slide {
     padding: 45px 21px 26px;
     background: $themeLightColor;
-
-    transition: $transition;
     margin-bottom: 10px;
+    box-shadow: $boxShadowBox;
     @media #{$md} {
       padding: 45px 30px;
     }
@@ -137,6 +162,7 @@
     }
 
     &-heading {
+      transition: $transition;
       line-height: 1.3em;
       margin-bottom: 25px;
       @media #{$xl} {
@@ -144,6 +170,7 @@
       }
     }
     &-intro {
+      transition: $transition;
       margin-bottom: 28px;
 
       @media #{$xl} {
@@ -156,10 +183,12 @@
       margin-bottom: 40px;
     }
     &-button {
+      transition: $transition;
       font-weight: normal;
       margin-bottom: 8px;
     }
     &-cta {
+      transition: $transition;
       width: 100%;
       font-size: 14px;
       margin-bottom: 20px;

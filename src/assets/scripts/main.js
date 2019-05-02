@@ -149,15 +149,18 @@ jQuery(function() {
 
     const slides = storiesSlider.find('.slick-slide');
     slides[0].classList.add('slick-slide_hidden');
-    console.log(slides[0]);
+    slides[Math.floor(slides.length / 2) - 2].classList.add('slick-slide_hidden');
+    console.log(slides);
 
     storiesSlider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
       const sliderLenght = slick.slideCount;
+      console.log('next', nextSlide, 'curr', currentSlide);
 
       switch (nextSlide - currentSlide) {
         case 0:
           break;
         case 1:
+          console.log('1');
           slides[nextSlide].classList.add('slick-slide_hidden');
           if (slides[nextSlide - 2]) {
             slides[nextSlide - 2].classList.remove('slick-slide_hidden');
@@ -165,42 +168,44 @@ jQuery(function() {
             slides[sliderLenght - 1].classList.remove('slick-slide_hidden');
             slides[sliderLenght].classList.remove('slick-slide_hidden');
           }
-
           break;
         case 1 - sliderLenght:
+          console.log('l');
           slides[sliderLenght - 2].classList.remove('slick-slide_hidden');
           slides[0].classList.add('slick-slide_hidden');
           slides[sliderLenght].classList.add('slick-slide_hidden');
+
           break;
         case -1:
-        case sliderLenght - 1:
+          console.log('-1');
+          slides[currentSlide].classList.remove('slick-slide_hidden');
+          slides[nextSlide].classList.add('slick-slide_hidden');
+          if (slides[nextSlide - 1]) {
+            slides[nextSlide - 1].classList.add('slick-slide_hidden');
+          } else {
+            slides[sliderLenght - 2].classList.add('slick-slide_hidden');
+          }
           break;
-        default:
+        case sliderLenght - 1:
+          console.log('-l');
+          slides[sliderLenght - 1].classList.add('slick-slide_hidden');
+          slides[0].classList.remove('slick-slide_hidden');
+          slides[sliderLenght].classList.remove('slick-slide_hidden');
+          break;
       }
+      console.log(slides);
     });
 
-    // storiesSlider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-    //   const leftSlide = $(this).find('.slick-slide')[nextSlide];
-    //   console.log(leftSlide);
-
-    //   switch (nextSlide - currentSlide) {
-    //     case 0:
-    //       break;
-    //     case 1:
-    //     case 1 - sliderLenght:
-    //       $(this)
-    //         .find('.slick-slide_hidden')
-    //         .removeClass('slick-slide_hidden');
-
-    //       leftSlide.classList.add('slick-slide_hidden');
-    //       break;
-    //     case -1:
-    //     case sliderLenght - 1:
-    //       break;
-    //     default:
+    // storiesSlider.on('afterChange', function(event, slick, currentSlide) {
+    //   const sliderLenght = slick.slideCount;
+    //   console.log(currentSlide);
+    //   slides[currentSlide + 2].classList.remove('slick-slide_hidden');
+    //   if (slides[currentSlide - 1]) {
+    //     slides[currentSlide - 1].classList.remove('slick-slide_hidden');
+    //   } else {
+    //     console.log(sliderLenght);
+    //     slides[sliderLenght - 1].classList.remove('slick-slide_hidden');
     //   }
-
-    //   console.dir(leftSlide);
     // });
   }
 
@@ -228,6 +233,41 @@ jQuery(function() {
       .find('.slick-arrow')
       .addClass('clientsay__arrow button--slide--round')
       .html('<div class="round-btn-bg"></div>');
+
+    const slides = clientsaySlider.find('.slick-slide');
+    slides[0].classList.add('slick-slide_hidden');
+
+    clientsaySlider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+      const sliderLenght = slick.slideCount;
+
+      switch (nextSlide - currentSlide) {
+        case 0:
+          break;
+        case 1:
+          slides[nextSlide].classList.add('slick-slide_hidden');
+          if (slides[nextSlide - 2]) {
+            slides[nextSlide - 2].classList.remove('slick-slide_hidden');
+          } else {
+            slides[sliderLenght - 1].classList.remove('slick-slide_hidden');
+            slides[sliderLenght].classList.remove('slick-slide_hidden');
+          }
+          break;
+        case 1 - sliderLenght:
+          slides[sliderLenght - 2].classList.remove('slick-slide_hidden');
+          slides[0].classList.add('slick-slide_hidden');
+          slides[sliderLenght].classList.add('slick-slide_hidden');
+          break;
+        case -1:
+          slides[currentSlide].classList.remove('slick-slide_hidden');
+          slides[nextSlide].classList.add('slick-slide_hidden');
+          break;
+        case sliderLenght - 1:
+          slides[sliderLenght - 1].classList.add('slick-slide_hidden');
+          slides[0].classList.remove('slick-slide_hidden');
+          slides[sliderLenght].classList.remove('slick-slide_hidden');
+          break;
+      }
+    });
   }
 });
 
