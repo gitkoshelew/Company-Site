@@ -77,7 +77,9 @@
     }
     @media #{$xxl} {
       padding: 18px 90px;
-      max-width: 1920px;
+    }
+    @media #{$fourK} {
+      padding: 18px 10%;
     }
 
     @media #{$landscape} and (max-width: 991px) {
@@ -110,7 +112,7 @@
       width: 164px;
       height: 32px;
       @media #{$xl} {
-        width: 212px;
+        width: 227px;
         height: 54px;
         background-image: url('@~images/img/Group.svg');
       }
@@ -136,13 +138,13 @@
 
     &-item {
       @media #{$xxl} {
-        margin: 0 15px;
+        margin: 0 23px;
       }
     }
 
     &-anchor {
       color: $linkHover;
-      font-size: $fontLarge;
+      font-size: $font;
       padding: 10px 15px;
       display: inline-block;
       font-weight: 700;
@@ -157,7 +159,8 @@
       width: 100%;
       padding: 20px 30px;
       @media #{$xl} {
-        padding: 20px 50px;
+        padding: 14px 50px;
+        margin-top: -5px;
       }
       @media #{$xl} {
         width: auto;
@@ -263,7 +266,7 @@
         padding: 0;
       }
       @media #{$xxl} {
-        padding: 0 10% 0 20px;
+        padding: 3px 10% 0 10px;
       }
       &-heading {
         margin-top: -2em;
@@ -274,8 +277,7 @@
           margin-top: -0.2em;
         }
         @media #{$xxl} {
-          margin-top: 0;
-          margin-bottom: 0.3em;
+          margin-bottom: 0.75em;
         }
       }
       &-intro {

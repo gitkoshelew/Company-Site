@@ -12,19 +12,19 @@ $borderRadLess: 3px;
 $h2: 23px;
 $h2Tablet: 36px;
 $h2TabletLarge: 48px;
-$h2Desk: 64px;
+$h2Desk: 56px;
 
 $h2intro: 16px;
 $h2introTablet: 18px;
-$h2introDesk: 24px;
+$h2introDesk: 20px;
 
 $h3: 24px;
 $h3Tablet: 28px;
-$h3Desk: 54px;
+$h3Desk: 48px;
 
 $h4: 18px;
-$h4Tablet: 24px;
-$h4Desk: 28px;
+$h4Tablet: 21px;
+$h4Desk: 24px;
 
 $h5: 16px;
 $h5Tablet: 18px;
@@ -63,6 +63,9 @@ $xl: (
 );
 $xxl: (
   min-width: 1440px,
+);
+$fourK: (
+  min-width: 2000px,
 );
 
 $landscape: (

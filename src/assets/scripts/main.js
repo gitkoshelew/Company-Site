@@ -120,9 +120,17 @@ jQuery(function() {
     });
   }
 
-  if (jQuery('.stories__slider-wrapper').length !== 0) {
-    const storiesSlider = jQuery('.stories__slider-wrapper');
-    const sliderLenght = storiesSlider.find('.stories__slide').lenght;
+  if (jQuery('.stories__slider').length !== 0) {
+    const storiesSlider = jQuery('.stories__slider');
+    const storiesSlides = storiesSlider.find('.stories__slide');
+    const sliderLength = storiesSlides.length;
+
+    if (sliderLength === 2 || sliderLength === 3) {
+      storiesSlides.each((idx, el) => {
+        const clonedElement = el.cloneNode(true);
+        el.parentElement.appendChild(clonedElement);
+      });
+    }
 
     storiesSlider.slick({
       arrows: true,
@@ -130,7 +138,7 @@ jQuery(function() {
       slidesToShow: 1,
       slidesToScroll: 1,
       infinite: true,
-      speed: 700,
+      speed: 1000,
       autoplay: false,
       autoplaySpeed: 7000,
       cssEase: 'linear',
@@ -149,12 +157,10 @@ jQuery(function() {
 
     const slides = storiesSlider.find('.slick-slide');
     slides[0].classList.add('slick-slide_hidden');
-    slides[Math.floor(slides.length / 2) - 2].classList.add('slick-slide_hidden');
     console.log(slides);
 
     storiesSlider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
       const sliderLenght = slick.slideCount;
-      console.log('next', nextSlide, 'curr', currentSlide);
 
       switch (nextSlide - currentSlide) {
         case 0:
@@ -182,9 +188,8 @@ jQuery(function() {
           slides[nextSlide].classList.add('slick-slide_hidden');
           if (slides[nextSlide - 1]) {
             slides[nextSlide - 1].classList.add('slick-slide_hidden');
-          } else {
-            slides[sliderLenght - 2].classList.add('slick-slide_hidden');
           }
+
           break;
         case sliderLenght - 1:
           console.log('-l');
@@ -196,21 +201,28 @@ jQuery(function() {
       console.log(slides);
     });
 
-    // storiesSlider.on('afterChange', function(event, slick, currentSlide) {
-    //   const sliderLenght = slick.slideCount;
-    //   console.log(currentSlide);
-    //   slides[currentSlide + 2].classList.remove('slick-slide_hidden');
-    //   if (slides[currentSlide - 1]) {
-    //     slides[currentSlide - 1].classList.remove('slick-slide_hidden');
-    //   } else {
-    //     console.log(sliderLenght);
-    //     slides[sliderLenght - 1].classList.remove('slick-slide_hidden');
-    //   }
-    // });
+    storiesSlider.on('afterChange', function(event, slick, currentSlide) {
+      const sliderLenght = slick.slideCount;
+      console.log('current', currentSlide);
+      if (currentSlide === sliderLenght - 1) {
+        slides[sliderLenght - 2].classList.add('slick-slide_hidden');
+      }
+    });
+    console.log(slides);
   }
 
   if (jQuery('.clientsay__slider').length !== 0) {
     const clientsaySlider = jQuery('.clientsay__slider');
+    const clientsaySlides = clientsaySlider.find('.stories__slide');
+    const sliderLength = clientsaySlides.length;
+
+    if (sliderLength === 2 || sliderLength === 3) {
+      clientsaySlides.each((idx, el) => {
+        const clonedElement = el.cloneNode(true);
+        el.parentElement.appendChild(clonedElement);
+      });
+    }
+
     clientsaySlider.slick({
       arrows: true,
       dots: false,
@@ -236,6 +248,7 @@ jQuery(function() {
 
     const slides = clientsaySlider.find('.slick-slide');
     slides[0].classList.add('slick-slide_hidden');
+    console.log(slides);
 
     clientsaySlider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
       const sliderLenght = slick.slideCount;
@@ -244,6 +257,7 @@ jQuery(function() {
         case 0:
           break;
         case 1:
+          console.log('1');
           slides[nextSlide].classList.add('slick-slide_hidden');
           if (slides[nextSlide - 2]) {
             slides[nextSlide - 2].classList.remove('slick-slide_hidden');
@@ -253,19 +267,36 @@ jQuery(function() {
           }
           break;
         case 1 - sliderLenght:
+          console.log('l');
           slides[sliderLenght - 2].classList.remove('slick-slide_hidden');
           slides[0].classList.add('slick-slide_hidden');
           slides[sliderLenght].classList.add('slick-slide_hidden');
+
           break;
         case -1:
+          console.log('-1');
           slides[currentSlide].classList.remove('slick-slide_hidden');
           slides[nextSlide].classList.add('slick-slide_hidden');
+          if (slides[nextSlide - 1]) {
+            slides[nextSlide - 1].classList.add('slick-slide_hidden');
+          }
+
           break;
         case sliderLenght - 1:
+          console.log('-l');
           slides[sliderLenght - 1].classList.add('slick-slide_hidden');
           slides[0].classList.remove('slick-slide_hidden');
           slides[sliderLenght].classList.remove('slick-slide_hidden');
           break;
+      }
+      console.log(slides);
+    });
+
+    clientsaySlider.on('afterChange', function(event, slick, currentSlide) {
+      const sliderLenght = slick.slideCount;
+      console.log('current', currentSlide);
+      if (currentSlide === sliderLenght - 1) {
+        slides[sliderLenght - 2].classList.add('slick-slide_hidden');
       }
     });
   }

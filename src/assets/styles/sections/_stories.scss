@@ -21,11 +21,20 @@
   }
 
   &__heading {
+    @media #{$xl} {
+      margin-bottom: 0.35em;
+    }
     & > p {
       @media #{$xl} {
         display: block;
         margin-bottom: 0;
       }
+    }
+  }
+  &__text {
+    @media #{$xl} {
+      padding-right: 60%;
+      line-height: 1.75em;
     }
   }
 
@@ -42,8 +51,8 @@
       @media #{$xl} {
         padding: 85px 0 350px;
       }
-      @media #{$xl} {
-        padding: 85px 0 310px;
+      @media #{$xxl} {
+        padding: 92px 0 310px;
       }
     }
   }
@@ -56,7 +65,7 @@
       margin-left: 0;
     }
     @media #{$xl} {
-      margin-top: 69px;
+      margin-top: 26px;
     }
   }
   &__slider {
@@ -71,8 +80,15 @@
       padding-left: 200px;
     }
     @media #{$xxl} {
-      width: 500px;
-      padding-left: 400px;
+      width: calc(100vw);
+      padding-right: calc(50vw - 600px);
+      padding-left: calc(50vw - 200px);
+      margin-right: 0;
+      overflow: hidden;
+    }
+    @media #{$fourK} {
+      width: calc(50vw + 800px);
+      padding-left: 600px;
     }
 
     & .slick {
@@ -85,11 +101,16 @@
       &-slide {
         padding: 0 12px;
         opacity: 1;
-        transition: $transition;
+        transition: $transitionLinear;
         @media #{$md} {
           padding: 0 28px;
         }
         @media #{$xl} {
+        }
+        & > div {
+          box-shadow: $boxShadowCard;
+          margin-bottom: 5px;
+          height: calc(100%-5px);
         }
         &.slick-slide_hidden {
           opacity: 0;
@@ -97,7 +118,6 @@
         &.slick-active {
           & + .slick-slide {
             .stories__slide {
-              box-shadow: $boxShadowMaterialInit;
               &-heading,
               &-intro,
               &-cta {
@@ -153,11 +173,10 @@
     padding: 45px 21px 26px;
     background: $themeLightColor;
     margin-bottom: 10px;
-    box-shadow: $boxShadowBox;
     @media #{$md} {
       padding: 45px 30px;
     }
-    @media #{$md} {
+    @media #{$xl} {
       padding: 52px 45px 0px;
     }
 
@@ -193,7 +212,7 @@
       font-size: 14px;
       margin-bottom: 20px;
       @media #{$md} {
-        margin: 120px 0 0;
+        margin: 70px 0 0;
         width: 260px;
       }
       @media #{$xl} {

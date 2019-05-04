@@ -8,41 +8,53 @@
     background: $mainBgDark;
     padding: 45px 0 210px;
     @media #{$md} {
-      padding: 90px 0 210px;
+      padding: 90px 0 170px;
     }
   }
   &__intro {
     padding-bottom: 37px;
   }
   &__slider {
-    margin-bottom: 75px;
-    padding-bottom: 70px;
+    margin-bottom: 175px;
+    margin-top: -210px;
+
     @media #{$md} {
-      bottom: 20px;
+      margin-bottom: 90px;
+      margin-top: -175px;
     }
     @media #{$xl} {
-      padding: 0 65px 50px;
-      margin-bottom: 55px;
+      width: calc(50vw + 485px);
+      margin: -155px 0 112px auto;
+      padding-right: calc(50vw - 480px);
+      padding-left: 0;
+    }
+    @media #{$xxl} {
+      width: calc(100vw);
+      padding-right: calc(50vw - 600px);
+      padding-left: calc(50vw - 200px);
+      margin-right: 0;
+      overflow: hidden;
+    }
+    @media #{$fourK} {
+      width: calc(50vw + 800px);
+      padding-left: 600px;
     }
 
-    &-wrapper {
-      margin-top: -210px;
-      @media #{$xl} {
-        margin-top: -175px;
-      }
-    }
     .slick-list {
       margin-right: -5px;
       margin-left: -5px;
+      overflow: visible;
     }
     .slick-track {
       display: flex;
       align-items: stretch;
     }
     .slick-slide {
-      padding: 0 5px;
+      padding: 0 16px;
       font-size: 0;
       height: auto;
+      opacity: 1;
+      transition: $transitionLinear;
       @media #{$xl} {
         padding: 0 20px;
       }
@@ -51,26 +63,41 @@
         margin-bottom: 5px;
         height: calc(100%-5px);
       }
+      &.slick-slide_hidden {
+        opacity: 0;
+      }
+      &.slick-active {
+        & + .slick-slide {
+          .clientsay__slide {
+            &-heading,
+            &-intro,
+            &-learnmore,
+            &-position {
+              color: $themeSupportColor;
+            }
+          }
+        }
+      }
     }
   }
   &__arrow {
-    bottom: -65px;
+    bottom: -135px;
     z-index: 2;
     @media #{$md} {
-      bottom: 110px;
+      bottom: 40px;
     }
     @media #{$xl} {
-      bottom: 90px;
+      bottom: 55px;
     }
     &.slick {
       &-prev {
         right: calc(50% + 10px);
         @media #{$md} {
           left: auto;
-          right: 100px;
+          right: 130px;
         }
         @media #{$xl} {
-          right: 210px;
+          right: 250px;
         }
       }
 
@@ -78,10 +105,10 @@
         left: calc(50% + 10px);
         @media #{$md} {
           left: auto;
-          right: 20px;
+          right: 50px;
         }
         @media #{$xl} {
-          right: 130px;
+          right: 170px;
         }
         .round-btn-bg {
           transform: rotate(180deg);
@@ -98,6 +125,9 @@
     @media #{$md} {
       padding-left: 290px;
       padding-bottom: 120px;
+    }
+    @media #{$md} {
+      padding-left: 320px;
     }
 
     &-img {
@@ -135,7 +165,7 @@
     &-content {
       padding: 20px;
       @media #{$md} {
-        padding: 40px 25px;
+        padding: 40px 25px 40px 0;
       }
       @media #{$xl} {
         padding: 50px 30px;
@@ -148,11 +178,18 @@
       bottom: 44px;
       @media #{$md} {
         left: 320px;
+        width: calc(100% - 340px);
         bottom: 40px;
+      }
+      @media #{$xl} {
+        left: 350px;
+        width: calc(100% - 370px);
+        bottom: 50px;
       }
     }
 
     &-position {
+      transition: $transition;
       color: $supportText;
       margin-bottom: 24px;
       letter-spacing: 0.07em;
@@ -160,13 +197,22 @@
         margin-bottom: 30px;
       }
     }
+    &-heading {
+      transition: $transition;
+    }
     &-intro {
+      transition: $transition;
       @media #{$md} {
         line-height: 1.8em;
+      }
+      @media #{$xl} {
+        line-height: 1.5em;
+        margin-bottom: 1.75em;
       }
     }
 
     &-learnmore {
+      transition: $transition;
       color: $linkHover;
       margin-bottom: 20px;
       padding: 0;

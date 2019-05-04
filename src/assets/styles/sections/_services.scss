@@ -4,6 +4,7 @@
     padding-bottom: 175px;
   }
   @media #{$xl} {
+    padding-bottom: 152px;
   }
 
   &__pattern {
@@ -12,6 +13,9 @@
       height: 994px;
     }
     @media #{$xl} {
+      width: 64%;
+      bottom: 60px;
+      height: 410px;
     }
   }
   &__intro:last-child {

@@ -121,6 +121,9 @@
 %card-article {
   @extend %card-prototype;
   padding-bottom: 60px;
+  @media #{$xl} {
+    padding: 45px 45px 85px;
+  }
 
   button {
     @extend %clean-button;
@@ -129,6 +132,10 @@
     left: 34px;
     letter-spacing: 0.08em;
     font-size: $fontLess;
+    @media #{$xl} {
+      bottom: 52px;
+      left: 53px;
+    }
     &:hover {
       color: $themeColor;
     }
@@ -137,14 +144,19 @@
     @media #{$xl} {
       margin-bottom: 60px;
     }
-    @media #{$xxl} {
-      margin-bottom: 47px;
+    @media #{$xl} {
+      margin-bottom: 32px;
+    }
+  }
+  .card-preview {
+    @media #{$xl} {
+      line-height: 1.75em;
     }
   }
   h4 {
     @media #{$xl} {
       line-height: 1em;
-      margin-bottom: 17px;
+      margin-bottom: 12px;
     }
 
     & > p {
