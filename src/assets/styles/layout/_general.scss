@@ -164,6 +164,9 @@ h3 > p {
       line-height: 2em;
       padding-right: 33%;
     }
+    @media #{$xl} {
+      padding-right: 50%;
+    }
   }
 }
 

@@ -28,6 +28,11 @@
 .button--secondary--round--small {
   @extend %btn-secondary-round;
 }
+
+.button--third--round {
+  @extend %btn-third-round;
+}
+
 .button--social--round {
   @extend %round-social-button;
 }
@@ -56,7 +61,7 @@
 }
 
 %rectangle-button-small {
-  padding: 7px 17px;
+  padding: 5px 13px;
   margin-bottom: 7px;
   margin-right: 6px;
   font-size: $font;
@@ -66,42 +71,42 @@
 }
 
 %btn-primary {
-  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
+  @include btn($themeColor, $themeLightColor, $themeLightColor, $themeColor, $themeColor, $themeLightColor);
   @extend %rectangle-button;
-  border: none;
 }
 
 %btn-primary-small {
-  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
+  @include btn($themeColor, $themeLightColor, $themeLightColor, $themeColor, $themeColor, $themeLightColor);
   @extend %rectangle-button-small;
-  border: none;
 }
 
 %btn-secondary {
-  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
+  @include btn($themeLightColor, transparent, $themeColor, $themeLightColor, $themeLightColor, $themeLightColor);
   @extend %rectangle-button;
 }
 
 %btn-secondary-small {
-  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
+  @include btn($themeLightColor, transparent, $themeColor, $themeLightColor, $themeLightColor, $themeLightColor);
   @extend %rectangle-button-small;
 }
 
 %btn-round {
   border-radius: 100px;
+  min-width: 214px;
   max-width: 300px;
+  letter-spacing: -0.04em;
   margin: 0 auto;
-  padding: 20px 50px;
-
+  padding: 17px 30px 19px;
   font-weight: 700;
   @media #{$xl} {
-    padding: 17px 50px;
+    padding: 11px 30px 13px;
   }
 }
 
 %btn-round-small {
   border-radius: 100px;
   max-width: 300px;
+  min-width: 214px;
   margin: 0 auto;
   padding: 14px 30px 16px;
   font-size: $fontLess;
@@ -109,28 +114,38 @@
 }
 
 %btn-primary-round {
-  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
+  @include btn($themeColor, $themeLightColor, $themeLightColor, $themeColor, $themeColor, $themeLightColor);
   @extend %btn-round;
 }
 
 %btn-primary-round-small {
-  @include btn($themeColor, $themeColor, $themeLightColor, $themeLightColor);
+  @include btn($themeColor, $themeLightColor, $themeLightColor, $themeColor, $themeColor, $themeLightColor);
   @extend %btn-round-small;
 }
 
 %btn-secondary-round {
-  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
+  @include btn($themeLightColor, transparent, $themeColor, $themeLightColor, $themeLightColor, $themeLightColor);
   @extend %btn-round;
 }
 
 %btn-secondary-round-small {
-  @include btn($themeLightColor, $themeLightColor, $themeColor, $themeColor);
+  @include btn($themeLightColor, transparent, $themeColor, $themeLightColor, $themeLightColor, $themeLightColor);
+  @extend %btn-round-small;
+}
+
+%btn-third-round {
+  @include btn(transparent, $themeColor, $themeColor, $themeLightColor, $themeColor, $themeColor);
+  @extend %btn-round;
+}
+
+%btn-third-round-small {
+  @include btn(transparent, $themeColor, $themeColor, $themeLightColor, $themeColor, $themeColor);
   @extend %btn-round-small;
 }
 
 %btn-bar {
   border-radius: $borderRad;
-  @include btn(transparent, transparent, $secondBg, $secondText);
+  @include btn(transparent, transparent, $secondBg, $secondText, transparent, transparent);
   position: relative;
   width: 44px;
   height: 36px;
@@ -142,7 +157,6 @@
   &:focus {
     span {
       background-color: $mainText;
-      box-shadow: $boxShadow;
     }
   }
 
@@ -200,13 +214,15 @@
 }
 
 %round-slide-button {
-  $button-size: 56px;
-  $arrow-size: 14px;
+  $button-size: 48px;
+  $arrow-size: 12px;
   $arrow-width: 2px;
-  $txtcolor: $themeSecondaryLightColor;
-  $txthover: $secondBg;
+  $color: $themeSupportColor;
+  $bg: $themeSecondaryLightColor;
+  $borderColor: $themeSecondaryLightColor;
+  $txthover: $themeLightColor;
 
-  @include round($button-size, $txtcolor, $txthover);
+  @include round($button-size, $color, $bg, $borderColor);
   position: absolute;
 
   .round-btn-bg {
@@ -224,8 +240,8 @@
       background: none;
       width: $arrow-size;
       height: $arrow-size;
-      border-bottom: $arrow-width solid $txtcolor;
-      border-right: $arrow-width solid $txtcolor;
+      border-bottom: $arrow-width solid $color;
+      border-right: $arrow-width solid $color;
     }
   }
 
@@ -244,11 +260,10 @@
   $arrow-size: 14px;
   $arrow-width: 2px;
   $txtcolor: $themeSupportColor;
-  $txthover: $mainBgDark;
+  $bg: transparent;
+  $borderColor: $themeSupportColor;
 
-  @include round($button-size, $txtcolor, $txthover);
-
-  border: 2px solid $txtcolor;
+  @include round($button-size, $txtcolor, $bg, $borderColor);
 
   .round--social-bg {
     @include bgImg('@~images/img/vk.svg', no-repeat, center, contain);
@@ -256,12 +271,6 @@
     margin: 0 auto;
     width: 22px;
     height: 16px;
-  }
-
-  &:hover,
-  &:focus {
-    border: 2px solid lighten($txthover, 20%);
-    background: lighten($txthover, 20%);
   }
 }
 
@@ -318,15 +327,4 @@
       }
     }
   }
-}
-
-.button {
-  @extend %clean-button;
-  font-family: $mont;
-  font-size: 18px;
-  font-weight: 700;
-  border-radius: 5px;
-  color: white;
-  padding: 14px 40px;
-  background: $btnBg;
 }

@@ -22,7 +22,7 @@
 
   &__heading {
     @media #{$xl} {
-      margin-bottom: 0.35em;
+      margin-bottom: 0.33em;
     }
     & > p {
       @media #{$xl} {
@@ -52,20 +52,20 @@
         padding: 85px 0 350px;
       }
       @media #{$xxl} {
-        padding: 92px 0 310px;
+        padding: 91px 0 305px;
       }
     }
   }
   &__main-button {
     margin-top: 29px;
-    border: none;
     width: 100%;
-    padding: 17px 30px 19px;
     @media #{$md} {
       margin-left: 0;
+      width: auto;
     }
     @media #{$xl} {
-      margin-top: 26px;
+      margin-top: 54px;
+      padding: 11px 40px 13px;
     }
   }
   &__slider {
@@ -76,7 +76,7 @@
     }
     @media #{$xl} {
       width: 1000px;
-      margin: -310px auto 0;
+      margin: -265px auto 0;
       padding-left: 200px;
     }
     @media #{$xxl} {
@@ -108,7 +108,7 @@
         @media #{$xl} {
         }
         & > div {
-          box-shadow: $boxShadowCard;
+          box-shadow: $boxShadowCardMaterial;
           margin-bottom: 5px;
           height: calc(100%-5px);
         }
@@ -118,6 +118,7 @@
         &.slick-active {
           & + .slick-slide {
             .stories__slide {
+              pointer-events: none;
               &-heading,
               &-intro,
               &-cta {
@@ -126,6 +127,7 @@
               }
               &-button {
                 background: $themeSupportColor;
+                border-color: $themeSupportColor;
               }
             }
           }
@@ -152,6 +154,9 @@
         @media #{$xl} {
           right: 160px;
         }
+        @media #{$xxl} {
+          right: calc(50vw - 440px);
+        }
       }
 
       &-next {
@@ -162,6 +167,9 @@
         }
         @media #{$xl} {
           right: 80px;
+        }
+        @media #{$xxl} {
+          right: calc(50vw - 520px);
         }
         .round-btn-bg {
           transform: rotate(180deg);
@@ -177,7 +185,7 @@
       padding: 45px 30px;
     }
     @media #{$xl} {
-      padding: 52px 45px 0px;
+      padding: 40px 45px 0px;
     }
 
     &-heading {
@@ -186,6 +194,7 @@
       margin-bottom: 25px;
       @media #{$xl} {
         width: 320px;
+        margin-bottom: 28px;
       }
     }
     &-intro {
@@ -194,12 +203,16 @@
 
       @media #{$xl} {
         width: 320px;
-        margin-bottom: 20px;
+        margin-bottom: 14px;
+        line-height: 1.75em;
       }
     }
     &-buttons {
       @include isFlex(center, flex-start);
       margin-bottom: 40px;
+      @media #{$xl} {
+        margin-bottom: 0;
+      }
     }
     &-button {
       transition: $transition;
@@ -209,14 +222,13 @@
     &-cta {
       transition: $transition;
       width: 100%;
-      font-size: 14px;
       margin-bottom: 20px;
       @media #{$md} {
         margin: 70px 0 0;
         width: 260px;
       }
       @media #{$xl} {
-        margin: 30px 0 45px;
+        margin: 28px 0 40px;
         width: auto;
       }
     }

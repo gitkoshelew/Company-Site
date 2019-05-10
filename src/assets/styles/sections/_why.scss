@@ -1,12 +1,14 @@
 .why {
   padding-bottom: 70px;
   @media #{$xl} {
-    padding-bottom: 175px;
   }
   &__pattern {
     height: 872px;
   }
   &__intro:last-child {
     margin-bottom: 36px;
+    @media #{$xl} {
+      margin-bottom: 48px;
+    }
   }
 }

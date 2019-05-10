@@ -15,99 +15,58 @@
   background-size: $size;
 }
 
-@mixin btn($bg, $bgHover, $color, $colorHover) {
+@mixin btn($bg, $bgHover, $color, $colorHover, $border, $borderHover) {
   background-color: $bg;
   color: $color;
   display: inline-block;
-  border: 2px solid $color;
-  box-shadow: $boxShadowMaterialInit;
+  border: 2px solid $border;
   transition: $transition;
-  letter-spacing: 0.04ex;
   overflow: hidden;
   @extend %after;
 
-  &:before {
-    top: 50%;
-    left: 50%;
-    width: 0;
-    padding-top: 0;
-    border-radius: 100%;
-    background-color: rgba($color, 0.1);
-    transform: translate(-50%, -50%);
+  &:hover,
+  &:focus {
+    outline: none;
+    color: $colorHover;
+    background: $bgHover;
+    border: 2px solid $borderHover;
+    a {
+      color: $colorHover;
+    }
   }
-
   &:active {
-    &:before {
-      width: 120%;
-      padding-top: 120%;
-      transition: width 0.2s ease-out, padding-top 0.2s ease-out;
-    }
-  }
-
-  @media #{$md} {
-    &:hover,
-    &:focus {
-      outline: none;
-      color: darken($colorHover, 10%);
-      box-shadow: $boxShadowMaterial;
-      background: lighten($bgHover, 1%);
-      border-color: darken($color, 10%);
-      a {
-        color: darken($colorHover, 10%);
-      }
-    }
-
-    &:active {
-      box-shadow: none;
-      &:before {
-        width: 120%;
-        padding-top: 120%;
-        transition: width 0.2s ease-out, padding-top 0.2s ease-out;
-      }
+    color: $btnColorActive;
+    background: $btnBgActive;
+    border: 2px solid $btnBorderActive;
+    a {
+      color: $btnColorActive;
     }
   }
 }
 
-@mixin round($size, $txtcolor, $txthover) {
+@mixin round($size: 44px, $color: white, $bg: blue, $border: transparent) {
   display: block;
   width: $size;
   min-width: $size;
   height: $size;
   border-radius: 50%;
-  box-shadow: $boxShadowMaterialInit;
   text-align: center;
-  background: $txthover;
-  border: none;
+  background: $bg;
+  border: 2px solid $border;
+  color: $color;
   font-size: 0;
 
   @extend %after;
 
-  &:before {
-    top: 50%;
-    left: 50%;
-    width: 0;
-    padding-top: 0;
-    border-radius: 100%;
-    background-color: rgba($txthover, 0.1);
-    transform: translate(-50%, -50%);
-  }
-
   &:hover,
   &:focus {
-    background: $txtcolor;
-    box-shadow: $boxShadowMaterial;
+    background-color: $themeColor;
+    border-color: $themeColor;
+    color: $themeLightColor;
   }
 
   &:active {
-    box-shadow: none;
-    &:before {
-      width: 120%;
-      padding-top: 120%;
-      transition: width 0.2s ease-out, padding-top 0.2s ease-out;
-      box-shadow: none;
-    }
-  }
-
-  @media #{$md} {
+    background-color: $themeDarkColor;
+    border-color: $themeDarkColor;
   }
 }

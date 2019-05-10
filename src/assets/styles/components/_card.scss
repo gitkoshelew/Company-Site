@@ -13,20 +13,23 @@
 %card-prototype {
   padding: 50px 20px 36px;
   margin: 7px 0;
-  border: 1px solid $lightBorder;
+  border: 1px solid $themeCardBorder;
   background: $cardBg;
   height: calc(100% - 14px);
   @media #{$md} {
     padding: 50px 28px 36px;
   }
-  @media #{$xl} {
-  }
+
   .card-img {
     width: 70px;
     height: 70px;
     @include bgImg('@~images/img/cycle.svg', no-repeat, center, contain);
     margin-bottom: 25px;
 
+    @media #{$xl} {
+      width: 64px;
+      height: 64px;
+    }
     &.img {
       &--devcenter {
         background-image: url('@~images/img/devcenter.svg');
@@ -91,18 +94,21 @@
   @media #{$md} {
     padding: 45px 24px 12px;
   }
+
   @media #{$xl} {
+    padding: 45px 48px 12px;
+    height: calc(100% - 26px);
+    margin-bottom: 26px;
   }
 
   .card-img {
     margin-bottom: 21px;
-    @media #{$md} {
-      margin-bottom: 41px;
+    @media #{$xl} {
+      margin-bottom: 26px;
     }
   }
   .card-preview {
     @media #{$md} {
-      font-size: $fontLess;
       line-height: 1.75em;
     }
   }
@@ -113,7 +119,8 @@
       font-size: $fontLarge;
     }
     @media #{$xl} {
-      font-size: $h4Tablet;
+      font-size: $h4Desk;
+      margin-bottom: 8px;
     }
   }
 }
@@ -144,8 +151,8 @@
     @media #{$xl} {
       margin-bottom: 60px;
     }
-    @media #{$xl} {
-      margin-bottom: 32px;
+    @media #{$xxl} {
+      margin-bottom: 38px;
     }
   }
   .card-preview {

@@ -30,8 +30,8 @@
     }
     @media #{$xxl} {
       width: calc(100vw);
-      padding-right: calc(50vw - 600px);
-      padding-left: calc(50vw - 200px);
+      padding-right: calc(50vw - 580px);
+      padding-left: calc(50vw - 580px);
       margin-right: 0;
       overflow: hidden;
     }
@@ -130,6 +130,10 @@
       padding-left: 320px;
     }
 
+    @media #{$xl} {
+      min-width: 390px;
+    }
+
     &-img {
       @include bgImg('@~images/bg/Director320.jpg', no-repeat, center, cover);
       height: 180px;
@@ -148,6 +152,9 @@
       }
       @media #{$xl} {
         min-width: 320px;
+      }
+      @media #{$xl} {
+        min-width: 370px;
       }
       &_solution {
         background-image: url('@~images/bg/solution1_320.jpg');

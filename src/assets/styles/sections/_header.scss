@@ -70,16 +70,16 @@
       margin: 0 auto;
       height: auto;
       flex-direction: row;
-      padding: 18px calc(50vw - 475px);
+      padding: 16px calc(50vw - 475px);
       background: $themeLightColor;
       position: absolute;
       justify-content: space-between;
     }
     @media #{$xxl} {
-      padding: 18px 90px;
+      padding: 16px 90px;
     }
     @media #{$fourK} {
-      padding: 18px 10%;
+      padding: 16px 10%;
     }
 
     @media #{$landscape} and (max-width: 991px) {
@@ -145,7 +145,7 @@
     &-anchor {
       color: $linkHover;
       font-size: $font;
-      padding: 10px 15px;
+      padding: 10px 15px 5px;
       display: inline-block;
       font-weight: 700;
 
@@ -155,11 +155,8 @@
     }
 
     &-btn {
-      border: none;
       width: 100%;
-      padding: 20px 30px;
       @media #{$xl} {
-        padding: 14px 50px;
         margin-top: -5px;
       }
       @media #{$xl} {
