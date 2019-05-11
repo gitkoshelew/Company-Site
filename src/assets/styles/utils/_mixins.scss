@@ -17,6 +17,7 @@
 
 @mixin btn($bg, $bgHover, $color, $colorHover, $border, $borderHover) {
   background-color: $bg;
+  cursor: pointer;
   color: $color;
   display: inline-block;
   border: 2px solid $border;
@@ -30,6 +31,7 @@
     color: $colorHover;
     background: $bgHover;
     border: 2px solid $borderHover;
+    box-shadow: $boxShadowMaterialInit;
     a {
       color: $colorHover;
     }
@@ -46,6 +48,7 @@
 
 @mixin round($size: 44px, $color: white, $bg: blue, $border: transparent) {
   display: block;
+  cursor: pointer;
   width: $size;
   min-width: $size;
   height: $size;

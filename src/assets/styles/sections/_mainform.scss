@@ -23,10 +23,10 @@
       padding: 40px 34px 60px;
     }
     @media #{$xl} {
-      padding: 70px 34px 52px;
+      padding: 40px 34px 52px;
     }
     @media #{$xxl} {
-      padding: 70px 100px 52px;
+      padding: 40px 45px 52px;
     }
   }
   &__label {
@@ -106,12 +106,20 @@
         flex-direction: row;
         padding: 15px 15px 15px 75px;
       }
+      &.label--dragged {
+        background: $themeSupportColor;
+      }
     }
+
     &-input {
       position: absolute;
       top: 0;
       visibility: hidden;
     }
+    &-support {
+      pointer-events: none;
+    }
+
     &-heading {
       text-align: center;
       @media #{$md} {
@@ -183,16 +191,13 @@
   }
   &__submit {
     width: 100%;
-    border: none;
     display: block;
     @media #{$md} {
-      padding-top: 17px;
-      padding-bottom: 17px;
-      width: 270px;
+      width: auto;
     }
     @media #{$xl} {
       margin-right: -3px;
-      width: auto;
+
       transform: translate(0, -7px);
     }
   }

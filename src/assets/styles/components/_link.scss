@@ -4,19 +4,23 @@
   @extend %main-link;
 }
 
-.second--link{
-  @extend %main-link;
+.main--link--reverce {
+  @extend %main-link-reverce;
 }
 
-.footer--link{
-  @extend %main-link;
+.second--link {
+  @extend %main-link-underline;
 }
 
-.footer--static--link{
-  @extend %main-link;
+.footer--link {
+  @extend %footer-link;
 }
 
-%main-link{
+.footer--static--link {
+  @extend %footer-link;
+}
+
+%main-link-underline {
   border-top: 2px solid transparent;
   border-bottom: 2px solid transparent;
   transition: $transition;
@@ -33,7 +37,9 @@
     transform: translate(-50%, -50%);
   }
 
-  &.active, &:hover, &:focus{
+  &.active,
+  &:hover,
+  &:focus {
     border-bottom: 2px solid $linkHover;
   }
   &:active {
@@ -42,6 +48,39 @@
       padding-top: 120%;
       transition: width 0.2s ease-out, padding-top 0.2s ease-out;
     }
+  }
+}
+
+%footer-link {
+  transition: $transition;
+  &:hover,
+  &:focus {
+    color: $themeColor;
+  }
+  &:active {
+    color: $themeDarkColor;
+  }
+}
+
+%main-link {
+  transition: $transition;
+  &:hover,
+  &:focus {
+    color: $themeColor;
+  }
+  &:active {
+    color: $themeDarkColor;
+  }
+}
+%main-link-reverce {
+  transition: $transition;
+
+  &:hover,
+  &:focus {
+    color: $themeColor;
+  }
+  &:active {
+    color: $mainText;
   }
 }
 

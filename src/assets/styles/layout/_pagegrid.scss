@@ -85,6 +85,13 @@ section {
     min-width: 50%;
   }
 }
+.col-xxl-7 {
+  @media #{$xxl} {
+    width: 58.333333%;
+    max-width: 58.333333%;
+    min-width: 58.333333%;
+  }
+}
 
 .col,
 .col-1,

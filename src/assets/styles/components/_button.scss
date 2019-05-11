@@ -155,6 +155,7 @@
 
   &:hover,
   &:focus {
+    box-shadow: none;
     span {
       background-color: $mainText;
     }
@@ -235,7 +236,7 @@
 
     &:after {
       top: calc(50% + 0px);
-      left: calc(50% + 4px);
+      left: calc(50% + 2px);
       transform: translate(-50%, -50%) rotate(135deg);
       background: none;
       width: $arrow-size;
@@ -256,14 +257,13 @@
 }
 
 %round-social-button {
-  $button-size: 56px;
-  $arrow-size: 14px;
-  $arrow-width: 2px;
-  $txtcolor: $themeSupportColor;
+  $button-size: 48px;
+  $color: $themeSupportColor;
   $bg: transparent;
   $borderColor: $themeSupportColor;
+  $txthover: $themeLightColor;
 
-  @include round($button-size, $txtcolor, $bg, $borderColor);
+  @include round($button-size, $color, $bg, $borderColor);
 
   .round--social-bg {
     @include bgImg('@~images/img/vk.svg', no-repeat, center, contain);
@@ -271,6 +271,12 @@
     margin: 0 auto;
     width: 22px;
     height: 16px;
+  }
+  &:hover,
+  &:focus {
+    .round--social-bg {
+      background-image: url('@~images/img/vkLight.svg');
+    }
   }
 }
 

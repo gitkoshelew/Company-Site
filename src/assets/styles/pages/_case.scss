@@ -27,4 +27,13 @@
       }
     }
   }
+  .termuse {
+    .section--pattern--top-right {
+      @media #{$xxl} {
+        height: 100%;
+        top: 0;
+        width: 63%;
+      }
+    }
+  }
 }

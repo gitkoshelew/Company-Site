@@ -157,7 +157,6 @@ jQuery(function() {
 
     const slides = storiesSlider.find('.slick-slide');
     slides[0].classList.add('slick-slide_hidden');
-    console.log(slides);
 
     storiesSlider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
       const sliderLenght = slick.slideCount;
@@ -166,7 +165,6 @@ jQuery(function() {
         case 0:
           break;
         case 1:
-          console.log('1');
           slides[nextSlide].classList.add('slick-slide_hidden');
           if (slides[nextSlide - 2]) {
             slides[nextSlide - 2].classList.remove('slick-slide_hidden');
@@ -176,14 +174,12 @@ jQuery(function() {
           }
           break;
         case 1 - sliderLenght:
-          console.log('l');
           slides[sliderLenght - 2].classList.remove('slick-slide_hidden');
           slides[0].classList.add('slick-slide_hidden');
           slides[sliderLenght].classList.add('slick-slide_hidden');
 
           break;
         case -1:
-          console.log('-1');
           slides[currentSlide].classList.remove('slick-slide_hidden');
           slides[nextSlide].classList.add('slick-slide_hidden');
           if (slides[nextSlide - 1]) {
@@ -192,28 +188,24 @@ jQuery(function() {
 
           break;
         case sliderLenght - 1:
-          console.log('-l');
           slides[sliderLenght - 1].classList.add('slick-slide_hidden');
           slides[0].classList.remove('slick-slide_hidden');
           slides[sliderLenght].classList.remove('slick-slide_hidden');
           break;
       }
-      console.log(slides);
     });
 
     storiesSlider.on('afterChange', function(event, slick, currentSlide) {
       const sliderLenght = slick.slideCount;
-      console.log('current', currentSlide);
       if (currentSlide === sliderLenght - 1) {
         slides[sliderLenght - 2].classList.add('slick-slide_hidden');
       }
     });
-    console.log(slides);
   }
 
   if (jQuery('.clientsay__slider').length !== 0) {
     const clientsaySlider = jQuery('.clientsay__slider');
-    const clientsaySlides = clientsaySlider.find('.stories__slide');
+    const clientsaySlides = clientsaySlider.find('.clientsay__slide');
     const sliderLength = clientsaySlides.length;
 
     if (sliderLength === 2 || sliderLength === 3) {
@@ -222,6 +214,7 @@ jQuery(function() {
         el.parentElement.appendChild(clonedElement);
       });
     }
+    console.log($('.clientsay__slide'));
 
     clientsaySlider.slick({
       arrows: true,
@@ -257,7 +250,6 @@ jQuery(function() {
         case 0:
           break;
         case 1:
-          console.log('1');
           slides[nextSlide].classList.add('slick-slide_hidden');
           if (slides[nextSlide - 2]) {
             slides[nextSlide - 2].classList.remove('slick-slide_hidden');
@@ -267,14 +259,12 @@ jQuery(function() {
           }
           break;
         case 1 - sliderLenght:
-          console.log('l');
           slides[sliderLenght - 2].classList.remove('slick-slide_hidden');
           slides[0].classList.add('slick-slide_hidden');
           slides[sliderLenght].classList.add('slick-slide_hidden');
 
           break;
         case -1:
-          console.log('-1');
           slides[currentSlide].classList.remove('slick-slide_hidden');
           slides[nextSlide].classList.add('slick-slide_hidden');
           if (slides[nextSlide - 1]) {
@@ -283,7 +273,6 @@ jQuery(function() {
 
           break;
         case sliderLenght - 1:
-          console.log('-l');
           slides[sliderLenght - 1].classList.add('slick-slide_hidden');
           slides[0].classList.remove('slick-slide_hidden');
           slides[sliderLenght].classList.remove('slick-slide_hidden');
@@ -294,7 +283,6 @@ jQuery(function() {
 
     clientsaySlider.on('afterChange', function(event, slick, currentSlide) {
       const sliderLenght = slick.slideCount;
-      console.log('current', currentSlide);
       if (currentSlide === sliderLenght - 1) {
         slides[sliderLenght - 2].classList.add('slick-slide_hidden');
       }

@@ -127,7 +127,8 @@
         margin: 30px 0;
       }
       @media #{$xl} {
-        height: 120px;
+        height: 70px;
+        min-height: 70px;
         flex-direction: row;
         margin: 0 50px 0 auto;
       }
@@ -185,17 +186,22 @@
             background-image: url('@~images/img/GroupWhite.svg');
           }
           &-anchor {
-            color: $ligthText;
-            &.active,
-            &:hover,
-            &:focus {
-              border-bottom: 2px solid $themeLightColor;
-            }
+            color: $themeLightColor;
+            @extend .main--link--reverce;
           }
         }
       }
       &.fixed {
-        background: $themeSupportColor;
+        background: $themeLightColor;
+        .header__nav {
+          &-logo {
+            background-image: url('@~images/img/Group.svg');
+          }
+          &-anchor {
+            color: $mainText;
+            @extend .main--link;
+          }
+        }
       }
     }
   }

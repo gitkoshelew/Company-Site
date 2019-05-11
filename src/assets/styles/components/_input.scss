@@ -114,7 +114,8 @@
     position: absolute;
     width: $checkSize;
     height: $checkSize;
-    background: $secondBg;
+    background: $themeSupportColor;
+    border: 1px solid $themeSupportColor;
     border-radius: $borderRadLess;
     top: 14px;
     left: 4px;
@@ -135,12 +136,14 @@
     &:hover,
     &:focus {
       & + .form--check-helper {
-        box-shadow: $boxShadowMaterial;
+        border-color: $secondBg;
       }
     }
     &:checked {
       & + .form--check-helper {
         color: $ligthText;
+        background: $secondBg;
+        border-color: $secondBg;
       }
     }
   }

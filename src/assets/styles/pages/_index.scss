@@ -1,11 +1,9 @@
 /* src/assets/styles/pages/_index.scss  */
 
-.home__page {
-}
-
-/*
-  Responsive
-*/
-
-@media #{$md} {
+#home__page {
+  #why2 {
+    @media #{$xl} {
+      padding-bottom: 140px;
+    }
+  }
 }
