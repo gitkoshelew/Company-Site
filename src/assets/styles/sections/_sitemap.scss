@@ -10,10 +10,6 @@
   a {
     display: inline-block;
     font-size: $font;
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
   }
 
   &__anchor,
@@ -71,6 +67,8 @@
 
   &__anchor {
     padding-left: 40px;
+    color: $mainText;
+    @extend %main-link;
     &:after {
       @include bgImg('@~images/img/link.svg', no-repeat, center, contain);
     }
@@ -125,11 +123,14 @@
       }
 
       &:after {
+        bottom: 22px;
+        height: calc(100% - 68px);
+
         @media #{$md} {
           left: 20px;
-          height: calc(100% - 60px);
         }
-        @media #{$lg} {
+        @media #{$xl} {
+          height: calc(100% - 72px);
         }
       }
     }

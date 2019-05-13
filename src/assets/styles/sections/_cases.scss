@@ -57,6 +57,7 @@
       .cases__btn {
         color: $ligthText;
         background-color: $themeColor;
+        border: 2px solid $themeColor;
       }
 
       .cases__view-btn {
@@ -114,15 +115,11 @@
       padding-right: 20%;
     }
   }
-  &__btn {
-    border: none;
-  }
+
   &__view-btn {
     opacity: 0;
     transition: $transitionFast;
     position: absolute;
-
-    border: none;
     display: none;
     @media #{$md} {
       display: block;

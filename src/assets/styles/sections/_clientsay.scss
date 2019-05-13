@@ -36,7 +36,7 @@
       padding-right: calc(50vw - 580px);
       padding-left: calc(50vw - 580px);
       margin-right: 0;
-      overflow: hidden;
+      overflow-x: visible;
     }
     @media #{$fourK} {
       width: calc(50vw + 800px);
@@ -272,6 +272,7 @@
     }
   }
   &_fullimg {
+    padding-bottom: 50px;
     .clientsay {
       &__slide {
         padding: 0;
@@ -291,7 +292,7 @@
       }
       &__arrow {
         @media #{$md} {
-          bottom: 0;
+          bottom: -80px;
         }
       }
     }

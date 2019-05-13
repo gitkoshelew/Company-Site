@@ -344,18 +344,19 @@ if (document.querySelectorAll('.tabs').lenght !== 0) {
 
 /* END TABS section scripts */
 
-if (jQuery('#mainform__form').length !== 0) {
-  formHandler('#mainform__form');
-}
-
 $('.header__head-open-button').click(function() {
   $(this).toggleClass('isOpen');
+  $(document.body).toggleClass('no--scroll');
   $(this)
     .prev('nav')
     .toggleClass('isOpen');
 });
 
 // formHandler argument - BEM id string (#block__element_modificator)
+
+if (jQuery('#mainform__form').length !== 0) {
+  formHandler('#mainform__form');
+}
 
 function formHandler(form) {
   const API_URL = 'http://localhost:8080/';
@@ -518,6 +519,7 @@ function formHandler(form) {
     drop: function(e) {
       e.stopPropagation();
       e.preventDefault();
+      $(this).removeClass('label--dragged');
 
       if (!file_api) {
         alert('Your browser do not support file sending');
