@@ -1,0 +1,165 @@
+.approach {
+  background: $mainBgDark;
+  @media #{$xl} {
+    padding-bottom: 10px;
+  }
+  &__heading {
+    letter-spacing: 0;
+    margin-top: 0.2em;
+  }
+  &__intro {
+    font-size: $font;
+    margin-bottom: 2em;
+  }
+  &__list {
+    padding: 20px 0 0 15px;
+    counter-reset: list-counter;
+    @media #{$md} {
+      padding: 20px 40px 0 60px;
+    }
+    @media #{$xl} {
+      padding: 40px 40px 0 50px;
+    }
+  }
+  &__item {
+    @extend %after;
+    counter-increment: list-counter;
+    padding: 25px 0 42px 85px;
+
+    @media #{$xl} {
+      @include isFlex(flex-start, flex-start, row, nowrap);
+    }
+
+    @media #{$xl} {
+      padding: 25px 0 10px 85px;
+      min-height: 200px;
+    }
+
+    &:before {
+      width: 11px;
+      height: calc(100%-76px);
+      left: 29px;
+      top: 70px;
+      transform: none;
+      background: url('@~images/img/dottstheme.svg') center bottom repeat-y,
+        url('@~images/img/treangle.svg') center bottom no-repeat;
+      transform: none;
+      @media #{$xl} {
+        height: calc(100% - 105px);
+        left: -7px;
+        top: 96px;
+      }
+    }
+
+    &:after {
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      top: 35px;
+      left: 0;
+      border-radius: 50%;
+      background-color: $themeColor;
+      content: '0' counter(list-counter);
+      color: $ligthText;
+      text-align: center;
+      font-size: 24px;
+      font-family: $futura;
+      font-weight: 700;
+      @media #{$xl} {
+        width: 95px;
+        height: 95px;
+        line-height: 90px;
+        top: 45px;
+        left: -45px;
+        font-size: 36px;
+      }
+    }
+    &:nth-child(n + 10) {
+      &:after {
+        content: counter(list-counter);
+      }
+    }
+    &:last-child {
+      padding-bottom: 0;
+      &:before {
+        content: none;
+      }
+    }
+    &_reverse {
+      &--1 {
+        &:before {
+          left: 16px;
+          @media #{$xl} {
+            left: -16px;
+          }
+        }
+        .approach__item-arrow {
+          position: absolute;
+          width: 11px;
+          height: calc(100%-76px);
+          left: 41px;
+          top: 70px;
+          transform: none;
+          background: url('@~images/img/dottsdark.svg') center top repeat-y,
+            url('@~images/img/treangledark.svg') center top no-repeat;
+          transform: none;
+          @media #{$xl} {
+            height: calc(100% - 95px);
+            left: 16px;
+            top: 96px;
+          }
+        }
+      }
+      &--2 {
+        .approach__item-arrow {
+          position: absolute;
+          width: 22px;
+          height: calc(200%+8px);
+          left: -20px;
+          top: 35px;
+          transform: none;
+          background: url('@~images/img/dottstheme.svg') 0 bottom repeat-y,
+            url('@~images/img/treangle-right.svg') 100% 0 no-repeat,
+            url('@~images/img/dottstheme.svg') calc(100% - 5px) bottom no-repeat;
+          transform: none;
+          border: none;
+          @media #{$xl} {
+            height: calc(100% - 104px);
+            left: -75px;
+            top: 44px;
+          }
+        }
+      }
+    }
+
+    &-heading {
+      font-size: $h5 + 1px;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.1em;
+      @media #{$xl} {
+        width: 45%;
+        font-size: 27px;
+      }
+    }
+    &-content {
+      @media #{$xl} {
+        width: 55%;
+        padding-left: 1%;
+        padding-top: 12px;
+      }
+    }
+    &-text {
+      line-height: 2em;
+      margin-bottom: 0.5em;
+      @media #{$md} {
+        font-size: $fontLess;
+      }
+      @media #{$lg} {
+        font-size: $fontLarge;
+        line-height: 1.75em;
+      }
+    }
+    &-link {
+    }
+  }
+}

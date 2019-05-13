@@ -1,0 +1,261 @@
+.card--article {
+  @extend %card-article;
+}
+
+.card--product {
+  @extend %card-product;
+}
+
+.card--list--item {
+  @extend %card-list-item;
+}
+
+%card-prototype {
+  padding: 50px 20px 36px;
+  margin: 7px 0;
+  border: 1px solid $themeCardBorder;
+  background: $cardBg;
+  height: calc(100% - 14px);
+  transition: $transition;
+  @media #{$md} {
+    padding: 50px 28px 36px;
+  }
+
+  .card-img {
+    width: 70px;
+    height: 70px;
+    @include bgImg('@~images/img/cycle.svg', no-repeat, center, contain);
+    margin-bottom: 25px;
+
+    @media #{$xl} {
+      width: 64px;
+      height: 64px;
+    }
+    &.img {
+      &--devcenter {
+        background-image: url('@~images/img/devcenter.svg');
+      }
+      &--team {
+        background-image: url('@~images/img/team.svg');
+      }
+      &--discovery {
+        background-image: url('@~images/img/discovery.svg');
+      }
+      &--extension {
+        background-image: url('@~images/img/extension.svg');
+      }
+      &--design {
+        background-image: url('@~images/img/design.svg');
+      }
+      &--ui {
+        background-image: url('@~images/img/ui.svg');
+      }
+      &--solutions {
+        background-image: url('@~images/img/solutions.svg');
+      }
+      &--businessautomation {
+        background-image: url('@~images/img/businessautomation.svg');
+      }
+      &--reengineering {
+        background-image: url('@~images/img/reengineering.svg');
+      }
+      &--software {
+        background-image: url('@~images/img/software.svg');
+      }
+      &--teams {
+        background-image: url('@~images/img/teams.svg');
+      }
+      &--analysis {
+        background-image: url('@~images/img/analysis.svg');
+      }
+      &--time {
+        background-image: url('@~images/img/time.svg');
+      }
+      &--budget {
+        background-image: url('@~images/img/budget.svg');
+      }
+      &--transparency {
+        background-image: url('@~images/img/transparency.svg');
+      }
+      &--focus {
+        background-image: url('@~images/img/focus.svg');
+      }
+      &--cycle {
+        background-image: url('@~images/img/cycle.svg');
+      }
+      &--guard {
+        background-image: url('@~images/img/guard.svg');
+      }
+      &--edtech {
+        background-image: url('@~images/img/edtech.svg');
+      }
+      &--insurance {
+        background-image: url('@~images/img/insurance.svg');
+      }
+      &--scales {
+        background-image: url('@~images/img/scales.svg');
+      }
+      &--entertainment {
+        background-image: url('@~images/img/entertainment.svg');
+      }
+      &--ecommerce {
+        background-image: url('@~images/img/ecommerce.svg');
+      }
+      &--industry {
+        background-image: url('@~images/img/industry.svg');
+      }
+    }
+    @media #{$md} {
+      margin-bottom: 17px;
+    }
+  }
+  h4 {
+    margin-bottom: 25px;
+    & > p {
+      @media #{$md} {
+        display: block;
+      }
+      @media #{$xxl} {
+      }
+    }
+  }
+
+  .card-preview {
+    margin-bottom: 25px;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: $boxShadowCardMaterial;
+    h4 {
+      color: $themeColor;
+    }
+  }
+}
+
+%card-product {
+  @extend %card-prototype;
+  padding-top: 45px;
+  padding-bottom: 20px;
+  @media #{$md} {
+    padding: 45px 24px 12px;
+  }
+
+  @media #{$xl} {
+    padding: 45px 48px 12px;
+    height: calc(100% - 26px);
+    margin-bottom: 26px;
+  }
+
+  .card-img {
+    margin-bottom: 21px;
+    @media #{$xl} {
+      margin-bottom: 26px;
+    }
+  }
+  .card-preview {
+    @media #{$md} {
+      line-height: 1.75em;
+    }
+  }
+
+  h4,
+  h4 > p {
+    @media #{$md} {
+      font-size: $fontLarge;
+    }
+    @media #{$xl} {
+      font-size: $h4Desk;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+%card-article {
+  @extend %card-prototype;
+  padding-bottom: 60px;
+  @media #{$xl} {
+    padding: 45px 45px 85px;
+  }
+
+  button {
+    @extend %clean-button;
+    position: absolute;
+    bottom: 57px;
+    left: 34px;
+    letter-spacing: 0.08em;
+    font-size: $fontLess;
+    @media #{$xl} {
+      bottom: 52px;
+      left: 53px;
+    }
+    &:hover {
+      color: $themeColor;
+    }
+  }
+  .card-img {
+    @media #{$xl} {
+      margin-bottom: 60px;
+    }
+    @media #{$xxl} {
+      margin-bottom: 38px;
+    }
+  }
+  .card-preview {
+    @media #{$xl} {
+      line-height: 1.75em;
+    }
+  }
+  h4 {
+    @media #{$xl} {
+      line-height: 1em;
+      margin-bottom: 12px;
+    }
+
+    & > p {
+      @media #{$md} {
+        display: inline;
+      }
+      @media #{$md} {
+        display: block;
+      }
+    }
+  }
+}
+
+%card-list-item {
+  @extend %card-prototype;
+  padding: 35px 20px 0;
+  text-align: center;
+  @media #{$md} {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: flex-start;
+  }
+  @media #{$xl} {
+    padding: 35px 20px;
+  }
+  .card-img {
+    width: 100%;
+    margin-bottom: 20px;
+    @media #{$md} {
+      width: 110px;
+      min-width: 110px;
+      margin-right: 20px;
+      margin-top: 25px;
+    }
+  }
+  h4 {
+    margin-bottom: 5px;
+    @media #{$md} {
+      margin-bottom: 15px;
+    }
+  }
+  .card-preview {
+    line-height: 2em;
+    @media #{$md} {
+      line-height: 1.75em;
+    }
+  }
+}

@@ -10,13 +10,23 @@ body {
 }
 body {
   @include isFlex(center, center);
-  font-family: $quicksand;
-  background: $darkslategray;
-  color: white;
+  font-family: $mont;
+  color: $mainText;
   margin: 0;
   padding: 0;
+  font-weight: normal;
+  //min-width: 1920px;
+  &.no--scroll {
+    overflow-y: hidden;
+  }
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $futura;
   margin: 0;
 }
 a {
@@ -31,4 +41,163 @@ ul {
 }
 li {
   list-style: none;
+}
+em {
+  font-style: normal;
+}
+
+button {
+  font-size: $btnFontSize;
+}
+
+header,
+section,
+footer {
+  width: 100%;
+  overflow: hidden;
+}
+section,
+footer {
+  padding: 45px 0;
+  position: relative;
+  @media #{$md} {
+    padding: 85px 0;
+  }
+  @media #{$xl} {
+    padding: 93px 0;
+  }
+}
+
+address {
+  font-style: normal;
+}
+
+mark {
+  background: none;
+  color: $themeErrorColor;
+}
+
+p {
+  font-size: $fontLess;
+  line-height: 1.75em;
+  @media #{$md} {
+    font-size: $font;
+    line-height: 1.5em;
+  }
+  @media #{$xl} {
+    font-size: $font;
+    line-height: 1.5em;
+  }
+}
+
+h1,
+h2 {
+  margin-bottom: 14px;
+}
+
+h1,
+h2,
+h1 > p,
+h2 > p {
+  font-size: $h2;
+  line-height: 1.4em;
+  letter-spacing: 0.05ex;
+  @media #{$md} {
+    font-size: $h2Tablet;
+    line-height: 1.2em;
+    letter-spacing: 0;
+  }
+  @media #{$xl} {
+    font-size: $h2Desk;
+    line-height: 1.225em;
+  }
+
+  & + p {
+    font-size: $h2intro;
+    line-height: 1.5em;
+    letter-spacing: 0.02ex;
+
+    @media #{$md} {
+      font-size: $h2introTablet;
+    }
+    @media #{$xl} {
+      font-size: $h2introDesk;
+      line-height: 1.25em;
+    }
+    @media #{$xxl} {
+      line-height: 1.75em;
+    }
+  }
+}
+
+h3 {
+  margin-bottom: 0.3em;
+  @media #{$md} {
+    margin-bottom: 0.01em;
+    padding-right: 25%;
+  }
+  @media #{$xl} {
+    margin-bottom: 0.6em;
+    padding-right: 15%;
+  }
+}
+
+h3,
+h3 > p {
+  font-size: $h3;
+  letter-spacing: 0.01em;
+  display: inline-block;
+  @media #{$md} {
+    font-size: $h3Tablet;
+    letter-spacing: 0;
+  }
+  @media #{$xl} {
+    font-size: $h3Desk;
+    margin-bottom: 0.5em;
+    letter-spacing: 0.007em;
+  }
+
+  & + p {
+    @media #{$md} {
+      line-height: 1.75em;
+      padding-right: 25%;
+    }
+    @media #{$xl} {
+      letter-spacing: 0.007em;
+      line-height: 2em;
+      padding-right: 33%;
+    }
+    @media #{$xl} {
+      padding-right: 50%;
+    }
+  }
+}
+
+h4,
+h4 > p {
+  font-size: $h4;
+  line-height: 1.6em;
+  @media #{$md} {
+    font-size: $h4Tablet;
+  }
+  @media #{$xl} {
+    font-size: $h4Desk;
+  }
+}
+
+h5,
+h5 > p {
+  font-size: $h5;
+  line-height: 1.5em;
+  letter-spacing: 0.06em;
+  @media #{$md} {
+    font-size: $h5Tablet;
+  }
+  @media #{$xl} {
+    font-size: $h5Desk;
+  }
+}
+
+h6 {
+  font-size: $fontLarger;
 }

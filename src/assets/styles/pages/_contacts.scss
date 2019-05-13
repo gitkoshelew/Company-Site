@@ -1,0 +1,54 @@
+#contacts__page {
+  .header__content {
+    @include bgImg('@~images/bg/software320.jpg', no-repeat, center, cover);
+    @media #{$md} {
+      background-image: url('@~images/bg/contacts768.jpg');
+    }
+    @media #{$xl} {
+      background-image: url('@~images/bg/development1200.jpg');
+    }
+  }
+
+  .mainform {
+    background: $themeLightColor;
+    padding-bottom: 100px;
+    @media #{$md} {
+      padding-bottom: 200px;
+    }
+    @media #{$xl} {
+    }
+    .section--pattern--bottom-right {
+      z-index: 0;
+    }
+    &__heading,
+    &__intro {
+      color: $mainText;
+    }
+    &__form {
+      background: $mainBgDark;
+    }
+    &__input,
+    &__select,
+    &__textarea {
+      background: $mainBgDark;
+    }
+    &__label {
+      border-bottom: 2px solid $darkBorder;
+      input,
+      select,
+      textarea {
+        &:focus,
+        &.full,
+        &.inValid {
+          & + div {
+            color: $themeColor;
+          }
+        }
+      }
+    }
+
+    &__input-support {
+      color: $mainText;
+    }
+  }
+}

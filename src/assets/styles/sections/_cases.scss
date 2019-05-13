@@ -1,0 +1,165 @@
+.cases {
+  @media #{$md} {
+    padding-top: 103px;
+  }
+  @media #{$xl} {
+    padding-top: 92px;
+    padding-bottom: 55px;
+  }
+  .section--gradient {
+    top: 100%;
+  }
+  &__head {
+    &-heading {
+      margin-bottom: 0.5em;
+    }
+    &-intro {
+      line-height: 2em;
+      margin-bottom: 1em;
+    }
+  }
+  &__wrapper {
+    position: relative;
+    overflow: hidden;
+    color: $ligthText;
+    margin: 7px 0 15px;
+    padding: 45px 20px 40px;
+    height: 367px;
+    min-height: 367px;
+    @include isFlex(center, space-between, column, nowrap);
+    @media #{$md} {
+      padding: 52px 40px 56px;
+      min-height: 493px;
+      margin-bottom: 27px;
+    }
+    @media #{$xl} {
+      padding: 68px 33% 220px 40px;
+      min-height: 650px;
+      margin-bottom: 39px;
+    }
+    &_zorka {
+      @include bgImg('@~images/bg/case1-320.jpeg', no-repeat, center, cover);
+    }
+    &_learning {
+      @include bgImg('@~images/bg/case2-320.jpeg', no-repeat, center, cover);
+    }
+    &_pintel {
+      @include bgImg('@~images/bg/case3-320.jpeg', no-repeat, center, cover);
+    }
+    &:hover,
+    &:focus {
+      .section--filter {
+        height: 0;
+      }
+      .section--gradient {
+        top: 0;
+      }
+      .cases__btn {
+        color: $ligthText;
+        background-color: $themeColor;
+        border: 2px solid $themeColor;
+      }
+
+      .cases__view-btn {
+        opacity: 1;
+      }
+    }
+  }
+  &__content {
+    position: relative;
+    width: 100%;
+  }
+  &__heading {
+    font-size: $h4 + 2px;
+    line-height: 1.3em;
+    @media #{$md} {
+      font-size: $h4Tablet + 4px;
+      margin-bottom: 0.75em;
+    }
+    @media #{$xl} {
+      font-size: $h4Desk + 8px;
+      margin-bottom: 0.25em;
+    }
+    p {
+      font-size: $h4 + 2px;
+      line-height: 1.3em;
+      @media #{$md} {
+        font-size: $h4Tablet + 4px;
+      }
+      @media #{$xl} {
+        font-size: $h4Desk + 8px;
+        display: inline;
+      }
+    }
+    sup {
+      font-size: ($h4 / 3) * 2;
+      @media #{$md} {
+        font-size: ($h4Tablet / 3) * 2;
+      }
+      @media #{$xl} {
+        font-size: ($h4Desk / 3) * 2;
+      }
+    }
+  }
+  &__intro {
+    display: none;
+    @media #{$md} {
+      display: block;
+      line-height: 1.75em;
+    }
+  }
+  &__buttons {
+    position: relative;
+    width: 100%;
+    @media #{$md} {
+      padding-right: 20%;
+    }
+  }
+
+  &__view-btn {
+    opacity: 0;
+    transition: $transitionFast;
+    position: absolute;
+    display: none;
+    @media #{$md} {
+      display: block;
+      bottom: 110px;
+      left: -5px;
+    }
+    @media #{$xl} {
+      bottom: -133px;
+    }
+  }
+  &--small {
+    @media #{$xxl} {
+      padding-bottom: 200px;
+      .cases {
+        &__wrapper {
+          height: 100%;
+          padding: 63px 0% 150px 35px;
+          min-height: 485px;
+          margin-bottom: 0px;
+        }
+        &__intro {
+          display: none;
+        }
+        &__heading {
+          font-size: $h4Tablet + 4px;
+          & > p {
+            font-size: $h4Tablet + 4px;
+          }
+          & > sup {
+            font-size: ($h4Tablet / 3) * 2;
+          }
+        }
+        &__buttons {
+          padding-right: 0;
+        }
+        &__view-btn {
+          bottom: -75px;
+          left: 10px;
+        }
+      }
+    }
+  }
+}

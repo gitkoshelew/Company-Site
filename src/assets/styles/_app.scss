@@ -1,4 +1,5 @@
 @import 'normalize.css';
+@import 'bootstrap/dist/css/bootstrap-grid.css';
 
 /*
   Base
@@ -8,27 +9,58 @@
 /*
   Utils
 */
+@import './utils/variables';
 @import './utils/dimensions';
 @import './utils/mixins';
-@import './utils/colors';
 @import './utils/keyframes';
-
-/*
-  Components
-*/
-@import './components/footer';
-@import './components/button';
-@import './components/link';
 
 /*
   Layout
 */
-@import './layout/page';
 @import './layout/general';
+@import './layout/pagegrid';
+
+/*
+  Components
+*/
+@import './components/helpers';
+@import './components/button';
+@import './components/input';
+@import './components/card';
+@import './components/link';
+@import './components/pattern';
+
+/*
+  Sections
+*/
+@import './sections/header';
+@import './sections/services';
+@import './sections/stories';
+@import './sections/why';
+@import './sections/termuse';
+@import './sections/clientsay';
+@import './sections/mainform';
+@import './sections/sitemap';
+@import './sections/contacts';
+@import './sections/cases';
+@import './sections/helpyou';
+@import './sections/cta';
+@import './sections/lists';
+@import './sections/roles';
+@import './sections/approach';
+@import './sections/tabs';
+@import './sections/footer';
 
 /*
   Pages
 */
 @import './pages/index';
-@import './pages/blog';
-@import './pages/contact';
+@import './pages/content';
+@import './pages/contacts';
+@import './pages/case';
+@import './pages/cases';
+@import './pages/services';
+@import './pages/sitemap';
+@import './pages/teams';
+@import './pages/uiux';
+@import './pages/software';

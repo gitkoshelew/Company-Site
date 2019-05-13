@@ -1,0 +1,39 @@
+#case__page {
+  .header__content {
+    padding: 35px 0;
+    @include bgImg('@~images/bg/casebg320.jpg', no-repeat, center, cover);
+    @media #{$md} {
+      padding: 45px 0 55px;
+      background-image: url('@~images/bg/casebg768.jpg');
+    }
+    @media #{$xl} {
+      padding: 115px 0 245px;
+      background-image: url('@~images/bg/casebg1200.jpg');
+    }
+    @media #{$xxl} {
+      background-image: url('@~images/bg/casebg1920.jpg');
+    }
+    &-heading {
+      margin-bottom: 0;
+    }
+    &-intro {
+      font-size: $fontLarge;
+      line-height: 1.75em;
+      margin-bottom: 3em;
+      @media #{$md} {
+        line-height: 1.33em;
+        padding-top: 1em;
+        margin-bottom: 3.75em;
+      }
+    }
+  }
+  .termuse {
+    .section--pattern--top-right {
+      @media #{$xxl} {
+        height: 100%;
+        top: 0;
+        width: 63%;
+      }
+    }
+  }
+}

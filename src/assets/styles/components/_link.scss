@@ -1,7 +1,104 @@
 /* src/assets/styles/components/_link.scss  */
 
-.link {
-  font-family: $quicksand;
-  font-size: 18px;
-  font-weight: 700;
+.main--link {
+  @extend %main-link;
+}
+
+.main--link--reverce {
+  @extend %main-link-reverce;
+}
+
+.second--link {
+  @extend %main-link-underline;
+}
+
+.footer--link {
+  @extend %footer-link;
+}
+
+.footer--static--link {
+  @extend %footer-link;
+}
+
+%main-link-underline {
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition: $transition;
+  overflow: hidden;
+  @extend %after;
+
+  &:before {
+    top: 50%;
+    left: 50%;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    background-color: rgba($themeColor, 0.1);
+    transform: translate(-50%, -50%);
+  }
+
+  &.active,
+  &:hover,
+  &:focus {
+    border-bottom: 2px solid $linkHover;
+  }
+  &:active {
+    &:before {
+      width: 120%;
+      padding-top: 120%;
+      transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+    }
+  }
+}
+
+%footer-link {
+  transition: $transition;
+  &:hover,
+  &:focus {
+    color: $themeColor;
+  }
+  &:active {
+    color: $themeDarkColor;
+  }
+}
+
+%main-link {
+  transition: $transition;
+  &:hover,
+  &:focus {
+    color: $themeColor;
+  }
+  &:active {
+    color: $themeDarkColor;
+  }
+}
+%main-link-reverce {
+  transition: $transition;
+
+  &:hover,
+  &:focus {
+    color: $themeColor;
+  }
+  &:active {
+    color: $mainText;
+  }
+}
+
+.ul--item {
+  font-size: $fontLess;
+  display: block;
+  line-height: 2em;
+  color: $secondText;
+  padding-left: 10px;
+  @extend %after;
+  &:after {
+    width: 10px;
+    height: 10px;
+    border: 7px solid transparent;
+    border-left-color: $themeColor;
+    left: -2px;
+    top: 7px;
+    display: block;
+    transform: scale(1, 0.75);
+  }
 }

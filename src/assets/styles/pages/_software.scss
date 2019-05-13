@@ -1,0 +1,45 @@
+#software__page {
+  .header__content {
+    padding: 145px 0 220px;
+    @include bgImg('@~images/bg/softEng320.jpg', no-repeat, center, cover);
+    @media #{$md} {
+      padding: 177px 0 205px;
+      background-image: url('@~images/bg/softEng768.jpg');
+    }
+    @media #{$xl} {
+      padding: 300px 0 335px;
+      background-image: url('@~images/bg/softEng1200.jpg');
+    }
+    @media #{$xxl} {
+      background-image: url('@~images/bg/softEng1920.jpg');
+    }
+  }
+  .cta {
+    @include bgImg('@~images/bg/softEngCta320.jpg', no-repeat, center, cover);
+    @media #{$md} {
+      background-image: url('@~images/bg/softEngCta768.jpg');
+    }
+    @media #{$xl} {
+      background-image: url('@~images/bg/softEngCta1200.jpg');
+    }
+    @media #{$xxl} {
+      background-image: url('@~images/bg/softEngCta1920.jpg');
+    }
+  }
+  .tabs {
+    @media #{$md} {
+      padding-bottom: 30px;
+    }
+    @media #{$xl} {
+      padding-bottom: 40px;
+    }
+  }
+  .cases {
+    @media #{$md} {
+      padding-top: 30px;
+    }
+    @media #{$xl} {
+      padding-top: 40px;
+    }
+  }
+}

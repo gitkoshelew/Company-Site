@@ -6,10 +6,39 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const fs = require('fs');
+const globSync = require("glob").sync;
 
 // Files
-const utils = require('./utils');
-const plugins = require('../postcss.config');
+// pug utils
+// const utils = require('./utils');
+
+//const plugins = require('../postcss.config');
+
+function generateHtmlPlugins(templateDir, env = "development") {
+  const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+  return templateFiles.map(item => {
+    const parts = item.split('.');
+    const name = parts[0];
+    const extension = parts[1];
+
+    const options = {
+      filename: `${name}.html`,
+      template: path.resolve(`${templateDir}/${name}.${extension}`),
+      inject: false
+    };
+
+    if (env === 'development') {
+      options.minify = {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      };
+    }
+
+    return new HtmlWebpackPlugin(options);
+  });
+}
 
 // Configuration
 module.exports = env => {
@@ -21,6 +50,7 @@ module.exports = env => {
     output: {
       path: path.resolve(__dirname, '../dist'),
       publicPath: '/',
+//      filename: 'assets/js/[name].bundle.js'
       filename: 'assets/js/[name].[hash:7].bundle.js'
     },
     devServer: {
@@ -86,14 +116,28 @@ module.exports = env => {
             'sass-loader' // compiles Sass to CSS
           ]
         },
-        {
-          test: /\.pug$/,
-          use: [
-            {
-              loader: 'pug-loader'
-            }
-          ]
-        },
+        // {
+        //   test: /\.html$/,
+        //   include: path.resolve(__dirname, '../src/html/includes'),
+        //   use: ['raw-loader']
+        // },
+        // {
+        //   test: /\.pug$/,
+        //   use: [
+        //     {
+        //       loader: 'pug-loader'
+        //     }
+        //   ]
+        // },
+        // {
+        //   test: /\.(html)$/,
+        //   include: path.resolve(__dirname, '../src/html/views'),
+        //   loader: "html-srcsets-loader",
+        //     options: {
+        //       attrs: [":src", ':srcset']
+        //     }
+          
+        // },
         {
           test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
           loader: 'url-loader',
@@ -135,6 +179,7 @@ module.exports = env => {
           // vendor chunk
           vendor: {
             filename: 'assets/js/vendor.[hash:7].bundle.js',
+//            filename: 'assets/js/vendor.bundle.js',
             // sync + async chunks
             chunks: 'all',
             // import file path containing node_modules
@@ -145,24 +190,28 @@ module.exports = env => {
     },
 
     plugins: [
-      new CopyWebpackPlugin([
-        { from: '../manifest.json', to: 'manifest.json' },
-        { from: '../browserconfig.xml', to: 'browserconfig.xml' },
-        {
-          from: 'assets/images/favicons/android-chrome-192x192.png',
-          to: 'assets/images/android-chrome-192x192.png'
-        },
-        {
-          from: 'assets/images/favicons/android-chrome-256x256.png',
-          to: 'assets/images/android-chrome-256x256.png'
-        },
-        {
-          from: 'assets/images/favicons/mstile-150x150.png',
-          to: 'assets/images/mstile-150x150.png'
-        }
-      ]),
+      new CopyWebpackPlugin(
+        [
+          { from: '../manifest.json', to: 'manifest.json' },
+          { from: '../browserconfig.xml', to: 'browserconfig.xml' },
+          {
+            from: 'assets/images/favicons/android-chrome-192x192.png',
+            to: 'assets/images/android-chrome-192x192.png'
+          },
+          {
+            from: 'assets/images/favicons/android-chrome-256x256.png',
+            to: 'assets/images/android-chrome-256x256.png'
+          },
+          {
+            from: 'assets/images/favicons/mstile-150x150.png',
+            to: 'assets/images/mstile-150x150.png'
+          }
+        ]
+        //.concat(generateHtmlPlugins('../src/html/views', env))
+      ),
       new MiniCssExtractPlugin({
-        filename: 'assets/css/[name].[hash:7].bundle.css',
+        // filename: 'assets/css/[name].[hash:7].bundle.css',
+        filename: 'assets/css/[name].bundle.css',
         chunkFilename: '[id].css'
       }),
 
@@ -170,15 +219,98 @@ module.exports = env => {
         Pages
       */
 
-      // // Desktop page
+      // Pug options
+
+      // new HtmlWebpackPlugin({
+      //   filename: 'index.html',
+      //   template: 'views/index.pug',
+      //   inject: true
+      // }),
+
+      // ...utils.pages(env),
+      // ...utils.pages(env, 'blog'),
+
       new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/index.html',
         filename: 'index.html',
-        template: 'views/index.pug',
-        inject: true
+        assets: {
+          style : "assets/css/[name].[hash:7].bundle.css",
+          js  : "assets/js/[name].[hash:7].bundle.js",
+        }
+      }
+      ),
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/services.html',
+        filename: 'services.html',
       }),
 
-      ...utils.pages(env),
-      ...utils.pages(env, 'blog'),
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/content.html',
+        filename: 'content.html',
+      }),
+
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/sitemap.html',
+        filename: 'sitemap.html',
+      }),
+
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/contacts.html',
+        filename: 'contacts.html',
+      }),
+
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/cases.html',
+        filename: 'cases.html',
+      }),
+
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/teams.html',
+        filename: 'teams.html',
+      }),
+
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/uiux.html',
+        filename: 'uiux.html',
+      }),
+
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/software.html',
+        filename: 'software.html',
+      }),
+      new HtmlWebpackPlugin({
+        inject: true,
+        hash: true,
+        template: 'html/views/case.html',
+        filename: 'case.html',
+      }),
+
+      // ...globSync("html/**/*.html").map(fileName => {
+      //   return new HtmlWebpackPlugin({
+      //     template: fileName,
+      //     inject: "body",
+      //     hash: true,
+      //     filename: fileName.replace("html/", "")
+      //   });
+      // }),
 
       new webpack.ProvidePlugin({
         $: 'jquery',

@@ -1,0 +1,133 @@
+/* src/assets/styles/components/_footer.scss  */
+
+.footer {
+  background: $mainBgDark;
+  @media #{$md} {
+    padding: 80px 0 12px;
+  }
+  @media #{$md} {
+    padding: 55px 0 12px;
+  }
+  &__social {
+    padding: 6px 0 20px;
+    &-logo {
+      width: 100%;
+      height: 36px;
+      @include bgImg('@~images/img/GroupGray.svg', no-repeat, center, contain);
+      margin-bottom: 30px;
+      @media #{$md} {
+        background-position: center left;
+        margin-bottom: 20px;
+      }
+      @media #{$md} {
+        margin-bottom: 33px;
+      }
+    }
+    &-buttons {
+      @include isFlex(center, center, row, wrap);
+      @media #{$md} {
+        justify-content: flex-start;
+      }
+    }
+    &-btn {
+      margin: 15px;
+      &:first-child {
+        @media #{$md} {
+          margin-left: 0;
+        }
+      }
+
+      &_facebook {
+        .round--social-bg {
+          background-image: url('@~images/img/facebook.svg');
+        }
+        &:hover,
+        &:focus {
+          .round--social-bg {
+            background-image: url('@~images/img/facebookLight.svg');
+          }
+        }
+      }
+    }
+  }
+  &__services,
+  &__company {
+    padding: 5px 0;
+    &-heading {
+      text-align: center;
+      @media #{$md} {
+        text-align: left;
+        margin-top: 6px;
+      }
+      @media #{$xl} {
+        text-align: left;
+        margin-top: 9px;
+      }
+    }
+    &-list {
+      text-align: center;
+      padding: 12px 0;
+      margin-bottom: 5px;
+      @media #{$md} {
+        text-align: left;
+      }
+    }
+    &-item {
+      margin: 2px 0;
+    }
+
+    &-link {
+      font-size: $fontLess;
+      color: $mainText;
+      padding: 5px;
+      margin-bottom: 4px;
+      display: inline-block;
+    }
+  }
+  &__bottom {
+    border-top: 1px solid $themeDisabledColor;
+    margin-top: 17px;
+    text-align: center;
+    padding-top: 50px;
+    @media #{$md} {
+      @include isFlex(center, space-between);
+    }
+    @media #{$xl} {
+      padding-top: 20px;
+    }
+    &-copyright {
+      font-size: $fontLess;
+      margin-bottom: 20px;
+      @media #{$md} {
+        margin-bottom: 10px;
+        font-size: $font;
+      }
+    }
+    &-links {
+      @media #{$md} {
+        @include isFlex(center, space-between);
+      }
+    }
+    &-link {
+      font-size: $fontLess;
+      padding: 5px;
+      display: inline-block;
+      margin: 5px 0 15px;
+      color: $mainText;
+      @media #{$md} {
+        font-size: $font;
+        margin-left: 20px;
+      }
+      @media #{$xxl} {
+        margin-left: 70px;
+      }
+    }
+  }
+}
+
+/*
+  Responsive
+*/
+
+@media screen and(max-width: $md) {
+}

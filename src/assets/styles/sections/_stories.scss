@@ -1,0 +1,236 @@
+.stories {
+  padding: 0;
+
+  .section--filter {
+    @media #{$xl} {
+      width: 27%;
+    }
+    @media #{$xxl} {
+      width: 35%;
+    }
+  }
+  .section--pattern-ellips {
+    @media #{$xl} {
+      width: 27%;
+      bottom: 0;
+      height: 70%;
+    }
+    @media #{$xxl} {
+      width: 35%;
+    }
+  }
+
+  &__heading {
+    @media #{$xl} {
+      margin-bottom: 0.33em;
+    }
+    & > p {
+      @media #{$xl} {
+        display: block;
+        margin-bottom: 0;
+      }
+    }
+  }
+  &__text {
+    @media #{$xl} {
+      padding-right: 60%;
+      line-height: 1.75em;
+    }
+  }
+
+  &__content {
+    color: $ligthText;
+    &-wrapper {
+      padding: 41px 0 227px;
+      @include bgImg('@~images/bg/Client320.jpg', no-repeat, center, cover);
+      position: relative;
+
+      @media #{$md} {
+        padding: 85px 0 227px;
+      }
+      @media #{$xl} {
+        padding: 85px 0 350px;
+      }
+      @media #{$xxl} {
+        padding: 91px 0 305px;
+      }
+    }
+  }
+  &__main-button {
+    margin-top: 29px;
+    width: 100%;
+    @media #{$md} {
+      margin-left: 0;
+      width: auto;
+    }
+    @media #{$xl} {
+      margin-top: 54px;
+      padding: 11px 40px 13px;
+    }
+  }
+  &__slider {
+    margin-top: -185px;
+    margin-bottom: 95px;
+    @media #{$md} {
+      margin-bottom: 0;
+    }
+    @media #{$xl} {
+      width: 1000px;
+      margin: -265px auto 0;
+      padding-left: 200px;
+    }
+    @media #{$xxl} {
+      width: calc(100vw);
+      padding-right: calc(50vw - 600px);
+      padding-left: calc(50vw - 200px);
+      margin-right: 0;
+      overflow: hidden;
+    }
+    @media #{$fourK} {
+      width: calc(50vw + 800px);
+      padding-left: 600px;
+    }
+
+    & .slick {
+      &-list {
+        @media #{$xl} {
+          overflow: visible;
+        }
+      }
+
+      &-slide {
+        padding: 0 12px;
+        opacity: 1;
+        transition: $transitionLinear;
+        @media #{$md} {
+          padding: 0 28px;
+        }
+        @media #{$xl} {
+        }
+        & > div {
+          box-shadow: $boxShadowCardMaterial;
+          margin-bottom: 5px;
+          height: calc(100%-5px);
+        }
+        &.slick-slide_hidden {
+          opacity: 0;
+        }
+        &.slick-active {
+          & + .slick-slide {
+            .stories__slide {
+              pointer-events: none;
+              &-heading,
+              &-intro,
+              &-cta {
+                color: $themeSupportColor;
+                border-color: $themeSupportColor;
+              }
+              &-button {
+                background: $themeSupportColor;
+                border-color: $themeSupportColor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__arrow {
+    bottom: -85px;
+    z-index: 2;
+    @media #{$md} {
+      bottom: 55px;
+    }
+    @media #{$xl} {
+    }
+
+    &.slick {
+      &-prev {
+        right: calc(50% + 10px);
+        @media #{$md} {
+          left: auto;
+          right: 130px;
+        }
+        @media #{$xl} {
+          right: 160px;
+        }
+        @media #{$xxl} {
+          right: calc(50vw - 440px);
+        }
+      }
+
+      &-next {
+        left: calc(50% + 10px);
+        @media #{$md} {
+          right: 55px;
+          left: auto;
+        }
+        @media #{$xl} {
+          right: 80px;
+        }
+        @media #{$xxl} {
+          right: calc(50vw - 520px);
+        }
+        .round-btn-bg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &__slide {
+    padding: 45px 21px 26px;
+    background: $themeLightColor;
+    margin-bottom: 10px;
+    @media #{$md} {
+      padding: 45px 30px;
+    }
+    @media #{$xl} {
+      padding: 40px 45px 0px;
+    }
+
+    &-heading {
+      transition: $transition;
+      line-height: 1.3em;
+      margin-bottom: 25px;
+      @media #{$xl} {
+        width: 320px;
+        margin-bottom: 28px;
+      }
+    }
+    &-intro {
+      transition: $transition;
+      margin-bottom: 28px;
+
+      @media #{$xl} {
+        width: 320px;
+        margin-bottom: 14px;
+        line-height: 1.75em;
+      }
+    }
+    &-buttons {
+      @include isFlex(center, flex-start);
+      margin-bottom: 40px;
+      @media #{$xl} {
+        margin-bottom: 0;
+      }
+    }
+    &-button {
+      transition: $transition;
+      font-weight: normal;
+      margin-bottom: 8px;
+    }
+    &-cta {
+      transition: $transition;
+      width: 100%;
+      margin-bottom: 20px;
+      @media #{$md} {
+        margin: 70px 0 0;
+        width: 260px;
+      }
+      @media #{$xl} {
+        margin: 28px 0 40px;
+        width: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,204 @@
+.mainform {
+  padding-top: 51px;
+  @include bgImg('@~images/bg/form320.jpg', no-repeat, center, cover);
+  @media #{$md} {
+    padding-top: 90px;
+  }
+
+  &__heading {
+    color: $ligthText;
+    margin-bottom: 14px;
+    @media #{$md} {
+      margin-bottom: 28px;
+    }
+  }
+  &__intro {
+    color: $ligthText;
+  }
+  &__form {
+    background: $themeLightColor;
+    margin-top: 50px;
+    padding: 31px 18px 50px;
+    @media #{$md} {
+      padding: 40px 34px 60px;
+    }
+    @media #{$xl} {
+      padding: 40px 34px 52px;
+    }
+    @media #{$xxl} {
+      padding: 40px 45px 52px;
+    }
+  }
+  &__label {
+    width: 100%;
+    &_textarea {
+      height: auto;
+      min-height: 70px;
+      margin-top: 10px;
+    }
+  }
+  &__inputs {
+    &_main {
+      @media #{$md} {
+        @include isFlex(center, space-between);
+      }
+      .mainform__label {
+        @media #{$md} {
+          width: calc(50% - 10px);
+        }
+        @media #{$xl} {
+          width: calc(50% - 20px);
+        }
+      }
+    }
+
+    &_drag {
+      margin-top: 33px;
+
+      mark {
+        display: block;
+      }
+    }
+    &_check {
+      @media #{$xl} {
+        display: inline-block;
+        font-size: 0;
+        width: 70%;
+      }
+    }
+    &_submit {
+      @media #{$xl} {
+        font-size: 0;
+        display: inline-block;
+        text-align: right;
+        width: 29%;
+      }
+    }
+  }
+  &__drag {
+    &-img {
+      width: 36px;
+      height: 36px;
+      margin: 7px auto;
+      @include bgImg('@~images/img/download.svg', no-repeat, center, contain);
+      @media #{$md} {
+        width: 45px;
+        height: 45px;
+      }
+      @media #{$xl} {
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        width: 36px;
+        height: 36px;
+      }
+    }
+    &-label {
+      @include isFlex(center, flex-start, column);
+      position: relative;
+      margin-bottom: 20px;
+      border: 1px dashed $darkBorder;
+      padding: 20px 15px 25px;
+      @media #{$md} {
+        padding: 25px 15px;
+      }
+      @media #{$xl} {
+        flex-direction: row;
+        padding: 15px 15px 15px 75px;
+      }
+      &.label--dragged {
+        background: $themeSupportColor;
+      }
+    }
+
+    &-input {
+      position: absolute;
+      top: 0;
+      visibility: hidden;
+    }
+    &-support {
+      pointer-events: none;
+    }
+
+    &-heading {
+      text-align: center;
+      @media #{$md} {
+        font-size: $fontLess;
+        padding-top: 2px;
+        padding-bottom: 8px;
+      }
+      @media #{$xl} {
+        font-size: $font;
+        text-align: left;
+      }
+    }
+    &-text {
+      text-align: center;
+      font-size: $fontSmall;
+      color: $themeSecondaryColor;
+      @media #{$xl} {
+        font-size: $fontLess;
+        text-align: left;
+      }
+    }
+    &-file {
+      align-self: flex-start;
+      pointer-events: auto;
+      @include bgImg('@~images/img/downloadedfile.svg', no-repeat, 0 0, auto);
+      min-height: 44px;
+      padding-left: 44px;
+      padding-top: 10px;
+
+      &_invalid {
+        span {
+          text-decoration: line-through;
+        }
+      }
+
+      &-delete {
+        display: inline-block;
+
+        width: 12px;
+        height: 12px;
+        margin-left: 5px;
+        @extend %after;
+        &:after,
+        &:before {
+          width: 12px;
+          height: 2px;
+          left: 0;
+          top: 50%;
+          background: $themeErrorColor;
+        }
+        &:after {
+          transform: rotate(45deg);
+        }
+        &:before {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &__checkwrapper {
+    @media #{$md} {
+      margin-bottom: 20px;
+    }
+    @media #{$xl} {
+      margin-bottom: 0px;
+      padding: 9px 0 15px;
+    }
+  }
+  &__submit {
+    width: 100%;
+    display: block;
+    @media #{$md} {
+      width: auto;
+    }
+    @media #{$xl} {
+      margin-right: -3px;
+
+      transform: translate(0, -7px);
+    }
+  }
+}

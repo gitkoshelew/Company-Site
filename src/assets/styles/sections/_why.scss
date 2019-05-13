@@ -1,0 +1,18 @@
+.why {
+  padding-bottom: 70px;
+
+  .section--pattern--top-right {
+    height: 872px;
+    @media #{$xl} {
+      top: 36%;
+      height: 46%;
+      width: 64%;
+    }
+  }
+  &__intro:last-child {
+    margin-bottom: 36px;
+    @media #{$xl} {
+      margin-bottom: 48px;
+    }
+  }
+}

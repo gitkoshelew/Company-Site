@@ -1,0 +1,14 @@
+#cases__page {
+  .header__content {
+    @include bgImg('@~images/bg/casesbg320.jpg', no-repeat, center, cover);
+    padding: 67px 0 88px;
+    @media #{$md} {
+      padding: 125px 0;
+      background-image: url('@~images/bg/casesbg768.jpg');
+    }
+    @media #{$xl} {
+      padding: 105px 0 120px;
+      background-image: url('@~images/bg/casesbg1200.jpg');
+    }
+  }
+}

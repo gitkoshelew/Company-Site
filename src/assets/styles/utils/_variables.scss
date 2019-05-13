@@ -1,0 +1,51 @@
+/* src/assets/styles/utils/_colors.scss  */
+$themeColor: #1d51fd;
+$themeDarkColor: #1141df;
+$themeLightColor: #ffffff;
+$themeSecondaryColor: #a0a5b4;
+$themeSecondaryLightColor: #f3f7fc;
+$themeSupportColor: #8d96b2;
+$themeDisabledColor: #d1d6d8;
+$themeErrorColor: #df1949;
+$themeCardBorder: #e1e3e6;
+
+$mainBg: #e5e5e5;
+$mainBgDark: #f5f6fa;
+$secondBg: $themeColor;
+$disabledBg: $themeDisabledColor;
+$cardBg: $themeLightColor;
+$navOpacityBgInitial: rgba(61, 61, 61, 0);
+$navOpacityBg: rgba(61, 61, 61, 0.6);
+
+$mainText: #343b4c;
+$secondText: $themeSecondaryColor;
+$ligthText: $themeLightColor;
+$disabledText: #b3b3b1;
+$linkHover: $themeColor;
+$supportText: $themeSupportColor;
+
+$mainHeading: $themeColor;
+$lightBorder: $themeSecondaryLightColor;
+$darkBorder: $themeSecondaryColor;
+
+$btnBgActive: $themeDarkColor;
+$btnColorActive: $themeLightColor;
+$btnBorderActive: $themeDarkColor;
+
+$transitionSlow: all 0.8s ease;
+$transition: all 0.4s ease;
+$transitionFast: all 0.2s ease;
+$transitionLinear: all 0.4s linear;
+$transitionEaseIn: all 0.4s ease-in;
+
+$boxShadow: inset 0px 1px 0 0 rgba(255, 255, 255, 0.25);
+$boxShadowSec: 0px 1px 0 0 rgba(0, 0, 0, 0.14), inset 0px 1px 0 0 rgba(255, 255, 255, 0.04);
+
+$boxShadowBox: 0px 1px 0 0 rgba(0, 0, 0, 0.14);
+
+$boxShadowMaterialInit: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+$boxShadowMaterialMain: 0 1px 4px rgba(0, 0, 0, 0.6);
+$boxShadowMaterial: 0 4px 10px 0px rgba(0, 0, 0, 0.225);
+
+$boxShadowCard: 0px 4px 16px rgba(141, 150, 178, 0.16);
+$boxShadowCardMaterial: 0px 4px 16px rgba(141, 150, 178, 0.16);

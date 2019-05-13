@@ -1,0 +1,14 @@
+%after {
+  position: relative;
+  transition: $transition;
+  &:after,
+  &:before {
+    content: '';
+    transition: $transition;
+    transform-origin: 50% 50%;
+    position: absolute;
+    display: block;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}

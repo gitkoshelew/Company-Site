@@ -1,0 +1,300 @@
+.clientsay {
+  padding: 0;
+  .section--pattern--bottom-right {
+    height: 695px;
+    bottom: 96px;
+    @media #{$xl} {
+      bottom: 0;
+    }
+  }
+  &__content-wrapper {
+    background: $mainBgDark;
+    padding: 45px 0 210px;
+    @media #{$md} {
+      padding: 90px 0 170px;
+    }
+  }
+  &__intro {
+    padding-bottom: 37px;
+  }
+  &__slider {
+    margin-bottom: 175px;
+    margin-top: -210px;
+
+    @media #{$md} {
+      margin-bottom: 90px;
+      margin-top: -175px;
+    }
+    @media #{$xl} {
+      width: calc(50vw + 485px);
+      margin: -155px 0 53px auto;
+      padding-right: calc(50vw - 480px);
+      padding-left: 0;
+    }
+    @media #{$xxl} {
+      width: calc(100vw);
+      padding-right: calc(50vw - 580px);
+      padding-left: calc(50vw - 580px);
+      margin-right: 0;
+      overflow-x: visible;
+    }
+    @media #{$fourK} {
+      width: calc(50vw + 800px);
+      padding-left: 600px;
+    }
+
+    .slick-list {
+      margin-right: -5px;
+      margin-left: -5px;
+      overflow: visible;
+    }
+    .slick-track {
+      display: flex;
+      align-items: stretch;
+    }
+    .slick-slide {
+      padding: 0 16px;
+      font-size: 0;
+      height: auto;
+      opacity: 1;
+      transition: $transitionLinear;
+      @media #{$xl} {
+        padding: 0 20px;
+      }
+      & > div {
+        box-shadow: $boxShadowCard;
+        margin-bottom: 5px;
+        height: calc(100%-5px);
+      }
+      &.slick-slide_hidden {
+        opacity: 0;
+      }
+      &.slick-active {
+        & + .slick-slide {
+          .clientsay__slide {
+            &-heading,
+            &-intro,
+            &-learnmore,
+            &-position {
+              color: $themeSupportColor;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__arrow {
+    bottom: -135px;
+    z-index: 2;
+    @media #{$md} {
+      bottom: 40px;
+    }
+    @media #{$xl} {
+      bottom: 50px;
+    }
+    &.slick {
+      &-prev {
+        right: calc(50% + 10px);
+        @media #{$md} {
+          left: auto;
+          right: 130px;
+        }
+        @media #{$xl} {
+          right: calc(50vw - 320px);
+        }
+
+        @media #{$xxl} {
+          right: calc(50vw - 440px);
+        }
+      }
+
+      &-next {
+        left: calc(50% + 10px);
+        @media #{$md} {
+          left: auto;
+          right: 50px;
+        }
+        @media #{$xl} {
+          right: calc(50vw - 400px);
+        }
+
+        @media #{$xxl} {
+          right: calc(50vw - 520px);
+        }
+        .round-btn-bg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__slide {
+    background-color: $themeLightColor;
+    position: relative;
+    padding-bottom: 130px;
+    height: 100%;
+    @media #{$md} {
+      padding-bottom: 120px;
+      padding-left: 320px;
+    }
+
+    @media #{$xl} {
+      padding-left: 390px;
+      padding-bottom: 110px;
+    }
+
+    &-img {
+      @include bgImg('@~images/bg/Director320.jpg', no-repeat, center top, cover);
+      max-height: 300px;
+      height: 57vw;
+      margin-bottom: 20px;
+      width: 100%;
+
+      @media #{$md} {
+        width: 290px;
+        min-width: 290px;
+        max-height: none;
+        height: 100%;
+        align-self: stretch;
+        margin-bottom: 0;
+        position: absolute;
+        background-image: url('@~images/bg/Director768.jpg');
+        top: 0;
+        left: 0;
+      }
+      @media #{$xl} {
+        min-width: 320px;
+      }
+      @media #{$xl} {
+        min-width: 370px;
+      }
+      &_solution {
+        background-image: url('@~images/bg/solution1_320.jpg');
+        @media #{$md} {
+          background-image: url('@~images/bg/solution1_768.jpg');
+        }
+        @media #{$xl} {
+          background-image: url('@~images/bg/solution1_1200.jpg');
+        }
+        @media #{$xxl} {
+          background-image: url('@~images/bg/solution1_1920.jpg');
+        }
+      }
+    }
+    &-content {
+      padding: 20px;
+      @media #{$md} {
+        padding: 40px 25px 40px 0;
+      }
+      @media #{$xl} {
+        padding: 50px 30px;
+      }
+      @media #{$xl} {
+        padding: 37px 30px;
+      }
+    }
+    &-links {
+      position: absolute;
+      width: calc(100% - 40px);
+      left: 20px;
+      bottom: 44px;
+      @media #{$md} {
+        left: 320px;
+        width: calc(100% - 340px);
+        bottom: 40px;
+      }
+
+      @media #{$xl} {
+        left: 420px;
+        width: calc(100% - 440px);
+        bottom: 40px;
+      }
+    }
+
+    &-position {
+      transition: $transition;
+      color: $supportText;
+      margin-bottom: 24px;
+      letter-spacing: 0.07em;
+      @media #{$md} {
+        margin-bottom: 30px;
+      }
+      @media #{$xl} {
+        letter-spacing: 0;
+        margin-bottom: 25px;
+      }
+    }
+    &-heading {
+      transition: $transition;
+      @media #{$xl} {
+        letter-spacing: 0;
+        margin-bottom: 0.4em;
+      }
+    }
+    &-intro {
+      transition: $transition;
+      @media #{$md} {
+        line-height: 1.8em;
+      }
+      @media #{$xl} {
+        line-height: 1.75em;
+        margin-bottom: 1.75em;
+      }
+    }
+
+    &-learnmore {
+      transition: $transition;
+      color: $linkHover;
+      margin-bottom: 20px;
+      padding: 0;
+      font-size: $fontLess;
+      text-decoration: underline;
+      margin-top: 20px;
+
+      @media #{$md} {
+        margin: 28px 0;
+        font-size: $font;
+      }
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+    }
+
+    &-logo {
+      @include bgImg('@~images/img/GroupGray.svg', no-repeat, left center, contain);
+      height: 28px;
+      margin-top: 40px;
+      display: block;
+      @media #{$md} {
+        margin: 60px 0 12px;
+      }
+    }
+  }
+  &_fullimg {
+    padding-bottom: 50px;
+    .clientsay {
+      &__slide {
+        padding: 0;
+      }
+      &__intro {
+        font-size: $font;
+        line-height: 1.5em;
+        padding-top: 0.25em;
+        padding-bottom: 1.75em;
+      }
+      &__slide {
+        &-img {
+          position: relative;
+          width: 100%;
+          height: 515px;
+        }
+      }
+      &__arrow {
+        @media #{$md} {
+          bottom: -80px;
+        }
+      }
+    }
+  }
+}
