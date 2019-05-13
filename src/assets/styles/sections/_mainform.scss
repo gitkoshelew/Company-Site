@@ -63,7 +63,7 @@
       @media #{$xl} {
         display: inline-block;
         font-size: 0;
-        width: 70%;
+        width: 63%;
       }
     }
     &_submit {
@@ -71,7 +71,7 @@
         font-size: 0;
         display: inline-block;
         text-align: right;
-        width: 29%;
+        width: 36%;
       }
     }
   }
@@ -193,11 +193,11 @@
     width: 100%;
     display: block;
     @media #{$md} {
-      width: auto;
+      max-width: 260px;
     }
     @media #{$xl} {
-      margin-right: -3px;
-
+      margin-right: -5px;
+      width: auto;
       transform: translate(0, -7px);
     }
   }

@@ -123,9 +123,12 @@ jQuery(function() {
   if (jQuery('.stories__slider').length !== 0) {
     const storiesSlider = jQuery('.stories__slider');
     const storiesSlides = storiesSlider.find('.stories__slide');
-    const sliderLength = storiesSlides.length;
+    const sliderInitLength = storiesSlides.length;
 
-    if (sliderLength === 2 || sliderLength === 3) {
+    const storiesSupportSlides = storiesSlider.closest('section').find('.stories__content-slide');
+    console.log('++', storiesSupportSlides);
+
+    if (sliderInitLength === 2 || sliderInitLength === 3) {
       storiesSlides.each((idx, el) => {
         const clonedElement = el.cloneNode(true);
         el.parentElement.appendChild(clonedElement);
@@ -160,6 +163,14 @@ jQuery(function() {
 
     storiesSlider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
       const sliderLenght = slick.slideCount;
+
+      const supportSliderNext = nextSlide >= sliderInitLength ? nextSlide - sliderInitLength : nextSlide;
+      const supportSliderCurrent = currentSlide >= sliderInitLength ? currentSlide - sliderInitLength : currentSlide;
+      console.log(nextSlide, currentSlide);
+      console.log(supportSliderNext, supportSliderCurrent);
+
+      storiesSupportSlides[supportSliderCurrent].classList.remove('active');
+      storiesSupportSlides[supportSliderNext].classList.add('active');
 
       switch (nextSlide - currentSlide) {
         case 0:
