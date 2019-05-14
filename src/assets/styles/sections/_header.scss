@@ -345,4 +345,23 @@
       }
     }
   }
+
+  &__cookie {
+    background: $mainBgDark;
+    color: $mainText;
+    padding: 20px 0;
+    line-height: 1.75em;
+    &-policy {
+      font-weight: 700;
+      color: $themeDarkColor;
+      @extend %main-link-reverce;
+    }
+    &-btn {
+      margin: 20px auto 0;
+      display: block;
+      @media #{$xl} {
+        margin-right: 0;
+      }
+    }
+  }
 }
