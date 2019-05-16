@@ -3,6 +3,13 @@
   @include bgImg('@~images/bg/form320.jpg', no-repeat, center, cover);
   @media #{$md} {
     padding-top: 90px;
+    background-image: url('@~images/bg/form768.jpg');
+  }
+  @media #{$xl} {
+    background-image: url('@~images/bg/form1200.jpg');
+  }
+  @media #{$xxl} {
+    background-image: url('@~images/bg/form1920.jpg');
   }
 
   &__heading {

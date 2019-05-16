@@ -1,5 +1,8 @@
 .clientsay {
   padding: 0;
+  @media #{$xl} {
+    padding-bottom: 50px;
+  }
   .section--pattern--bottom-right {
     height: 695px;
     bottom: 96px;
@@ -12,6 +15,9 @@
     padding: 45px 0 210px;
     @media #{$md} {
       padding: 90px 0 170px;
+    }
+    @media #{$xl} {
+      padding: 90px 0 305px;
     }
   }
   &__intro {
@@ -27,7 +33,7 @@
     }
     @media #{$xl} {
       width: calc(50vw + 485px);
-      margin: -155px 0 53px auto;
+      margin: -290px 0 53px auto;
       padding-right: calc(50vw - 480px);
       padding-left: 0;
     }
@@ -119,7 +125,7 @@
         }
 
         @media #{$xxl} {
-          right: calc(50vw - 520px);
+          right: calc(50vw - 511px);
         }
         .round-btn-bg {
           transform: rotate(180deg);
@@ -205,9 +211,9 @@
       }
 
       @media #{$xl} {
-        left: 420px;
+        left: 414px;
         width: calc(100% - 440px);
-        bottom: 40px;
+        bottom: 44px;
       }
     }
 

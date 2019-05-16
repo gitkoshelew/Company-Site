@@ -153,8 +153,7 @@ h3 > p {
   }
   @media #{$xl} {
     font-size: $h3Desk;
-    margin-bottom: 0.5em;
-    letter-spacing: 0.007em;
+    margin-bottom: 0.45em;
   }
 
   & + p {

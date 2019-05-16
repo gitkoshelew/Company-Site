@@ -83,6 +83,9 @@
     height: 50%;
     width: 70%;
   }
+  @media #{$xxl} {
+    width: 63%;
+  }
 }
 
 %pattern-ellips {

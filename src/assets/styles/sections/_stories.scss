@@ -147,6 +147,7 @@
           padding: 0 14px;
         }
         & > div {
+          transition: $transition;
           box-shadow: $boxShadowSlide;
           margin-bottom: 10px;
           height: calc(100%-5px);
@@ -157,7 +158,7 @@
         &.slick-active {
           & + .slick-slide {
             &> div{
-              box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+              box-shadow: $boxShadowSlideDisabled;
             }
             .stories__slide {
               pointer-events: none;
