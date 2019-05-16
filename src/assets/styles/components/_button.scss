@@ -58,6 +58,7 @@
   border-radius: $borderRad;
   font-weight: 700;
   padding: 10px 15px;
+  pointer-events: none;
 }
 
 %rectangle-button-small {
@@ -68,6 +69,7 @@
   border-radius: $borderRadLess;
   text-align: center;
   font-size: $btnFontSizeSmall;
+  pointer-events: none;
 }
 
 %btn-primary {
@@ -99,7 +101,7 @@
   padding: 17px 30px 19px;
   font-weight: 700;
   @media #{$xl} {
-    padding: 11px 30px 13px;
+    padding: 13px 30px 13px;
   }
 }
 
@@ -114,7 +116,7 @@
 }
 
 %btn-primary-round {
-  @include btn($themeColor, $themeLightColor, $themeLightColor, $themeColor, $themeColor, $themeLightColor);
+  @include btn($themeColor, $btnBgActive, $themeLightColor, $btnColorActive, $themeColor, $btnBorderActive);
   @extend %btn-round;
 }
 
@@ -295,6 +297,7 @@
 
   button {
     @extend %after;
+    cursor: pointer;
     font-size: 0;
     padding: 0;
     width: 21px;

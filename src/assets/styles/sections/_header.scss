@@ -147,19 +147,20 @@
     }
 
     &-anchor {
-      color: $linkHover;
+      @extend .header--link;
       font-size: $font;
-      padding: 10px 15px 5px;
+      padding: 13px 15px 11px;
       display: inline-block;
       font-weight: 700;
 
       @media #{$xl} {
-        color: $mainText;
+        font-size: $font + 1px;
       }
     }
 
     &-btn {
       width: 100%;
+      letter-spacing: 0.02em;
       @media #{$xl} {
         margin-top: -5px;
       }
@@ -189,8 +190,7 @@
             background-image: url('@~images/img/GroupWhite.svg');
           }
           &-anchor {
-            color: $themeLightColor;
-            @extend .main--link--reverce;
+            @extend .header--link--reverse;
           }
         }
       }
@@ -201,8 +201,7 @@
             background-image: url('@~images/img/Group.svg');
           }
           &-anchor {
-            color: $mainText;
-            @extend .main--link;
+            @extend .header--link;
           }
         }
       }
@@ -214,12 +213,12 @@
       position: absolute;
       bottom: 10%;
       right: 12px;
-      font-family: $futura;
+      font-family: $mont;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: bold;
       @media #{$xl} {
         right: calc(50vw - 475px);
-        font-size: 28px;
+        font-size: 24px;
       }
       @media #{$xxl} {
         right: 90px;
@@ -244,11 +243,11 @@
   &__slide {
     @include bgImg('@~images/bg/content320.jpg', no-repeat, center, cover);
     height: calc(100vh - 50px);
-    max-height: 880px;
+    max-height: 855px;
     position: relative;
 
     @media #{$xxl} {
-      height: 880px;
+      height: 855px;
     }
 
     .container,
@@ -280,7 +279,7 @@
           margin-top: -0.6em;
         }
         @media #{$xl} {
-          margin-top: -0.2em;
+          margin-top: -0.45em;
         }
         @media #{$xxl} {
           margin-bottom: 0.75em;
@@ -330,10 +329,10 @@
     left: 0;
     z-index: 2;
     height: calc(100vh - 50px);
-    max-height: 880px;
+    max-height: 855px;
     width: 100%;
     @media #{$xxl} {
-      height: 880px;
+      height: 855px;
     }
     &-wrapper {
       width: 100%;
@@ -353,8 +352,7 @@
     line-height: 1.75em;
     &-policy {
       font-weight: 700;
-      color: $themeDarkColor;
-      @extend %main-link-reverce;
+      @extend %main-link-reverse;
     }
     &-btn {
       margin: 20px auto 0;

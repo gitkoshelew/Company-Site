@@ -32,6 +32,8 @@ $btnBgActive: $themeDarkColor;
 $btnColorActive: $themeLightColor;
 $btnBorderActive: $themeDarkColor;
 
+$slideDisabledBg: #FCFDFE;
+
 $transitionSlow: all 0.8s ease;
 $transition: all 0.4s ease;
 $transitionFast: all 0.2s ease;
@@ -49,3 +51,4 @@ $boxShadowMaterial: 0 4px 10px 0px rgba(0, 0, 0, 0.225);
 
 $boxShadowCard: 0px 4px 16px rgba(141, 150, 178, 0.16);
 $boxShadowCardMaterial: 0px 4px 16px rgba(141, 150, 178, 0.16);
+$boxShadowSlide: 0px 2px 10px 5px rgba(141,150,178,0.16);

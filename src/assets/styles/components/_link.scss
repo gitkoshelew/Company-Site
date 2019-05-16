@@ -4,8 +4,12 @@
   @extend %main-link;
 }
 
-.main--link--reverce {
-  @extend %main-link-reverce;
+.header--link {
+  @extend %header-link;
+}
+
+.header--link--reverse {
+  @extend %header-link-reverse;
 }
 
 .second--link {
@@ -72,15 +76,40 @@
     color: $themeDarkColor;
   }
 }
-%main-link-reverce {
-  transition: $transition;
 
+%main-link-reverse {
+  transition: $transition;
+  color: $themeColor;
+  &:hover,
+  &:focus {
+    color: $themeSecondaryColor;
+  }
+  &:active {
+    color: $themeDarkColor;
+  }
+}
+
+%header-link-reverse {
+  transition: $transition;
+  color: $themeLightColor;
   &:hover,
   &:focus {
     color: $themeColor;
   }
   &:active {
     color: $mainText;
+  }
+}
+
+%header-link {
+  transition: $transition;
+  color: $mainText;
+  &:hover,
+  &:focus {
+    color: $themeSecondaryColor;
+  }
+  &:active,&.active {
+    color: $themeDarkColor;
   }
 }
 

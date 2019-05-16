@@ -101,7 +101,9 @@
     }
     @media #{$xl} {
       margin-top: 54px;
-      padding: 11px 40px 13px;
+      padding-right: 40px;
+      padding-left: 40px;
+      letter-spacing: 0.02em;
     }
   }
   &__slider {
@@ -117,8 +119,8 @@
     }
     @media #{$xxl} {
       width: calc(100vw);
-      padding-right: calc(50vw - 600px);
-      padding-left: calc(50vw - 200px);
+      padding-right: calc(50vw - 580px);
+      padding-left: calc(50vw - 190px);
       margin-right: 0;
       overflow: hidden;
     }
@@ -142,10 +144,11 @@
           padding: 0 28px;
         }
         @media #{$xl} {
+          padding: 0 14px;
         }
         & > div {
-          box-shadow: $boxShadowCardMaterial;
-          margin-bottom: 5px;
+          box-shadow: $boxShadowSlide;
+          margin-bottom: 10px;
           height: calc(100%-5px);
         }
         &.slick-slide_hidden {
@@ -153,17 +156,27 @@
         }
         &.slick-active {
           & + .slick-slide {
+            &> div{
+              box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+            }
             .stories__slide {
               pointer-events: none;
+              background: $slideDisabledBg;
+              
               &-heading,
               &-intro,
               &-cta {
+                opacity: 0.35;
                 color: $themeSupportColor;
                 border-color: $themeSupportColor;
               }
               &-button {
+                opacity: 0.35;
                 background: $themeSupportColor;
                 border-color: $themeSupportColor;
+              }
+              &-cta{
+                border-color: $themeLightColor;
               }
             }
           }
@@ -191,7 +204,7 @@
           right: 160px;
         }
         @media #{$xxl} {
-          right: calc(50vw - 440px);
+          right: calc(50vw - 445px);
         }
       }
 
@@ -259,6 +272,7 @@
       transition: $transition;
       width: 100%;
       margin-bottom: 20px;
+      letter-spacing: 0.02em;
       @media #{$md} {
         margin: 70px 0 0;
         width: 260px;
