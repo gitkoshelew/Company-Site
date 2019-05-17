@@ -2,6 +2,9 @@
 
 #home__page {
   #why2 {
+    @media #{$md} {
+      padding-bottom: 160px;
+    }
     @media #{$xl} {
       padding-bottom: 140px;
       padding-top: 43px;

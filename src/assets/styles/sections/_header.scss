@@ -76,10 +76,10 @@
       justify-content: space-between;
     }
     @media #{$xxl} {
-      padding: 16px 90px;
+      padding: 25px 90px;
     }
     @media #{$fourK} {
-      padding: 16px 10%;
+      padding: 25px 10%;
     }
 
     @media #{$landscape} and (max-width: 991px) {
@@ -151,7 +151,7 @@
       font-size: $font;
       padding: 13px 15px 11px;
       display: inline-block;
-      font-weight: 700;
+      font-weight: 600;
 
       @media #{$xl} {
         font-size: $font + 1px;
@@ -171,8 +171,8 @@
     }
     &.fixed {
       position: fixed;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: 18px;
+      padding-bottom: 18px;
       box-shadow: $boxShadowCard;
 
       .header {
@@ -231,7 +231,7 @@
           width: 41%;
         }
         @media #{$xl} {
-          width: 27%;
+          width: 37%;
         }
         @media #{$xxl} {
           width: 35%;
@@ -268,7 +268,7 @@
         padding: 0 9% 0 18%;
       }
       @media #{$xl} {
-        padding: 0;
+        padding: 0 12px;
       }
       @media #{$xxl} {
         padding: 3px 10% 0 10px;

@@ -16,7 +16,7 @@ if (jQuery('#mainform__form').length !== 0) {
     const mainFormDragInput = $(form).find('[type="file"]');
     const mainFormDragLabel = mainFormDragInput.closest('label');
 
-    function valideteInput(el) {
+    function validateInput(el) {
       const value = el.value;
       const name = el.name;
       const type = el.type;
@@ -51,11 +51,6 @@ if (jQuery('#mainform__form').length !== 0) {
           break;
       }
 
-      if (value.trim() !== '') {
-        $(el).addClass('full');
-      } else {
-        $(el).removeClass('full');
-      }
       if (!valid) {
         $(el).addClass('inValid');
         const previous = el.previousElementSibling;
@@ -73,16 +68,30 @@ if (jQuery('#mainform__form').length !== 0) {
       }
     }
 
+    function fullInput(el) {
+      const value = el.value;
+      if (value.trim() !== '') {
+        $(el).addClass('full');
+      } else {
+        $(el).removeClass('full');
+      }
+    }
+
     function handleInputChange(e) {
       e.preventDefault();
       e.stopPropagation();
+      validateInput(this);
+    }
 
-      valideteInput(this);
+    function handleInputFulling(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      fullInput(this);
     }
 
     $(form)
       .find('textarea,input:not(input[type="file"])')
-      .keyup(handleInputChange);
+      .keyup(handleInputFulling);
 
     function dropFileValidation(name, size) {
       const fileNameArr = name.split('.');
@@ -211,7 +220,12 @@ if (jQuery('#mainform__form').length !== 0) {
       );
 
       function validateBeforeSubmit(nodeList) {
-        return Array.prototype.every.call(nodeList, el => valideteInput(el));
+        nodeList.each((idx, el) => {
+          validateInput(el);
+          el.addEventListener('keyup', handleInputChange);
+          console.log(el);
+        });
+        return Array.prototype.every.call(nodeList, el => !el.classList.contains('inValid'));
       }
 
       if (validateBeforeSubmit(validatedInputs)) {

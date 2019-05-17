@@ -64,6 +64,7 @@
 
       mark {
         display: block;
+        font-size: $fontSmall;
       }
     }
     &_check {
@@ -95,7 +96,7 @@
       @media #{$xl} {
         position: absolute;
         left: 20px;
-        top: 10px;
+        top: 19px;
         width: 36px;
         height: 36px;
       }
@@ -155,6 +156,8 @@
       min-height: 44px;
       padding-left: 44px;
       padding-top: 10px;
+      display: inline-block;
+      margin-right: 44px;
 
       &_invalid {
         span {

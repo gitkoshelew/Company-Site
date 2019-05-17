@@ -124,7 +124,6 @@
   .card-preview {
     margin-bottom: 25px;
   }
-
 }
 
 %card-product {
@@ -136,9 +135,12 @@
   }
 
   @media #{$xl} {
-    padding: 45px 48px 12px;
+    padding: 48px 32px 15px;
     height: calc(100% - 26px);
     margin-bottom: 26px;
+  }
+  @media #{$xxl} {
+    padding: 45px 48px 12px;
   }
 
   .card-img {
@@ -159,7 +161,7 @@
       font-size: $fontLarge;
     }
     @media #{$xl} {
-      font-size: $h4Desk;
+      font-size: $h4Desk / 1.2;
       margin-bottom: 8px;
     }
   }
@@ -169,6 +171,9 @@
   @extend %card-prototype;
   padding-bottom: 60px;
   @media #{$xl} {
+    padding: 48px 32px 88px;
+  }
+  @media #{$xxl} {
     padding: 45px 45px 85px;
   }
 
@@ -176,10 +181,13 @@
     @extend %clean-button;
     position: absolute;
     bottom: 57px;
-    left: 34px;
+    left: 28px;
     color: $mainText;
     //letter-spacing: 0.08em;
     font-size: $fontLess;
+    @media #{$md} {
+      left: 36px;
+    }
     @media #{$xl} {
       bottom: 52px;
       left: 53px;
@@ -209,7 +217,7 @@
     h4 {
       color: $themeColor;
     }
-    button{
+    button {
       color: $themeColor;
     }
   }

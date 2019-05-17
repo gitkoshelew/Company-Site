@@ -1,5 +1,19 @@
 /* APPROACH section scripts */
 
+if (document.querySelectorAll('.approach__item').lenght !== 0) {
+  function approachValidHeight() {
+    const items = document.querySelectorAll('.approach__item');
+    items.forEach(el => {
+      const itemHeight = el.offsetHeight;
+      const itemValidHeight = Math.round(itemHeight / 15) * 15 + 5;
+      el.style.height = `${itemValidHeight}px`;
+    });
+  }
+
+  approachValidHeight();
+  window.addEventListener('resize', approachValidHeight);
+}
+
 if (document.querySelectorAll('.approach__item_reverse--2').lenght !== 0) {
   function arrowValidHeight() {
     const items = document.querySelectorAll('.approach__item_reverse--2');

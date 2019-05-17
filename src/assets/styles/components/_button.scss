@@ -112,7 +112,10 @@
   margin: 0 auto;
   padding: 14px 30px 16px;
   font-size: $fontLess;
-  font-weight: 700;
+  font-weight: 600;
+  @media #{$md} {
+    padding: 15px 30px 15px;
+  }
 }
 
 %btn-primary-round {
@@ -288,7 +291,7 @@
   left: 7px;
   display: flex;
   @media #{$xl} {
-    left: calc(50vw - 475px);
+    left: calc(50vw - 482px);
   }
   @media #{$xxl} {
     left: 80px;

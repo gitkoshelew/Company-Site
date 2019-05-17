@@ -44,10 +44,6 @@
       margin-right: 0;
       overflow-x: visible;
     }
-    @media #{$fourK} {
-      width: calc(50vw + 800px);
-      padding-left: 600px;
-    }
 
     .slick-list {
       margin-right: -5px;
@@ -77,7 +73,22 @@
       }
       &.slick-active {
         & + .slick-slide {
+          & > div {
+            box-shadow: $boxShadowSlideDisabled;
+          }
           .clientsay__slide {
+            pointer-events: none;
+            background: $slideDisabledBg;
+
+            &-img,
+            &-heading,
+            &-intro,
+            &-links,
+            &-learnmore,
+            &-position {
+              opacity: 0.35;
+            }
+
             &-heading,
             &-intro,
             &-learnmore,
@@ -146,7 +157,7 @@
 
     @media #{$xl} {
       padding-left: 390px;
-      padding-bottom: 110px;
+      padding-bottom: 83px;
     }
 
     &-img {
@@ -154,6 +165,7 @@
       max-height: 300px;
       height: 57vw;
       margin-bottom: 20px;
+      transition: $transition;
       width: 100%;
 
       @media #{$md} {
@@ -189,6 +201,7 @@
     }
     &-content {
       padding: 20px;
+      transition: $transition;
       @media #{$md} {
         padding: 40px 25px 40px 0;
       }
@@ -200,6 +213,7 @@
       }
     }
     &-links {
+      transition: $transition;
       position: absolute;
       width: calc(100% - 40px);
       left: 20px;
@@ -244,7 +258,6 @@
       }
       @media #{$xl} {
         line-height: 1.75em;
-        margin-bottom: 1.75em;
       }
     }
 
@@ -273,7 +286,7 @@
       margin-top: 40px;
       display: block;
       @media #{$md} {
-        margin: 60px 0 12px;
+        margin: 12px 0 12px;
       }
     }
   }

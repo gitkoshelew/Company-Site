@@ -108,7 +108,8 @@
   &:focus {
     color: $themeSecondaryColor;
   }
-  &:active,&.active {
+  &:active,
+  &.active {
     color: $themeDarkColor;
   }
 }
@@ -120,6 +121,9 @@
   color: $secondText;
   padding-left: 10px;
   @extend %after;
+  @media #{$md} {
+    font-size: $font;
+  }
   &:after {
     width: 10px;
     height: 10px;

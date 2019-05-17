@@ -46,9 +46,12 @@
       transform: none;
       @media #{$xl} {
         height: calc(100% - 105px);
-        left: -7px;
+        left: -3px;
         top: 96px;
       }
+    }
+    &_noArrow:before {
+      background: url('@~images/img/dottstheme.svg') center bottom repeat-y;
     }
 
     &:after {
@@ -68,10 +71,10 @@
       @media #{$xl} {
         width: 95px;
         height: 95px;
-        line-height: 90px;
+        line-height: 95px;
         top: 45px;
         left: -45px;
-        font-size: 36px;
+        font-size: 28px;
       }
     }
     &:nth-child(n + 10) {
