@@ -18,16 +18,18 @@
   }
   &__text {
     font-size: $font;
-    @media #{$xl} {
-      padding-right: 15px;
-    }
   }
 
   &__button {
     width: 100%;
     margin: 37px auto 5px;
+    padding-left: 0;
+    padding-right: 0;
     @media #{$md} {
       width: auto;
+      max-width: none;
+      padding-right: 30px;
+      padding-left: 30px;
     }
   }
 }

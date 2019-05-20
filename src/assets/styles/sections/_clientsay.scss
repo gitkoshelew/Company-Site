@@ -24,23 +24,23 @@
     padding-bottom: 37px;
   }
   &__slider {
-    margin-bottom: 175px;
-    margin-top: -210px;
-
+    margin: -210px auto 175px;
+    @media #{$sm} {
+      max-width: 540px;
+    }
     @media #{$md} {
-      margin-bottom: 90px;
-      margin-top: -175px;
+      margin-top: -175px auto 90px;
+      max-width: 780px;
     }
     @media #{$xl} {
-      width: calc(50vw + 485px);
-      margin: -290px 0 53px auto;
-      padding-right: calc(50vw - 480px);
-      padding-left: 0;
+      margin: -290px auto 53px;
+      max-width: 960px;
     }
     @media #{$xxl} {
       width: calc(100vw);
-      padding-right: calc(50vw - 580px);
-      padding-left: calc(50vw - 580px);
+      max-width: calc(50vw + 1800px);
+      padding-right: calc(50vw - 600px);
+      padding-left: calc(50vw - 600px);
       margin-right: 0;
       overflow-x: visible;
     }
@@ -116,12 +116,9 @@
           left: auto;
           right: 130px;
         }
-        @media #{$xl} {
-          right: calc(50vw - 320px);
-        }
 
         @media #{$xxl} {
-          right: calc(50vw - 440px);
+          right: calc(50vw - 468px);
         }
       }
 
@@ -131,12 +128,9 @@
           left: auto;
           right: 50px;
         }
-        @media #{$xl} {
-          right: calc(50vw - 400px);
-        }
 
         @media #{$xxl} {
-          right: calc(50vw - 511px);
+          right: calc(50vw - 540px);
         }
         .round-btn-bg {
           transform: rotate(180deg);
@@ -206,10 +200,7 @@
         padding: 40px 25px 40px 0;
       }
       @media #{$xl} {
-        padding: 50px 30px;
-      }
-      @media #{$xl} {
-        padding: 37px 30px;
+        padding: 50px 48px 50px 30px;
       }
     }
     &-links {

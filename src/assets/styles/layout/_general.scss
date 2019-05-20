@@ -93,7 +93,6 @@ p {
 
 h1,
 h2 {
-  margin-bottom: 14px;
 }
 
 h1,
@@ -103,14 +102,21 @@ h2 > p {
   font-size: $h2;
   line-height: 1.4em;
   letter-spacing: 0.05ex;
+  margin-bottom: 0.85em;
+
   @media #{$md} {
     font-size: $h2Tablet;
     line-height: 1.2em;
     letter-spacing: 0;
+    margin-bottom: 0.45em;
   }
   @media #{$xl} {
     font-size: $h2Desk;
     line-height: 1.225em;
+    margin-bottom: 0.45em;
+  }
+  @media #{$xl} {
+    margin-bottom: 0.85em;
   }
 
   & + p {
@@ -120,13 +126,16 @@ h2 > p {
 
     @media #{$md} {
       font-size: $h2introTablet;
+      width: 67%;
     }
     @media #{$xl} {
-      font-size: $h2introDesk;
-      line-height: 1.25em;
+      line-height: 1.5em;
+      width: 58%;
     }
     @media #{$xxl} {
+      font-size: $h2introDesk;
       line-height: 1.75em;
+      width: 50%;
     }
   }
 }
@@ -154,7 +163,7 @@ h3 > p {
   }
   @media #{$xl} {
     font-size: $h3Desk;
-    margin-bottom: 0.45em;
+    margin-bottom: 0.55em;
   }
 
   & + p {

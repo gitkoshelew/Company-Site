@@ -98,10 +98,9 @@
   max-width: 300px;
   letter-spacing: -0.04em;
   margin: 0 auto;
-  padding: 17px 30px 19px;
+  padding: 16px 30px 18px;
   font-weight: 700;
   @media #{$xl} {
-    padding: 13px 30px 13px;
   }
 }
 
@@ -110,7 +109,7 @@
   max-width: 300px;
   min-width: 214px;
   margin: 0 auto;
-  padding: 14px 30px 16px;
+  padding: 12px 30px 14px;
   font-size: $fontLess;
   font-weight: 600;
   @media #{$md} {
@@ -157,13 +156,32 @@
   padding: 0;
   margin-right: 0;
   box-shadow: none;
+  position: fixed;
+  top: 17px;
+  right: 20px;
+  transition: $transition;
 
+  @media #{$sm} {
+    right: calc(50vw - 263px);
+  }
+  @media #{$md} {
+    right: calc(50vw - 363px);
+  }
+
+  &.isOpen {
+    position: fixed;
+    right: 20px;
+    top: 17px;
+  }
   &:hover,
   &:focus {
     box-shadow: none;
     span {
       background-color: $mainText;
     }
+  }
+  &:active {
+    background: none;
   }
 
   span {

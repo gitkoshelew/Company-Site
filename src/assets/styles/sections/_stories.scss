@@ -107,32 +107,33 @@
     }
   }
   &__slider {
-    margin-top: -185px;
-    margin-bottom: 95px;
+    margin: -185px auto 95px;
+
+    @media #{$sm} {
+      max-width: 540px;
+    }
     @media #{$md} {
       margin-bottom: 0;
+      max-width: 780px;
     }
     @media #{$xl} {
-      width: 1000px;
       margin: -265px auto 0;
-      padding-left: 200px;
+      max-width: 940px;
     }
     @media #{$xxl} {
-      width: calc(100vw);
-      padding-right: calc(50vw - 580px);
-      padding-left: calc(50vw - 190px);
-      margin-right: 0;
+      width: 100vw;
       overflow: hidden;
-    }
-    @media #{$fourK} {
-      width: calc(50vw + 800px);
-      padding-left: 600px;
+      max-width: calc(50vw + 800px);
+      padding-right: calc(50vw - 600px);
+      margin-right: 0;
     }
 
     & .slick {
       &-list {
+        overflow: visible;
         @media #{$xl} {
-          overflow: visible;
+          width: 744px;
+          margin-left: auto;
         }
       }
 
@@ -157,13 +158,13 @@
         }
         &.slick-active {
           & + .slick-slide {
-            &> div{
+            & > div {
               box-shadow: $boxShadowSlideDisabled;
             }
             .stories__slide {
               pointer-events: none;
               background: $slideDisabledBg;
-              
+
               &-heading,
               &-intro,
               &-cta {
@@ -176,7 +177,7 @@
                 background: $themeSupportColor;
                 border-color: $themeSupportColor;
               }
-              &-cta{
+              &-cta {
                 border-color: $themeLightColor;
               }
             }
@@ -202,24 +203,22 @@
           right: 130px;
         }
         @media #{$xl} {
-          right: 160px;
         }
         @media #{$xxl} {
-          right: calc(50vw - 445px);
+          right: calc(50vw - 456px);
         }
       }
 
       &-next {
         left: calc(50% + 10px);
         @media #{$md} {
-          right: 55px;
+          right: 58px;
           left: auto;
         }
         @media #{$xl} {
-          right: 80px;
         }
         @media #{$xxl} {
-          right: calc(50vw - 520px);
+          right: calc(50vw - 538px);
         }
         .round-btn-bg {
           transform: rotate(180deg);

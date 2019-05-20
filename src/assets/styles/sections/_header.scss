@@ -9,7 +9,7 @@
   &__head {
     @include isFlex(center, space-between);
     &-wrapper {
-      padding: 17px 10px;
+      padding: 17px 12px 22px;
       position: fixed;
       top: 0;
       left: 0;
@@ -17,8 +17,11 @@
       z-index: 10;
       background: $themeLightColor;
       box-shadow: $boxShadowCard;
+      @media #{$sm} {
+        padding: 17px calc(50vw - 258px) 22px;
+      }
       @media #{$md} {
-        padding: 19px 20px;
+        padding: 17px calc(50vw - 363px) 22px;
       }
       @media #{$xl} {
         background: transparent;
@@ -61,9 +64,7 @@
     background: $themeLightColor;
     padding: 50px 30px;
     transition: $transition;
-    @media #{$md} {
-      justify-content: flex-start;
-    }
+
     @media #{$xl} {
       left: 0;
       width: 100%;
@@ -194,7 +195,8 @@
           }
         }
       }
-      &.fixed {
+      &.fixed,
+      &.isOpen {
         background: $themeLightColor;
         .header__nav {
           &-logo {
