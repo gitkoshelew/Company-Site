@@ -16,6 +16,10 @@ if (jQuery('#mainform__form').length !== 0) {
     const mainFormDragInput = $(form).find('[type="file"]');
     const mainFormDragLabel = mainFormDragInput.closest('label');
 
+    $(`.${formNameSpace}__success`).click(function(e) {
+      $(this).removeClass('active');
+    });
+
     function validateInput(el) {
       const value = el.value;
       const name = el.name;
@@ -230,6 +234,7 @@ if (jQuery('#mainform__form').length !== 0) {
 
       if (validateBeforeSubmit(validatedInputs)) {
         const formData = new FormData();
+        $(`.${formNameSpace}__success`).addClass('active');
 
         sendedInputs.each((idx, { name, value }) => formData.append(name, value));
 

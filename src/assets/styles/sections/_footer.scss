@@ -96,6 +96,7 @@
       padding-top: 20px;
     }
     &-copyright {
+      color: $themeSupportColor;
       font-size: $fontLess;
       margin-bottom: 20px;
       @media #{$md} {
@@ -113,7 +114,7 @@
       padding: 5px;
       display: inline-block;
       margin: 5px 0 15px;
-      color: $mainText;
+      color: $themeSupportColor;
       @media #{$md} {
         font-size: $font;
         margin-left: 20px;

@@ -2,11 +2,16 @@
   padding-bottom: 70px;
 
   .section--pattern--top-right {
-    height: 872px;
+    height: 400px;
+    top: 120px;
+    @media #{$md} {
+      height: 823px;
+      top: 300px;
+    }
     @media #{$xl} {
-      top: 36%;
-      height: 46%;
-      width: 64%;
+      top: 120px;
+      height: 400px;
+      width: 70%;
     }
   }
   &__intro:last-child {

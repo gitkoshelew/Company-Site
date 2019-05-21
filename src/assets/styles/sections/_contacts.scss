@@ -33,7 +33,10 @@
       padding: 100px 12px 50px calc(50vw - 362px);
     }
     @media #{$xl} {
-      padding: 100px 12px 50px calc(50vw - 468px);
+      padding-left: calc(50vw - 468px);
+    }
+    @media #{$xxl} {
+      padding-left: calc(50vw - 588px);
     }
   }
   &__sity {
@@ -57,6 +60,9 @@
       font-size: $fontLarge;
       letter-spacing: -0.06em;
       line-height: 1.3em;
+      @media #{$xl} {
+        line-height: 1.5em;
+      }
     }
   }
   &__email {

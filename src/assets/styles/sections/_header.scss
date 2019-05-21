@@ -145,6 +145,11 @@
       @media #{$xxl} {
         margin: 0 23px;
       }
+      &_mobile {
+        @media #{$xl} {
+          display: none;
+        }
+      }
     }
 
     &-anchor {
@@ -244,12 +249,12 @@
 
   &__slide {
     @include bgImg('@~images/bg/content320.jpg', no-repeat, center, cover);
-    height: calc(100vh - 50px);
-    max-height: 855px;
+    height: 100vh;
+    max-height: 880px;
     position: relative;
 
     @media #{$xxl} {
-      height: 855px;
+      //height: 855px;
     }
 
     .container,
@@ -285,11 +290,6 @@
         }
         @media #{$xxl} {
           margin-bottom: 0.75em;
-        }
-      }
-      &-intro {
-        @media #{$xl} {
-          padding-right: 20%;
         }
       }
     }
@@ -330,11 +330,11 @@
     bottom: 0;
     left: 0;
     z-index: 2;
-    height: calc(100vh - 50px);
-    max-height: 855px;
+    height: 100vh;
+    max-height: 880px;
     width: 100%;
     @media #{$xxl} {
-      height: 855px;
+      //height: 855px;
     }
     &-wrapper {
       width: 100%;
@@ -363,5 +363,9 @@
         margin-right: 0;
       }
     }
+  }
+
+  &__tags {
+    max-width: 500px;
   }
 }

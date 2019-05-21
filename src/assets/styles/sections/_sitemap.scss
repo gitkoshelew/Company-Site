@@ -34,7 +34,9 @@
         width: 60px;
         left: -76px;
       }
-      @media #{$lg} {
+      @media #{$xl} {
+        width: 160px;
+        left: -176px;
       }
     }
     &_main {
@@ -56,17 +58,10 @@
         @include bgImg('@~images/img/home.svg', no-repeat, center, contain);
       }
     }
-    &_second {
-      padding-left: 36px;
-      @media #{$md} {
-      }
-      @media #{$lg} {
-      }
-    }
   }
 
   &__anchor {
-    padding-left: 40px;
+    padding-left: 32px;
     color: $mainText;
     @extend %main-link;
     &:after {
@@ -75,7 +70,7 @@
     &.sitemap__heading {
       padding-top: 11px;
       padding-bottom: 11px;
-      padding-left: 40px;
+      padding-left: 32px;
     }
   }
 
@@ -118,9 +113,6 @@
       @media #{$md} {
         padding-left: 8px;
       }
-      @media #{$lg} {
-        margin-left: 90px;
-      }
 
       &:after {
         bottom: 22px;
@@ -142,7 +134,8 @@
     @media #{$md} {
       padding-left: 90px;
     }
-    @media #{$lg} {
+    @media #{$xl} {
+      padding-left: 190px;
     }
     &_second {
       padding-top: 8px;

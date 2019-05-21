@@ -1,9 +1,9 @@
 .mainform {
   padding-top: 51px;
-  @include bgImg('@~images/bg/form320.jpg', no-repeat, center, cover);
+
   @media #{$md} {
     padding-top: 90px;
-    background-image: url('@~images/bg/form768.jpg');
+    @include bgImg('@~images/bg/form768.jpg', no-repeat, center, cover);
   }
   @media #{$xl} {
     background-image: url('@~images/bg/form1200.jpg');
@@ -26,6 +26,8 @@
     background: $themeLightColor;
     margin-top: 50px;
     padding: 31px 18px 50px;
+    position: relative;
+    overflow: hidden;
     @media #{$md} {
       padding: 40px 34px 60px;
     }
@@ -209,6 +211,13 @@
       margin-right: -5px;
       width: auto;
       transform: translate(0, -7px);
+    }
+  }
+  &__success {
+    @extend %popup--absolute;
+    top: -100%;
+    &.active {
+      top: 0;
     }
   }
 }

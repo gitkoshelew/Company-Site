@@ -33,7 +33,7 @@
       margin-bottom: 27px;
     }
     @media #{$xl} {
-      padding: 68px 33% 220px 40px;
+      padding: 68px 37% 220px 40px;
       min-height: 650px;
       margin-bottom: 39px;
     }
@@ -122,12 +122,12 @@
     position: absolute;
     display: none;
     @media #{$md} {
-      display: block;
       bottom: 110px;
       left: -5px;
     }
     @media #{$xl} {
       bottom: -133px;
+      display: block;
     }
   }
   &--small {
@@ -136,7 +136,7 @@
       .cases {
         &__wrapper {
           height: 100%;
-          padding: 63px 0% 150px 35px;
+          padding: 63px 25% 150px 35px;
           min-height: 485px;
           margin-bottom: 0px;
         }
@@ -147,6 +147,7 @@
           font-size: $h4Tablet + 4px;
           & > p {
             font-size: $h4Tablet + 4px;
+            display: block;
           }
           & > sup {
             font-size: ($h4Tablet / 3) * 2;
