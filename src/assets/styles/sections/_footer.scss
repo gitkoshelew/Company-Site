@@ -106,7 +106,14 @@
     }
     &-links {
       @media #{$md} {
+        width: 340px;
         @include isFlex(center, space-between);
+      }
+      @media #{$xl} {
+        width: 460px;
+      }
+      @media #{$xxl} {
+        width: 480px;
       }
     }
     &-link {
@@ -116,11 +123,8 @@
       margin: 5px 0 15px;
       color: $themeSupportColor;
       @media #{$md} {
-        font-size: $font;
-        margin-left: 20px;
       }
       @media #{$xxl} {
-        margin-left: 70px;
       }
     }
   }

@@ -1,7 +1,7 @@
 .header {
   position: relative;
   color: $ligthText;
-  padding-top: 70px;
+  padding-top: 64px;
   @media #{$xl} {
     padding-top: 0;
   }
@@ -160,7 +160,7 @@
       font-weight: 600;
 
       @media #{$xl} {
-        font-size: $font + 1px;
+        font-size: $font;
       }
     }
 
@@ -222,7 +222,7 @@
       right: 12px;
       font-family: $mont;
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 600;
       @media #{$xl} {
         right: calc(50vw - 475px);
         font-size: 24px;

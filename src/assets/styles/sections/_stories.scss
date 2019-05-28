@@ -130,7 +130,9 @@
 
     & .slick {
       &-list {
-        overflow: visible;
+        @media #{$xl} {
+          overflow: visible;
+        }
         @media #{$xl} {
           width: 744px;
           margin-left: auto;
@@ -139,7 +141,7 @@
 
       &-slide {
         padding: 0 12px;
-        opacity: 1;
+        opacity: 0;
         transition: $transitionLinear;
         @media #{$md} {
           padding: 0 28px;
@@ -153,33 +155,38 @@
           margin-bottom: 10px;
           height: calc(100%-5px);
         }
-        &.slick-slide_hidden {
-          opacity: 0;
-        }
-        &.slick-active {
-          & + .slick-slide {
-            & > div {
-              box-shadow: $boxShadowSlideDisabled;
-            }
-            .stories__slide {
-              pointer-events: none;
-              background: $slideDisabledBg;
 
-              &-heading,
-              &-intro,
-              &-cta {
-                opacity: 0.35;
-                color: $themeSupportColor;
-                border-color: $themeSupportColor;
-              }
-              &-button {
-                opacity: 0.35;
-                background: $themeSupportColor;
-                border-color: $themeSupportColor;
-              }
-              &-cta {
-                border-color: $themeLightColor;
-              }
+        &.slick-visible,
+        &.slick-active,
+        &.slick-active + .slick-slide {
+          opacity: 1;
+        }
+
+        &.slick-active + .slick-slide,
+        &.slick-active + .slick-slide + .slick-slide,
+        &.slick-disabled,
+        &.slick-disabled + .slick-slide {
+          & > div {
+            box-shadow: $boxShadowSlideDisabled;
+          }
+          .stories__slide {
+            pointer-events: none;
+            background: $slideDisabledBg;
+
+            &-heading,
+            &-intro,
+            &-cta {
+              opacity: 0.35;
+              color: $themeSupportColor;
+              border-color: $themeSupportColor;
+            }
+            &-button {
+              opacity: 0.35;
+              background: $themeSupportColor;
+              border-color: $themeSupportColor;
+            }
+            &-cta {
+              border-color: $themeLightColor;
             }
           }
         }
@@ -205,7 +212,7 @@
         @media #{$xl} {
         }
         @media #{$xxl} {
-          right: calc(50vw - 456px);
+          right: calc(50vw - 468px);
         }
       }
 
@@ -218,7 +225,7 @@
         @media #{$xl} {
         }
         @media #{$xxl} {
-          right: calc(50vw - 538px);
+          right: calc(50vw - 540px);
         }
         .round-btn-bg {
           transform: rotate(180deg);

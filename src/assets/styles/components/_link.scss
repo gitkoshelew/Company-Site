@@ -119,7 +119,7 @@
   display: block;
   line-height: 2em;
   color: $secondText;
-  padding-left: 16px;
+  padding-left: 20px;
   @extend %after;
   @media #{$md} {
     font-size: $font;
@@ -129,7 +129,7 @@
     height: 10px;
     border: 7px solid transparent;
     border-left-color: $themeColor;
-    left: -2px;
+    left: 2px;
     top: 7px;
     display: block;
     transform: scale(1, 0.75);

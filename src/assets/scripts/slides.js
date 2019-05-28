@@ -52,14 +52,14 @@ jQuery(function() {
     const headerSliderSupportDots = headerSliderSupport.find('.slick-dots');
     headerSliderSupportDots.addClass('button--dots');
     const headerSliderSupportDotsArray = headerSliderSupportDots.find('button');
-    const sliderLenght = headerSliderSupportDotsArray.length;
+    const sliderLength = headerSliderSupportDotsArray.length;
 
-    headerSliderSupport.append('<div class="header__slider-number">1/' + sliderLenght + '</div>');
+    headerSliderSupport.append('<div class="header__slider-number">1/' + sliderLength + '</div>');
 
     headerSliderSupport.on('afterChange', function(event, slick, currentSlide) {
       $(this)
         .find('.header__slider-number')
-        .html(currentSlide + 1 + '/' + sliderLenght);
+        .html(currentSlide + 1 + '/' + sliderLength);
     });
 
     headerSliderSupport.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
@@ -69,20 +69,21 @@ jQuery(function() {
         case 0:
           break;
         case 1:
-        case 1 - sliderLenght:
+        case 1 - sliderLength:
           headerSlider.slick('slickPrev');
           break;
         case -1:
-        case sliderLenght - 1:
+        case sliderLength - 1:
           headerSlider.slick('slickNext');
           break;
         default:
-          headerSlider.slick('slickGoTo', sliderLenght - nextSlide - 1);
+          headerSlider.slick('slickGoTo', sliderLength - nextSlide - 1);
       }
     });
   }
 
   // END Header slider
+
   // Stories slider
 
   if (jQuery('.stories__slider').length !== 0) {
@@ -123,60 +124,39 @@ jQuery(function() {
       .html('<div class="round-btn-bg"></div>');
 
     const slides = storiesSlider.find('.slick-slide');
-    slides[0].classList.add('slick-slide_hidden');
 
     storiesSlider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-      const sliderLenght = slick.slideCount;
-
+      const sliderLength = slick.slideCount;
       const nextSupportSlide = nextSlide >= sliderInitLength ? nextSlide - sliderInitLength : nextSlide;
       const currentSupportSlide = currentSlide >= sliderInitLength ? currentSlide - sliderInitLength : currentSlide;
 
       storiesSupportSlides[currentSupportSlide].classList.remove('active');
       storiesSupportSlides[nextSupportSlide].classList.add('active');
 
+      storiesSlider.find('.slick-visible').removeClass('slick-visible');
+      storiesSlider.find('.slick-disabled').removeClass('slick-disabled');
+
       switch (nextSlide - currentSlide) {
         case 0:
-          break;
         case 1:
-          slides[nextSlide].classList.add('slick-slide_hidden');
-          if (slides[nextSlide - 2]) {
-            slides[nextSlide - 2].classList.remove('slick-slide_hidden');
-          } else {
-            slides[sliderLenght - 1].classList.remove('slick-slide_hidden');
-            slides[sliderLenght].classList.remove('slick-slide_hidden');
-          }
-          break;
-        case 1 - sliderLenght:
-          slides[sliderLenght - 2].classList.remove('slick-slide_hidden');
-          slides[0].classList.add('slick-slide_hidden');
-          slides[sliderLenght].classList.add('slick-slide_hidden');
-
-          break;
         case -1:
-          slides[currentSlide].classList.remove('slick-slide_hidden');
-          slides[nextSlide].classList.add('slick-slide_hidden');
-          if (slides[nextSlide - 1]) {
-            slides[nextSlide - 1].classList.add('slick-slide_hidden');
-          }
-
           break;
-        case sliderLenght - 1:
-          slides[sliderLenght - 1].classList.add('slick-slide_hidden');
-          slides[0].classList.remove('slick-slide_hidden');
-          slides[sliderLenght].classList.remove('slick-slide_hidden');
+        case 1 - sliderLength:
+          slides[sliderLength + 1].classList.add('slick-visible');
+          slides[sliderLength + 2].classList.add('slick-visible');
+          slides[sliderLength + 2].classList.add('slick-disabled');
           break;
-      }
-    });
-
-    storiesSlider.on('afterChange', function(event, slick, currentSlide) {
-      const sliderLenght = slick.slideCount;
-      if (currentSlide === sliderLenght - 1) {
-        slides[sliderLenght - 2].classList.add('slick-slide_hidden');
+        case sliderLength - 1:
+          slides[0].classList.add('slick-visible');
+          slides[1].classList.add('slick-visible');
+          slides[1].classList.add('slick-disabled');
+          break;
       }
     });
   }
 
   // END Stories slider
+
   // Clientsay slider
 
   if (jQuery('.clientsay__slider').length !== 0) {
@@ -215,49 +195,28 @@ jQuery(function() {
       .html('<div class="round-btn-bg"></div>');
 
     const slides = clientsaySlider.find('.slick-slide');
-    slides[0].classList.add('slick-slide_hidden');
 
     clientsaySlider.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
-      const sliderLenght = slick.slideCount;
+      const sliderLength = slick.slideCount;
+
+      clientsaySlider.find('.slick-visible').removeClass('slick-visible');
+      clientsaySlider.find('.slick-disabled').removeClass('slick-disabled');
 
       switch (nextSlide - currentSlide) {
         case 0:
-          break;
         case 1:
-          slides[nextSlide].classList.add('slick-slide_hidden');
-          if (slides[nextSlide - 2]) {
-            slides[nextSlide - 2].classList.remove('slick-slide_hidden');
-          } else {
-            slides[sliderLenght - 1].classList.remove('slick-slide_hidden');
-            slides[sliderLenght].classList.remove('slick-slide_hidden');
-          }
-          break;
-        case 1 - sliderLenght:
-          slides[sliderLenght - 2].classList.remove('slick-slide_hidden');
-          slides[0].classList.add('slick-slide_hidden');
-          slides[sliderLenght].classList.add('slick-slide_hidden');
-
-          break;
         case -1:
-          slides[currentSlide].classList.remove('slick-slide_hidden');
-          slides[nextSlide].classList.add('slick-slide_hidden');
-          if (slides[nextSlide - 1]) {
-            slides[nextSlide - 1].classList.add('slick-slide_hidden');
-          }
-
           break;
-        case sliderLenght - 1:
-          slides[sliderLenght - 1].classList.add('slick-slide_hidden');
-          slides[0].classList.remove('slick-slide_hidden');
-          slides[sliderLenght].classList.remove('slick-slide_hidden');
+        case 1 - sliderLength:
+          slides[sliderLength + 1].classList.add('slick-visible');
+          slides[sliderLength + 2].classList.add('slick-visible');
+          slides[sliderLength + 2].classList.add('slick-disabled');
           break;
-      }
-    });
-
-    clientsaySlider.on('afterChange', function(event, slick, currentSlide) {
-      const sliderLenght = slick.slideCount;
-      if (currentSlide === sliderLenght - 1) {
-        slides[sliderLenght - 2].classList.add('slick-slide_hidden');
+        case sliderLength - 1:
+          slides[0].classList.add('slick-visible');
+          slides[1].classList.add('slick-visible');
+          slides[1].classList.add('slick-disabled');
+          break;
       }
     });
   }

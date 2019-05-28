@@ -16,6 +16,12 @@
     &-intro {
       line-height: 2em;
       margin-bottom: 1em;
+
+      &:last-child {
+        @media #{$md} {
+          margin-bottom: 3.5em;
+        }
+      }
     }
   }
   &__wrapper {
@@ -78,7 +84,7 @@
     }
     @media #{$xl} {
       font-size: $h4Desk + 8px;
-      margin-bottom: 0.25em;
+      margin-bottom: 1em;
     }
     p {
       font-size: $h4 + 2px;
@@ -136,7 +142,7 @@
       .cases {
         &__wrapper {
           height: 100%;
-          padding: 63px 25% 150px 35px;
+          padding: 63px 25% 240px 35px;
           min-height: 485px;
           margin-bottom: 0px;
         }
@@ -157,7 +163,7 @@
           padding-right: 0;
         }
         &__view-btn {
-          bottom: -75px;
+          bottom: -150px;
           left: 10px;
         }
       }

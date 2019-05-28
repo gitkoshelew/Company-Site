@@ -6,6 +6,27 @@
   @media #{$xl} {
     padding: 60px 0 120px;
   }
+  @media #{$xxl} {
+    padding-bottom: 180px;
+  }
+  .section--pattern--top {
+    height: 450px;
+    width: 75%;
+    top: 300px;
+    @media #{$md} {
+      width: 30%;
+      top: 260px;
+    }
+    @media #{$xl} {
+      width: 80%;
+      height: 385px;
+      top: 340px;
+    }
+    @media #{$xxl} {
+      width: 67%;
+    }
+  }
+
   &__intro {
     font-size: $font;
     line-height: 1.5em;

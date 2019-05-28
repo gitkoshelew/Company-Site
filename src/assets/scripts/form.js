@@ -15,6 +15,7 @@ if (jQuery('#mainform__form').length !== 0) {
 
     const mainFormDragInput = $(form).find('[type="file"]');
     const mainFormDragLabel = mainFormDragInput.closest('label');
+    const mainFormDragFiles = mainFormDragLabel.parent().find(`.${formNameSpace}__drag-files`);
 
     $(`.${formNameSpace}__success`).click(function(e) {
       $(this).removeClass('active');
@@ -131,12 +132,12 @@ if (jQuery('#mainform__form').length !== 0) {
 
       if (!(isValidExtension & isValidSize)) {
         fileElement.className = `${formNameSpace}__drag-file_invalid ${formNameSpace}__drag-file drag--file-invalid`;
-        $(fileElement).insertBefore(mainFormDragLabel);
+        mainFormDragFiles.append(fileElement);
         return false;
       }
 
       fileElement.dataset.count = FormFiles.length;
-      $(fileElement).insertBefore(mainFormDragLabel);
+      mainFormDragFiles.append(fileElement);
       return true;
     }
 

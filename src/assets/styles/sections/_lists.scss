@@ -1,5 +1,4 @@
 .lists {
-  padding-bottom: 0;
   &__heading {
     margin-top: 0.2em;
   }
@@ -30,11 +29,9 @@
     }
     &-heading {
       font-size: $h4 * 1.33;
-      margin-top: 2px;
       @media #{$xl} {
         font-size: $h4Desk;
-        margin-bottom: 16px;
-        margin-top: 7px;
+        margin-top: 17px;
       }
     }
   }

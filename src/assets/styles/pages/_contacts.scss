@@ -32,23 +32,26 @@
     &__textarea {
       background: $mainBgDark;
     }
-    &__label {
-      border-bottom: 2px solid $darkBorder;
-      input,
-      select,
-      textarea {
-        &:focus,
-        &.full,
-        &.inValid {
-          & + div {
-            color: $themeColor;
-          }
-        }
-      }
+    &__drag-files {
+      background: $themeLightColor;
     }
+    // &__label {
+    //   border-bottom: 2px solid $darkBorder;
+    //   input,
+    //   select,
+    //   textarea {
+    //     &:focus,
+    //     &.full,
+    //     &.inValid {
+    //       & + div {
+    //         color: $themeColor;
+    //       }
+    //     }
+    //   }
+    // }
 
-    &__input-support {
-      color: $mainText;
-    }
+    // &__input-support {
+    //   color: $mainText;
+    // }
   }
 }

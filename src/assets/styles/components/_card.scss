@@ -14,7 +14,6 @@
   padding: 50px 20px 36px;
   margin: 7px 0;
   border: 1px solid $themeCardBorder;
-  cursor: pointer;
   background: $cardBg;
   height: calc(100% - 14px);
   transition: $transition;
@@ -105,6 +104,24 @@
       &--industry {
         background-image: url('@~images/img/industry.svg');
       }
+      &--noadditional {
+        background-image: url('@~images/img/noadditional.svg');
+      }
+      &--fullcontrol {
+        background-image: url('@~images/img/fullcontrol.svg');
+      }
+      &--savetimecost {
+        background-image: url('@~images/img/savetimecost.svg');
+      }
+      &--communication {
+        background-image: url('@~images/img/communication.svg');
+      }
+      &--predictablebudget {
+        background-image: url('@~images/img/predictablebudget.svg');
+      }
+      &--scaling {
+        background-image: url('@~images/img/scaling.svg');
+      }
     }
     @media #{$md} {
       margin-bottom: 17px;
@@ -170,6 +187,7 @@
 %card-article {
   @extend %card-prototype;
   padding-bottom: 60px;
+  cursor: pointer;
   @media #{$xl} {
     padding: 48px 32px 88px;
   }
@@ -190,8 +208,11 @@
     }
     @media #{$xl} {
       bottom: 52px;
-      left: 53px;
+      left: 40px;
       font-size: $font;
+    }
+    @media #{$xxl} {
+      left: 53px;
     }
     &:hover {
       color: $themeDarkColor;
@@ -231,7 +252,7 @@
       @media #{$md} {
         display: inline;
       }
-      @media #{$xl} {
+      @media #{$xxl} {
         display: block;
       }
     }
@@ -249,7 +270,7 @@
     justify-content: flex-start;
   }
   @media #{$xl} {
-    padding: 32px 20px;
+    padding: 32px 60px 16px 20px;
   }
   .card-img {
     width: 100%;
