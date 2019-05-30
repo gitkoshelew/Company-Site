@@ -27,7 +27,7 @@
     background: $secondBg;
     position: relative;
     height: 100%;
-    padding: 50px 12px 50px calc(50vw - 148px);
+    padding: 50px 12px 50px 12px;
     color: $ligthText;
     @media #{$md} {
       padding: 100px 12px 50px calc(50vw - 362px);
@@ -58,7 +58,6 @@
     margin-top: 15px;
     p {
       font-size: $fontLarge;
-      letter-spacing: -0.06em;
       line-height: 1.3em;
       @media #{$xl} {
         line-height: 1.5em;

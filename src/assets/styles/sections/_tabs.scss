@@ -16,6 +16,7 @@
       padding-top: 60px;
     }
     &-item {
+      cursor: pointer;
       padding: 14px 0 12px 28px;
       border-left: 2px solid transparent;
       font-size: $fontLarge;
@@ -25,6 +26,10 @@
       &.tabs__list-item_active {
         border-left: 2px solid $themeColor;
         color: $mainText;
+      }
+      &:hover,
+      &:focus {
+        color: $themeColor;
       }
     }
   }
@@ -75,11 +80,7 @@
 
       &-heading {
         font-size: $h5 + 2px;
-        letter-spacing: 0;
         @media #{$md} {
-          font-size: $h5Tablet * 1.33;
-        }
-        @media #{xl} {
           font-size: $h5Desk;
         }
       }

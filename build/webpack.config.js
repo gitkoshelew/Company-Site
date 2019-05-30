@@ -81,7 +81,12 @@ module.exports = env => {
           test: /\.scss$/,
           use: [
             env === 'development'
-              ? 'style-loader'
+              ?             {
+                loader: 'style-loader',
+                options: {
+                  sourceMap: true
+                }
+              }
               : MiniCssExtractPlugin.loader, // creates style nodes from JS strings
             {
               loader: 'css-loader',
@@ -91,14 +96,20 @@ module.exports = env => {
                 sourceMap: true,
                 colormin: false
               }
-            }, // translates CSS into CommonJS
+            },
+    
             'postcss-loader',
-            'sass-loader' // compiles Sass to CSS
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
           ]
         },
         // {
         //   test: /\.html$/,
-        //   include: path.resolve(__dirname, '../src/html/includes'),
+        //   include: path.resolve(__dirname, '../src/html/templates'),
         //   use: ['raw-loader']
         // },
         // {
@@ -111,7 +122,7 @@ module.exports = env => {
         // },
         // {
         //   test: /\.(html)$/,
-        //   include: path.resolve(__dirname, '../src/html/views'),
+        //   include: path.resolve(__dirname, '../src/html/templates'),
         //   loader: "html-srcsets-loader",
         //     options: {
         //       attrs: [":src", ':srcset']
@@ -159,7 +170,6 @@ module.exports = env => {
           // vendor chunk
           vendor: {
             filename: 'assets/js/vendor.[hash:7].bundle.js',
-//            filename: 'assets/js/vendor.bundle.js',
             // sync + async chunks
             chunks: 'all',
             // import file path containing node_modules
@@ -189,8 +199,7 @@ module.exports = env => {
         ]
       ),
       new MiniCssExtractPlugin({
-        // filename: 'assets/css/[name].[hash:7].bundle.css',
-        filename: 'assets/css/[name].bundle.css',
+        filename: 'assets/css/[name].[hash:7].bundle.css',
         chunkFilename: '[id].css'
       }),
 

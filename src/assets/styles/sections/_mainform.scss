@@ -14,10 +14,6 @@
 
   &__heading {
     color: $ligthText;
-    margin-bottom: 14px;
-    @media #{$md} {
-      margin-bottom: 28px;
-    }
   }
   &__intro {
     color: $ligthText;

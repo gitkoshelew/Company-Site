@@ -28,6 +28,7 @@ h4,
 h5,
 h6 {
   font-family: $futura;
+  font-weight: 600;
   margin: 0;
 }
 a {
@@ -97,14 +98,12 @@ h1 > p,
 h2 > p {
   font-size: $h2;
   line-height: 1.4em;
-  letter-spacing: 0.05ex;
   margin-bottom: 0.85em;
   display: inline-block;
 
   @media #{$md} {
     font-size: $h2Tablet;
     line-height: 1.2em;
-    letter-spacing: 0;
     margin-bottom: 0.45em;
   }
   @media #{$xl} {
@@ -120,13 +119,13 @@ h2 > p {
     display: inline;
     @media #{$xl} {
       display: block;
+      margin-bottom: 0;
     }
   }
 
   & + p {
     font-size: $h2intro;
     line-height: 1.5em;
-    letter-spacing: 0.02ex;
 
     @media #{$md} {
       font-size: $h2introTablet;
@@ -160,11 +159,9 @@ h3 {
 h3,
 h3 > p {
   font-size: $h3;
-  letter-spacing: 0.01em;
   display: inline-block;
   @media #{$md} {
     font-size: $h3Tablet;
-    letter-spacing: 0;
   }
   @media #{$xl} {
     font-size: $h3Desk;
@@ -178,7 +175,6 @@ h3 > p {
       padding-right: 25%;
     }
     @media #{$xl} {
-      letter-spacing: 0.007em;
       line-height: 2em;
       padding-right: 33%;
     }
@@ -205,7 +201,6 @@ h5,
 h5 > p {
   font-size: $h5;
   line-height: 1.5em;
-  letter-spacing: 0.06em;
   @media #{$md} {
     font-size: $h5Tablet;
   }
@@ -216,4 +211,9 @@ h5 > p {
 
 h6 {
   font-size: $fontLarger;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px white inset;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
 }

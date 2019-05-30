@@ -25,6 +25,7 @@ if (jQuery('#mainform__form').length !== 0) {
       const value = el.value;
       const name = el.name;
       const type = el.type;
+      const checked = el.checked || false;
       let valid = false;
       let message = '';
 
@@ -51,6 +52,10 @@ if (jQuery('#mainform__form').length !== 0) {
         case 'tel':
           valid = !!value.match(/^[0-9+\(\)#\.\s\/ext-]+$/g);
           message = 'please, enter valid phone number';
+          break;
+        case 'checkbox':
+          valid = checked;
+          message = '';
           break;
         default:
           break;
@@ -209,6 +214,7 @@ if (jQuery('#mainform__form').length !== 0) {
 
           imgReader.readAsDataURL(file);
         }
+        /* End img reader preloader Preview*/
       },
     });
 
@@ -217,7 +223,7 @@ if (jQuery('#mainform__form').length !== 0) {
       e.stopPropagation();
 
       const validatedInputs = $(this).find(
-        'textarea,select,[type]:not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="range"]):not([type="file"]):not([type="image"])'
+        'textarea,select,[type]:not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="range"]):not([type="file"]):not([type="image"])'
       );
 
       const sendedInputs = $(this).find(
@@ -228,14 +234,14 @@ if (jQuery('#mainform__form').length !== 0) {
         nodeList.each((idx, el) => {
           validateInput(el);
           el.addEventListener('keyup', handleInputChange);
-          console.log(el);
+          el.addEventListener('change', handleInputChange);
+          console.dir(el);
         });
         return Array.prototype.every.call(nodeList, el => !el.classList.contains('inValid'));
       }
 
       if (validateBeforeSubmit(validatedInputs)) {
         const formData = new FormData();
-        $(`.${formNameSpace}__success`).addClass('active');
 
         sendedInputs.each((idx, { name, value }) => formData.append(name, value));
 
@@ -244,6 +250,16 @@ if (jQuery('#mainform__form').length !== 0) {
             formData.append('files[]', file, file.name);
           }
         });
+
+        // Success Send
+
+        $(`.${formNameSpace}__success`).addClass('active');
+
+        validatedInputs.each((idx, el) => {
+          el.type === 'checkbox' ? (el.checked = false) : (el.value = '');
+        });
+
+        // End Success Send
 
         const values = formData.values();
         console.log(values.next());

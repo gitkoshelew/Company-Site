@@ -56,7 +56,7 @@
   margin-bottom: 5px;
   text-align: center;
   border-radius: $borderRad;
-  font-weight: 700;
+  font-weight: 600;
   padding: 10px 15px;
   pointer-events: none;
 }
@@ -96,7 +96,6 @@
   border-radius: 100px;
   min-width: 214px;
   max-width: 300px;
-  letter-spacing: -0.04em;
   margin: 0 auto;
   padding: 13px 30px 13px;
   font-weight: 600;
@@ -330,7 +329,7 @@
       height: 32px;
     }
     &:after {
-      box-shadow: $boxShadowMaterialInit;
+      box-shadow: $boxShadowMaterial;
       width: 5px;
       height: 5px;
       border-radius: 50%;

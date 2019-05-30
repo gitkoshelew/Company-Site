@@ -39,9 +39,10 @@
     padding-left: 12px;
     @media #{$sm} {
       padding-left: 0;
+      padding-top: 20px;
     }
     @media #{$xl} {
-      padding-top: 36px;
+      padding-top: 30px;
     }
   }
   &__img {

@@ -29,7 +29,6 @@ $letterStagger: 0.1s;
     text-align: center;
     font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
     transition: $sliderReadyTrans;
     transform: translateY(-30px);
     opacity: 0;
@@ -95,7 +94,6 @@ $letterStagger: 0.1s;
     &-subheading {
       margin-bottom: 20px;
       font-size: 24px;
-      letter-spacing: 2px;
       transform: translateY(20px);
 
       @include subTextsActiveSlide;

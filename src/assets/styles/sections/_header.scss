@@ -166,7 +166,6 @@
 
     &-btn {
       width: 100%;
-      letter-spacing: 0.02em;
       @media #{$xl} {
         margin-top: -5px;
       }
@@ -249,12 +248,12 @@
 
   &__slide {
     @include bgImg('@~images/bg/content320.jpg', no-repeat, center, cover);
-    height: 100vh;
-    max-height: 880px;
+    height: calc(100vh - 63px);
+    max-height: 1000px;
     position: relative;
 
-    @media #{$xxl} {
-      //height: 855px;
+    @media #{$xl} {
+      height: 100vh;
     }
 
     .container,
@@ -303,6 +302,13 @@
       margin-top: 100px;
       padding: 80px 0;
     }
+    &.center {
+      @media #{$xl} {
+        @include isFlex($direction: column);
+        height: calc(100vh - 100px);
+        max-height: 1000px;
+      }
+    }
     &-heading {
       @media #{$md} {
         font-size: $h2TabletLarge;
@@ -330,11 +336,11 @@
     bottom: 0;
     left: 0;
     z-index: 2;
-    height: 100vh;
-    max-height: 880px;
+    height: calc(100vh - 63px);
+    max-height: 1000px;
     width: 100%;
-    @media #{$xxl} {
-      //height: 855px;
+    @media #{$xl} {
+      height: 100vh;
     }
     &-wrapper {
       width: 100%;
@@ -348,12 +354,26 @@
   }
 
   &__cookie {
+    box-shadow: $boxShadowCardTop;
+    position: fixed;
+    bottom: 0;
+    font-size: $fontSmall;
+    left: 0;
+    width: 100%;
+    z-index: 100;
     background: $mainBgDark;
     color: $mainText;
     padding: 20px 0;
-    line-height: 1.75em;
+    line-height: 1.25em;
+    @media #{$md} {
+      font-size: $fontLess;
+    }
+    @media #{$xl} {
+      font-size: $font;
+      line-height: 1.5em;
+    }
     &-policy {
-      font-weight: 700;
+      font-weight: 600;
       @extend %main-link-reverse;
     }
     &-btn {

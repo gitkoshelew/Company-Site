@@ -235,19 +235,16 @@
       transition: $transition;
       color: $supportText;
       margin-bottom: 24px;
-      letter-spacing: 0.07em;
       @media #{$md} {
         margin-bottom: 30px;
       }
       @media #{$xl} {
-        letter-spacing: 0;
         margin-bottom: 25px;
       }
     }
     &-heading {
       transition: $transition;
       @media #{$xl} {
-        letter-spacing: 0;
         margin-bottom: 0.4em;
       }
     }

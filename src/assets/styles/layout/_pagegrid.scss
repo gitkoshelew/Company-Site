@@ -64,10 +64,8 @@ section {
 }
 
 .container-fluid {
-  .row {
-    margin-right: -12px;
-    margin-left: -12px;
-  }
+  padding-right: 12px;
+  padding-left: 12px;
 }
 
 @media #{$xxl} {

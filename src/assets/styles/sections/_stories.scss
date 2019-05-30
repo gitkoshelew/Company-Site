@@ -103,7 +103,6 @@
       margin-top: 54px;
       padding-right: 40px;
       padding-left: 40px;
-      letter-spacing: 0.02em;
     }
   }
   &__slider {
@@ -279,7 +278,6 @@
       transition: $transition;
       width: 100%;
       margin-bottom: 20px;
-      letter-spacing: 0.02em;
       @media #{$md} {
         margin: 70px 0 0;
         width: 260px;

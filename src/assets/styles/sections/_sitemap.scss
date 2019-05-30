@@ -49,7 +49,7 @@
   &__heading {
     padding-left: 32px;
     font-size: $fontLarge;
-    font-weight: 700;
+    font-weight: 600;
     &:after {
       @include bgImg('@~images/img/folder.svg', no-repeat, center, contain);
     }

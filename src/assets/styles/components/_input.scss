@@ -162,14 +162,21 @@
         border-color: $secondBg;
       }
     }
+
     &:checked {
       & + .form--check-helper {
-        //color: $ligthText;
         background: $secondBg;
         border-color: $secondBg;
         &:after {
           opacity: 1;
         }
+      }
+    }
+
+    &.inValid {
+      & + .form--check-helper {
+        background: $themeErrorColor;
+        border-color: $themeErrorColor;
       }
     }
   }
