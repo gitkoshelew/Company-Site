@@ -58,11 +58,11 @@
     top: 0;
     left: -100%;
     width: calc(100% - 70px);
-    height: 100%;
+    height: calc(100% + 70px);
     @include isFlex(center, space-between, column, nowrap);
     z-index: 1;
     background: $themeLightColor;
-    padding: 50px 30px;
+    padding: 50px 30px calc(50px + 70px);
     transition: $transition;
 
     @media #{$xl} {
@@ -84,7 +84,7 @@
     }
 
     @media #{$landscape} and (max-width: 991px) {
-      padding: 5% 30px;
+      padding: 5% 30px calc(5% + 70px);
     }
 
     &:before {
