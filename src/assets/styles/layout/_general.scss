@@ -11,6 +11,8 @@ body {
 body {
   @include isFlex(center, center);
   font-family: $mont;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: $mainText;
   margin: 0;
   padding: 0;
