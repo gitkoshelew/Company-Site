@@ -41,9 +41,9 @@
 
                 </a>
                 <ul class="header__nav-list">
-                  <li class="header__nav-item">
-                      <a href="contacts.html" class="header__nav-anchor main--link">Contacts</a>
-                    </li>
+                  <li class="header__nav-item header__nav-item_mobile">
+                    <a href="contacts.html" class="header__nav-anchor main--link">Contacts</a>
+                  </li>
                   <li class="header__nav-item">
                     <a href="services.html" class="header__nav-anchor main--link">Services</a>
                   </li>
@@ -52,9 +52,9 @@
                   </li>
 
                 </ul>
-              <button class="header__nav-btn button--primary--round">
+              <a href="./contacts.html" class="header__nav-btn button--primary--round">
                 Get in touch
-              </button>
+              </a>
               </nav>
               <div class="header__head-open-button  button--bar">
                 <span></span>
@@ -151,6 +151,21 @@
         </div>
       </div>
     </div>
+    <div class="header__cookie">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-xl-9">
+            This website uses cookies to enhance site navigation and improve functionality, analyze site usage, and assist in our marketing and advertising efforts. Please click "I accept cookies" to let us know you're okay with our use of all cookies. For more information please see the cookies section of our 
+            <a href="./policy.html" class="header__cookie-policy">Privacy Policy</a>.
+          </div>
+          <div class="col-12 col-xl-3">
+            <button class="header__cookie-btn button--primary--round">
+              I accept cookies
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     </header>
     <section class="services" id="services">
       <div class="services__pattern section--pattern--bottom-right">
@@ -232,37 +247,46 @@
     </section>
     <section class="stories" id="stories">
       <div class="stories__content-wrapper">
+        <div class="stories__content-slider">
+          <div class="stories__content-slide active">
+
+          </div>
+          <div class="stories__content-slide img--form">
+            
+          </div>
+          <div class="stories__content-slide img--form">
+            
+          </div>
+        </div>
         <div class="section--filter">
           
         </div>
-        <div class="section--pattern-ellips">
-          
-        </div>
-          <div class="container">
-              <div class="row">
-                <div class="col">
-                  <div class="stories__content">
-                    <h3 class="stories__heading">
-                        Client Success <p>Stories</p> 
-                    </h3>
-                    <p class="stories__text">
-                        Full-stack development, integration, support and maintenance.
-                        <span>
-                            We help you design and develop a top notch digital products.
-                        </span>
 
-                    </p>
-                    <button class="stories__main-button button--secondary--round">
-                        Go to case studies
-                    </button>
-                  </div>
-                </div>
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="stories__content">
+                <h3 class="stories__heading">
+                    Client Success <p>Stories</p> 
+                </h3>
+                <p class="stories__text">
+                    Full-stack development, integration, support and maintenance.
+                    <span>
+                        We help you design and develop a top notch digital products.
+                    </span>
+
+                </p>
+                <button class="stories__main-button button--secondary--round">
+                    Go to case studies
+                </button>
               </div>
             </div>
+          </div>
+        </div>
       </div>
 
       <div class="stories__slider" >
-  
+
           <div class="stories__slide" >
             <h4 class="stories__slide-heading">
                 Learning Management System1
@@ -307,6 +331,28 @@
                   View case study
               </button>
             </div>
+            <div class="stories__slide" >
+              <h4 class="stories__slide-heading">
+                  Learning Management System3
+              </h4>
+              <p class="stories__slide-intro">
+                  Custom solution for learning platform developed from scratch. 
+              </p>
+              <div class="stories__slide-buttons">
+                <button class="stories__slide-button button--primary--small">
+                    Django
+                </button>
+                <button class="stories__slide-button button--primary--small">
+                    React
+                </button>
+                <button class="stories__slide-button button--primary--small">
+                    MongoDB
+                </button>
+              </div>
+              <button class="stories__slide-cta button--third--round">
+                  View case study
+              </button>
+            </div>
        
       </div>
     </section>
@@ -329,22 +375,10 @@
           </div>
         </div>
         <div class="row">
+
           <div class="col-12 col-md-6 col-xl-4">
             <div class="why__point  card--product">
               <div class="why__point-img card-img img--cycle">
-
-              </div>
-              <h4 class="why__point-heading">
-                  Focus on performance
-              </h4>
-              <p class="why__point-text card-preview">
-                  From requirenments and up to post-delivery maintenance and support. We can jump into project at any stage.
-              </p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-xl-4">
-            <div class="why__point  card--product">
-              <div class="why__point-img card-img img--time">
 
               </div>
               <h4 class="why__point-heading">
@@ -357,7 +391,7 @@
           </div>
           <div class="col-12 col-md-6 col-xl-4">
             <div class="why__point  card--product">
-              <div class="why__point-img card-img img--budget">
+              <div class="why__point-img card-img img--time">
 
               </div>
               <h4 class="why__point-heading">
@@ -370,7 +404,7 @@
           </div>
           <div class="col-12 col-md-6 col-xl-4">
             <div class="why__point  card--product">
-              <div class="why__point-img card-img img--transparency">
+              <div class="why__point-img card-img img--budget">
 
               </div>
               <h4 class="why__point-heading">
@@ -383,7 +417,7 @@
           </div>
           <div class="col-12 col-md-6 col-xl-4">
             <div class="why__point  card--product">
-              <div class="why__point-img card-img img--focus">
+              <div class="why__point-img card-img img--transparency">
 
               </div>
               <h4 class="why__point-heading">
@@ -394,6 +428,19 @@
               </p>
             </div>
           </div>
+          <div class="col-12 col-md-6 col-xl-4">
+              <div class="why__point  card--product">
+                <div class="why__point-img card-img img--focus">
+  
+                </div>
+                <h4 class="why__point-heading">
+                    Focus on performance
+                </h4>
+                <p class="why__point-text card-preview">
+                    From requirenments and up to post-delivery maintenance and support. We can jump into project at any stage.
+                </p>
+              </div>
+            </div>
 
           <div class="col-12 col-md-6 col-xl-4">
             <div class="why__point  card--product">
@@ -442,10 +489,10 @@
             <p class="clientsay__slide-intro">
                 Software products that we build help the world's leading brands transform their businesses, increase their revenues and save up to 40% of the time and operating costs.
             </p>
+            <p class="clientsay__slide-intro">
+              Software products that we build help the world's leading brands transform their businesses, increase their revenues.
+            </p>
             <div class="clientsay__slide-links">
-                <a class="clientsay__slide-learnmore">
-                    Learn more
-                  </a>
                   <a href="
                   javascript:void(0);" class="clientsay__slide-logo"></a>
             </div>
@@ -465,10 +512,11 @@
             <p class="clientsay__slide-intro">
                 Software products that we build help the world's leading brands transform their businesses, increase their revenues and save up to 40% of the time and operating costs.of the time and operating costs.
             </p>
+            <p class="clientsay__slide-intro">
+              Software products that we build help the world's leading brands transform their businesses, increase their revenues.
+            </p>
             <div class="clientsay__slide-links">
-                <a class="clientsay__slide-learnmore">
-                    Learn more
-                  </a>
+ 
                   <a href="
                   javascript:void(0);" class="clientsay__slide-logo"></a>
             </div>
@@ -487,10 +535,11 @@
             <p class="clientsay__slide-intro">
                 Software products that we build help the world's leading brands transform their businesses, increase their revenues and save up to 40% of the time and operating costs.of the time and operating costs.
             </p>
+            <p class="clientsay__slide-intro">
+              Software products that we build help the world's leading brands transform their businesses, increase their revenues.
+            </p>
             <div class="clientsay__slide-links">
-                <a class="clientsay__slide-learnmore">
-                    Learn more
-                  </a>
+
                   <a href="
                   javascript:void(0);" class="clientsay__slide-logo"></a>
             </div>
@@ -521,7 +570,7 @@
           <div class="row">
             <div class="col-12 col-md-6 col-xl-4">
               <div class="why__point  card--product">
-                <div class="why__point-img card-img img-edtech">
+                <div class="why__point-img card-img img--edtech">
   
                 </div>
                 <h4 class="why__point-heading">
@@ -617,6 +666,18 @@
                 We help you design and develop a top notch digital products.
             </p>
             <form action="" method="POST" class="mainform__form" id="mainform__form">
+              <div class="mainform__success">
+                <div class="mainform__success-content popup--content">
+                  <div class="mainform__success-img popup--img">
+                  </div>
+                  <h6 class="mainform__success-heading popup--heading">
+                    Thank you for contacting!
+                  </h6>
+                  <p class="mainfom__success-intro popup--intro">
+                    We’re working quickly to develop a customized response for you. We’ll get in touch with you shortly!
+                  </p>
+                </div>
+              </div>
               <div class="mainform__inputs mainform__inputs_main">
                 <label class="mainform__label form--label">
                   <input type="text" novalidate name="name" class="mainform__input">
@@ -648,6 +709,9 @@
                   </label>
               </div>
               <div class="mainform__inputs mainform__inputs_drag" id="mainform__inputs_drag">
+                <div class="mainform__drag-files">
+                  
+                </div>
                 <label class="mainform__drag-label" id="mainform__drag-label">
                     <input type="file" name="file" id = "mainform__drag-input" class="mainform__input-drag mainform__drag-input">
                     <div class="mainform__drag-support">
@@ -692,75 +756,78 @@
 
 
 
-<footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-5 col-xl-6  col-xxl-7">
-        <div class="footer__social">
-          <div class="footer__social-logo">
-            
-          </div>
-          <div class="footer__social-buttons">
-            <button class="button--social--round footer__social-btn footer__social-btn_vk">
-              <div class="round--social-bg">
-
-              </div>
-            </button>
-            <button class="button--social--round footer__social-btn footer__social-btn_facebook">
-                <div class="round--social-bg">
-
+    <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-5 col-xl-6  col-xxl-7">
+              <div class="footer__social">
+                <div class="footer__social-logo"></div>
+                <div class="footer__social-buttons">
+                  <button class="button--social--round footer__social-btn footer__social-btn_vk">
+                    <div class="round--social-bg"></div>
+                  </button>
+                  <button class="button--social--round footer__social-btn footer__social-btn_facebook">
+                    <div class="round--social-bg"></div>
+                  </button>
                 </div>
-            </button>
+              </div>
+            </div>
+            <div class="col-12 col-md">
+              <div class="footer__services">
+                <h6 class="footer__services-heading">
+                  Services
+                </h6>
+                <ul class="footer__services-list">
+                  <li class="footer__services-item">
+                    <a href="./software.html" class="footer__services-link footer--link">Software Engigeering</a>
+                  </li>
+                  <li class="footer__services-item">
+                    <a href="./teams.html" class="footer__services-link footer--link">Dedicated Teams</a>
+                  </li>
+                  <li class="footer__services-item">
+                    <a href="./uiux.html" class="footer__services-link footer--link">Business Analysis & UX</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-12 col-md">
+              <div class="footer__company">
+                <h6 class="footer__company-heading">
+                  Company
+                </h6>
+                <ul class="footer__company-list">
+                  <li class="footer__company-item">
+                    <a href="./cases.html" class="footer__company-link footer--link">Case studies</a>
+                  </li>
+                  <li class="footer__company-item">
+                    <a href="./contacts.html" class="footer__company-link footer--link">Contact us</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="footer__bottom">
+                <div class="footer__bottom-copyright">
+                  © 2016-2019 Arateg, All rights reserved
+                </div>
+  
+                <ul class="footer__bottom-links">
+                  <li class="footer__bottom-item">
+                    <a href="./content.html" class="footer__bottom-link footer--static--link">Term of Use</a>
+                  </li>
+                  <li class="footer__bottom-item">
+                    <a href="./content.html" class="footer__bottom-link footer--static--link">Privacy Policy</a>
+                  </li>
+                  <li class="footer__bottom-item">
+                    <a href="./sitemap.html" class="footer__bottom-link footer--static--link">Site Map</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-md">
-        <div class="footer__services">
-          <h6 class="footer__services-heading">
-            Services
-          </h6>
-          <ul class="footer__services-list">
-            <li class="footer__services-item">
-              <a href="javascript:void(0);" class="footer__services-link footer--link">Software Engigeering</a>
-            </li>
-            <li class="footer__services-item">
-              <a href="javascript:void(0);" class="footer__services-link footer--link">Dedicated Teams</a>
-            </li>
-            <li class="footer__services-item">
-              <a href="javascript:void(0);" class="footer__services-link footer--link">Business Analysis & UX</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-12 col-md">
-        <div class="footer__company">
-          <h6 class="footer__company-heading">
-            Company
-          </h6>
-          <ul class="footer__company-list">
-            <li class="footer__company-item"><a href="javascript:void(0);" class="footer__company-link footer--link">Case studies</a></li>
-            <li class="footer__company-item"><a href="javascript:void(0);" class="footer__company-link footer--link">Contact us</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="footer__bottom">
-            <div class="footer__bottom-copyright">
-                © 2016-2019 Arateg, All rights reserved
-            </div>
-
-              <ul class="footer__bottom-links">
-                <li class="footer__bottom-item"><a href="javascript:void(0);" class="footer__bottom-link footer--static--link">Term of Use</a></li>
-                <li class="footer__bottom-item"><a href="javascript:void(0);" class="footer__bottom-link footer--static--link">Privacy Policy</a></li>
-                <li class="footer__bottom-item"><a href="javascript:void(0);" class="footer__bottom-link footer--static--link">Site Map</a></li>
-              </ul>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+      </footer>
 </body>
 </html>

@@ -40,10 +40,14 @@ $btnFontSize: 18px;
 $btnFontSizeSmall: 16px;
 
 $title: 24px;
-$titleBig: 54px;
+$titleBig: 48px;
 
 $subtitle: 18px;
-$subtitleBig: 36px;
+$subtitleBig: 32px;
+
+$popupHeading: 24px;
+$popupHeadingTablet: 28px;
+$popupHeadingDesk: 36px;
 
 /*
   Grid sizes
@@ -52,6 +56,9 @@ $subtitleBig: 36px;
 $sm: (
   min-width: 576px,
 );
+$premd: (
+  max-width: 767px,
+);
 $md: (
   min-width: 768px,
 );
@@ -59,10 +66,10 @@ $lg: (
   min-width: 992px,
 );
 $xl: (
-  min-width: 1200px,
+  min-width: 992px,
 );
 $xxl: (
-  min-width: 1440px,
+  min-width: 1320px,
 );
 $fourK: (
   min-width: 2000px,

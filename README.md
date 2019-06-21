@@ -1,7 +1,7 @@
 # Company-Site
 
 Company Site
-Webpack, Pug, PostCss, Sass/Stylus, jQuery, Babel and Yarn
+Webpack, Pug, PostCss, Sass/Stylus, ES6, jQuery, Babel and Yarn
 
 # Project structure
 

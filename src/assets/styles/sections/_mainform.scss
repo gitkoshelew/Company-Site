@@ -1,16 +1,19 @@
 .mainform {
   padding-top: 51px;
-  @include bgImg('@~images/bg/form320.jpg', no-repeat, center, cover);
+
   @media #{$md} {
     padding-top: 90px;
+    @include bgImg('@~images/bg/form768.jpg', no-repeat, center, cover);
+  }
+  @media #{$xl} {
+    background-image: url('@~images/bg/form1200.jpg');
+  }
+  @media #{$xxl} {
+    background-image: url('@~images/bg/form1920.jpg');
   }
 
   &__heading {
     color: $ligthText;
-    margin-bottom: 14px;
-    @media #{$md} {
-      margin-bottom: 28px;
-    }
   }
   &__intro {
     color: $ligthText;
@@ -19,6 +22,8 @@
     background: $themeLightColor;
     margin-top: 50px;
     padding: 31px 18px 50px;
+    position: relative;
+    overflow: hidden;
     @media #{$md} {
       padding: 40px 34px 60px;
     }
@@ -57,13 +62,14 @@
 
       mark {
         display: block;
+        font-size: $fontSmall;
       }
     }
     &_check {
       @media #{$xl} {
         display: inline-block;
         font-size: 0;
-        width: 70%;
+        width: 63%;
       }
     }
     &_submit {
@@ -71,11 +77,17 @@
         font-size: 0;
         display: inline-block;
         text-align: right;
-        width: 29%;
+        width: 36%;
       }
     }
   }
   &__drag {
+    &-files {
+      margin-bottom: 10px;
+      background: $mainBgDark;
+      padding: 0 14px;
+      @include isFlex(flex-start, flex-start);
+    }
     &-img {
       width: 36px;
       height: 36px;
@@ -88,9 +100,9 @@
       @media #{$xl} {
         position: absolute;
         left: 20px;
-        top: 10px;
+        top: 17px;
         width: 36px;
-        height: 36px;
+        height: 40px;
       }
     }
     &-label {
@@ -107,7 +119,7 @@
         padding: 15px 15px 15px 75px;
       }
       &.label--dragged {
-        background: $themeSupportColor;
+        background: rgba($themeSupportColor, 0.5);
       }
     }
 
@@ -148,6 +160,8 @@
       min-height: 44px;
       padding-left: 44px;
       padding-top: 10px;
+      display: inline-block;
+      margin: 20px 44px 10px 10px;
 
       &_invalid {
         span {
@@ -193,12 +207,19 @@
     width: 100%;
     display: block;
     @media #{$md} {
-      width: auto;
+      max-width: 260px;
     }
     @media #{$xl} {
-      margin-right: -3px;
-
+      margin-right: -5px;
+      width: auto;
       transform: translate(0, -7px);
+    }
+  }
+  &__success {
+    @extend %popup--absolute;
+    top: -100%;
+    &.active {
+      top: 0;
     }
   }
 }

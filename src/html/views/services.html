@@ -35,7 +35,7 @@
           <nav class="header__nav secondary">
             <a href="index.html" class="header__nav-logo"> </a>
             <ul class="header__nav-list">
-              <li class="header__nav-item">
+              <li class="header__nav-item header__nav-item_mobile">
                 <a href="index.html" class="header__nav-anchor main--link">Home</a>
               </li>
               <li class="header__nav-item">
@@ -45,9 +45,9 @@
                 <a href="cases.html" class="header__nav-anchor main--link">Case studies</a>
               </li>
             </ul>
-            <button class="header__nav-btn button--primary--round">
+            <a href="./contacts.html" class="header__nav-btn button--primary--round">
               Get in touch
-            </button>
+            </a>
           </nav>
           <div class="header__head-open-button  button--bar">
             <span></span>
@@ -67,7 +67,7 @@
                 <em>services</em>
               </h1>
               <p class="header__content-intro">
-                Full-stack development, integration, support <em>and maintenance.</em>
+                Full-stack development, integration, support and maintenance.
               </p>
             </div>
           </div>
@@ -93,7 +93,7 @@
         <div class="row">
           <div class="col-12 col-xl-4">
             <article class="services__article card--article">
-              <div class="card-img services__article-img"></div>
+              <div class="card-img services__article-img img--software"></div>
               <h4 class="services__article-heading">
                 Software
                 <p>Engineering</p>
@@ -108,7 +108,7 @@
           </div>
           <div class="col-12 col-xl-4">
             <article class="services__article card--article">
-              <div class="card-img services__article-img"></div>
+              <div class="card-img services__article-img img--teams"></div>
               <h4 class="services__article-heading">
                 Dedicated
                 <p>
@@ -125,7 +125,7 @@
           </div>
           <div class="col-12 col-xl-4">
             <article class="services__article card--article">
-              <div class="card-img services__article-img"></div>
+              <div class="card-img services__article-img img--analysis"></div>
               <h4 class="services__article-heading">
                 Business Analysis
                 <p>
@@ -159,6 +159,17 @@
               We help you design and develop a top notch digital products.
             </p>
             <form action="" method="POST" class="mainform__form" id="mainform__form">
+              <div class="mainform__success">
+                <div class="mainform__success-content popup--content">
+                  <div class="mainform__success-img popup--img"></div>
+                  <h6 class="mainform__success-heading popup--heading">
+                    Thank you for contacting!
+                  </h6>
+                  <p class="mainfom__success-intro popup--intro">
+                    We’re working quickly to develop a customized response for you. We’ll get in touch with you shortly!
+                  </p>
+                </div>
+              </div>
               <div class="mainform__inputs mainform__inputs_main">
                 <label class="mainform__label form--label">
                   <input type="text" novalidate name="name" class="mainform__input" />
@@ -189,6 +200,7 @@
                 </label>
               </div>
               <div class="mainform__inputs mainform__inputs_drag" id="mainform__inputs_drag">
+                <div class="mainform__drag-files"></div>
                 <label class="mainform__drag-label" id="mainform__drag-label">
                   <input
                     type="file"
@@ -210,7 +222,7 @@
               <div class="mainform__inputs mainform__inputs_check">
                 <label class="mainform__checkwrapper form--checkwrapper">
                   <input type="checkbox" name="agree" class="mainform__checkbox form--checkbox" />
-                  <div class="form--check-helper">✔</div>
+                  <div class="form--check-helper"></div>
                   <div class="mainform__checkbox-text form--checkbox-text">
                     Согласен с условиями использования
                   </div>
@@ -254,13 +266,13 @@
               </h6>
               <ul class="footer__services-list">
                 <li class="footer__services-item">
-                  <a href="javascript:void(0);" class="footer__services-link footer--link">Software Engigeering</a>
+                  <a href="./software.html" class="footer__services-link footer--link">Software Engigeering</a>
                 </li>
                 <li class="footer__services-item">
-                  <a href="javascript:void(0);" class="footer__services-link footer--link">Dedicated Teams</a>
+                  <a href="./teams.html" class="footer__services-link footer--link">Dedicated Teams</a>
                 </li>
                 <li class="footer__services-item">
-                  <a href="javascript:void(0);" class="footer__services-link footer--link">Business Analysis & UX</a>
+                  <a href="./uiux.html" class="footer__services-link footer--link">Business Analysis & UX</a>
                 </li>
               </ul>
             </div>
@@ -272,10 +284,10 @@
               </h6>
               <ul class="footer__company-list">
                 <li class="footer__company-item">
-                  <a href="javascript:void(0);" class="footer__company-link footer--link">Case studies</a>
+                  <a href="./cases.html" class="footer__company-link footer--link">Case studies</a>
                 </li>
                 <li class="footer__company-item">
-                  <a href="javascript:void(0);" class="footer__company-link footer--link">Contact us</a>
+                  <a href="./contacts.html" class="footer__company-link footer--link">Contact us</a>
                 </li>
               </ul>
             </div>
@@ -290,13 +302,13 @@
 
               <ul class="footer__bottom-links">
                 <li class="footer__bottom-item">
-                  <a href="javascript:void(0);" class="footer__bottom-link footer--static--link">Term of Use</a>
+                  <a href="./content.html" class="footer__bottom-link footer--static--link">Term of Use</a>
                 </li>
                 <li class="footer__bottom-item">
-                  <a href="javascript:void(0);" class="footer__bottom-link footer--static--link">Privacy Policy</a>
+                  <a href="./content.html" class="footer__bottom-link footer--static--link">Privacy Policy</a>
                 </li>
                 <li class="footer__bottom-item">
-                  <a href="javascript:void(0);" class="footer__bottom-link footer--static--link">Site Map</a>
+                  <a href="./sitemap.html" class="footer__bottom-link footer--static--link">Site Map</a>
                 </li>
               </ul>
             </div>

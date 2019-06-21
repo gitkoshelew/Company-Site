@@ -26,7 +26,7 @@
       left: 0;
     }
     &:before {
-      height: 2px;
+      height: 1px;
       width: 24px;
       left: -32px;
       background: $lineColor;
@@ -34,7 +34,9 @@
         width: 60px;
         left: -76px;
       }
-      @media #{$lg} {
+      @media #{$xl} {
+        width: 160px;
+        left: -177px;
       }
     }
     &_main {
@@ -47,7 +49,7 @@
   &__heading {
     padding-left: 32px;
     font-size: $fontLarge;
-    font-weight: 700;
+    font-weight: 600;
     &:after {
       @include bgImg('@~images/img/folder.svg', no-repeat, center, contain);
     }
@@ -56,17 +58,10 @@
         @include bgImg('@~images/img/home.svg', no-repeat, center, contain);
       }
     }
-    &_second {
-      padding-left: 36px;
-      @media #{$md} {
-      }
-      @media #{$lg} {
-      }
-    }
   }
 
   &__anchor {
-    padding-left: 40px;
+    padding-left: 32px;
     color: $mainText;
     @extend %main-link;
     &:after {
@@ -75,12 +70,15 @@
     &.sitemap__heading {
       padding-top: 11px;
       padding-bottom: 11px;
-      padding-left: 40px;
+      padding-left: 32px;
     }
   }
 
   &__item {
     margin-top: 18px;
+    @media #{$xxl} {
+      margin-top: 32px;
+    }
 
     &:after {
       left: 0;
@@ -88,7 +86,7 @@
       transform: none;
       bottom: 18px;
       height: calc(100% - 52px);
-      width: 2px;
+      width: 1px;
       background: $lineColor;
       @media #{$md} {
         left: 12px;
@@ -111,15 +109,15 @@
     }
     &_second {
       margin-top: 18px;
+      @media #{$xxl} {
+        margin-top: 32px;
+      }
     }
 
     &_main {
       padding: 13px 0 3px;
       @media #{$md} {
         padding-left: 8px;
-      }
-      @media #{$lg} {
-        margin-left: 90px;
       }
 
       &:after {
@@ -142,7 +140,8 @@
     @media #{$md} {
       padding-left: 90px;
     }
-    @media #{$lg} {
+    @media #{$xl} {
+      padding-left: 190px;
     }
     &_second {
       padding-top: 8px;

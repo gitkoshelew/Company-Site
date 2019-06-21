@@ -35,8 +35,8 @@
           <nav class="header__nav secondary">
             <a href="index.html" class="header__nav-logo"> </a>
             <ul class="header__nav-list">
-              <li class="header__nav-item">
-                <a href="contacts.html" class="header__nav-anchor main--link">Contacts</a>
+              <li class="header__nav-item header__nav-item_mobile">
+                <a href="index.html" class="header__nav-anchor main--link">Home</a>
               </li>
               <li class="header__nav-item">
                 <a href="services.html" class="header__nav-anchor main--link">Services</a>
@@ -45,9 +45,9 @@
                 <a href="cases.html" class="header__nav-anchor main--link">Case studies</a>
               </li>
             </ul>
-            <button class="header__nav-btn button--primary--round">
+            <a href="./contacts.html" class="header__nav-btn button--primary--round">
               Get in touch
-            </button>
+            </a>
           </nav>
           <div class="header__head-open-button  button--bar">
             <span></span>
@@ -57,7 +57,7 @@
           </div>
         </div>
       </div>
-      <div class="header__content">
+      <div class="header__content center">
         <div class="section--gradient--reverse"></div>
         <div class="container">
           <div class="row">
@@ -69,14 +69,14 @@
                 Eurostar serves 10.5 million passengers annually and has over 8,000 transactions going through its
                 website daily.
               </p>
-              <div class="cases__buttons">
-                <button class="cases__btn button--primary--small">Django</button>
-                <button class="cases__btn button--primary--small">React</button>
-                <button class="cases__btn button--primary--small">CSS3</button>
-                <button class="cases__btn button--primary--small">Storybook</button>
-                <button class="cases__btn button--primary--small">MongoDB</button>
-                <button class="cases__btn button--primary--small">Webpack</button>
-                <button class="cases__btn button--primary--small">Jest</button>
+              <div class="header__tags">
+                <button class="header__tags-btn button--primary--small">Django</button>
+                <button class="header__tags-btn button--primary--small">React</button>
+                <button class="header__tags-btn button--primary--small">CSS3</button>
+                <button class="header__tags-btn button--primary--small">Storybook</button>
+                <button class="header__tags-btn button--primary--small">MongoDB</button>
+                <button class="header__tags-btn button--primary--small">Webpack</button>
+                <button class="header__tags-btn button--primary--small">Jest</button>
               </div>
             </div>
           </div>
@@ -101,10 +101,28 @@
         </div>
       </div>
     </section>
-
+    <section class="termuse">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="termuse__wrapper">
+                <h3 class="termuse__title">
+                    Solution
+                </h3>
+                <div class="termuse__text">
+                  Intellectsoft developed an employee-facing cloud solution for web and iOS named Eurostar iTM. By
+                  building on Eurostar’s existing application, our dedicated development team expanded functionality and
+                  improved management of content and user roles. The new interface greatly simplified reservation
+                  management, streamlined reporting, and introduced an internal chat function via the app.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     <section class="clientsay clientsay_fullimg">
       <div class="clientsay__pattern section--pattern--bottom"></div>
-      <div class="clientsay__content-wrapper">
+      <!-- <div class="clientsay__content-wrapper">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -120,7 +138,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="clientsay__slider">
         <div class="clientsay__slide">
 
@@ -193,9 +211,6 @@
                 Software products that we build help the world's leading brands transform their businesses, increase their revenues and save up to 40% of the time and operating costs.
             </p>
             <div class="clientsay__slide-links">
-                <a class="clientsay__slide-learnmore">
-                    Learn more
-                  </a>
                   <a href="
                   javascript:void(0);" class="clientsay__slide-logo"></a>
             </div>
@@ -288,6 +303,18 @@
               We help you design and develop a top notch digital products.
             </p>
             <form action="" method="POST" class="mainform__form" id="mainform__form">
+                <div class="mainform__success">
+                    <div class="mainform__success-content popup--content">
+                      <div class="mainform__success-img popup--img">
+                      </div>
+                      <h6 class="mainform__success-heading popup--heading">
+                        Thank you for contacting!
+                      </h6>
+                      <p class="mainfom__success-intro popup--intro">
+                        We’re working quickly to develop a customized response for you. We’ll get in touch with you shortly!
+                      </p>
+                    </div>
+                  </div>
               <div class="mainform__inputs mainform__inputs_main">
                 <label class="mainform__label form--label">
                   <input type="text" novalidate name="name" class="mainform__input" />
@@ -318,6 +345,9 @@
                 </label>
               </div>
               <div class="mainform__inputs mainform__inputs_drag" id="mainform__inputs_drag">
+                <div class="mainform__drag-files">
+                  
+                </div>
                 <label class="mainform__drag-label" id="mainform__drag-label">
                   <input
                     type="file"
@@ -339,7 +369,7 @@
               <div class="mainform__inputs mainform__inputs_check">
                 <label class="mainform__checkwrapper form--checkwrapper">
                   <input type="checkbox" name="agree" class="mainform__checkbox form--checkbox" />
-                  <div class="form--check-helper">✔</div>
+                  <div class="form--check-helper"></div>
                   <div class="mainform__checkbox-text form--checkbox-text">
                     Согласен с условиями использования
                   </div>

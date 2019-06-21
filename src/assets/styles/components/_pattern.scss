@@ -70,6 +70,9 @@
 
   background: linear-gradient(to bottom, rgba(52, 58, 76, 0.2) 0%, rgba(0, 0, 0, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( endColorstr='#1d2029', startColorstr='#343a4c', GradientType=0 );
+
+  background: linear-gradient(180deg, rgba(52, 59, 76, 0.6) 0%, #343b4c 100%);
+  opacity: 0.9;
 }
 
 %pattern-main {
@@ -82,6 +85,9 @@
   @media #{$xl} {
     height: 50%;
     width: 70%;
+  }
+  @media #{$xxl} {
+    width: 63%;
   }
 }
 

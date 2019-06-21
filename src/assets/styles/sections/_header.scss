@@ -1,7 +1,7 @@
 .header {
   position: relative;
   color: $ligthText;
-  padding-top: 70px;
+  padding-top: 64px;
   @media #{$xl} {
     padding-top: 0;
   }
@@ -9,7 +9,7 @@
   &__head {
     @include isFlex(center, space-between);
     &-wrapper {
-      padding: 17px 10px;
+      padding: 17px 12px 22px;
       position: fixed;
       top: 0;
       left: 0;
@@ -17,8 +17,11 @@
       z-index: 10;
       background: $themeLightColor;
       box-shadow: $boxShadowCard;
+      @media #{$sm} {
+        padding: 17px calc(50vw - 258px) 22px;
+      }
       @media #{$md} {
-        padding: 19px 20px;
+        padding: 17px calc(50vw - 363px) 22px;
       }
       @media #{$xl} {
         background: transparent;
@@ -55,15 +58,13 @@
     top: 0;
     left: -100%;
     width: calc(100% - 70px);
-    height: 100%;
+    height: calc(100% + 70px);
     @include isFlex(center, space-between, column, nowrap);
     z-index: 1;
     background: $themeLightColor;
-    padding: 50px 30px;
+    padding: 50px 30px calc(50px + 70px);
     transition: $transition;
-    @media #{$md} {
-      justify-content: flex-start;
-    }
+
     @media #{$xl} {
       left: 0;
       width: 100%;
@@ -76,14 +77,14 @@
       justify-content: space-between;
     }
     @media #{$xxl} {
-      padding: 16px 90px;
+      padding: 25px 90px;
     }
     @media #{$fourK} {
-      padding: 16px 10%;
+      padding: 25px 10%;
     }
 
     @media #{$landscape} and (max-width: 991px) {
-      padding: 5% 30px;
+      padding: 5% 30px calc(5% + 70px);
     }
 
     &:before {
@@ -144,17 +145,22 @@
       @media #{$xxl} {
         margin: 0 23px;
       }
+      &_mobile {
+        @media #{$xl} {
+          display: none;
+        }
+      }
     }
 
     &-anchor {
-      color: $linkHover;
+      @extend .header--link;
       font-size: $font;
-      padding: 10px 15px 5px;
+      padding: 13px 15px 11px;
       display: inline-block;
-      font-weight: 700;
+      font-weight: 600;
 
       @media #{$xl} {
-        color: $mainText;
+        font-size: $font;
       }
     }
 
@@ -170,8 +176,8 @@
     }
     &.fixed {
       position: fixed;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: 18px;
+      padding-bottom: 18px;
       box-shadow: $boxShadowCard;
 
       .header {
@@ -189,20 +195,19 @@
             background-image: url('@~images/img/GroupWhite.svg');
           }
           &-anchor {
-            color: $themeLightColor;
-            @extend .main--link--reverce;
+            @extend .header--link--reverse;
           }
         }
       }
-      &.fixed {
+      &.fixed,
+      &.isOpen {
         background: $themeLightColor;
         .header__nav {
           &-logo {
             background-image: url('@~images/img/Group.svg');
           }
           &-anchor {
-            color: $mainText;
-            @extend .main--link;
+            @extend .header--link;
           }
         }
       }
@@ -214,12 +219,12 @@
       position: absolute;
       bottom: 10%;
       right: 12px;
-      font-family: $futura;
+      font-family: $mont;
       font-size: 14px;
       font-weight: 600;
       @media #{$xl} {
         right: calc(50vw - 475px);
-        font-size: 28px;
+        font-size: 24px;
       }
       @media #{$xxl} {
         right: 90px;
@@ -232,7 +237,7 @@
           width: 41%;
         }
         @media #{$xl} {
-          width: 27%;
+          width: 37%;
         }
         @media #{$xxl} {
           width: 35%;
@@ -243,12 +248,12 @@
 
   &__slide {
     @include bgImg('@~images/bg/content320.jpg', no-repeat, center, cover);
-    height: calc(100vh - 50px);
-    max-height: 880px;
+    height: calc(100vh - 63px);
+    max-height: 1000px;
     position: relative;
 
-    @media #{$xxl} {
-      height: 880px;
+    @media #{$xl} {
+      height: 100vh;
     }
 
     .container,
@@ -269,7 +274,7 @@
         padding: 0 9% 0 18%;
       }
       @media #{$xl} {
-        padding: 0;
+        padding: 0 12px;
       }
       @media #{$xxl} {
         padding: 3px 10% 0 10px;
@@ -280,15 +285,10 @@
           margin-top: -0.6em;
         }
         @media #{$xl} {
-          margin-top: -0.2em;
+          margin-top: -0.45em;
         }
         @media #{$xxl} {
           margin-bottom: 0.75em;
-        }
-      }
-      &-intro {
-        @media #{$xl} {
-          padding-right: 20%;
         }
       }
     }
@@ -301,6 +301,13 @@
     @media #{$xl} {
       margin-top: 100px;
       padding: 80px 0;
+    }
+    &.center {
+      @media #{$xl} {
+        @include isFlex($direction: column);
+        height: calc(100vh - 100px);
+        max-height: 1000px;
+      }
     }
     &-heading {
       @media #{$md} {
@@ -329,11 +336,11 @@
     bottom: 0;
     left: 0;
     z-index: 2;
-    height: calc(100vh - 50px);
-    max-height: 880px;
+    height: calc(100vh - 63px);
+    max-height: 1000px;
     width: 100%;
-    @media #{$xxl} {
-      height: 880px;
+    @media #{$xl} {
+      height: 100vh;
     }
     &-wrapper {
       width: 100%;
@@ -344,5 +351,41 @@
         background: none;
       }
     }
+  }
+
+  &__cookie {
+    box-shadow: $boxShadowCardTop;
+    position: fixed;
+    bottom: 0;
+    font-size: $fontSmall;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: $mainBgDark;
+    color: $mainText;
+    padding: 20px 0;
+    line-height: 1.25em;
+    @media #{$md} {
+      font-size: $fontLess;
+    }
+    @media #{$xl} {
+      font-size: $font;
+      line-height: 1.5em;
+    }
+    &-policy {
+      font-weight: 600;
+      @extend %main-link-reverse;
+    }
+    &-btn {
+      margin: 20px auto 0;
+      display: block;
+      @media #{$xl} {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__tags {
+    max-width: 500px;
   }
 }

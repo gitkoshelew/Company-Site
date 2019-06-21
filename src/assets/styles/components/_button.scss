@@ -56,8 +56,9 @@
   margin-bottom: 5px;
   text-align: center;
   border-radius: $borderRad;
-  font-weight: 700;
+  font-weight: 600;
   padding: 10px 15px;
+  pointer-events: none;
 }
 
 %rectangle-button-small {
@@ -68,6 +69,7 @@
   border-radius: $borderRadLess;
   text-align: center;
   font-size: $btnFontSizeSmall;
+  pointer-events: none;
 }
 
 %btn-primary {
@@ -94,12 +96,10 @@
   border-radius: 100px;
   min-width: 214px;
   max-width: 300px;
-  letter-spacing: -0.04em;
   margin: 0 auto;
-  padding: 17px 30px 19px;
-  font-weight: 700;
+  padding: 13px 30px 13px;
+  font-weight: 600;
   @media #{$xl} {
-    padding: 11px 30px 13px;
   }
 }
 
@@ -108,13 +108,16 @@
   max-width: 300px;
   min-width: 214px;
   margin: 0 auto;
-  padding: 14px 30px 16px;
+  padding: 12px 30px 14px;
   font-size: $fontLess;
-  font-weight: 700;
+  font-weight: 600;
+  @media #{$md} {
+    padding: 15px 30px 15px;
+  }
 }
 
 %btn-primary-round {
-  @include btn($themeColor, $themeLightColor, $themeLightColor, $themeColor, $themeColor, $themeLightColor);
+  @include btn($themeColor, $btnBgActive, $themeLightColor, $btnColorActive, $themeColor, $btnBorderActive);
   @extend %btn-round;
 }
 
@@ -152,13 +155,32 @@
   padding: 0;
   margin-right: 0;
   box-shadow: none;
+  position: fixed;
+  top: 17px;
+  right: 20px;
+  transition: $transition;
 
+  @media #{$sm} {
+    right: calc(50vw - 263px);
+  }
+  @media #{$md} {
+    right: calc(50vw - 363px);
+  }
+
+  &.isOpen {
+    position: fixed;
+    right: 20px;
+    top: 17px;
+  }
   &:hover,
   &:focus {
     box-shadow: none;
     span {
       background-color: $mainText;
     }
+  }
+  &:active {
+    background: none;
   }
 
   span {
@@ -286,7 +308,7 @@
   left: 7px;
   display: flex;
   @media #{$xl} {
-    left: calc(50vw - 475px);
+    left: calc(50vw - 482px);
   }
   @media #{$xxl} {
     left: 80px;
@@ -295,6 +317,7 @@
 
   button {
     @extend %after;
+    cursor: pointer;
     font-size: 0;
     padding: 0;
     width: 21px;
@@ -306,7 +329,7 @@
       height: 32px;
     }
     &:after {
-      box-shadow: $boxShadowMaterialInit;
+      box-shadow: $boxShadowMaterial;
       width: 5px;
       height: 5px;
       border-radius: 50%;

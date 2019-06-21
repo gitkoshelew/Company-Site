@@ -30,7 +30,7 @@
       }
     }
     &-btn {
-      margin: 15px;
+      margin: 15px 12px;
       &:first-child {
         @media #{$md} {
           margin-left: 0;
@@ -79,7 +79,7 @@
     &-link {
       font-size: $fontLess;
       color: $mainText;
-      padding: 5px;
+      padding: 5px 0;
       margin-bottom: 4px;
       display: inline-block;
     }
@@ -96,6 +96,7 @@
       padding-top: 20px;
     }
     &-copyright {
+      color: $themeSupportColor;
       font-size: $fontLess;
       margin-bottom: 20px;
       @media #{$md} {
@@ -105,7 +106,14 @@
     }
     &-links {
       @media #{$md} {
+        width: 340px;
         @include isFlex(center, space-between);
+      }
+      @media #{$xl} {
+        width: 460px;
+      }
+      @media #{$xxl} {
+        width: 480px;
       }
     }
     &-link {
@@ -113,13 +121,10 @@
       padding: 5px;
       display: inline-block;
       margin: 5px 0 15px;
-      color: $mainText;
+      color: $themeSupportColor;
       @media #{$md} {
-        font-size: $font;
-        margin-left: 20px;
       }
       @media #{$xxl} {
-        margin-left: 70px;
       }
     }
   }

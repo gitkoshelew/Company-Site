@@ -7,22 +7,12 @@
     @media #{$md} {
       padding: 125px 0 117px;
     }
-    @media #{$lg} {
+    @media #{$xl} {
       padding: 114px 0;
     }
-    &-heading {
-      color: $mainText;
-      margin-bottom: 6px;
-      @media #{$md} {
-        margin-bottom: 12px;
-      }
-      @media #{$lg} {
-      }
-    }
+    &-heading,
     &-intro {
       color: $mainText;
-      font-size: $fontLarge;
-      line-height: 1.8em;
     }
   }
 }

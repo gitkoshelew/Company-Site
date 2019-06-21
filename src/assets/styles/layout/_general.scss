@@ -11,6 +11,8 @@ body {
 body {
   @include isFlex(center, center);
   font-family: $mont;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: $mainText;
   margin: 0;
   padding: 0;
@@ -27,6 +29,7 @@ h4,
 h5,
 h6 {
   font-family: $futura;
+  font-weight: 600;
   margin: 0;
 }
 a {
@@ -47,7 +50,7 @@ em {
 }
 
 button {
-  font-size: $btnFontSize;
+  font-size: $font;
 }
 
 header,
@@ -91,47 +94,59 @@ p {
 }
 
 h1,
-h2 {
-  margin-bottom: 14px;
-}
-
-h1,
 h2,
 h1 > p,
 h2 > p {
   font-size: $h2;
   line-height: 1.4em;
-  letter-spacing: 0.05ex;
+  margin-bottom: 0.85em;
+  display: inline-block;
+
   @media #{$md} {
     font-size: $h2Tablet;
     line-height: 1.2em;
-    letter-spacing: 0;
+    margin-bottom: 0.45em;
   }
   @media #{$xl} {
     font-size: $h2Desk;
     line-height: 1.225em;
+    margin-bottom: 0.45em;
+  }
+  @media #{$xl} {
+    margin-bottom: 0.85em;
+  }
+
+  & > p {
+    display: inline;
+    @media #{$xl} {
+      display: block;
+      margin-bottom: 0;
+    }
   }
 
   & + p {
     font-size: $h2intro;
     line-height: 1.5em;
-    letter-spacing: 0.02ex;
 
     @media #{$md} {
       font-size: $h2introTablet;
+      width: 67%;
     }
     @media #{$xl} {
-      font-size: $h2introDesk;
-      line-height: 1.25em;
+      line-height: 1.5em;
+      width: 58%;
     }
     @media #{$xxl} {
+      font-size: $h2introDesk;
       line-height: 1.75em;
+      width: 50%;
     }
   }
 }
 
 h3 {
   margin-bottom: 0.3em;
+  font-weight: 600;
   @media #{$md} {
     margin-bottom: 0.01em;
     padding-right: 25%;
@@ -145,29 +160,26 @@ h3 {
 h3,
 h3 > p {
   font-size: $h3;
-  letter-spacing: 0.01em;
   display: inline-block;
   @media #{$md} {
     font-size: $h3Tablet;
-    letter-spacing: 0;
   }
   @media #{$xl} {
     font-size: $h3Desk;
-    margin-bottom: 0.5em;
-    letter-spacing: 0.007em;
+    margin-bottom: 0.55em;
   }
 
   & + p {
+    margin-top: 0.5em;
     @media #{$md} {
       line-height: 1.75em;
       padding-right: 25%;
     }
     @media #{$xl} {
-      letter-spacing: 0.007em;
       line-height: 2em;
       padding-right: 33%;
     }
-    @media #{$xl} {
+    @media #{$xxl} {
       padding-right: 50%;
     }
   }
@@ -177,6 +189,7 @@ h4,
 h4 > p {
   font-size: $h4;
   line-height: 1.6em;
+  font-weight: 600;
   @media #{$md} {
     font-size: $h4Tablet;
   }
@@ -189,7 +202,6 @@ h5,
 h5 > p {
   font-size: $h5;
   line-height: 1.5em;
-  letter-spacing: 0.06em;
   @media #{$md} {
     font-size: $h5Tablet;
   }
@@ -200,4 +212,9 @@ h5 > p {
 
 h6 {
   font-size: $fontLarger;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px white inset;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
 }

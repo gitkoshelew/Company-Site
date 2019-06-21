@@ -1,44 +1,24 @@
 // Libraries
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const WebpackNotifierPlugin = require('webpack-notifier');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const fs = require('fs');
-const globSync = require("glob").sync;
+
+
 
 // Files
 // pug utils
-// const utils = require('./utils');
+const utils = require('./utils');
+
+// html templates
+
+const htmlGlob = require('./htmlGlob');
 
 //const plugins = require('../postcss.config');
-
-function generateHtmlPlugins(templateDir, env = "development") {
-  const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
-  return templateFiles.map(item => {
-    const parts = item.split('.');
-    const name = parts[0];
-    const extension = parts[1];
-
-    const options = {
-      filename: `${name}.html`,
-      template: path.resolve(`${templateDir}/${name}.${extension}`),
-      inject: false
-    };
-
-    if (env === 'development') {
-      options.minify = {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      };
-    }
-
-    return new HtmlWebpackPlugin(options);
-  });
-}
 
 // Configuration
 module.exports = env => {
@@ -101,7 +81,12 @@ module.exports = env => {
           test: /\.scss$/,
           use: [
             env === 'development'
-              ? 'style-loader'
+              ?             {
+                loader: 'style-loader',
+                options: {
+                  sourceMap: true
+                }
+              }
               : MiniCssExtractPlugin.loader, // creates style nodes from JS strings
             {
               loader: 'css-loader',
@@ -111,14 +96,20 @@ module.exports = env => {
                 sourceMap: true,
                 colormin: false
               }
-            }, // translates CSS into CommonJS
+            },
+    
             'postcss-loader',
-            'sass-loader' // compiles Sass to CSS
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
           ]
         },
         // {
         //   test: /\.html$/,
-        //   include: path.resolve(__dirname, '../src/html/includes'),
+        //   include: path.resolve(__dirname, '../src/html/templates'),
         //   use: ['raw-loader']
         // },
         // {
@@ -131,7 +122,7 @@ module.exports = env => {
         // },
         // {
         //   test: /\.(html)$/,
-        //   include: path.resolve(__dirname, '../src/html/views'),
+        //   include: path.resolve(__dirname, '../src/html/templates'),
         //   loader: "html-srcsets-loader",
         //     options: {
         //       attrs: [":src", ':srcset']
@@ -179,7 +170,6 @@ module.exports = env => {
           // vendor chunk
           vendor: {
             filename: 'assets/js/vendor.[hash:7].bundle.js',
-//            filename: 'assets/js/vendor.bundle.js',
             // sync + async chunks
             chunks: 'all',
             // import file path containing node_modules
@@ -207,11 +197,9 @@ module.exports = env => {
             to: 'assets/images/mstile-150x150.png'
           }
         ]
-        //.concat(generateHtmlPlugins('../src/html/views', env))
       ),
       new MiniCssExtractPlugin({
-        // filename: 'assets/css/[name].[hash:7].bundle.css',
-        filename: 'assets/css/[name].bundle.css',
+        filename: 'assets/css/[name].[hash:7].bundle.css',
         chunkFilename: '[id].css'
       }),
 
@@ -221,96 +209,12 @@ module.exports = env => {
 
       // Pug options
 
-      // new HtmlWebpackPlugin({
-      //   filename: 'index.html',
-      //   template: 'views/index.pug',
-      //   inject: true
-      // }),
-
       // ...utils.pages(env),
       // ...utils.pages(env, 'blog'),
 
-      new HtmlWebpackPlugin({
-        inject: true,
-        hash: true,
-        template: 'html/views/index.html',
-        filename: 'index.html',
-        assets: {
-          style : "assets/css/[name].[hash:7].bundle.css",
-          js  : "assets/js/[name].[hash:7].bundle.js",
-        }
-      }
-      ),
-      new HtmlWebpackPlugin({
-        inject: true,
-        hash: true,
-        template: 'html/views/services.html',
-        filename: 'services.html',
-      }),
 
-      new HtmlWebpackPlugin({
-        inject: true,
-        hash: true,
-        template: 'html/views/content.html',
-        filename: 'content.html',
-      }),
-
-      new HtmlWebpackPlugin({
-        inject: true,
-        hash: true,
-        template: 'html/views/sitemap.html',
-        filename: 'sitemap.html',
-      }),
-
-      new HtmlWebpackPlugin({
-        inject: true,
-        hash: true,
-        template: 'html/views/contacts.html',
-        filename: 'contacts.html',
-      }),
-
-      new HtmlWebpackPlugin({
-        inject: true,
-        hash: true,
-        template: 'html/views/cases.html',
-        filename: 'cases.html',
-      }),
-
-      new HtmlWebpackPlugin({
-        inject: true,
-        hash: true,
-        template: 'html/views/teams.html',
-        filename: 'teams.html',
-      }),
-
-      new HtmlWebpackPlugin({
-        inject: true,
-        hash: true,
-        template: 'html/views/uiux.html',
-        filename: 'uiux.html',
-      }),
-
-      new HtmlWebpackPlugin({
-        inject: true,
-        hash: true,
-        template: 'html/views/software.html',
-        filename: 'software.html',
-      }),
-      new HtmlWebpackPlugin({
-        inject: true,
-        hash: true,
-        template: 'html/views/case.html',
-        filename: 'case.html',
-      }),
-
-      // ...globSync("html/**/*.html").map(fileName => {
-      //   return new HtmlWebpackPlugin({
-      //     template: fileName,
-      //     inject: "body",
-      //     hash: true,
-      //     filename: fileName.replace("html/", "")
-      //   });
-      // }),
+      // Html view pages
+      ...htmlGlob.pages(env),
 
       new webpack.ProvidePlugin({
         $: 'jquery',
@@ -319,7 +223,7 @@ module.exports = env => {
         'window.jQuery': 'jquery'
       }),
       new WebpackNotifierPlugin({
-        title: 'Your project'
+        title: 'Arateg project'
       })
     ]
   };

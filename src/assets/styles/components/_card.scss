@@ -104,6 +104,24 @@
       &--industry {
         background-image: url('@~images/img/industry.svg');
       }
+      &--noadditional {
+        background-image: url('@~images/img/noadditional.svg');
+      }
+      &--fullcontrol {
+        background-image: url('@~images/img/fullcontrol.svg');
+      }
+      &--savetimecost {
+        background-image: url('@~images/img/savetimecost.svg');
+      }
+      &--communication {
+        background-image: url('@~images/img/communication.svg');
+      }
+      &--predictablebudget {
+        background-image: url('@~images/img/predictablebudget.svg');
+      }
+      &--scaling {
+        background-image: url('@~images/img/scaling.svg');
+      }
     }
     @media #{$md} {
       margin-bottom: 17px;
@@ -123,14 +141,6 @@
   .card-preview {
     margin-bottom: 25px;
   }
-
-  &:hover,
-  &:focus {
-    box-shadow: $boxShadowCardMaterial;
-    h4 {
-      color: $themeColor;
-    }
-  }
 }
 
 %card-product {
@@ -142,9 +152,12 @@
   }
 
   @media #{$xl} {
-    padding: 45px 48px 12px;
+    padding: 48px 32px 15px;
     height: calc(100% - 26px);
     margin-bottom: 26px;
+  }
+  @media #{$xxl} {
+    padding: 45px 48px 12px;
   }
 
   .card-img {
@@ -165,7 +178,7 @@
       font-size: $fontLarge;
     }
     @media #{$xl} {
-      font-size: $h4Desk;
+      font-size: $h4Desk / 1.2;
       margin-bottom: 8px;
     }
   }
@@ -174,7 +187,11 @@
 %card-article {
   @extend %card-prototype;
   padding-bottom: 60px;
+  cursor: pointer;
   @media #{$xl} {
+    padding: 48px 32px 88px;
+  }
+  @media #{$xxl} {
     padding: 45px 45px 85px;
   }
 
@@ -182,15 +199,22 @@
     @extend %clean-button;
     position: absolute;
     bottom: 57px;
-    left: 34px;
-    letter-spacing: 0.08em;
+    left: 28px;
+    color: $mainText;
     font-size: $fontLess;
+    @media #{$md} {
+      left: 36px;
+    }
     @media #{$xl} {
       bottom: 52px;
+      left: 40px;
+      font-size: $font;
+    }
+    @media #{$xxl} {
       left: 53px;
     }
     &:hover {
-      color: $themeColor;
+      color: $themeDarkColor;
     }
   }
   .card-img {
@@ -206,6 +230,17 @@
       line-height: 1.75em;
     }
   }
+  &:hover,
+  &:focus {
+    box-shadow: $boxShadowCardMaterial;
+    border-color: transparent;
+    h4 {
+      color: $themeColor;
+    }
+    button {
+      color: $themeColor;
+    }
+  }
   h4 {
     @media #{$xl} {
       line-height: 1em;
@@ -216,7 +251,7 @@
       @media #{$md} {
         display: inline;
       }
-      @media #{$md} {
+      @media #{$xxl} {
         display: block;
       }
     }
@@ -225,7 +260,7 @@
 
 %card-list-item {
   @extend %card-prototype;
-  padding: 35px 20px 0;
+  padding: 32px 24px 0;
   text-align: center;
   @media #{$md} {
     display: flex;
@@ -234,7 +269,7 @@
     justify-content: flex-start;
   }
   @media #{$xl} {
-    padding: 35px 20px;
+    padding: 32px 60px 16px 20px;
   }
   .card-img {
     width: 100%;

@@ -12,7 +12,7 @@
       padding: 18px 0;
     }
     @media #{$xl} {
-      padding: 44px 0;
+      padding: 35px 0;
     }
   }
   &__title {
@@ -37,20 +37,22 @@
   }
   &__text {
     line-height: 1.75em;
+    font-size: $font;
   }
   &__img {
     height: 515px;
-    margin-top: 10px;
-    @include bgImg('@~images/bg/result_320.jpg', no-repeat, center, cover);
+    margin-top: 30px;
+    @include bgImg('@~images/bg/result_320.png', no-repeat, center, cover);
+    box-shadow: $boxShadowSlide;
     @media #{$md} {
-      background-image: url('@~images/bg/result_768.jpg');
+      background-image: url('@~images/bg/result_768.png');
     }
 
     @media #{$xl} {
-      background-image: url('@~images/bg/result_1200.jpg');
+      background-image: url('@~images/bg/result_1200.png');
     }
     @media #{$xxl} {
-      background-image: url('@~images/bg/result_1920.jpg');
+      background-image: url('@~images/bg/result_1920.png');
     }
   }
 }

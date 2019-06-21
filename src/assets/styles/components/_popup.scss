@@ -1,0 +1,50 @@
+%popup--absolute {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  transition: $transition;
+  z-index: 2;
+  .popup {
+    &--content {
+      @include isFlex($direction: column);
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      @media #{$md} {
+        padding: 50px;
+      }
+    }
+    &--img {
+      margin: 0 auto;
+      width: 84px;
+      height: 84px;
+      @include bgImg('@~images/img/sended.svg', no-repeat, center, contain);
+    }
+    &--heading {
+      font-size: $popupHeading;
+      margin-top: 0.4em;
+      margin-bottom: 0.4em;
+      @media #{$md} {
+        font-size: $popupHeadingTablet;
+      }
+      @media #{$xl} {
+        font-size: $popupHeadingDesk;
+      }
+    }
+    &--intro {
+      font-size: $fontLess;
+      line-height: 1.75em;
+      @media #{$md} {
+        padding: 0 10%;
+      }
+      @media #{$xl} {
+        font-size: $font;
+        padding: 0 20%;
+      }
+    }
+  }
+}

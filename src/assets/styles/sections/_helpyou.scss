@@ -1,21 +1,27 @@
 .helpyou {
   @media #{$md} {
     padding-top: 110px;
-    padding-bottom: 0;
+    padding-bottom: 30px;
     div[class^='col'] {
       margin-bottom: 10px;
     }
   }
   @media #{$xl} {
-    padding-bottom: 63px;
+    padding-bottom: 90px;
   }
   .section--pattern--bottom-right {
     bottom: 25%;
     height: 50%;
-    @media #{$xl} {
-      bottom: 14%;
-      height: 60%;
+    min-height: none;
+    @media #{$md} {
+      bottom: 18%;
+      height: 253px;
       width: 63%;
+    }
+    @media #{$xl} {
+      bottom: 0;
+      height: 439px;
+      width: 70%;
     }
   }
   &__heading {
